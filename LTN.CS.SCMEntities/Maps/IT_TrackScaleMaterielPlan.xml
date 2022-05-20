@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_TrackScaleMaterielPlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectIT_TrackScaleMaterielPlanResultMap" class="IT_TrackScaleMaterielPlan">     
+    <result property="PLANSTATUS" 	    column="C_PLANSTATUS" />
+    <result property="PLANNO" 	        column="C_PLANNO" />
+    <result property="WAGNO" 	          column="C_WAGNO" />
+    <result property="MATERIALNO" 	    column="C_MATERIALNO" />
+    <result property="MATERIALNAME"   	column="C_MATERIALNAME" />
+    <result property="FROMDEPTNO" 	    column="C_FROMDEPTNO" />
+    <result property="FROMDEPTNAME"   	column="C_FROMDEPTNAME" />
+    <result property="FROMSTORENO" 	    column="C_FROMSTORENO" />
+    <result property="FROMSTORENAME"   	column="C_FROMSTORENAME" />
+    <result property="TODEPTNO" 	      column="C_TODEPTNO" />
+    <result property="TODEPTNAME"     	column="C_TODEPTNAME" />
+    <result property="TOSTORENO"       	column="C_TOSTORENO" />
+    <result property="TOSTORENAME" 	    column="C_TOSTORENAME" />
+    <result property="SHIPNO" 	        column="C_SHIPNO" />
+    <result property="FROMSTATION" 	    column="C_FROMSTATION" />
+    <result property="SERIALNO" 	      column="C_SERIALNO" />
+    <result property="DELIVERYNO"     	column="C_DELIVERYNO" />
+    <result property="CONTRACTNO" 	    column="C_CONTRACTNO" />
+    <result property="PROJECTNO" 	      column="C_PROJECTNO" />
+    <result property="WAYBILLNO" 	      column="C_WAYBILLNO" />
+    <result property="MARSHALLINGNO" 	  column="C_MARSHALLINGNO" />
+    <result property="BUSINESSTYPE"   	column="I_BUSINESSTYPE" />
+    <result property="WEIGHTTYPE" 	    column="I_WEIGHTTYPE" />
+    <result property="TARETYPE" 	      column="I_TARETYPE" />
+    <result property="MOVESTILLTYPE"   	column="I_MOVESTILLTYPE" />
+    <result property="PLANLIMITTIME"   	column="C_PLANLIMITTIME" />
+    <result property="PONDLIMIT" 	      column="C_PONDLIMIT" />
+    <result property="CREATETIME"     	column="C_CREATETIME" />
+    <result property="CREATENAME" 	    column="C_CREATENAME" />
+    <result property="REMARK" 	        column="C_REMARK" />
+    <result property="UPLOADSTATUS" 	  column="C_UPLOADSTATUS" /> 
+    </resultMap>
+   </resultMaps>
+  <statements>
+  <select id="SelectIT_TrackScaleMaterielPlanByCondition"  resultMap="SelectIT_TrackScaleMaterielPlanResultMap" parameterClass="HashTable">
+    select
+    c_planstatus,
+    c_planno,
+    c_wagno,
+    c_materialno,
+    c_materialname,
+    c_fromdeptno,
+    c_fromdeptname,
+    c_fromstoreno,
+    c_fromstorename,
+    c_todeptno,
+    c_todeptname,
+    c_tostoreno,
+    c_tostorename,
+    c_shipno,
+    c_fromstation,
+    c_serialno,
+    c_deliveryno,
+    c_contractno,
+    c_projectno,
+    c_waybillno,
+    c_marshallingno,
+    i_businesstype,
+    i_weighttype,
+    i_taretype,
+    i_movestilltype,
+    c_planlimittime,
+    c_pondlimit,
+    c_createtime,
+    c_createname,
+    c_remark  ,
+    c_uploadstatus
+    from IT_TRACKSCALEMATERIELPLAN
+    where 1=1
+    <isNotEmpty prepend="AND" property="PlanNo">
+      C_PLANNO=#PlanNo#
+    </isNotEmpty>
+    <isNotEmpty prepend="AND" property="WagNo">
+     C_WAGNO=#WagNo#
+    </isNotEmpty>
+    <isNotEmpty prepend="AND" property="StartTime">
+      <isNotEmpty  property="EndTime">
+        C_CREATETIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+    </isNotEmpty>
+    order by C_CREATETIME desc
+  </select>
+  </statements>
+   
+</sqlMap>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_GczTare_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="Select_SM_GczTare_InfoResultMap" class="SM_GczTare_Info">
+      <result property="C_CARNAME"          column="C_CARNAME"/>
+      <result property="C_TAREWEIGHT"              column="C_TAREWEIGHT"/>
+      <result property="C_CREATETIME"         column="C_CREATETIME"/>
+      <result property="C_SITENO"             column="C_SITENO"/>
+      <result property="C_RESERV1"             column="C_RESERV1"/>
+      <result property="C_RESERV2"             column="C_RESERV2"/>
+    </resultMap>  
+  </resultMaps>
+
+  <statements>
+    <select id="selectSM_GczTare_Info"   parameterClass="HashTable" resultMap="Select_SM_GczTare_InfoResultMap">
+      select
+      C_CARNAME,
+      C_TAREWEIGHT,
+      C_CREATETIME,
+      C_SITENO,
+      C_RESERV1,
+      C_RESERV2
+      from sm_gcztare_info 
+      where C_CREATETIME between to_date(#StartTime#,'yyyy-mm-dd hh24:mi:ss') and to_date(#EndTime#,'yyyy-mm-dd hh24:mi:ss')
+      <isNotEmpty property="carNo">and C_CARNAME = '$carNo$' </isNotEmpty>
+      order by C_CREATETIME desc
+    </select>
+
+    <select id="selectSM_GczTare_InfoByWgtNo"   parameterClass="string" resultMap="Select_SM_GczTare_InfoResultMap">
+      select
+      C_CARNAME,
+      C_TAREWEIGHT,
+      C_CREATETIME,
+      C_SITENO,
+      C_RESERV1,
+      C_RESERV2
+      from sm_gcztare_info where  C_CARNAME = #C_CARNAME#  order by C_CREATETIME desc
+    </select>
+    <!--新增-->
+    <select id="selectSM_GczTare_InfoByHt"   parameterClass="HashTable" resultMap="Select_SM_GczTare_InfoResultMap">
+      select
+      C_CARNAME,
+      C_TAREWEIGHT,
+      C_CREATETIME,
+      C_SITENO,
+      C_RESERV1,
+      C_RESERV2
+      from sm_gcztare_info
+      where C_CREATETIME between to_date(#startTime#,'yyyy-mm-dd hh24:mi:ss') and to_date(#endTime#,'yyyy-mm-dd hh24:mi:ss')
+      and C_RESERV1 is not null
+      <isNotEmpty prepend="and" property="carName">
+        C_CARNAME = #carName#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="siteNo">
+        C_SITENO = #siteNo#
+      </isNotEmpty>     
+      order by C_CREATETIME asc
+    </select>
+  </statements>
+</sqlMap>

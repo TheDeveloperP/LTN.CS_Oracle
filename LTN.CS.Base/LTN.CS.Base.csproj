@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5BCB470-E355-489A-AA9F-646D4A119835}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LTN.CS.Base</RootNamespace>
+    <AssemblyName>LTN.CS.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Reporting.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\lib\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\lib\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AreaType.cs" />
+    <Compile Include="Common\AreaTypeObj.cs" />
+    <Compile Include="Common\BaseOperateMethod.cs" />
+    <Compile Include="Common\BaseOperateMethodObj.cs" />
+    <Compile Include="Common\BasicType.cs" />
+    <Compile Include="Common\BasicTypeObj.cs" />
+    <Compile Include="Common\BillStatus.cs" />
+    <Compile Include="Common\BillStatusObj.cs" />
+    <Compile Include="Common\BusinessType.cs" />
+    <Compile Include="Common\BusinessTypeObj.cs" />
+    <Compile Include="Common\BusinessTypesObj.cs" />
+    <Compile Include="Common\BusinessTypes.cs" />
+    <Compile Include="Common\DataFlagType.cs" />
+    <Compile Include="Common\DataFlagTypeObj.cs" />
+    <Compile Include="Common\DataPondType.cs" />
+    <Compile Include="Common\DataPondTypeObj.cs" />
+    <Compile Include="Common\DeviceStatus.cs" />
+    <Compile Include="Common\DeviceStatusObj.cs" />
+    <Compile Include="Common\Direction.cs" />
+    <Compile Include="Common\DirectionObj.cs" />
+    <Compile Include="Common\FlagStatusType.cs" />
+    <Compile Include="Common\FlagStatusTypeObj.cs" />
+    <Compile Include="Common\FlowType.cs" />
+    <Compile Include="Common\FlowTypeObj.cs" />
+    <Compile Include="Common\IcCarType.cs" />
+    <Compile Include="Common\IcCarTypeObj.cs" />
+    <Compile Include="Common\ICState.cs" />
+    <Compile Include="Common\ICStateObj.cs" />
+    <Compile Include="Common\IronBusinessType.cs" />
+    <Compile Include="Common\IronBusinessTypeObj.cs" />
+    <Compile Include="Common\IssuingState.cs" />
+    <Compile Include="Common\IssuingStateObj.cs" />
+    <Compile Include="Common\MoveStillType.cs" />
+    <Compile Include="Common\MoveStillTypeObj.cs" />
+    <Compile Include="Common\PlanbillStatus.cs" />
+    <Compile Include="Common\PlanbillStatusObj.cs" />
+    <Compile Include="Common\PondStatus.cs" />
+    <Compile Include="Common\PondStatusObj.cs" />
+    <Compile Include="Common\PondType.cs" />
+    <Compile Include="Common\PondTypeObj.cs" />
+    <Compile Include="Common\RawDataStatus.cs" />
+    <Compile Include="Common\RawDataStatusObj.cs" />
+    <Compile Include="Common\ReadType.cs" />
+    <Compile Include="Common\ReadTypeObj.cs" />
+    <Compile Include="Common\SiteStatus.cs" />
+    <Compile Include="Common\SiteStatusObj.cs" />
+    <Compile Include="Common\SiteTaskStatus.cs" />
+    <Compile Include="Common\SiteTaskStatusObj.cs" />
+    <Compile Include="Common\SiteType.cs" />
+    <Compile Include="Common\SiteTypeObj.cs" />
+    <Compile Include="Common\TaskMessageData.cs" />
+    <Compile Include="Common\TaskStatus.cs" />
+    <Compile Include="Common\TaskStatusObj.cs" />
+    <Compile Include="Common\TaskTruckData.cs" />
+    <Compile Include="Common\TrackType.cs" />
+    <Compile Include="Common\TrackTypeObj.cs" />
+    <Compile Include="Common\TrainType.cs" />
+    <Compile Include="Common\TrainTypeObj.cs" />
+    <Compile Include="Common\TrainWagonType.cs" />
+    <Compile Include="Common\TrainWagonTypeObj.cs" />
+    <Compile Include="Common\UploadStatus.cs" />
+    <Compile Include="Common\UploadStatusObj.cs" />
+    <Compile Include="Common\OperateType.cs" />
+    <Compile Include="Common\OperateTypeObj.cs" />
+    <Compile Include="Common\WeightType.cs" />
+    <Compile Include="Common\WeightTypeObj.cs" />
+    <Compile Include="Common\TareType.cs" />
+    <Compile Include="Common\TareTypeObj.cs" />
+    <Compile Include="Common\Source.cs" />
+    <Compile Include="Common\SourceObj.cs" />
+    <Compile Include="Common\SourceDesc.cs" />
+    <Compile Include="Common\SourceDescObj.cs" />
+    <Compile Include="Common\BillType.cs" />
+    <Compile Include="Common\BillTypeObj.cs" />
+    <Compile Include="Common\ProblemType.cs" />
+    <Compile Include="Common\ProblemTypeObj.cs" />
+    <Compile Include="Common\WeightTypes.cs" />
+    <Compile Include="Common\WeightTypesObj.cs" />
+    <Compile Include="CoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoreForm.Designer.cs">
+      <DependentUpon>CoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomFrm\MyFrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomFrm\MySplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomFrm\MySplashScreen.designer.cs">
+      <DependentUpon>MySplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomFrm\MySplashScreenForWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomFrm\MySplashScreenForWait.designer.cs">
+      <DependentUpon>MySplashScreenForWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperCommon\PondDataBuffer.cs" />
+    <Compile Include="Helper\DecimalConverter.cs" />
+    <Compile Include="Helper\MyDialogHelper.cs" />
+    <Compile Include="Helper\MyGridHelper.cs" />
+    <Compile Include="Helper\MyIniHelper.cs" />
+    <Compile Include="Helper\MyJsonHelper.cs" />
+    <Compile Include="Helper\MySerialPortHelper.cs" />
+    <Compile Include="Interface\IBaseBusiness.cs" />
+    <Compile Include="Interface\IBaseOperate.cs" />
+    <Compile Include="MeterOperate\Implement\MaterOperate_245.cs" />
+    <Compile Include="MeterOperate\Implement\MaterOperate_3101.cs" />
+    <Compile Include="MeterOperate\Implement\MaterOperate_8142Pro.cs" />
+    <Compile Include="MeterOperate\Implement\MaterOperate_T800.cs" />
+    <Compile Include="MeterOperate\Implement\MeterOperate_D2008.cs" />
+    <Compile Include="MeterOperate\Implement\MeterOperate_KL18k9.cs" />
+    <Compile Include="MeterOperate\Implement\MeterOperate_YY2116.cs" />
+    <Compile Include="MeterOperate\Implement\MeterOperate_CDWY.cs" />
+    <Compile Include="MeterOperate\Interface\IMeterOperate.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLoginForm.Designer.cs">
+      <DependentUpon>NewLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\ChangePassword_32.png" />
+    <Content Include="Icon\exit_32.png" />
+    <Content Include="Icon\Export_24.png" />
+    <Content Include="Icon\Lock_32.png" />
+    <Content Include="Icon\Print_24.png" />
+    <Content Include="Icon\Refresh.png" />
+    <Content Include="Icon\signout_16.png" />
+    <Content Include="Icon\signout_24.png" />
+    <Content Include="Icon\switch_32.png" />
+    <Content Include="Icon\texture2.jpg" />
+    <Content Include="Icon\title_16x16.png" />
+    <Content Include="Icon\title_32x321.ico" />
+    <Content Include="Icon\update_16.png" />
+    <None Include="packages.config" />
+    <None Include="Resources\%24this.ico" />
+    <None Include="Resources\switch_32.png" />
+    <Content Include="title_32x321.ico" />
+    <None Include="Resources\%24this.Icon" />
+    <None Include="Resources\%24this.Icon.ico" />
+    <Content Include="Icon\logonForm.png" />
+    <None Include="Resources\登录窗口%281%29.png" />
+    <Content Include="Resources\1_100.gif" />
+    <Content Include="Resources\afternoon.jpg" />
+    <Content Include="Resources\aio_head_normal.png" />
+    <Content Include="Resources\aio_quickbar_cut.png" />
+    <Content Include="Resources\aio_quickbar_face.png" />
+    <Content Include="Resources\aio_quickbar_flirtationface.png" />
+    <Content Include="Resources\aio_quickbar_font.png" />
+    <Content Include="Resources\aio_quickbar_inputassist.png" />
+    <Content Include="Resources\aio_quickbar_more.png" />
+    <Content Include="Resources\aio_quickbar_register.png" />
+    <Content Include="Resources\aio_quickbar_richface.png" />
+    <Content Include="Resources\aio_quickbar_screen1.png" />
+    <Content Include="Resources\aio_quickbar_screen2.png" />
+    <Content Include="Resources\aio_quickbar_sendpic.png" />
+    <Content Include="Resources\aio_quickbar_twitter.png" />
+    <Content Include="Resources\AIO_SetBtn_down.png" />
+    <Content Include="Resources\AIO_SetBtn_highlight.png" />
+    <Content Include="Resources\AIO_SetBtn_highlight_normal.png" />
+    <Content Include="Resources\AIO_SetBtn_normal.png" />
+    <Content Include="Resources\allbtn_down.png" />
+    <Content Include="Resources\allbtn_highlight.png" />
+    <Content Include="Resources\all_inside_bkg.png" />
+    <Content Include="Resources\away %282%29.png" />
+    <Content Include="Resources\BackPalace.png" />
+    <Content Include="Resources\btn_close_disable.png" />
+    <Content Include="Resources\btn_close_down.png" />
+    <Content Include="Resources\btn_close_highlight.png" />
+    <Content Include="Resources\btn_max_down.png" />
+    <Content Include="Resources\btn_max_highlight.png" />
+    <Content Include="Resources\btn_max_normal.png" />
+    <Content Include="Resources\btn_mini_down.png" />
+    <Content Include="Resources\btn_mini_highlight.png" />
+    <Content Include="Resources\btn_mini_normal.png" />
+    <Content Include="Resources\btn_restore_down.png" />
+    <Content Include="Resources\btn_restore_highlight.png" />
+    <Content Include="Resources\btn_restore_normal.png" />
+    <Content Include="Resources\btn_set_hover.png" />
+    <Content Include="Resources\btn_set_normal.png" />
+    <Content Include="Resources\btn_set_press.png" />
+    <Content Include="Resources\btn_Skin_down.png" />
+    <Content Include="Resources\btn_Skin_highlight.png" />
+    <Content Include="Resources\btn_Skin_normal.png" />
+    <Content Include="Resources\busy %282%29.png" />
+    <Content Include="Resources\button_hover.png" />
+    <Content Include="Resources\button_normal.png" />
+    <Content Include="Resources\button_press.png" />
+    <Content Include="Resources\checkbox_hightlight.png" />
+    <Content Include="Resources\checkbox_normal.png" />
+    <Content Include="Resources\checkbox_pushed.png" />
+    <Content Include="Resources\checkbox_tick_highlight.png" />
+    <Content Include="Resources\checkbox_tick_normal.png" />
+    <Content Include="Resources\checkbox_tick_pushed.png" />
+    <Content Include="Resources\corner_back.png" />
+    <Content Include="Resources\corner_back_hover.png" />
+    <Content Include="Resources\corner_back_press.png" />
+    <Content Include="Resources\corner_left.png" />
+    <Content Include="Resources\corner_left_hover.png" />
+    <Content Include="Resources\corner_left_press.png" />
+    <Content Include="Resources\corner_right.png" />
+    <Content Include="Resources\corner_right_hover.png" />
+    <Content Include="Resources\corner_right_press.png" />
+    <Content Include="Resources\db.jpg" />
+    <Content Include="Resources\duozhanghao1.png" />
+    <Content Include="Resources\duozhanghao2.png" />
+    <Content Include="Resources\duozhanghao3.png" />
+    <Content Include="Resources\duozhanghao4.png" />
+    <Content Include="Resources\duozhanghao5.png" />
+    <Content Include="Resources\duozhanghao6.png" />
+    <Content Include="Resources\frameBorderEffect_mouseDownDraw.png" />
+    <Content Include="Resources\frameBorderEffect_normalDraw.png" />
+    <Content Include="Resources\imgRjp.BackgroundImage.png" />
+    <Content Include="Resources\imoffline %282%29.png" />
+    <Content Include="Resources\imonline %282%29.png" />
+    <Content Include="Resources\invisible %282%29.png" />
+    <Content Include="Resources\login_inputbtn_down.png" />
+    <Content Include="Resources\login_inputbtn_highlight.png" />
+    <Content Include="Resources\login_inputbtn_normal.png" />
+    <Content Include="Resources\menu_btn_highlight.png" />
+    <Content Include="Resources\menu_btn_normal.png" />
+    <Content Include="Resources\menu_check.png" />
+    <Content Include="Resources\mima.png" />
+    <Content Include="Resources\mima_hover.png" />
+    <Content Include="Resources\mima_press.png" />
+    <Content Include="Resources\morning.jpg" />
+    <Content Include="Resources\mute %282%29.png" />
+    <Content Include="Resources\night.jpg" />
+    <Content Include="Resources\noon.jpg" />
+    <Content Include="Resources\Norml.png" />
+    <Content Include="Resources\pictureBox1.Image.png" />
+    <Content Include="Resources\Qme %282%29.png" />
+    <Content Include="Resources\spin_normal_down.png" />
+    <Content Include="Resources\texture.png" />
+    <Content Include="Resources\texture2.png" />
+    <None Include="Resources\title_32x32.tif" />
+    <Content Include="Resources\ToolbarBtnDown.png" />
+    <Content Include="Resources\ToolbarBtnNormal.png" />
+    <Content Include="Resources\zhuce.png" />
+    <Content Include="Resources\zhuce_hover.png" />
+    <Content Include="Resources\zhuce_press.png" />
+    <EmbeddedResource Include="CoreForm.resx">
+      <DependentUpon>CoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomFrm\MyFrmAbout.resx">
+      <DependentUpon>MyFrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomFrm\MySplashScreen.resx">
+      <DependentUpon>MySplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomFrm\MySplashScreenForWait.resx">
+      <DependentUpon>MySplashScreenForWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemoSplashScreen.png" />
+    <EmbeddedResource Include="about.jpg" />
+    <Content Include="Icon\AddFile_16x16.png" />
+    <Content Include="Icon\AddFile_32x32.png" />
+    <Content Include="Icon\AddFolder_16x16.png" />
+    <Content Include="Icon\AddFolder_32x32.png" />
+    <Content Include="Icon\AddToAlbum_16x16.png" />
+    <Content Include="Icon\AddToAlbum_32x32.png" />
+    <Content Include="Icon\AddToLibrary_16x16.png" />
+    <Content Include="Icon\AddToLibrary_32x32.png" />
+    <Content Include="Icon\Album_16x16.png" />
+    <Content Include="Icon\Album_32x32.png" />
+    <Content Include="Icon\Back_16x16.png" />
+    <Content Include="Icon\Back_32x32.png" />
+    <Content Include="Icon\BtnPrint.png" />
+    <Content Include="Icon\BtnPrintDisabled.png" />
+    <Content Include="Icon\Cancel_16x16.png" />
+    <Content Include="Icon\Cancel_32x32.png" />
+    <Content Include="Icon\Close_16x16.png" />
+    <Content Include="Icon\Close_32x32.png" />
+    <Content Include="Icon\Collage_16x16.png" />
+    <Content Include="Icon\Collage_32x32.png" />
+    <Content Include="Icon\Edit_16x16.png" />
+    <Content Include="Icon\Edit_32x32.png" />
+    <Content Include="Icon\EMail_16x16.png" />
+    <Content Include="Icon\EMail_32x32.png" />
+    <Content Include="Icon\expoort.png" />
+    <Content Include="Icon\exportDisabled.png" />
+    <Content Include="Icon\ExportToExcel_16x16.png" />
+    <Content Include="Icon\ExportToExcel_32x32.png" />
+    <Content Include="Icon\Export_16x16.png" />
+    <Content Include="Icon\Export_32x32.png" />
+    <Content Include="Icon\Film_16x16.png" />
+    <Content Include="Icon\Film_32x32.png" />
+    <Content Include="Icon\FilterSample.png" />
+    <Content Include="Icon\Filter_16x16.png" />
+    <Content Include="Icon\Filter_32x32.png" />
+    <Content Include="Icon\Folder_16x16.png" />
+    <Content Include="Icon\Folder_32x32.png" />
+    <Content Include="Icon\Forward_16x16.png" />
+    <Content Include="Icon\Forward_32x32.png" />
+    <Content Include="Icon\GenerateData_16x16.png" />
+    <Content Include="Icon\GenerateData_32x32.png" />
+    <Content Include="Icon\Help_16x16.png" />
+    <Content Include="Icon\Help_32x32.png" />
+    <Content Include="Icon\ItemMarked_16x16.png" />
+    <Content Include="Icon\ItemMarked_32x32.png" />
+    <Content Include="Icon\Library_16x16.png" />
+    <Content Include="Icon\Library_32x32.png" />
+    <Content Include="Icon\Mark_16x16.png" />
+    <Content Include="Icon\Mark_32x32.png" />
+    <Content Include="Icon\NewAlbum_16x16.png" />
+    <Content Include="Icon\NewAlbum_32x32.png" />
+    <Content Include="Icon\Other_16x16.png" />
+    <Content Include="Icon\Other_32x32.png" />
+    <Content Include="Icon\pictureEdit1.EditValue1.png" />
+    <Content Include="Icon\Print_16x16.png" />
+    <Content Include="Icon\Print_32x32.png" />
+    <Content Include="Icon\RemoveAlbum_16x16.png" />
+    <Content Include="Icon\RemoveAlbum_32x32.png" />
+    <Content Include="Icon\RemoveFolder_16x16.png" />
+    <Content Include="Icon\RemoveFolder_32x32.png" />
+    <Content Include="Icon\RemoveFromAlbum_16x16.png" />
+    <Content Include="Icon\RemoveFromAlbum_32x32.png" />
+    <Content Include="Icon\Remove_16x16.png" />
+    <Content Include="Icon\Remove_32x32.png" />
+    <Content Include="Icon\Save_16x16.png" />
+    <Content Include="Icon\Save_32x32.png" />
+    <Content Include="Icon\SelectAllMarked_16x16.png" />
+    <Content Include="Icon\SelectAllMarked_32x32.png" />
+    <Content Include="Icon\Slideshow_16x16.png" />
+    <Content Include="Icon\Slideshow_32x32.png" />
+    <Content Include="Icon\Tile.png" />
+    <Content Include="Icon\Undo_16x16.png" />
+    <Content Include="Icon\Undo_32x32.png" />
+    <Content Include="Icon\UnmarkAll_16x16.png" />
+    <Content Include="Icon\UnmarkAll_32x32.png" />
+    <Content Include="Icon\Unmark_16x16.png" />
+    <Content Include="Icon\Unmark_32x32.png" />
+    <Content Include="Icon\Upload_16x16.png" />
+    <Content Include="Icon\Upload_32x32.png" />
+    <Content Include="Icon\View_16x16.png" />
+    <Content Include="Icon\View_32x32.png" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.zh-CN.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLoginForm.resx">
+      <DependentUpon>NewLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Castle.DynamicProxy\Castle.DynamicProxy.csproj">
+      <Project>{6272500A-FEAB-4093-AF65-337234DA32FE}</Project>
+      <Name>Castle.DynamicProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBatisNet.Common.Logging.Log4Net\IBatisNet.Common.Logging.Log4Net.2005.csproj">
+      <Project>{023FE8D7-7E1A-4DDF-A0EA-8FB0E1B3122B}</Project>
+      <Name>IBatisNet.Common.Logging.Log4Net.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBatisNet.Common\IBatisNet.Common.2005.csproj">
+      <Project>{BBC8DA4A-EA88-41D9-8B93-929B8F3ADADE}</Project>
+      <Name>IBatisNet.Common.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBatisNet.DataMapper\IBatisNet.DataMapper.2005.csproj">
+      <Project>{F3E45F39-3224-4EAD-B138-EB5CC0E32824}</Project>
+      <Name>IBatisNet.DataMapper.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base.BusinessService\LTN.CS.Base.BusinessService.csproj">
+      <Project>{0ABA973D-4B73-4E46-8CBF-0DB093BC50BF}</Project>
+      <Name>LTN.CS.Base.BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.BaseEntity\LTN.CS.BaseEntities.csproj">
+      <Project>{33B2AC55-6414-463F-9627-688E608F2FDD}</Project>
+      <Name>LTN.CS.BaseEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Core\LTN.CS.Core.csproj">
+      <Project>{873D6B8C-2E49-47E7-94B4-0929C5DA0911}</Project>
+      <Name>LTN.CS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Resource\LTN.CS.Resource.csproj">
+      <Project>{FB9F5CC5-AE07-4383-9C91-8A42343DE4DB}</Project>
+      <Name>LTN.CS.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

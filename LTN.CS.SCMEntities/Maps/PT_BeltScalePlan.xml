@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PT_BeltScalePlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QueryBeltScalePlanPlanByHashTableResultMap" class="PT_BeltScalePlan">
+      <result property="I_Intid"            column="I_INTID"/>
+      <result property="C_Planno"           column="C_PLANNO"/>
+      <result property="C_Materialno"       column="C_MATERIALNO"/>
+      <result property="C_Materialname"     column="C_MATERIALNAME"/>
+      <result property="C_Fromdeptno"       column="C_FROMDEPTNO"/>
+      <result property="C_Fromdeptname"     column="C_FROMDEPTNAME"/>
+      <result property="C_Fromstoreno"      column="C_FROMSTORENO"/>
+      <result property="C_Fromstorename"    column="C_FROMSTORENAME"/>
+      <result property="C_Todeptno"    column="C_TODEPTNO"/>
+      <result property="C_Todeptname"  column="C_TODEPTNAME"/>
+      <result property="C_Tostoreno"   column="C_TOSTORENO"/>
+      <result property="C_Tostorename" column="C_TOSTORENAME"/>
+      <result property="C_Shipno"      column="C_SHIPNO"/>
+      <result property="C_Contractno"  column="C_CONTRACTNO"/>
+      <result property="C_Beltno"      column="C_BELTNO"/>
+      <result property="C_Createtime"  column="C_CREATETIME"/>
+      <result property="C_Createname"  column="C_CREATENAME"/>
+      <result property="C_Remark"      column="C_REMARK"/>
+      <result property="C_Reserve1"    column="C_RESERVE1"/>
+      <result property="C_Reserve2"    column="C_RESERVE2"/>
+      <result property="C_Reserve3"    column="C_RESERVE3"/>
+      <result property="I_Reserve1"    column="I_RESERVE1"/>
+      <result property="I_Reserve2"    column="I_RESERVE2"/>
+      <result property="I_Reserve3"    column="I_RESERVE3"/>
+      <result property="C_Beltname"    column="C_BELTNAME"/>
+      <result property="C_Starttime"         column="C_STARTTIME"/>
+      <result property="C_Voyageno"          column="C_VOYAGENO"/>
+      <result property="C_Stoptime"          column="C_STOPTIME"/>
+      <result property="C_Planstate"         column="C_PLANSTATE"/>
+      <result property="C_Updateusername"    column="C_UPDATEUSERNAME"/>
+      <result property="C_Updatetime"        column="C_UPDATETIME"/>
+      <result property="C_RESERVE4" column="C_RESERVE4"/>
+      <result property="C_RESERVE5" column="C_RESERVE5"/>
+      <result property="C_RESERVE6" column="C_RESERVE6"/>
+      <result property="C_RESERVE7" column="C_RESERVE7"/>
+      <result property="C_RESERVE8" column="C_RESERVE8"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="QueryBeltPlanNoForCreatePlanNo" resultClass="string" parameterClass="string">
+      select * from
+      (select t.c_planno from  PT_BELTSCALEPLAN t where t.c_planno like #value# order by t.c_Createtime desc)
+      where rownum=1
+    </select>
+    <insert id="InsertBeltScalePlan" parameterClass="">
+      <selectKey property="I_Intid" type="pre" resultClass="int">
+        select SEQ_PT_BELTSCALEPLAN.nextval as ID from dual
+      </selectKey>
+      insert into PT_BELTSCALEPLAN
+      (I_INTID	,
+      C_PLANNO	,
+      C_MATERIALNO	,
+      C_MATERIALNAME	,
+      C_FROMDEPTNO	,
+      C_FROMDEPTNAME	,
+      C_FROMSTORENO	,
+      C_FROMSTORENAME	,
+      C_TODEPTNO	,
+      C_TODEPTNAME	,
+      C_TOSTORENO	,
+      C_TOSTORENAME	,
+      C_SHIPNO	,
+      C_CONTRACTNO	,
+      C_BELTNO	,
+      C_CREATETIME	,
+      C_CREATENAME	,
+      C_REMARK	,
+      C_RESERVE1	,
+      C_RESERVE2	,
+      C_RESERVE3	,
+      I_RESERVE1	,
+      I_RESERVE2	,
+      I_RESERVE3	,
+      C_BELTNAME	,
+      C_STARTTIME	,
+      C_VOYAGENO	,
+      C_STOPTIME	,
+      C_PLANSTATE	,
+      C_UPDATEUSERNAME	,
+      C_UPDATETIME,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7,
+      C_RESERVE8)
+      values
+      (
+      #I_Intid#,
+      #C_Planno#,
+      #C_Materialno#,
+      #C_Materialname#,
+      #C_Fromdeptno#,
+      #C_Fromdeptname#,
+      #C_Fromstoreno#,
+      #C_Fromstorename#,
+      #C_Todeptno#,
+      #C_Todeptname#,
+      #C_Tostoreno#,
+      #C_Tostorename#,
+      #C_Shipno#,
+      #C_Contractno#,
+      #C_Beltno#,
+      #C_Createtime#,
+      #C_Createname#,
+      #C_Remark#,
+      #C_Reserve1#,
+      #C_Reserve2#,
+      #C_Reserve3#,
+      #I_Reserve1#,
+      #I_Reserve2#,
+      #I_Reserve3#,
+      #C_Beltname#,
+      #C_Starttime#,
+      #C_Voyageno#,
+      #C_Stoptime#,
+      #C_Planstate#,
+      #C_Updateusername#,
+      #C_Updatetime#,
+      #C_RESERVE4#,
+      #C_RESERVE5#,
+      #C_RESERVE6#,
+      #C_RESERVE7#,
+      #C_RESERVE8#
+      )
+
+    </insert>
+    <select id="QueryBeltScalePlanByHashTable" resultMap="QueryBeltScalePlanPlanByHashTableResultMap"   parameterClass="HashTable">
+      select
+      I_INTID	,
+      C_PLANNO	,
+      C_MATERIALNO	,
+      C_MATERIALNAME	,
+      C_FROMDEPTNO	,
+      C_FROMDEPTNAME	,
+      C_FROMSTORENO	,
+      C_FROMSTORENAME	,
+      C_TODEPTNO	,
+      C_TODEPTNAME	,
+      C_TOSTORENO	,
+      C_TOSTORENAME	,
+      C_SHIPNO	,
+      C_CONTRACTNO	,
+      C_BELTNO	,
+      C_CREATETIME	,
+      C_CREATENAME	,
+      C_REMARK	,
+      C_RESERVE1	,
+      C_RESERVE2	,
+      C_RESERVE3	,
+      I_RESERVE1	,
+      I_RESERVE2	,
+      I_RESERVE3	,
+      C_BELTNAME	,
+      C_STARTTIME	,
+      C_VOYAGENO	,
+      C_STOPTIME	,
+      C_PLANSTATE	,
+      C_UPDATEUSERNAME	,
+      C_UPDATETIME,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7,
+      C_RESERVE8
+      from PT_BELTSCALEPLAN t
+      where  t.C_PLANSTATE!=2
+      <isNotEmpty prepend="AND" property="StartDate">
+        <isNotEmpty  property="EndDate">
+          t.C_CREATETIME between #StartDate# and #EndDate#
+        </isNotEmpty>
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="PlanNo">
+        t.C_PLANNO =#PlanNo#
+      </isNotEmpty>
+      order by t.C_CREATETIME desc
+    </select>
+    
+    <update id="UpdateBeltScalePlanByPlanNo" parameterClass="PT_BeltScalePlan">
+      update PT_BELTSCALEPLAN set
+      C_PLANNO=#C_Planno#,
+      C_MATERIALNO=#C_Materialno#,
+      C_MATERIALNAME=#C_Materialname#,
+      C_FROMDEPTNO=#C_Fromdeptno#,
+      C_FROMDEPTNAME=#C_Fromdeptname#,
+      C_FROMSTORENO=#C_Fromstoreno#,
+      C_FROMSTORENAME=#C_Fromstorename#,
+      C_TODEPTNO=#C_Todeptno#,
+      C_TODEPTNAME=#C_Todeptname#,
+      C_TOSTORENO=#C_Tostoreno#,
+      C_TOSTORENAME=#C_Tostorename#,
+      C_SHIPNO=#C_Shipno#,
+      C_CONTRACTNO=#C_Contractno#,
+      C_BELTNO=#C_Beltno#,
+      C_CREATETIME=#C_Createtime#,
+      C_CREATENAME=#C_Createname#,
+      C_REMARK=#C_Remark#,
+      C_RESERVE1=#C_Reserve1#,
+      C_RESERVE2=#C_Reserve2#,
+      C_RESERVE3=#C_Reserve3#,
+      I_RESERVE1=#I_Reserve1#,
+      I_RESERVE2=#I_Reserve2#,
+      I_RESERVE3=#I_Reserve3#,
+      C_BELTNAME=#C_Beltname#,
+      C_STARTTIME=#C_Starttime#,
+      C_VOYAGENO=#C_Voyageno#,
+      C_STOPTIME=#C_Stoptime#,
+      C_PLANSTATE=#C_Planstate#,
+      C_UPDATEUSERNAME=#C_Updateusername#,
+      C_UPDATETIME=#C_Updatetime#,
+      C_RESERVE4=#C_RESERVE4#,
+      C_RESERVE5=#C_RESERVE5#,
+      C_RESERVE6=#C_RESERVE6#,
+      C_RESERVE7=#C_RESERVE7#,
+      C_RESERVE8=#C_RESERVE8#
+      where I_INTID=#I_Intid#
+    </update>
+    
+    <update id="InvalidBeltScalePlanByIntId" parameterClass="PT_BeltScalePlan">
+      update PT_BELTSCALEPLAN set C_PLANSTATE=2
+      where I_INTID=#I_Intid#
+    </update>
+    <!--新增-->
+    <select id="QueryBeltScalePlanByConditions1" resultMap="QueryBeltScalePlanPlanByHashTableResultMap"   parameterClass="HashTable">
+      select
+      I_INTID	,
+      C_PLANNO	,
+      C_MATERIALNO	,
+      C_MATERIALNAME	,
+      C_FROMDEPTNO	,
+      C_FROMDEPTNAME	,
+      C_FROMSTORENO	,
+      C_FROMSTORENAME	,
+      C_TODEPTNO	,
+      C_TODEPTNAME	,
+      C_TOSTORENO	,
+      C_TOSTORENAME	,
+      C_SHIPNO	,
+      C_CONTRACTNO	,
+      C_BELTNO	,
+      C_CREATETIME	,
+      C_CREATENAME	,
+      C_REMARK	,
+      C_RESERVE1	,
+      C_RESERVE2	,
+      C_RESERVE3	,
+      I_RESERVE1	,
+      I_RESERVE2	,
+      I_RESERVE3	,
+      C_BELTNAME	,
+      C_STARTTIME	,
+      C_VOYAGENO	,
+      C_STOPTIME	,
+      C_PLANSTATE	,
+      C_UPDATEUSERNAME	,
+      C_UPDATETIME,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7,
+      C_RESERVE8
+      from PT_BELTSCALEPLAN t
+      where  t.C_PLANSTATE!=2
+      and t.C_BELTNO =#countBeltNo#
+      and
+      (
+      (t.C_STARTTIME >= #startTime# and  #endTime# >= t.C_STOPTIME )
+      or
+      (t.C_STARTTIME > #startTime# and t.C_STOPTIME > #endTime# and #endTime# > t.C_STARTTIME)
+      or
+      (#startTime# > t.C_STARTTIME and #endTime# > t.C_STOPTIME and t.C_STOPTIME > #startTime#)
+      or
+      (#startTime# >= t.C_STARTTIME and t.C_STOPTIME >= #endTime#)
+      or
+      (#endTime# >= t.c_starttime and t.c_stoptime is null)
+      )
+      order by t.C_CREATETIME desc
+    </select>
+
+
+  </statements>
+</sqlMap>
+

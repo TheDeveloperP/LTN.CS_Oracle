@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_USER" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <!--模块配置-->
+  <alias>
+    <typeAlias alias="BMUSER" type="LTN.CS.BaseEntities.BM.BM_USER,LTN.CS.BaseEntities" />
+    <typeAlias alias="EntityInt" type="LTN.CS.Core.Helper.EntityInt,LTN.CS.Core"/>
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMUSERAllResult" class="BMUSER">
+      <result property="IntId" column="I_INTID" />
+      <result property="UserName" column="C_USERNAME" />
+      <result property="UserNickName" column="C_USERNICKNAME" />
+      <result property="Password" column="C_PASSWORD" />
+      <result property="MobileNo" column="C_MOBILENO" />
+      <result property="Email" column="C_EMAIL" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUserId" column="I_CREATEUSER" />
+      <result property="CreateUserName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUserId" column="I_UPDATEUSER" />
+      <result property="UpdateUserName" column="I_UPDATEUSERNAME" />
+      <result property="IsForbid.EntityValue" column="I_ISFORBID" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="GetDBDateTime" resultClass="DateTime" >
+      select   sysdate value from dual
+    </select>
+    <select id="GetBMUSERMaxID" resultClass="int" >
+      select max(I_INTID) from BM_USER
+    </select>
+    <select id="BMUSERExists" resultClass="int" parameterClass="int">
+      select count(1) from BM_USER
+      where I_INTID = #value#
+    </select>
+    
+    <insert id="InsertBMUSER"  parameterClass="BMUSER" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_USER_id.nextval as I_INTID from dual
+      </selectKey>
+      insert into BM_USER
+      (
+      I_INTID,
+      C_USERNAME,
+      C_USERNICKNAME,
+      C_PASSWORD,
+      C_MOBILENO,
+      C_EMAIL,
+      I_ISFORBID,
+      D_CREATETIME,
+      I_CREATEUSER,
+      D_UPDATETIME,
+      I_UPDATEUSER
+      )values
+      (#IntId#,#UserName#,#UserNickName#,#Password#,#MobileNo#, #Email#, #IsForbid.EntityValue#,sysdate,#CreateUserId#,sysdate,#UpdateUserId#)
+    </insert>
+
+    <update id="UpdateBMUSER"
+					   parameterClass="BMUSER">
+      <![CDATA[
+      update BM_USER set
+      C_USERNAME =#UserName#,
+      C_USERNICKNAME =#UserNickName#,
+      C_PASSWORD =#Password#,
+      C_MOBILENO =#MobileNo#,
+      C_EMAIL=#Email#,
+      I_ISFORBID=#IsForbid.EntityValue#,
+      D_UPDATETIME=sysdate,
+      I_UPDATEUSER = #UpdateUserId#
+      where
+      I_INTID = #IntId#　
+      ]]>
+    </update>
+
+    <delete id="DeleteBMUSER" parameterClass="BMUSER">
+      delete from BM_USER where I_INTID = #IntId#
+    </delete>
+
+
+    <select id="SelectAllBMUSER" resultMap="SelectBMUSERAllResult">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+    </select>
+
+    <select id="SelectByBMUSERId" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+      where a.I_INTID = #value#
+    </select>
+    
+    <select id="SelectByBMUSERNAME" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+      where a.C_USERNAME = #value#
+    </select>
+   
+    <select id="SelectUserNotInGroupNo" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      e.C_USERNICKNAME as I_CREATEUSERNAME,
+      f.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER   a
+      left join (select * from  BM_GROUP_USER where I_GROUPID =#value#) b on a.I_INTID = b.I_USERID
+      left join BM_USER e on a.I_CREATEUSER =e.I_INTID
+      left join BM_USER f on a.I_UPDATEUSER =f.I_INTID
+      where a.I_ISFORBID = 0    and b.I_USERID is  null order by a.I_INTID
+    </select>
+    <select id="SelectUserInGroupNo" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      e.C_USERNICKNAME as I_CREATEUSERNAME,
+      f.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER  a
+      left join (select * from  BM_GROUP_USER where I_GROUPID =#value#) b on a.I_INTID = b.I_USERID
+      left join BM_USER e on a.I_CREATEUSER =e.I_INTID
+      left join BM_USER f on a.I_UPDATEUSER =f.I_INTID
+      where a.I_ISFORBID = 0    and b.I_USERID is not  null order by a.I_INTID
+    </select>
+    <!--<select id="SelectUserNotInBusinessManager" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      e.C_USERNICKNAME as I_CREATEUSERNAME,
+      f.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER  as a
+      left join (select * from  CS_BUSSINESS_MANAGER where I_BUSSINESSID =#value#) b on a.I_INTID = b.I_USERID
+      left join BM_USER e on a.I_CREATEUSER =e.I_INTID
+      left join BM_USER f on a.I_UPDATEUSER =f.I_INTID
+      where a.I_ISFORBID = 0    and b.I_USERID is  null order by a.I_INTID
+    </select>-->
+    <!--<select id="SelectUserInBusinessManager" resultMap="SelectBMUSERAllResult" resultClass="BMUSER" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_USERNAME,
+      a.C_USERNICKNAME,
+      a.C_PASSWORD,
+      a.C_MOBILENO,
+      a.C_EMAIL,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      e.C_USERNICKNAME as I_CREATEUSERNAME,
+      f.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_USER  as a
+      left join (select * from  CS_BUSSINESS_MANAGER where I_BUSSINESSID =#value#) b on a.I_INTID = b.I_USERID
+      left join BM_USER e on a.I_CREATEUSER =e.I_INTID
+      left join BM_USER f on a.I_UPDATEUSER =f.I_INTID
+      where a.I_ISFORBID = 0    and b.I_USERID is not  null order by a.I_INTID
+    </select>-->
+    <update id="DisabledUser"  parameterClass="BMUSER">
+      update BM_USER set I_ISFORBID = #IsForbid.EntityValue# where I_INTID = #IntId#
+    </update>
+  </statements>
+</sqlMap>

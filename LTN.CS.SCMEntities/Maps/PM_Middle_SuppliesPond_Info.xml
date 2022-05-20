@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<sqlMap namespace="PM_Middle_SuppliesPond_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_Middle_SuppliesPond_InfoAllResult" class="PM_Middle_SuppliesPond_Info">
+      <result property="IntId" column="I_IntId" />
+      <result property="PlanNo" column="C_PlanNo" />
+      <result property="WagNo" column="C_WagNo" />
+      <result property="MaterialNo" column="C_MaterialNo" />
+      <result property="MaterialName" column="C_MaterialName" />
+      <result property="FromDeptNo" column="C_FromDeptNo" />
+      <result property="FromDeptName" column="C_FromDeptName" />
+      <result property="FromStoreNo" column="C_FromStoreNo" />
+      <result property="FromStoreName" column="C_FromStoreName" />
+      <result property="ToDeptNo" column="C_ToDeptNo" />
+      <result property="ToDeptName" column="C_ToDeptName" />
+      <result property="ToStoreNo" column="C_ToStoreNo" />
+      <result property="ToStoreName" column="C_ToStoreName" />
+      <result property="ShipNo" column="C_ShipNo" />
+      <result property="FromStation" column="C_FromStation" />
+      <result property="SerialNo" column="C_SerialNo" />
+      <result property="DeliveryNo" column="C_DeliveryNo" />
+      <result property="ContractNo" column="C_ContractNo" />
+      <result property="ProjectNo" column="C_ProjectNo" />
+      <result property="WayBillNo" column="C_WayBillNo" />
+      <result property="MarshallingNo" column="C_MarshallingNo" />
+      <result property="BusinessType.IntValue" column="I_BusinessType" />
+      <result property="WeightType.IntValue" column="I_WeightType" />
+      <result property="TareType.IntValue" column="I_TareType" />
+      <result property="MoveStillType.IntValue" column="I_MoveStillType" />
+      <result property="PlanLimitTime" column="D_PlanLimitTime" />
+      <result property="PondLimit" column="C_PondLimit" />
+      <result property="GrossWgt" column="I_GrossWgt" />
+      <result property="TareWgt" column="I_TareWgt" />
+      <result property="NetWgt" column="I_NetWgt" />
+      <result property="GrossWgtTime" column="D_GrossWgtTime" />
+      <result property="TareWgtTime" column="D_TareWgtTime" />
+      <result property="GrossWgtSiteNo" column="C_GrossWgtSiteNo" />
+      <result property="GrossWgtSiteName" column="C_GrossWgtSiteName" />
+      <result property="TareWgtSiteNo" column="C_TareWgtSiteNo" />
+      <result property="TareWgtSiteName" column="C_TareWgtSiteName" />
+      <result property="GrossWgtMan" column="C_GrossWgtMan" />
+      <result property="TareWgtMan" column="C_TareWgtMan" />
+      <result property="TrainGroupGross" column="C_TrainGroupGross" />
+      <result property="TrainGroupTare" column="C_TrainGroupTare" />
+      <result property="Remark" column="C_Remark" />
+      <result property="PondRemark" column="C_PondRemark" />
+      <result property="CReserve1" column="C_Reserve1" />
+      <result property="CReserve2" column="C_Reserve2" />
+      <result property="CReserve3" column="C_Reserve3" />
+      <result property="IReserve1" column="I_Reserve1" />
+      <result property="IReserve2" column="I_Reserve2" />
+      <result property="IReserve3" column="I_Reserve3" />
+      <result property="CReserveFlag1" column="C_ReserveFlag1" />
+      <result property="CReserveFlag2" column="C_ReserveFlag2" />
+      <result property="CReserveFlag3" column="C_ReserveFlag3" />
+      <result property="IReserveFlag1" column="I_ReserveFlag1" />
+      <result property="IReserveFlag2" column="I_ReserveFlag2" />
+      <result property="IReserveFlag1" column="I_ReserveFlag3" />
+      <result property="DataFlag.EntityValue" column="I_DataFlag" />
+      <result property="BillStatus.IntValue" column="I_BillStatus" />
+      <result property="PlanCreateUser" column="C_PLANCREATEUSER" />
+      <result property="PlanCreateTime" column="D_PLANCREATETIME" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser" column="C_CREATEUSER" />
+      <result property="UpdateUser" column="C_UPDATEUSER" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertPM_Middle_SuppliesPond_Info"  parameterClass="PM_Middle_SuppliesPond_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_Middle_SuppliesPond_Info_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_Middle_SuppliesPond_Info
+      (
+      I_IntId
+      ,C_PlanNo
+      ,C_WagNo
+      ,C_MaterialNo
+      ,C_MaterialName
+      ,C_FromDeptNo
+      ,C_FromDeptName
+      ,C_FromStoreNo
+      ,C_FromStoreName
+      ,C_ToDeptNo
+      ,C_ToDeptName
+      ,C_ToStoreNo
+      ,C_ToStoreName
+      ,C_ShipNo
+      ,C_FromStation
+      ,C_SerialNo
+      ,C_DeliveryNo
+      ,C_ContractNo
+      ,C_ProjectNo
+      ,C_WayBillNo
+      ,C_MarshallingNo
+      ,I_BusinessType
+      ,I_WeightType
+      ,I_TareType
+      ,I_MoveStillType
+      ,D_PlanLimitTime
+      ,C_PondLimit
+      ,I_GrossWgt
+      ,I_TareWgt
+      ,I_NetWgt
+      ,D_GrossWgtTime
+      ,D_TareWgtTime
+      ,C_GrossWgtSiteNo
+      ,C_GrossWgtSiteName
+      ,C_TareWgtSiteNo
+      ,C_TareWgtSiteName
+      ,C_GrossWgtMan
+      ,C_TareWgtMan
+      ,C_TrainGroupGross
+      ,C_TrainGroupTare
+      ,C_Remark
+      ,C_PondRemark
+      ,I_DataFlag
+      ,I_BillStatus
+      ,C_Reserve1
+      ,C_Reserve2
+      ,C_Reserve3
+      ,I_Reserve1
+      ,I_Reserve2
+      ,I_Reserve3
+      ,C_ReserveFlag1
+      ,C_ReserveFlag2
+      ,C_ReserveFlag3
+      ,I_ReserveFlag1
+      ,I_ReserveFlag2
+      ,I_ReserveFlag3
+      ,C_PlanCreateUser
+      ,D_PlanCreateTime
+      ,C_CreateUser
+      ,D_CreateTime
+      ,C_UpdateUser
+      ,D_UpdateTime
+      )values
+      (#IntId#,#PlanNo#,#WagNo#,#MaterialNo#,#MaterialName#,#FromDeptNo#,#FromDeptName#,#FromStoreNo#,#FromStoreName#,
+      #ToDeptNo#,#ToDeptName#,#ToStoreNo#,#ToStoreName#,#ShipNo#,#FromStation#,#SerialNo#,#DeliveryNo#,#ContractNo#,#ProjectNo#,#WayBillNo#,#MarshallingNo#,
+      #BusinessType.IntValue#,#WeightType.IntValue#,#TareType.IntValue#,#MoveStillType.IntValue#,#PlanLimitTime#,#PondLimit#,#GrossWgt#,#TareWgt#,#NetWgt#,
+      #GrossWgtTime#,#TareWgtTime#,#GrossWgtSiteNo#,#GrossWgtSiteName#,#TareWgtSiteNo#,#TareWgtSiteName#,#GrossWgtMan#,#TareWgtMan#,#TrainGroupGross#,#TrainGroupTare#,
+      #Remark#,#PondRemark#,#DataFlag.EntityValue#,#BillStatus.IntValue#,#CReserve1#,#CReserve2#,#CReserve3#,#IReserve1#,#IReserve2#,#IReserve3#,#CReserveFlag1#,#CReserveFlag2#,
+      #CReserveFlag3#,#IReserveFlag1#,#IReserveFlag2#,#IReserveFlag3#,#PlanCreateUser#,#PlanCreateTime#,#CreateUser#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUser#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+
+    <update id="UpdatePM_Middle_SuppliesPond_Info"
+            parameterClass="PM_Middle_SuppliesPond_Info">
+      <![CDATA[
+      update PM_Middle_SuppliesPond_Info set
+       C_PlanNo=#PlanNo#
+      ,C_WagNo=#WagNo#
+      ,C_MaterialNo=#MaterialNo#
+      ,C_MaterialName=#MaterialName#
+      ,C_FromDeptNo=#FromDeptNo#
+      ,C_FromDeptName=#FromDeptName#
+      ,C_FromStoreNo=#FromStoreNo#
+      ,C_FromStoreName=#FromStoreName#
+      ,C_ToDeptNo=#ToDeptNo#
+      ,C_ToDeptName=#ToDeptName#
+      ,C_ToStoreNo=#ToStoreNo#
+      ,C_ToStoreName=#ToStoreName#
+      ,C_ShipNo=#ShipNo#
+      ,C_FromStation=#FromStation#
+      ,C_SerialNo=#SerialNo#
+      ,C_DeliveryNo=#DeliveryNo#
+      ,C_ContractNo=#ContractNo#
+      ,C_ProjectNo=#ProjectNo#
+      ,C_WayBillNo=#WayBillNo#
+      ,C_MarshallingNo=#MarshallingNo#
+      ,I_BusinessType=#BusinessType.IntValue#
+      ,I_WeightType=#WeightType.IntValue#
+      ,I_TareType=#TareType.IntValue#
+      ,I_MoveStillType=#MoveStillType.IntValue#
+      ,D_PlanLimitTime=#PlanLimitTime#
+      ,C_PondLimit=#PondLimit#
+      ,I_GrossWgt=#GrossWgt#
+      ,I_TareWgt=#TareWgt#
+      ,I_NetWgt=#NetWgt#
+      ,D_GrossWgtTime=#GrossWgtTime#
+      ,D_TareWgtTime=#TareWgtTime#
+      ,C_GrossWgtSiteNo=#GrossWgtSiteNo#
+      ,C_GrossWgtSiteName=#GrossWgtSiteName#
+      ,C_TareWgtSiteNo=#TareWgtSiteNo#
+      ,C_TareWgtSiteName=#TareWgtSiteName#
+      ,C_GrossWgtMan=#GrossWgtMan#
+      ,C_TareWgtMan=#TareWgtMan#
+      ,C_TrainGroupGross=#TrainGroupGross#
+      ,C_TrainGroupTare=#TrainGroupTare#
+      ,C_Remark=#Remark#
+      ,C_PondRemark=#PondRemark#
+      ,I_DataFlag=#DataFlag.EntityValue#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,C_Reserve1=#CReserve1#
+      ,C_Reserve2=#CReserve2#
+      ,C_Reserve3=#CReserve3#
+      ,I_Reserve1=#IReserve1#
+      ,I_Reserve2=#IReserve2#
+      ,I_Reserve3=#IReserve3#
+      ,C_ReserveFlag1=#CReserveFlag1#
+      ,C_ReserveFlag2=#CReserveFlag2#
+      ,C_ReserveFlag3=#CReserveFlag3#
+      ,I_ReserveFlag1=#IReserveFlag1#
+      ,I_ReserveFlag2=#IReserveFlag2#
+      ,I_ReserveFlag3=#IReserveFlag3#
+      ,C_PlanCreateUser=#PlanCreateUser#
+      ,D_PlanCreateTime=#PlanCreateTime#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <update id="UpdatePM_Middle_SuppliesPond_InfoStatus"
+              parameterClass="PM_Middle_SuppliesPond_Info">
+      update PM_Middle_SuppliesPond_Info set
+      I_DataFlag=#DataFlag.EntityValue#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+    </update>
+    
+    <select id="selectPM_Middle_SuppliesPond_InfobyGroup"  parameterClass= "Hashtable" resultMap="SelectPM_Middle_SuppliesPond_InfoAllResult">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.I_GrossWgt
+      ,a.I_TareWgt
+      ,a.I_NetWgt
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Middle_SuppliesPond_Info a
+      <dynamic prepend="where">
+      <isParameterPresent>
+        <isNotNull prepend="AND" property="Traingroup" >
+          a.C_TrainGroupGross = '$Traingroup$'
+        </isNotNull>
+        <isNotNull prepend="AND" property="SiteNo" >
+          a.C_GrossWgtSiteNo = '$SiteNo$'
+        </isNotNull>
+        and a.I_DataFlag = 1
+      </isParameterPresent>
+    </dynamic>
+    </select>
+  </statements>
+</sqlMap>

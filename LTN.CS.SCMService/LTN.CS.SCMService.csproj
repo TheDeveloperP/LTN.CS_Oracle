@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0B3AB31-6B8D-4358-BEA4-3D831771DC46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LTN.CS.SCMService</RootNamespace>
+    <AssemblyName>LTN.CS.SCMService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="pSpaceCTL.NET">
+      <HintPath>..\..\..\读皮带秤重量服务\LTN.CS_Oracle\lib\pSpaceCTL.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CS\Implement\SM_WeightList_InfoServiceImpl.cs" />
+    <Compile Include="CS\Implement\SM_GczTare_InfoServiceImpl.cs" />
+    <Compile Include="CS\Interface\ISM_WeightList_InfoService.cs" />
+    <Compile Include="CS\Interface\ISM_GczTare_InfoService.cs" />
+    <Compile Include="IT\Implement\IT_BeltScalePlanServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_BeltStopScalePlanServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_OnlineScaleBillServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_OrbitWeighterBillServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_OrbitWeighterConfirmServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_TrackScaleMaterielPlanServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_TrackScaleIronPlanServiceImpl.cs" />
+    <Compile Include="IT\Implement\IT_TruckMeasurePlanServiceImpl.cs" />
+    <Compile Include="IT\Interface\IIT_BeltStopScalePlanService.cs" />
+    <Compile Include="IT\Interface\IIT_OnlineScaleBillService.cs" />
+    <Compile Include="IT\Interface\IIT_OrbitWeighterBillService.cs" />
+    <Compile Include="IT\Interface\IIT_OrbitWeighterConfirmService.cs" />
+    <Compile Include="IT\Interface\IIT_TrackScaleMaterielPlanService.cs" />
+    <Compile Include="IT\Interface\IIT_TrackScaleIronPlanService.cs" />
+    <Compile Include="IT\Interface\IIT_TruckMeasurePlanService.cs" />
+    <Compile Include="IT\Interface\IIT_BeltScalePlanService.cs" />
+    <Compile Include="PM\Implement\BeltWeightDataServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_BeltHandlerServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_BeltScaleServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_IronServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_OnlineScaleServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_OrbitWeighterServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_SuppliesServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Bill_TruckServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_ImportBillServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Middle_SuppliesPond_InfoServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_MultiUpdate_SuppliesServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_OrbitWeighterConfirmServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Pond_Bill_IronServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Pond_Bill_SuppliesServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Pond_Bill_Supplies_HistoryServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_RawData_MoveTrainServiceImpl.cs" />
+    <Compile Include="PM\Implement\PM_Standard_Tare_InfoServiceImpl.cs" />
+    <Compile Include="PM\Implement\Pond_ComplateTimeServiceImpl.cs" />
+    <Compile Include="PM\Implement\RP_Print_RecordServiceImpl.cs" />
+    <Compile Include="PM\Interface\IBeltWeightDataService.cs" />
+    <Compile Include="PM\Interface\IPM_BeltHandlerService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_BeltScaleService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_IronService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_OnlineScaleService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_OrbitWeighterService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_TruckService.cs" />
+    <Compile Include="PM\Interface\IPM_ImportBillService.cs" />
+    <Compile Include="PM\Interface\IPM_Middle_SuppliesPond_InfoService.cs" />
+    <Compile Include="PM\Interface\IPM_MultiUpdate_SuppliesService.cs" />
+    <Compile Include="PM\Interface\IPM_OrbitWeighterConfirmService.cs" />
+    <Compile Include="PM\Interface\IPM_Pond_Bill_IronService.cs" />
+    <Compile Include="PM\Interface\IPM_Bill_SuppliesService.cs" />
+    <Compile Include="PM\Interface\IPM_Pond_Bill_SuppliesService.cs" />
+    <Compile Include="PM\Interface\IPM_Pond_Bill_Supplies_HistoryService.cs" />
+    <Compile Include="PM\Interface\IPM_RawData_MoveTrainService.cs" />
+    <Compile Include="PM\Interface\IPM_Standard_Tare_InfoService.cs" />
+    <Compile Include="PM\Interface\IPond_ComplateTimeService.cs" />
+    <Compile Include="PM\Interface\IRP_Print_RecordService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PT\Implement\PT_BeltScalePlanServiceImpl.cs" />
+    <Compile Include="PT\Implement\PT_TruckMeasurePlanServiceImpl.cs" />
+    <Compile Include="PT\Interface\IPT_BeltScalePlanService.cs" />
+    <Compile Include="PT\Interface\IPT_TruckMeasurePlanService.cs" />
+    <Compile Include="SM\Implement\SM_BeltNumberServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_BlackListServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_CameraCarNOServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Car_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Container_RateServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Department_LevelOne_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Department_LevelTwo_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_ErrorConfigServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Dvr_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_JZXH_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_LPRCameraServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Materiel_LevelServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_MatWGTLimitServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Meter_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_PoundService_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_PoundSite_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_ReasonForNoAutoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_ReeferContainerNo_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_RFID_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Site_InfoServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_TareWeightHistoryServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_TareWeightServiceImpl.cs" />
+    <Compile Include="SM\Implement\SM_Guid_InfoServiceImpl.cs" />
+    <Compile Include="SM\Interface\ISM_BeltNumberService.cs" />
+    <Compile Include="SM\Interface\ISM_BlackListService.cs" />
+    <Compile Include="SM\Interface\ISM_CameraCarNOService.cs" />
+    <Compile Include="SM\Interface\ISM_Car_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_Container_RateService.cs" />
+    <Compile Include="SM\Interface\ISM_Department_LevelOne_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_Department_LevelTwo_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_ErrorConfigService.cs" />
+    <Compile Include="SM\Interface\ISM_JZXH_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_LPRCameraService.cs" />
+    <Compile Include="SM\Interface\ISM_Materiel_LevelService.cs" />
+    <Compile Include="SM\Interface\ISM_MatWGTLimitService.cs" />
+    <Compile Include="SM\Interface\ISM_PoundService_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_PoundSite_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_Dvr_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_ReasonForNoAutoService.cs" />
+    <Compile Include="SM\Interface\ISM_ReeferContainerNo_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_RFID_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_Site_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_TareWeightHistoryService.cs" />
+    <Compile Include="SM\Interface\ISM_TareWeightService.cs" />
+    <Compile Include="SM\Interface\ISM_Meter_InfoService.cs" />
+    <Compile Include="SM\Interface\ISM_Guid_InfoService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IBatisNet.Common.Logging.Log4Net\IBatisNet.Common.Logging.Log4Net.2005.csproj">
+      <Project>{023FE8D7-7E1A-4DDF-A0EA-8FB0E1B3122B}</Project>
+      <Name>IBatisNet.Common.Logging.Log4Net.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBatisNet.Common\IBatisNet.Common.2005.csproj">
+      <Project>{BBC8DA4A-EA88-41D9-8B93-929B8F3ADADE}</Project>
+      <Name>IBatisNet.Common.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBatisNet.DataMapper\IBatisNet.DataMapper.2005.csproj">
+      <Project>{F3E45F39-3224-4EAD-B138-EB5CC0E32824}</Project>
+      <Name>IBatisNet.DataMapper.2005</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base.BusinessDao\LTN.CS.Base.BusinessDao.csproj">
+      <Project>{8DFC5478-7F65-47A3-AF7C-A552F51469FA}</Project>
+      <Name>LTN.CS.Base.BusinessDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base.ServiceInterface\LTN.CS.Base.ServiceInterface.csproj">
+      <Project>{17F361DB-79D7-46FF-B2CB-87BC8A74AC44}</Project>
+      <Name>LTN.CS.Base.ServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.BaseEntity\LTN.CS.BaseEntities.csproj">
+      <Project>{33B2AC55-6414-463F-9627-688E608F2FDD}</Project>
+      <Name>LTN.CS.BaseEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base\LTN.CS.Base.csproj">
+      <Project>{A5BCB470-E355-489A-AA9F-646D4A119835}</Project>
+      <Name>LTN.CS.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Core\LTN.CS.Core.csproj">
+      <Project>{873D6B8C-2E49-47E7-94B4-0929C5DA0911}</Project>
+      <Name>LTN.CS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Resource\LTN.CS.Resource.csproj">
+      <Project>{FB9F5CC5-AE07-4383-9C91-8A42343DE4DB}</Project>
+      <Name>LTN.CS.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMDao\LTN.CS.SCMDao.csproj">
+      <Project>{4C0AF001-7F6B-4A96-8F60-855500F310C6}</Project>
+      <Name>LTN.CS.SCMDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMEntities\LTN.CS.SCMEntities.csproj">
+      <Project>{81D774AF-7840-45C9-BC78-941EB87D590F}</Project>
+      <Name>LTN.CS.SCMEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

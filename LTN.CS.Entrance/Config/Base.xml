@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+         ">
+  <object id="newLoginForm" type="LTN.CS.Base.NewLoginForm,LTN.CS.Base"  singleton="false"   >
+    <property name="userService" ref="BM_USERService"></property>
+  </object>
+  <object id="mainForm" type="LTN.CS.Base.MainForm,LTN.CS.Base"  singleton="true"  >
+    <property name="pageService" ref="BM_MAINPAGEService"></property>
+    <property name="groupService" ref="BM_MAINGROUPService"></property>
+    <property name="groupServiceService" ref="BM_MAINGROUPSERVICEService"></property>
+    <property name="serverService" ref="BM_SERVERService"></property>
+  </object>
+</objects>

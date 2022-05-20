@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Materiel_Level" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_Materiel_LevelAllResult" class="SM_Materiel_Level">
+      <result property="IntId" column="I_INTID" />
+      <result property="MaterielCode" column="C_MATERIELCODE" />
+      <result property="MaterielName" column="C_MATERIELNAME" />
+      <result property="MaterielSpec" column="C_MATERIELSPEC" />
+      <result property="MaterielModel" column="C_MATERIELMODEL" />
+      <result property="CreateTime" column="C_CREATETIME" />
+      <result property="UpdateTime" column="C_UPDATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Materiel_Level"  parameterClass="SM_Materiel_Level" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_MATERIEL_LEVEL.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Materiel_Level
+      (
+      I_IntId,
+      C_MaterielCode,
+      C_MaterielName,
+      C_MaterielSpec,
+      C_MaterielModel,
+      C_CreateUserName,
+      C_CreateTime,
+      C_UpdateUserName,
+      C_UpdateTime
+      )values
+      (#IntId#,#MaterielCode#,#MaterielName#,#MaterielSpec#,#MaterielModel#,#CreateUserName#,#CreateTime#,#UpdateUserName#,#UpdateTime#)
+    </insert>
+
+    <update id="UpdateSM_Materiel_Level"
+            parameterClass="SM_Materiel_Level">
+      <![CDATA[
+      update SM_Materiel_Level set
+      C_MaterielCode=#MaterielCode#,
+      C_MaterielName=#MaterielName#,
+      C_MaterielSpec=#MaterielSpec#,
+      C_MaterielModel=#MaterielModel#,
+      C_UpdateUserName=#UpdateUserName#,
+      C_UpdateTime=#UpdateTime#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+    
+    <delete id="DeleteSM_Materiel_Level" parameterClass="SM_Materiel_Level">
+      delete from SM_Materiel_Level
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="selectSM_Materiel_LevelAll"  resultMap="SelectSM_Materiel_LevelAllResult">
+      select
+      a.I_IntId
+      ,a.C_MaterielCode
+      ,a.C_MaterielName
+      ,a.C_MaterielSpec
+      ,a.C_MaterielModel
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      from SM_Materiel_Level a
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_Materiel_LevelForCode"  resultMap="SelectSM_Materiel_LevelAllResult">
+      select
+      a.I_IntId
+      ,a.C_MaterielCode
+      ,a.C_MaterielName
+      ,a.C_MaterielSpec
+      ,a.C_MaterielModel
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      from SM_Materiel_Level a
+      where rownum=1
+      order by a.C_MaterielCode desc
+    </select>
+    <select id="selectSM_Materiel_LevelByMaterielName"  resultMap="SelectSM_Materiel_LevelAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_MaterielCode
+      ,a.C_MaterielName
+      ,a.C_MaterielSpec
+      ,a.C_MaterielModel
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      from SM_Materiel_Level a
+      where a.C_MaterielName=#value#
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

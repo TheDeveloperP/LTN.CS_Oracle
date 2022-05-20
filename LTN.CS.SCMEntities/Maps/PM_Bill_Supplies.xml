@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Bill_Supplies" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_Bill_SuppliesAllResult" class="PM_Bill_Supplies">
+      <result property="IntId" column="I_IntId" />
+      <result property="PlanNo" column="C_PlanNo" />
+      <result property="WagNo" column="C_WagNo" />
+      <result property="MaterialNo" column="C_MaterialNo" />
+      <result property="MaterialName" column="C_MaterialName" />
+      <result property="FromDeptNo" column="C_FromDeptNo" />
+      <result property="FromDeptName" column="C_FromDeptName" />
+      <result property="FromStoreNo" column="C_FromStoreNo" />
+      <result property="FromStoreName" column="C_FromStoreName" />
+      <result property="ToDeptNo" column="C_ToDeptNo" />
+      <result property="ToDeptName" column="C_ToDeptName" />
+      <result property="ToStoreNo" column="C_ToStoreNo" />
+      <result property="ToStoreName" column="C_ToStoreName" />
+      <result property="ShipNo" column="C_ShipNo" />
+      <result property="FromStation" column="C_FromStation" />
+      <result property="SerialNo" column="C_SerialNo" />
+      <result property="DeliveryNo" column="C_DeliveryNo" />
+      <result property="ContractNo" column="C_ContractNo" />
+      <result property="ProjectNo" column="C_ProjectNo" />
+      <result property="WayBillNo" column="C_WayBillNo" />
+      <result property="MarshallingNo" column="C_MarshallingNo" />
+      <result property="BusinessType.IntValue" column="I_BusinessType" />
+      <result property="WeightType.IntValue" column="I_WeightType" />
+      <result property="TareType.IntValue" column="I_TareType" />
+      <result property="MoveStillType.IntValue" column="I_MoveStillType" />
+      <result property="BillStatus.IntValue" column="I_BillStatus" />
+      <result property="PlanLimitTime" column="D_PlanLimitTime" />
+      <result property="PondLimit" column="C_PondLimit" />
+      <result property="Remark" column="C_Remark" />
+      <result property="CReserve1" column="C_Reserve1" />
+      <result property="CReserve2" column="C_Reserve2" />
+      <result property="CReserve3" column="C_Reserve3" />
+      <result property="IReserve1" column="I_Reserve1" />
+      <result property="IReserve2" column="I_Reserve2" />
+      <result property="IReserve3" column="I_Reserve3" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser" column="C_CREATEUSER" />
+      <result property="UpdateUser" column="C_UPDATEUSER" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertPM_Bill_Supplies"  parameterClass="PM_Bill_Supplies" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_Bill_Supplies_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_Bill_Supplies
+      (
+      I_IntId
+      ,C_PlanNo
+      ,C_WagNo
+      ,C_MaterialNo
+      ,C_MaterialName
+      ,C_FromDeptNo
+      ,C_FromDeptName
+      ,C_FromStoreNo
+      ,C_FromStoreName
+      ,C_ToDeptNo
+      ,C_ToDeptName
+      ,C_ToStoreNo
+      ,C_ToStoreName
+      ,C_ShipNo
+      ,C_FromStation
+      ,C_SerialNo
+      ,C_DeliveryNo
+      ,C_ContractNo
+      ,C_ProjectNo
+      ,C_WayBillNo
+      ,C_MarshallingNo
+      ,I_BusinessType
+      ,I_WeightType
+      ,I_TareType
+      ,I_MoveStillType
+      ,I_BillStatus
+      ,D_PlanLimitTime
+      ,C_PondLimit
+      ,C_Remark
+      ,C_Reserve1
+      ,C_Reserve2
+      ,C_Reserve3
+      ,I_Reserve1
+      ,I_Reserve2
+      ,I_Reserve3
+      ,C_CreateUser
+      ,D_CreateTime
+      ,C_UpdateUser
+      ,D_UpdateTime
+      )values
+      (#IntId#,GETPLANNO('ACJL','C_PlanNo','PM_Bill_Supplies'),#WagNo#,#MaterialNo#,#MaterialName#,#FromDeptNo#,#FromDeptName#,#FromStoreNo#,#FromStoreName#,
+      #ToDeptNo#,#ToDeptName#,#ToStoreNo#,#ToStoreName#,#ShipNo#,#FromStation#,#SerialNo#,#DeliveryNo#,#ContractNo#,#ProjectNo#,#WayBillNo#,#MarshallingNo#,
+      #BusinessType.IntValue#,#WeightType.IntValue#,#TareType.IntValue#,#MoveStillType.IntValue#,#BillStatus.IntValue#,#PlanLimitTime#,#PondLimit#,#Remark#,
+      #CReserve1#,#CReserve2#,#CReserve3#,#IReserve1#,#IReserve2#,#IReserve3#,#CreateUser#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUser#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+
+    <update id="UpdatePM_Bill_Supplies"
+            parameterClass="PM_Bill_Supplies">
+      <![CDATA[
+      update PM_Bill_Supplies set
+       C_PlanNo=#PlanNo#
+      ,C_WagNo=#WagNo#
+      ,C_MaterialNo=#MaterialNo#
+      ,C_MaterialName=#MaterialName#
+      ,C_FromDeptNo=#FromDeptNo#
+      ,C_FromDeptName=#FromDeptName#
+      ,C_FromStoreNo=#FromStoreNo#
+      ,C_FromStoreName=#FromStoreName#
+      ,C_ToDeptNo=#ToDeptNo#
+      ,C_ToDeptName=#ToDeptName#
+      ,C_ToStoreNo=#ToStoreNo#
+      ,C_ToStoreName=#ToStoreName#
+      ,C_ShipNo=#ShipNo#
+      ,C_FromStation=#FromStation#
+      ,C_SerialNo=#SerialNo#
+      ,C_DeliveryNo=#DeliveryNo#
+      ,C_ContractNo=#ContractNo#
+      ,C_ProjectNo=#ProjectNo#
+      ,C_WayBillNo=#WayBillNo#
+      ,C_MarshallingNo=#MarshallingNo#
+      ,I_BusinessType=#BusinessType.IntValue#
+      ,I_WeightType=#WeightType.IntValue#
+      ,I_TareType=#TareType.IntValue#
+      ,I_MoveStillType=#MoveStillType.IntValue#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,D_PlanLimitTime=#PlanLimitTime#
+      ,C_PondLimit=#PondLimit#
+      ,C_Remark=#Remark#
+      ,C_Reserve1=#CReserve1#
+      ,C_Reserve2=#CReserve2#
+      ,C_Reserve3=#CReserve3#
+      ,I_Reserve1=#IReserve1#
+      ,I_Reserve2=#IReserve2#
+      ,I_Reserve3=#IReserve3#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <update id="UpdatePM_Bill_SuppliesStatus"
+               parameterClass="PM_Bill_Supplies">
+      update PM_Bill_Supplies set
+      I_BillStatus=#BillStatus.IntValue#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+    </update>
+
+    <delete id="DeletePM_Bill_Supplies" parameterClass="PM_Bill_Supplies">
+      delete from PM_Bill_Supplies
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="selectPM_Bill_SuppliesAll"  resultMap="SelectPM_Bill_SuppliesAllResult">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a      
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_SuppliesByPlan"  resultMap="SelectPM_Bill_SuppliesAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a
+      where a.C_PlanNo = #Value#
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_SuppliesByCarNo"  resultMap="SelectPM_Bill_SuppliesAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a
+      where a.C_WagNo in ($TankNo$) and a.I_BillStatus=0
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_SuppliesByWgtNo"  resultMap="SelectPM_Bill_SuppliesAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a
+      where a.C_WagNo =#WagNo# and a.I_BillStatus!=2  and   a.I_BillStatus!=3
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectPM_Bill_SuppliesByCond"  resultMap="SelectPM_Bill_SuppliesAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a
+      where  a.D_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        a.C_PlanNo=#PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="WagNo">
+        a.C_WagNo=#WagNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="BillStatus">
+        a.I_BillStatus=#BillStatus#
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_SuppliesByStatic"  resultMap="SelectPM_Bill_SuppliesAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a
+      where  a.D_CREATETIME between #StartTime# and #EndTime#
+      and a.I_MoveStillType !=1 and (a.I_BillStatus = 0 or a.I_BillStatus = 1)
+      order by a.I_IntId desc
+    </select>
+  <!--新增-->
+  <select id="selectPM_Bill_SuppliesUseable"  resultMap="SelectPM_Bill_SuppliesAllResult">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.I_BillStatus
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Supplies a         
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

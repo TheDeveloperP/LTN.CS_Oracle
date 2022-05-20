@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_BeltScalePlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+   <resultMaps>
+    <resultMap id="SelectIT_BeltScalePlanResultMap" class="IT_BeltScalePlan">
+      <result property="c_planstatus"	 column="C_PLANSTATUS"/>
+      <result property="c_planno"	 column="C_PLANNO"/>
+      <result property="c_materialno"	 column="C_MATERIALNO"/>
+      <result property="c_materialname"	 column="C_MATERIALNAME"/>
+      <result property="c_fromdeptno"	 column="C_FROMDEPTNO"/>
+      <result property="c_fromdeptname"	 column="C_FROMDEPTNAME"/>
+      <result property="c_fromstoreno"	 column="C_FROMSTORENO"/>
+      <result property="c_fromstorename"	 column="C_FROMSTORENAME"/>
+      <result property="c_todeptno"	 column="C_TODEPTNO"/>
+      <result property="c_todeptname"	 column="C_TODEPTNAME"/>
+      <result property="c_tostoreno"	 column="C_TOSTORENO"/>
+      <result property="c_tostorename"	 column="C_TOSTORENAME"/>
+      <result property="c_shipno"	 column="C_SHIPNO"/>
+      <result property="c_contractno"	 column="C_CONTRACTNO"/>
+      <result property="c_createtime"	 column="C_CREATETIME"/>
+      <result property="c_createname"	 column="C_CREATENAME"/>
+      <result property="c_remark"	 column="C_REMARK"/>
+      <result property="c_reserve1"	 column="C_RESERVE1"/>
+      <result property="c_reserve2"	 column="C_RESERVE2"/>
+      <result property="c_reserve3"	 column="C_RESERVE3"/>
+      <result property="i_reserve1"	 column="I_RESERVE1"/>
+      <result property="i_reserve2"	 column="I_RESERVE2"/>
+      <result property="i_reserve3"	 column="I_RESERVE3"/>
+      <result property="c_uploadstatus"	 column="C_UPLOADSTATUS"/>
+      <result property="c_beltno"	 column="C_BELTNO"/>
+      <result property="c_beltname"	 column="C_BELTNAME"/>
+      <result property="c_starttime"	 column="C_STARTTIME"/>
+      <result property="c_voyageno"	 column="C_VOYAGENO"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+   <select id="SelectIT_BeltScalePlanByCondition" resultMap="SelectIT_BeltScalePlanResultMap" parameterClass="Hashtable">
+     select
+      C_PLANSTATUS,
+      C_PLANNO,
+      C_MATERIALNO,
+      C_MATERIALNAME,
+      C_FROMDEPTNO,
+      C_FROMDEPTNAME,
+      C_FROMSTORENO,
+      C_FROMSTORENAME,
+      C_TODEPTNO,
+      C_TODEPTNAME,
+      C_TOSTORENO,
+      C_TOSTORENAME,
+      C_SHIPNO,
+      C_CONTRACTNO,
+      C_CREATETIME,
+      C_CREATENAME,
+      C_REMARK,
+      C_RESERVE1,
+      C_RESERVE2,
+      C_RESERVE3,
+      I_RESERVE1,
+      I_RESERVE2,
+      I_RESERVE3,
+      C_UPLOADSTATUS,
+      C_BELTNO,
+      C_BELTNAME,
+      C_STARTTIME,
+      C_VOYAGENO
+      from  IT_BELTSCALEPLAN
+      where C_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        C_PLANNO=#PlanNo#
+      </isNotEmpty>
+      order by C_CREATETIME desc
+   </select>
+  
+  </statements>
+</sqlMap>

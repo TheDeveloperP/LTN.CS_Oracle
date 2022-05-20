@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="RP_Materiel_PrintRecord" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectRP_Print_Record_InfoAllResult" class="RP_Materiel_PrintRecord">
+      <result property="IntId" column="I_IntId" />
+      <result property="WgtlistNo" column="C_WgtlistNo" />
+      <result property="PlanNo" column="C_PlanNo" />
+      <result property="MaterialName" column="C_MaterialName" />
+      <result property="Printer" column="C_Printer" />
+      <result property="PrintTime" column="D_PrintTime" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertRP_Print_Record_Info"  parameterClass="RP_Materiel_PrintRecord" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_RP_Print_Record_Info.nextval as IntId from dual
+      </selectKey>
+      insert into RP_PRINTR_RECORD_INFO
+      (
+      I_INTID
+      ,C_WGTLISTNO
+      ,C_PLANNO
+      ,C_MATERIALNAME
+      ,C_PRINTER
+      ,D_PRINTTIME
+      ,C_WAGNO
+      )values
+      (#IntId#,#WgtlistNo#,#PlanNo#,#MaterialName#,#Printer#,#PrintTime#,#WagNo#
+      )
+    </insert>
+
+    <select id="QueryByPrintInfo" resultMap="SelectRP_Print_Record_InfoAllResult"   parameterClass="HashTable">
+      select
+      I_INTID
+      ,C_WGTLISTNO
+      ,C_PLANNO
+      ,C_MATERIALNAME
+      ,C_PRINTER
+      ,D_PRINTTIME
+      ,C_WAGNO
+      from RP_PRINTR_RECORD_INFO a
+      where 1=1
+      <isNotEmpty prepend="AND" property="WgtNo">
+        a.C_WGTLISTNO=#WgtNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="WagNo">
+        a.C_WAGNO=#WagNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          a.D_PRINTTIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by D_PRINTTIME desc
+    </select>
+  </statements>
+</sqlMap>

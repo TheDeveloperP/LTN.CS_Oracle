@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_ReeferContainerNo_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QuerySM_ReeferContainerNo_InfoResultMap" class="SM_ReeferContainerNo_Info">
+      <result property=	"T_ID"	column="T_ID" />
+      <result property="T_PONDID" column="T_PONDID"/>
+      <result property="T_CARNAME1" column="T_CARNAME1"/>
+      <result property="T_CARNAME2" column="T_CARNAME2"/>
+      <result property="T_JZXH_PLAN" column="T_JZXH_PLAN"/>
+      <result property="T_JZXH" column="T_JZXH"/>
+      <result property="T_DISTINGUISH_RESULT" column="T_DISTINGUISH_RESULT"/>
+      <result property="T_DISTINGUISH_TIME" column="T_DISTINGUISH_TIME"/>
+      <result property="T_JZXH_PICADDRESS1" column="T_JZXH_PICADDRESS1"/>
+      <result property="T_JZXH_PICADDRESS2" column="T_JZXH_PICADDRESS2"/>
+      <result property="T_RESERVE1" column="T_RESERVE1"/>
+      <result property="T_RESERVE2" column="T_RESERVE2"/>
+      <result property="T_RESERVE3" column="T_RESERVE3"/>
+      <result property="T_RESERVE4" column="T_RESERVE4"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="QuerySM_ReeferContainerNo_Info_RateAll" resultMap="QuerySM_ReeferContainerNo_InfoResultMap">
+      select
+      t.T_ID,
+      t.T_PONDID,
+      t.T_CARNAME1,
+      t.T_CARNAME2,
+      t.T_JZXH_PLAN,
+      t.T_JZXH,
+      t.T_DISTINGUISH_RESULT,
+      t.T_DISTINGUISH_TIME,
+      t.T_JZXH_PICADDRESS1,
+      t.T_JZXH_PICADDRESS2,
+      t.T_RESERVE1,
+      t.T_RESERVE2,
+      t.T_RESERVE3,
+      t.T_RESERVE4
+      from SM_REEFERCONTAINERNO_INFO t
+      order by t.T_DISTINGUISH_TIME desc
+    </select>
+    <select id="QuerySM_ReeferContainer_RateNoInfoByCondition" resultMap="QuerySM_ReeferContainerNo_InfoResultMap" parameterClass="Hashtable">
+      select
+      t.T_ID,
+      t.T_PONDID,
+      t.T_CARNAME1,
+      t.T_CARNAME2,
+      t.T_JZXH_PLAN,
+      t.T_JZXH,
+      t.T_DISTINGUISH_RESULT,
+      t.T_DISTINGUISH_TIME,
+      t.T_JZXH_PICADDRESS1,
+      t.T_JZXH_PICADDRESS2,
+      t.T_RESERVE1,
+      t.T_RESERVE2,
+      t.T_RESERVE3,
+      t.T_RESERVE4
+      from SM_REEFERCONTAINERNO_INFO t
+      where 1=1
+      <isNotEmpty prepend="and" property="pondId">
+        t.T_PONDID=#pondId#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="containerNo">
+        t.T_JZXH=#containerNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="startTime">
+        t.T_DISTINGUISH_TIME between #startTime# and #endTime#
+      </isNotEmpty>
+      order by t.T_DISTINGUISH_TIME desc
+    </select>
+    <select id="QueryReeferContainerNoInfoAll" parameterClass="Hashtable">
+      select
+      coalesce(A.磅房,B.磅房) PONDNO,
+      (coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0)) TOTALNUM,
+      coalesce(A.SuccessCount,0) as DISTINGUISHSECUSESS,
+      coalesce(B.FailCount,0) as DISTINGUISHFAIL,
+      coalesce(round(A.SuccessCount/(coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0))*100,2),0)||'%' DISTINGUISHRATE
+      from
+      (select
+      count(t.T_DISTINGUISH_RESULT) as SuccessCount,
+      t.T_PONDID 磅房编号,
+      p.c_poundsitename 磅房
+      from SM_REEFERCONTAINERNO_INFO t
+      left join SM_PoundSite_Info p on t.T_PONDID=p.C_PoundSiteNo
+      where t.T_DISTINGUISH_RESULT='Y'
+      <isNotEmpty prepend="and" property="pondId">
+        t.T_PONDID=#pondId#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="containerNo">
+        t.T_JZXH=#containerNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="startTime">
+        t.T_DISTINGUISH_TIME between #startTime# and #endTime#
+      </isNotEmpty>
+      group by t.T_PONDID,p.c_poundsitename
+      order by t.T_PONDID
+      ) A
+      full join
+      (
+      select
+      count(t.T_DISTINGUISH_RESULT) as FailCount,
+      t.T_PONDID 磅房编号,
+      p.c_poundsitename 磅房
+      from SM_REEFERCONTAINERNO_INFO t
+      left join SM_PoundSite_Info p on t.T_PONDID=p.C_PoundSiteNo
+      where t.T_DISTINGUISH_RESULT='N'
+      <isNotEmpty prepend="and" property="pondId">
+        t.T_PONDID=#pondId#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="containerNo">
+        t.T_JZXH=#containerNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="startTime">
+        t.T_DISTINGUISH_TIME between #startTime# and #endTime#
+      </isNotEmpty>
+      group by t.T_PONDID,p.c_poundsitename
+      order by t.T_PONDID
+      ) B
+      on A.磅房编号=B.磅房编号
+    </select>
+    <!--插入识别率数据-->
+    <insert id="InsertSM_ReeferContainerNoInfo_Rate"  parameterClass="SM_ReeferContainerNo_Info">
+      insert into SM_REEFERCONTAINERNO_INFO
+      (
+      T_PONDID,
+      T_CARNAME1,
+      T_CARNAME2,
+      T_JZXH_PLAN,
+      T_JZXH,
+      T_DISTINGUISH_RESULT,
+      T_DISTINGUISH_TIME,
+      T_JZXH_PICADDRESS1,
+      T_JZXH_PICADDRESS2,
+      T_RESERVE1,
+      T_RESERVE2,
+      T_RESERVE3,
+      T_RESERVE4
+      )values
+      (     
+      #T_PONDID#,
+      #T_CARNAME1#,
+      #T_CARNAME2#,
+      #T_JZXH_PLAN#,
+      #T_JZXH#,
+      #T_DISTINGUISH_RESULT#,
+      #T_DISTINGUISH_TIME#,
+      #T_JZXH_PICADDRESS1#,
+      #T_JZXH_PICADDRESS2#,
+      #T_RESERVE1#,
+      #T_RESERVE2#,
+      #T_RESERVE3#,
+      #T_RESERVE4#
+      )
+    </insert>
+
+  </statements>
+
+</sqlMap>

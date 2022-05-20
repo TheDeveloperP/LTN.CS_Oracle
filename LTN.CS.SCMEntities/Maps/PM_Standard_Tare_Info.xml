@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Standard_Tare_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_Standard_Tare_InfoAllResult" class="PM_Standard_Tare_Info">
+      <result property="IntId" column="I_IntId" />
+      <result property="WagNo" column="C_WagNo" />
+      <result property="TareWgt" column="N_TareWgt" />
+      <result property="ImgURL" column="C_ImgURL" />
+      <result property="PondNo" column="C_PondNo" />
+      <result property="TareTime" column="C_TareTime" />
+      <result property="IsWeighing" column="I_IsWeighing" />
+      <result property="IsUse" column="I_IsUse" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser" column="C_CREATEUSER" />
+      <result property="UpdateUser" column="C_UPDATEUSER" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertPM_Standard_Tare_Info"  parameterClass="PM_Standard_Tare_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_Standard_Tare_Info_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_Standard_Tare_Info
+      (
+      I_IntId,
+      C_WagNo,
+      N_TareWgt,
+      C_ImgURL,
+      C_PondNo,
+      C_TareTime,
+      I_IsWeighing,
+      I_IsUse,
+      C_CreateUser,
+      D_CreateTime,
+      C_UpdateUser,
+      D_UpdateTime
+      )values
+      (#IntId#,#WagNo#,#TareWgt#,#ImgURL#,#PondNo#,#TareTime#,#IsWeighing#,#IsUse#,#CreateUser#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUser#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+    <update id="UpdatePM_Standard_Tare_Info"
+           parameterClass="PM_Standard_Tare_Info">
+      <![CDATA[
+      update PM_Standard_Tare_Info set
+      C_WagNo=#WagNo#
+      ,N_TareWgt=#TareWgt#
+      ,C_UpdateUser=#UpdateUser#
+      ,I_IsUse=#IsUse#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+    <select id="selectPM_Standard_Tare_InfoByCar"  resultMap="SelectPM_Standard_Tare_InfoAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_WagNo
+      ,a.N_TareWgt
+      ,a.C_ImgURL
+      ,a.C_PondNo
+      ,a.C_TareTime
+      ,a.I_IsWeighing
+      ,a.I_IsUse
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Standard_Tare_Info a
+      where  a.C_WagNo = #value#
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+         ">
+  <object id="BaseSqlMapDaoFactoryForDBOne" type="LTN.CS.Core.Common.BaseSqlMapDaoFactory,LTN.CS.Core" singleton="true" >
+    <constructor-arg  name="key"  value="sqlMapPathKey_DBOne"></constructor-arg>
+    <constructor-arg  name="maxConn"  value="3"></constructor-arg>
+    <constructor-arg  name="initConn"  value="2"></constructor-arg>
+  </object>
+
+  <object id="BaseSqlMapDaoFactoryForSCM" type="LTN.CS.Core.Common.BaseSqlMapDaoFactory,LTN.CS.Core" singleton="true" >
+    <constructor-arg  name="key"  value="sqlMapPathKey_SCM"></constructor-arg>
+    <constructor-arg  name="maxConn"  value="3"></constructor-arg>
+    <constructor-arg  name="initConn"  value="2"></constructor-arg>
+  </object>
+  <object id="BaseSqlMapDaoFactoryForORA" type="LTN.CS.Core.Common.BaseSqlMapDaoFactory,LTN.CS.Core" singleton="true" >
+    <constructor-arg  name="key"  value="sqlMapPathKey_ORA"></constructor-arg>
+    <constructor-arg  name="maxConn"  value="4"></constructor-arg>
+    <constructor-arg  name="initConn"  value="3"></constructor-arg>
+  </object>
+  <object id="BaseSqlMapDaoFactoryForMAC" type="LTN.CS.Core.Common.BaseSqlMapDaoFactory,LTN.CS.Core" singleton="true" >
+    <constructor-arg  name="key"  value="sqlMapPathKey_MAC"></constructor-arg>
+    <constructor-arg  name="maxConn"  value="3"></constructor-arg>
+    <constructor-arg  name="initConn"  value="2"></constructor-arg>
+  </object>
+  <object id="BeforeAdvice" type="Spring.Aop.Support.NameMatchMethodPointcutAdvisor, Spring.Aop">
+      <property name="Advice">
+        <object type="LTN.CS.Core.Aspects.SqlMapDaoBeforeAdvice, LTN.CS.Core"/>
+      </property>
+      <property name="MappedNames">
+        <list>
+          <value>ExecuteDB_*</value>
+        </list>
+      </property>
+    </object>
+  <object id="AfterAdvice" type="Spring.Aop.Support.NameMatchMethodPointcutAdvisor, Spring.Aop">
+    <property name="Advice">
+      <object type="LTN.CS.Core.Aspects.SqlMapDaoAfterAdvice, LTN.CS.Core"/>
+    </property>
+    <property name="MappedNames">
+      <list>
+        <value>ExecuteDB_*</value>
+      </list>
+    </property>
+  </object>
+  <!-- Using ObjectNameAutoProxyCreator -->
+  <!-- Apply 'aroundAdvisor' on all objects with id that ends by 'Command' -->
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ObjectNames">
+      <list>
+        <value>*Service</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>BeforeAdvice</value>
+        <value>AfterAdvice</value>
+      </list>
+    </property>
+  </object>
+</objects>

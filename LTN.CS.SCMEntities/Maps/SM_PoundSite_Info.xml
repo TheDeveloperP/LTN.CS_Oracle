@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_PoundSite_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_PoundSite_InfoAllResult" class="SM_PoundSite_Info">
+      <result property="IntId"                      column="I_INTID" />
+      <result property="PoundSiteNo"                 column="C_PoundSiteNo" />
+      <result property="PoundSiteName"               column="C_PoundSiteName" />
+      <result property="PoundSiteNickName"           column="C_PoundSiteNickName" />
+      <result property="PoundType.IntValue"          column="I_PoundSiteType" />
+      <result property="PoundSiteIP"                 column="C_PoundSiteIP" />
+      <result property="PoundSiteAddress"            column="C_PoundSiteAddress" />
+      <result property="PoundSiteStatus.IntValue"    column="I_PoundSiteStatus" />
+      <result property="Range"                      column="N_Range" />
+      <result property="Accuracy"                   column="N_Accuracy" />
+      <result property="IsRedOpen.EntityValue"    column="C_REDOPEN" />
+      <!--<result property="IsSettle.EntityValue"       column="I_IsSettle" />-->
+      <!--<result property="DVRIP"                      column="C_DVRIP" />-->
+      <result property="createUser"                 column="C_CREATEUSER" />
+      <result property="updateUser"                 column="C_UPDATEUSER" />
+      <result property="createTime"                 column="C_CREATETIME" />
+      <result property="updateTime"                 column="C_UPDATETIME" />
+      <!-- <result property="DataType.IntValue"          column="I_IsCancle" />
+      <result property="DVRIP.DvrIP2"           column="C_DVRIP2" />
+      <result property="DVRIP.DvrIP1"               column="C_DVRIP" />
+      <result property="DVRIP.IntId"                column="I_DVRId" />-->
+    </resultMap>
+
+    <resultMap id="SelectDM_PoundSite_InfoAllResult" class="SM_PondSite_Info2">
+      <result property="IntId"                      column="I_INTID" />
+      <result property="PondSiteNo"                 column="C_PoundSiteNo" />
+      <result property="PondSiteNickName"               column="C_PoundSiteNickName" />
+      <result property="PondSiteName"           column="C_PoundSiteName" />
+      <result property="PondSiteType.IntValue"          column="I_PoundSiteType" />
+      <result property="PondSiteIP"                 column="C_PoundSiteIP" />
+      <result property="PondSiteAddress"            column="C_PoundSiteAddress" />
+      <result property="PondSiteStatus.IntValue"            column="I_PoundSiteStatus" />
+    </resultMap>
+  
+  <resultMap id="SelectSM_PoundSite_InfoAllResult02" class="SM_PoundSite_Info">
+      <result property="IntId"                      column="I_INTID" />
+      <result property="PoundSiteNo"                 column="C_PoundSiteNo" />
+      <result property="PoundSiteName"               column="C_PoundSiteName" />
+      <result property="PoundSiteNickName"           column="C_PoundSiteNickName" />
+      <result property="PoundType.IntValue"          column="I_PoundSiteType" />
+      <result property="PoundSiteIP"                 column="C_PoundSiteIP" />
+      <result property="PoundSiteAddress"            column="C_PoundSiteAddress" />
+      <result property="PoundSiteStatus.IntValue"    column="I_PoundSiteStatus" />
+      <result property="IsSettle.EntityValue"       column="I_IsSettle" />     
+      <result property="Accuracy"                   column="N_Accuracy" />
+      <result property="Range"                      column="N_Range" />
+      <result property="IsRedOpen.EntityValue"    column="C_REDOPEN" />      
+      <result property="DVRIP"                      column="C_DVRIP" />     
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_PoundSite_Info"  parameterClass="SM_PoundSite_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_POUNDSITE_INFO.nextval as IntId from dual
+      </selectKey>
+      insert into SM_PoundSite_Info
+      (
+      I_INTID,
+      C_PoundSiteNo,
+      C_PoundSiteNickName,
+      I_PoundSiteType,
+      C_PoundSiteName,
+      C_PoundSiteIP,
+      C_PoundSiteAddress,
+      I_PoundSiteStatus,
+      N_Range,
+      N_Accuracy,
+      C_REDOPEN,
+
+      C_DVRIP,
+      C_CREATEUSER,
+      C_CREATETIME
+      )values
+      (
+      #IntId#,
+      #PoundSiteNo#,
+      #PoundSiteNickName#,
+      #PoundType.IntValue#,
+      #PoundSiteName#,
+      #PoundSiteIP#,
+      #PoundSiteAddress#,
+      #PoundSiteStatus.IntValue#,
+      #Range#,
+      #Accuracy#,
+      #IsRedOpen.EntityValue#,
+      #DVRIP#,
+      #createUser#,
+      to_char(sysdate,'yyyyMMddhh24miss')
+
+      )
+    </insert>
+
+    <update id="UpdateSM_PoundSite_Info"   parameterClass="SM_PoundSite_Info">
+      <![CDATA[
+      update SM_PoundSite_Info set                  
+       C_PoundSiteNo              =     #PoundSiteNo#,
+       C_PoundSiteNickName        =     #PoundSiteNickName#,
+       I_PoundSiteType            =     #PoundType.IntValue#,
+       C_PoundSiteName            =     #PoundSiteName#,
+       C_PoundSiteIP              =     #PoundSiteIP#,
+       C_PoundSiteAddress         =     #PoundSiteAddress#,
+       I_PoundSiteStatus          =     #PoundSiteStatus.IntValue#,
+       
+       N_Range                   =     #Range#,    
+       N_Accuracy                =     #Accuracy#, 
+       C_REDOPEN= #IsRedOpen.EntityValue#,
+       C_UPDATEUSER              =     #updateUser#,
+       C_UPDATETIME              =     to_char(sysdate,'yyyyMMddhh24miss') 
+        where
+      I_IntId = #IntId#
+      ]]>
+    </update>
+
+
+    <delete id="DeleteSM_PoundSite_Info" parameterClass="SM_PoundSite_Info">
+      delete from SM_PoundSite_Info   where I_INTID = #IntId#
+    </delete>
+
+
+    <select id="selectSM_PoundSite_InfoAll"  resultMap="SelectSM_PoundSite_InfoAllResult">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.C_PoundSiteAddress,
+      a.I_PoundSiteStatus,
+      a.N_Range,
+      a.N_Accuracy,
+      a.C_REDOPEN,
+      <!--a.I_IsSettle,
+      a.C_DVRIP,-->
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_PoundSite_Info a
+      order by a.C_CREATETIME desc
+    </select>
+
+    <select id="selectSM_PoundSite_InfoByPoundSiteNo"  resultMap="SelectSM_PoundSite_InfoAllResult" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.C_PoundSiteAddress,
+      a.I_PoundSiteStatus,
+      a.N_Range,
+      a.N_Accuracy,
+      a.C_REDOPEN,
+      <!--a.I_IsSettle,
+      a.C_DVRIP,-->
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_PoundSite_Info a
+      where a.C_PoundSiteNo=#value#
+      order by a.C_CREATETIME desc
+    </select>
+
+    <select id="selectSM_PoundSite_InfoBySiteIp"  resultMap="SelectSM_PoundSite_InfoAllResult" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.C_PoundSiteAddress,
+      a.I_PoundSiteStatus,
+      a.N_Range,
+      a.N_Accuracy,
+      a.C_REDOPEN,
+      <!--a.I_IsSettle,
+      a.C_DVRIP,-->
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_PoundSite_Info a
+      where a.C_PoundSiteIP=#value#
+      order by a.C_CREATETIME desc
+
+    </select>
+
+    <select id="selectSM_PoundSite_InfoByPondType"  resultMap="SelectSM_PoundSite_InfoAllResult" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.C_PoundSiteAddress,
+      a.I_PoundSiteStatus,
+      a.N_Range,
+      a.N_Accuracy,
+      a.C_REDOPEN,
+      <!--a.I_IsSettle,
+      a.C_DVRIP,-->
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_PoundSite_Info a
+      where  a.I_PoundSiteType=#value#
+      order by a.C_CREATETIME desc
+    </select>
+
+    <select id="SelectPondSiteByIntId" resultMap="SelectDM_PoundSite_InfoAllResult" resultClass="SM_PondSite_Info2" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.I_PoundSiteStatus,
+      a.C_PoundSiteAddress
+      from SM_PoundSite_Info a  where a.I_INTID=#value#
+    </select>
+
+    <select id="SelectPondSiteBypondip" resultMap="SelectDM_PoundSite_InfoAllResult"  parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.I_PoundSiteStatus,
+      a.C_PoundSiteAddress
+      from SM_PoundSite_Info a  where a.C_PoundSiteIP=#value#
+    </select>
+
+    <select id="selectDM_PondSite_Info_WCFAll" resultMap="SelectDM_PoundSite_InfoAllResult">
+      select
+      a.I_INTID,
+      a.C_PoundSiteNo,
+      a.C_PoundSiteNickName,
+      a.I_PoundSiteType,
+      a.C_PoundSiteName,
+      a.C_PoundSiteIP,
+      a.I_PoundSiteStatus,
+      a.C_PoundSiteAddress
+      from SM_PoundSite_Info a
+    </select>
+
+    <select id="selectSM_PoundSite_InfoGuangShouQ" resultMap="SelectSM_PoundSite_InfoAllResult02" >
+      select
+      a.I_INTID,
+      a.C_POUNDSITENO,
+      a.C_POUNDSITENAME,
+      a.C_POUNDSITENICKNAME,
+      a.I_POUNDSITETYPE,
+      a.C_POUNDSITEIP,
+      a.C_POUNDSITEADDRESS,
+      a.I_POUNDSITESTATUS,
+      a.I_ISSETTLE,
+      a.N_ACCURACY,
+      a.N_RANGE,
+      a.C_DVRIP,     
+      a.C_REDOPEN
+      from sm_poundsite_info a where a.I_POUNDSITETYPE='1'  and C_REDOPEN='1'
+    </select>
+
+   <select id="selectSM_PoundSite_InfoGuangUnShouQ" resultMap="SelectSM_PoundSite_InfoAllResult02" >
+      select
+      a.I_INTID,
+      a.C_POUNDSITENO,
+      a.C_POUNDSITENAME,
+      a.C_POUNDSITENICKNAME,
+      a.I_POUNDSITETYPE,
+      a.C_POUNDSITEIP,
+      a.C_POUNDSITEADDRESS,
+      a.I_POUNDSITESTATUS,
+      a.I_ISSETTLE,
+      a.N_ACCURACY,
+      a.N_RANGE,
+      a.C_DVRIP,
+      a.C_REDOPEN
+      from sm_poundsite_info a where a.I_POUNDSITETYPE='1'  and C_REDOPEN='0'
+    </select>
+  </statements>
+</sqlMap>

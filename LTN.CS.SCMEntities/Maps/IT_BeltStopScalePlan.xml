@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_BeltStopScalePlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectIT_BeltStopScalePlanResultMap" class="IT_BeltStopScalePlan">
+      <result property="c_planstatus"	 column="C_PLANSTATUS"/>
+      <result property="c_planno"	 column="C_PLANNO"/>
+      <result property="c_starttime"	 column="C_STARTTIME"/>
+      <result property="c_createtime"	 column="C_CREATETIME"/>
+      <result property="c_createname"	 column="C_CREATENAME"/>
+      <result property="c_remark"	 column="C_REMARK"/>
+      <result property="c_uploadstatus"	 column="C_UPLOADSTATUS"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="SelectIT_BeltStopScalePlanByCondition" resultMap="SelectIT_BeltStopScalePlanResultMap" parameterClass="Hashtable">
+      select
+      C_PLANSTATUS,
+      C_PLANNO,
+      C_STARTTIME,
+      C_CREATETIME,
+      C_CREATENAME,
+      C_REMARK,
+      C_UPLOADSTATUS
+      from  IT_BELTSTOPSCALEPLAN
+      where C_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        C_PLANNO=#PlanNo#
+      </isNotEmpty>
+      order by C_CREATETIME desc
+    </select>
+
+  </statements>
+</sqlMap>

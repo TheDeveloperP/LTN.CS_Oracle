@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CS_Student" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectStudentAllResult" class="CS_Student">
+      <result property="IntId" column="I_INTID" />
+      <result property="studentNo" column="C_studentNo" />
+      <result property="studentName" column="C_studentName" />
+      <result property="studentAge" column="C_studentAge" />
+      <result property="studentSex" column="C_studentSex" />
+      <result property="studentAddress" column="C_studentAddress" />
+      <result property="studentTelphone" column="C_studentTelphone" />
+      <result property="createName" column="C_createName" />
+      <result property="createTime" column="D_createTime" />
+      <result property="updateName" column="C_updateName" />
+      <result property="updateTime" column="C_updateTime" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertCS_Student"  parameterClass="CS_Student" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_CS_STUDENT_ID.nextval as I_INTID from dual
+      </selectKey>
+      insert into CS_Student
+      (
+      I_INTID,
+      C_studentNo,
+      C_studentName,
+      C_studentAge,
+      C_studentSex,
+      C_studentAddress,
+      C_studentTelphone,
+      C_createName,
+      D_createTime,
+      C_updateName,
+      C_updateTime
+      )values
+      (#IntId#,#studentNo#,#studentName#,#studentAge#,
+      #studentSex#,#studentAddress#,#studentTelphone#,#createName#,#createTime#,#updateName#,#updateTime#)
+    </insert>
+
+
+    <select id="selectCS_StudentAll"  resultMap="SelectStudentAllResult">
+      select
+      I_INTID,
+      C_studentNo,
+      C_studentName,
+      C_studentAge,
+      C_studentSex,
+      C_studentAddress,
+      C_studentTelphone,
+      C_createName,
+      D_createTime,
+      C_updateName,
+      C_updateTime
+      from CS_Student 
+      order by  I_IntId desc
+    </select>
+
+    <select id="selectCS_StudentAllByName"  resultMap="SelectStudentAllResult" parameterClass="HashTable">
+      select
+      I_INTID,
+      C_studentNo,
+      C_studentName,
+      C_studentAge,
+      C_studentSex,
+      C_studentAddress,
+      C_studentTelphone,
+      C_createName,
+      D_createTime,
+      C_updateName,
+      C_updateTime
+      from CS_Student
+      where D_createTime between  '$createTime$' and  '$updateTime$'
+      order by  I_IntId desc
+    </select>
+
+    <update id="UpdateCS_Student"
+           parameterClass="CS_Student">
+      <![CDATA[
+      update CS_Student set
+      C_studentNo=#studentNo#,
+      C_studentName=#studentName#,
+      C_studentAge=#studentAge#,
+      C_studentSex=#studentSex#,
+      C_studentAddress=#studentAddress#,
+      C_studentTelphone=#studentTelphone#,
+      C_updateName=#updateName#,
+      C_updateTime=#updateTime#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+
+    <delete id="DeleteCS_Student" parameterClass="CS_Student">
+      delete from CS_Student where I_IntId = #IntId#
+    </delete>
+    
+  </statements>
+</sqlMap>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_DELIVERY" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMDELIVERY" type="LTN.CS.BaseEntities.BM.BM_DELIVERY,LTN.CS.BaseEntities" />
+    <typeAlias alias="DeliveryInt" type="LTN.CS.Core.Helper.DeliveryInt,LTN.CS.Core"/>
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMDELIVERYAllResult" class="BMDELIVERY">
+      <result property="IntId" column="I_INTID" />
+      <result property="Title" column="C_TITLE" />
+      <result property="ServiceName" column="C_SERVICENAME" />
+      <result property="FirstReporter.IntId" column="I_FIRSTREPORTERID" />
+      <result property="FirstReporter.UserNickName" column="I_FIRSTREPORTERNAME" />
+      <result property="Reporter.IntId" column="I_REPORTERID" />
+      <result property="Reporter.UserNickName" column="I_REPORTERNAME" />
+      <result property="Approver.IntId" column="I_APPROVERID" />
+      <result property="Approver.UserNickName" column="I_APPROVERNAME" />
+      <result property="OptDate" column="D_OPTDATE" />
+      <result property="Status.DeliveryValue" column="I_STATUS" />
+      <result property="DataId" column="I_DATAID" />
+      <result property="Remarks" column="C_REMARKS" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertBMDELIVERY"  parameterClass="BMDELIVERY" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_DELIVERY_id.nextval as I_INTID from dual
+      </selectKey>
+      insert into BM_DELIVERY
+      (
+      I_INTID
+      ,C_TITLE
+      ,C_SERVICENAME
+      ,I_FIRSTREPORTERID
+      ,I_REPORTERID
+      ,I_APPROVERID
+      ,D_OPTDATE
+      ,I_STATUS
+      ,I_DATAID
+      ,C_REMARKS
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER) values (#IntId#,#Title#,#ServiceName#,#FirstReporter.IntId#,#Reporter.IntId#,#Approver.IntId#,sysdate,#Status.DeliveryValue#,#DataId#,#Remarks#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+    <update id="UpdateBMDELIVERY"  parameterClass="BMDELIVERY" >
+      update BM_DELIVERY set
+      I_REPORTERID = #Reporter.IntId#
+      ,I_APPROVERID = #Approver.IntId#
+      ,D_OPTDATE = sysdate
+      ,I_STATUS = #Status.DeliveryValue#
+      ,C_REMARKS = #Remarks#
+      where I_INTID = #IntId#
+    </update>
+    <select id="selectBMDELIVERYBYStatus" resultMap="SelectBMDELIVERYAllResult" parameterClass="int">
+      select
+      a.I_INTID
+      ,a.C_TITLE
+      ,a.C_SERVICENAME
+      ,a.I_FIRSTREPORTERID
+      ,b.C_USERNICKNAME I_FIRSTREPORTERNAME
+      ,a.I_REPORTERID
+      ,c.C_USERNICKNAME I_REPORTERNAME
+      ,a.I_APPROVERID
+      ,d.C_USERNICKNAME I_APPROVERNAME
+      ,a.D_OPTDATE
+      ,a.I_STATUS
+      ,a.I_DATAID
+      ,a.C_REMARKS
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,f.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from
+      BM_DELIVERY a
+      left join BM_USER b on a.I_FIRSTREPORTERID = b.I_INTID
+      left join BM_USER c on a.I_REPORTERID = c.I_INTID
+      left join BM_USER d on a.I_APPROVERID = d.I_INTID
+      left join BM_USER f on a.I_CREATEUSER = f.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where I_STATUS =#value# 
+      order by D_OPTDATE desc
+    </select>
+  </statements>
+</sqlMap>
+

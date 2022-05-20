@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+          "  xmlns:wcf="http://www.springframework.net/wcf"   default-lazy-init="true">
+
+  <!--PT-->
+  <object id="PT_TruckMeasurePlanService" type="LTN.CS.SCMService.PT.Implement.PT_TruckMeasurePlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PT_BeltScalePlanService" type="LTN.CS.SCMService.PT.Implement.PT_BeltScalePlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--PM-->
+  <object id="PM_Bill_BeltScaleService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_BeltScaleServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Bill_IronService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_IronServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Pond_Bill_IronService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_IronServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Bill_TruckService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_TruckServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Bill_SuppliesService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_SuppliesServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Pond_Bill_SuppliesService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_SuppliesServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Pond_Bill_Supplies_HistoryService" type="LTN.CS.SCMService.PM.Implement.PM_Pond_Bill_Supplies_HistoryServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_RawData_MoveTrainService" type="LTN.CS.SCMService.PM.Implement.PM_RawData_MoveTrainServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Middle_SuppliesPond_InfoService" type="LTN.CS.SCMService.PM.Implement.PM_Middle_SuppliesPond_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Standard_Tare_InfoService" type="LTN.CS.SCMService.PM.Implement.PM_Standard_Tare_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="BeltWeightDataService" type="LTN.CS.SCMService.PM.Implement.BeltWeightDataServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_ImportBillService" type="LTN.CS.SCMService.PM.Implement.PM_ImportBillServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Bill_OnlineScaleService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_OnlineScaleServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--新增 辊道秤-->
+  <object id="PM_OrbitWeighterConfirmService" type="LTN.CS.SCMService.PM.Implement.PM_OrbitWeighterConfirmServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="PM_Bill_OrbitWeighterService" type="LTN.CS.SCMService.PM.Implement.PM_Bill_OrbitWeighterServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--车辆过磅统计-->
+  <object id="Pond_ComplateTimeService" type="LTN.CS.SCMService.PM.Implement.Pond_ComplateTimeServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--皮带秤信息-->  
+  <object id="PM_BeltHandlerService" type="LTN.CS.SCMService.PM.Implement.PM_BeltHandlerServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--RP打印记录-->
+  <object id="RP_Print_RecordService" type="LTN.CS.SCMService.PM.Implement.RP_Print_RecordService,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  
+  <!--SM-->
+  <object id="SM_Site_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Site_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_PoundSite_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_PoundSite_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Dvr_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Dvr_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Car_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Car_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Materiel_LevelService" type="LTN.CS.SCMService.SM.Implement.SM_Materiel_LevelServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Department_LevelOne_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Department_LevelOne_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Department_LevelTwo_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Department_LevelTwo_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_BlackListService" type="LTN.CS.SCMService.SM.Implement.SM_BlackListServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_TareWeightHistoryService" type="LTN.CS.SCMService.SM.Implement.SM_TareWeightHistoryServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_TareWeightService" type="LTN.CS.SCMService.SM.Implement.SM_TareWeightServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_PoundService_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_PoundService_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Meter_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Meter_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_ErrorConfigService" type="LTN.CS.SCMService.SM.Implement.SM_ErrorConfigServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_LPRCameraService" type="LTN.CS.SCMService.SM.Implement.SM_LPRCameraServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_BeltNumberService" type="LTN.CS.SCMService.SM.Implement.SM_BeltNumberServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_CameraCarNOService" type="LTN.CS.SCMService.SM.Implement.SM_CameraCarNOServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_ReasonForNoAutoService" type="LTN.CS.SCMService.SM.Implement.SM_ReasonForNoAutoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_RFID_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_RFID_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_MatWGTLimitService" type="LTN.CS.SCMService.SM.Implement.SM_MatWGTLimitServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Guid_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_Guid_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_JZXH_InfoService" type="LTN.CS.SCMService.SM.Implement.SM_JZXH_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_Container_RateService" type="LTN.CS.SCMService.SM.Implement.SM_Container_RateServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--湖大集装箱识别率-->
+  
+  <object id="SM_ReeferContainer_RateService" type="LTN.CS.SCMService.SM.Implement.SM_ReeferContainerNo_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  
+
+  <!--IT-->
+  <object id="IT_TruckMeasurePlanService" type="LTN.CS.SCMService.IT.Implement.IT_TruckMeasurePlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="IT_BeltScalePlanService" type="LTN.CS.SCMService.IT.Implement.IT_BeltScalePlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="IT_BeltStopScalePlanService" type="LTN.CS.SCMService.IT.Implement.IT_BeltStopScalePlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="IT_TrackScaleIronPlanService" type="LTN.CS.SCMService.IT.Implement.IT_TrackScaleIronPlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="IT_TrackScaleMaterielPlanService" type="LTN.CS.SCMService.IT.Implement.IT_TrackScaleMaterielPlanServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="IT_OnlineScaleBillService" type="LTN.CS.SCMService.IT.Implement.IT_OnlineScaleBillServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <!--新增 潘鹏 11.6  辊道秤 校磅-->  
+  <object id="IT_OrbitWeighterConfirmService" type="LTN.CS.SCMService.IT.Implement.IT_OrbitWeighterConfirmServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  
+  <object id="IT_OrbitWeighterBillService" type="LTN.CS.SCMService.IT.Implement.IT_OrbitWeighterBillServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+
+
+
+
+  <object id="SM_WeightList_InfoService" type="LTN.CS.SCMService.CS.Implement.SM_WeightList_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="CommonDao"  ref="CommonDao"></property>
+  </object>
+  <object id="SM_GczTare_InfoService" type="LTN.CS.SCMService.CS.Implement.SM_GczTare_InfoServiceImpl,LTN.CS.SCMService"  singleton="false" >
+      <property  name="CommonDao"  ref="CommonDao"></property>
+    </object>
+  <!--            WCF 程序调用  -->
+  <object id="DM_Site_InfoWCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_Site_InfoWCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_Site_InfoWCFService" />
+  </object>
+  <object id="DM_PondSite_InfoWCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_PondSite_InfoWCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_PondSite_InfoWCFService" />
+  </object>
+  <object id="DM_PondSite_Monitor_WCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_PondSite_Monitor_WCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_PondSite_Monitor_WCFService" />
+  </object>
+
+  <object id="DM_Message_To_PondSiteWCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_Message_To_PondSiteWCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_Message_To_PondSiteWCFService" />
+  </object>
+  <object id="DM_Message_To_SiteWCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_Message_To_SiteWCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_Message_To_SiteWCFService" />
+  </object>
+  <object id="DM_TaskWCFServiceClient" type="System.ServiceModel.ChannelFactory&lt;IDM_TaskWCFService>,System.ServiceModel" singleton="false">
+    <constructor-arg name="endpointConfigurationName" value="DM_TaskWCFService" />
+  </object>
+
+</objects>
+

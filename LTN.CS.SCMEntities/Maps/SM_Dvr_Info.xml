@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Dvr_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_Dvr_InfoAllResult" class="SM_Dvr_Info">
+      <result property="IntId"                    column="I_IntId" />
+      <!--<result property="PoundId.IntId"             column="I_PoundId" />
+      <result property="PondId.PondSiteName"      column="I_PondSiteName" />-->
+      <result property="DvrFactory"               column="C_DvrFactory" />
+      <result property="DvrSpec"                  column="C_DvrSpec" />
+      <result property="DvrModel"                 column="C_DvrModel" />
+      <result property="DvrIP1"                   column="C_DvrIP1" />
+      <result property="DvrIP2"                   column="C_DvrIP2" />
+      <result property="ChannelNub"               column="I_DvrChannelNub" />
+      <result property="Storage"                  column="I_DvrStorage" />
+      <!--<result property="IsCancle.IntValue"        column="I_IsCancle"/>-->
+      <result property="Username"                 column="C_DvrUserName" />
+      <result property="Password"                 column="C_DvrPassword" />
+      <result property="Port"                     column="C_DvrPort" />
+      <result property="createUser"               column="C_CREATEUSER" />
+      <result property="updateUser"               column="C_UPDATEUSER" />
+      <result property="createTime"               column="C_CREATETIME" />
+      <result property="updateTime"               column="C_UPDATETIME" />
+    </resultMap>
+
+    <resultMap id="SelectSM_Dvr_InfoAllResult2" class="SM_Dvr_Info">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="DvrFactory"               column="C_DvrFactory" />
+      <result property="DvrSpec"                  column="C_DvrSpec" />
+      <result property="DvrModel"                 column="C_DvrModel" />
+      <result property="DvrIP1"                   column="C_DvrIP1" />
+      <result property="DvrIP2"                   column="C_DvrIP2" />
+      <result property="ChannelNub"               column="I_DvrChannelNub" />
+      <result property="Storage"                  column="I_DvrStorage" />
+      <result property="Username"                 column="C_DvrUserName" />
+      <result property="Password"                 column="C_DvrPassword" />
+      <result property="Port"                     column="C_DvrPort" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Dvr_Info"  parameterClass="SM_Dvr_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_DVR_INFO.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_Dvr_Info
+      (
+      I_IntId,
+      <!--I_PondId,-->
+      C_DvrFactory,
+      C_DvrSpec,
+      C_DvrModel,
+      C_DVRIP1,
+      C_DVRIP2,
+      I_DvrChannelNub,
+      I_DvrStorage,
+      C_DvrUserName,
+      C_DvrPassword,
+      C_DvrPort,
+      C_CREATETIME,
+      C_CREATEUSER
+      )
+      values
+      (
+      #IntId#,
+      <!--#PondId.IntId#,-->
+      #DvrFactory#,
+      #DvrSpec#,
+      #DvrModel#,
+      #DvrIP1#,
+      #DvrIP2#,
+      #ChannelNub#,
+      #Storage#,
+      #Username#,
+      #Password#,
+      #Port#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #createUser#
+      )
+    </insert>
+
+    <update id="UpdateSM_Dvr_Info"   parameterClass="SM_Dvr_Info">
+      update SM_Dvr_Info set
+      C_DvrFactory = #DvrFactory#,
+      C_DvrSpec  = #DvrSpec#,
+      C_DvrModel=#DvrModel#,
+      C_DVRIP1=#DvrIP1#,
+      C_DVRIP2=#DvrIP2#,
+      I_DvrChannelNub=#ChannelNub#,
+      C_DvrUserName=#Username#,
+      C_DvrPassword=#Password#,
+      C_DvrPort=#Port#,
+      I_DvrStorage=#Storage#,
+      C_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      <!--I_UpdateUser=#updateuser#-->
+      where I_IntId = #IntId#
+
+    </update>
+
+
+
+    <delete id="DeleteSM_Dvr_Info" parameterClass="SM_Dvr_Info">
+      delete from SM_Dvr_Info   where I_INTID = #IntId#
+    </delete>
+
+
+    <select id="selectSM_Dvr_InfoAll"  resultMap="SelectSM_Dvr_InfoAllResult">
+      select
+      a.I_IntId,
+      <!--a.I_PondId,
+      c.C_PondSiteName  as I_PondSiteName,-->
+      a.C_DvrFactory,
+      a.C_DvrSpec,
+      a.C_DvrModel,
+      a.C_DVRIP1,
+      a.C_DVRIP2,
+      a.I_DvrChannelNub,
+      a.I_DvrStorage,
+      a.C_DvrUserName,
+      a.C_DvrPassword,
+      a.C_DvrPort,          
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Dvr_Info a
+      <!--left join SM_PoundSite_Info c on c.I_IntId=a.I_PondId-->
+      order by a.C_CREATETIME desc
+    </select>
+
+    <select id="selectSM_Dvr_InfoDvrName"  resultMap="SelectSM_Dvr_InfoAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      <!--a.I_PondId,
+      c.C_PondSiteName  as I_PondSiteName,-->
+      a.C_DvrFactory,
+      a.C_DvrSpec,
+      a.C_DvrModel,
+      a.C_DVRIP1,
+      a.C_DVRIP2,
+      a.I_DvrChannelNub,
+      a.I_DvrStorage,
+      a.C_DvrUserName,
+      a.C_DvrPassword,
+      a.C_DvrPort,
+      a.C_CREATEUSER,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Dvr_Info a
+      where a.C_DvrFactory=#value#
+      order by a.C_CREATETIME desc
+
+    </select>
+
+    <select id="selectSM_Dvr_InfoBySiteIp"  resultMap="SelectSM_Dvr_InfoAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.C_DvrFactory,
+      a.C_DvrSpec,
+      a.C_DvrModel,
+      a.C_DVRIP1,
+      a.C_DVRIP2,
+      a.I_DvrChannelNub,
+      a.I_DvrStorage,
+      a.C_DvrUserName,
+      a.C_DvrPassword,
+      a.C_DvrPort,
+      a.C_CREATEUSER,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Dvr_Info a
+      where a.C_DVRIP1=#DvrIP1#
+      order by a.C_CREATETIME desc
+
+    </select>
+
+    <select id="SelectSM_Dvr_InfoBypondip"  resultMap="SelectSM_Dvr_InfoAllResult2" resultClass="SM_Dvr_Info" parameterClass="int">
+      select
+      a.I_IntId,
+      a.C_DvrFactory,
+      a.C_DvrSpec,
+      a.C_DvrModel,
+      a.C_DVRIP1,
+      a.C_DVRIP2,
+      a.I_DvrChannelNub,
+      a.I_DvrStorage,
+      a.C_DvrUserName,
+      a.C_DvrPassword,
+      a.C_DvrPort
+      from SM_Dvr_Info a
+      where a.I_IntId in (select i_dvrintid from sm_poundservice_info  where i_poundid=#value#)
+
+    </select>
+
+  </statements>
+</sqlMap>

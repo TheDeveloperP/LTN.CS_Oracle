@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Person" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+	<!--模块配置-->
+	<alias>
+		<typeAlias alias="Person" type="LTN.CS.Core.Person,LTN.CS.Core" />
+	</alias>
+
+	<resultMaps>
+		<resultMap id="SelectAllResult" class="Person">
+			<result property="Id" column="PER_ID" />
+			<result property="FirstName" column="PER_FIRST_NAME" />
+			<result property="LastName" column="PER_LAST_NAME" />
+			<result property="BirthDate" column="PER_BIRTH_DATE" />
+			<result property="WeightInKilograms" column="PER_WEIGHT_KG" />
+			<result property="HeightInMeters" column="PER_HEIGHT_M" />
+		</resultMap>
+	</resultMaps>
+
+
+    <!--statement配置-->
+	<statements>
+        <select id="GetMaxID" resultClass="int" >
+            select max(PER_ID) from PERSON
+        </select>
+        
+        <select id="Exists" resultClass="int" parameterclass="int">
+            select count(1) from PERSON
+            where PER_ID = #value#
+        </select>
+        
+		<insert id="InsertPerson"  parameterclass="Person" >
+			<selectKey property="Id" type="pre" resultClass="int">
+				${selectKey}
+			</selectKey>
+			insert into Person
+			( PER_FIRST_NAME,
+			PER_LAST_NAME,
+			PER_BIRTH_DATE,
+			PER_WEIGHT_KG,
+			PER_HEIGHT_M)values(#FirstName#,#LastName#,#BirthDate#, #WeightInKilograms#, #HeightInMeters#)
+		</insert>
+
+		<update id="UpdatePerson"
+					   parameterclass="Person">
+			<![CDATA[ update Person set
+      PER_FIRST_NAME =#FirstName#,
+      PER_LAST_NAME =#LastName#,
+      PER_BIRTH_DATE =#BirthDate#,
+      PER_WEIGHT_KG=#WeightInKilograms#,
+      PER_HEIGHT_M=#HeightInMeters#
+      where
+      PER_ID = #Id#　]]>
+		</update>
+
+		<delete id="DeletePerson" parameterclass="Person">
+			delete from Person where PER_ID = #Id#
+		</delete>
+        
+
+    <select id="SelectAllPerson" resultMap="SelectAllResult">
+        select
+        *
+        from PERSON
+    </select>
+
+    <select id="SelectByPersonId" resultMap="SelectAllResult" resultClass="Person" parameterClass="int">
+        select
+        PER_ID,
+        PER_FIRST_NAME,
+        PER_LAST_NAME,
+        PER_BIRTH_DATE,
+        PER_WEIGHT_KG,
+        PER_HEIGHT_M
+        from PERSON
+        where PER_ID = #value#
+    </select>
+
+    <procedure id="pro_Demo_Model" parameterMap="insert-params_new"   resultClass="Person">
+      pro_Demo_Model
+    </procedure>
+    </statements>
+  <parameterMaps>
+    <parameterMap id="insert-params_new" class="Person">
+      <parameter property="Id" column="PER_ID" />
+      <parameter property="FirstName" column="PER_FIRST_NAME" direction="Input" />
+      <parameter property="LastName" column="PER_LAST_NAME" direction="Input" />
+      <parameter property="BirthDate" column="PER_BIRTH_DATE" direction="Input" />
+      <parameter property="WeightInKilograms" column="PER_WEIGHT_KG" direction="Input"  />
+      <parameter property="HeightInMeters" column="PER_HEIGHT_M" direction="Input"/>
+      <parameter property="Flag" column="flag"   />
+      <parameter property="NewID" column="newID" direction="Output"/>
+      <parameter property="Msg" column="msg" direction="Output" />
+    </parameterMap>
+  </parameterMaps>
+	
+</sqlMap>

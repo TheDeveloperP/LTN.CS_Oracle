@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_OrbitweighterConfirm" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectIT_OrbitWeighterConfirmResultMap" class="IT_OrbitweighterConfirm">
+      <result property="T_CALIBRATE_NO"	column="T_CALIBRATE_NO" />
+      <result property="T_OPERATE_FLAG" column ="T_OPERATE_FLAG" />
+      <result property="T_STANDARDWEIGHT" column="T_STANDARDWEIGHT" />
+      <result property="T_BEFORE_CALIBRATE" column="T_BEFORE_CALIBRATE" />
+      <result property="T_AFTER_CALIBRATE" column="T_AFTER_CALIBRATE" />
+      <result property="T_CALIBRATE_TIME" column="T_CALIBRATE_TIME" />
+      <result property="T_CALIBRATE_MAN" column="T_CALIBRATE_MAN" />
+      <result property="T_CALIBRATE_MEASURESITE" column="T_CALIBRATE_MEASURESITE" />
+      <result property="T_RESERVE_V1" column="T_RESERVE_V1" />
+      <result property="T_RESERVE_V2" column="T_RESERVE_V2" />
+      <result property="T_RESERVE_V3" column="T_RESERVE_V3" />
+      <result property="T_RESERVE_V4" column="T_RESERVE_V4" />
+      <result property="T_RESERVE_V5" column="T_RESERVE_V5" />
+      <result property="T_RESERVE_V6" column="T_RESERVE_V6" />
+      <result property="T_UPLOAD_FLAG" column="T_UPLOAD_FLAG" />      
+    </resultMap>
+
+  </resultMaps>
+  <statements>
+    <select id="SelectIT_OrbitWeighterConfirmByCondition" resultMap="SelectIT_OrbitWeighterConfirmResultMap" parameterClass="Hashtable">
+      select
+      T_CALIBRATE_NO,
+      T_OPERATE_FLAG,
+      T_STANDARDWEIGHT,
+      T_BEFORE_CALIBRATE,
+      T_AFTER_CALIBRATE,
+      T_CALIBRATE_TIME,
+      T_CALIBRATE_MAN,
+      T_CALIBRATE_MEASURESITE,
+      T_RESERVE_V1,
+      T_RESERVE_V2,
+      T_RESERVE_V3,
+      T_RESERVE_V4,
+      T_RESERVE_V5,
+      T_RESERVE_V6,
+      T_UPLOAD_FLAG
+      from IT_ORBITWEIGHTER_CONFIRM
+      where 1=1
+      <isNotEmpty prepend="and" property="StartTime">
+        T_CALIBRATE_TIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="Calibrate_no">
+        T_CALIBRATE_NO=#Calibrate_no#
+      </isNotEmpty>
+      order by T_CALIBRATE_TIME desc
+    </select>
+  </statements>
+</sqlMap>

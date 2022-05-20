@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Meter_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_Meter_InfoAllResult" class="SM_Meter_Info">
+      <result property="IntId"                 column="I_IntId" />
+     <result property="MeterName"             column="C_MeterName" />
+      <result property="Factory"               column="C_Factory" />
+       <result property="MeterSpec"             column="C_MeterSpec" />
+      <result property="MeterModel"            column="C_MeterModel" />
+     <result property="AnalysisNo"            column="C_AnalysisNo" />
+      <result property="ClearNo"               column="C_ClearNo" />
+       <result property="UpperLimit"            column="N_UpperLimit" />
+      <result property="LowerLimit"            column="N_LowerLimit" />
+      <result property="Range"                 column="N_Range" />
+      <result property="createUser"                 column="C_CREATEUSER" />
+      <result property="updateUser"                 column="C_UPDATEUSER" />
+      <result property="createTime"                 column="C_CREATETIME" />
+      <result property="updateTime"                 column="C_UPDATETIME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Meter_Info"  parameterClass="SM_Meter_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_Meter_INFO.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_Meter_Info
+      (
+      I_IntId,
+      <!--I_PondId,-->
+      C_MeterName ,
+      C_Factory   ,
+      C_MeterSpec ,
+      C_MeterModel,
+      C_AnalysisNo,
+      C_ClearNo,
+      N_UpperLimit,
+      N_LowerLimit,
+      N_Range  ,
+       C_CREATEUSER,
+      C_CREATETIME
+      )
+      values
+      (
+      #IntId#,
+      <!--#PondId.IntId#,-->
+      #MeterName#,
+      #Factory#,
+      #MeterSpec#,
+      #MeterModel#,
+      #AnalysisNo#,
+      #ClearNo#,
+      #UpperLimit#,
+      #LowerLimit#,
+      #Range#,
+      #createUser#,
+      to_char(sysdate,'yyyyMMddhh24miss')
+      )
+    </insert>
+
+    <update id="UpdateSM_Meter_Info"   parameterClass="SM_Meter_Info">
+      update SM_Meter_Info set
+      C_MeterName  = #MeterName#,
+      C_Factory    =  #Factory#,
+      C_MeterSpec  =  #MeterSpec#,
+      C_MeterModel =  #MeterModel#,
+      C_AnalysisNo =  #AnalysisNo#,
+      C_ClearNo =  #ClearNo#,
+      N_UpperLimit =  #UpperLimit#,
+      N_LowerLimit =  #LowerLimit#,
+      N_Range      =  #Range#,
+      C_UPDATEUSER=#updateUser#,
+      C_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss')
+      where I_IntId = #IntId#
+   
+
+    </update>
+
+
+
+    <delete id="DeleteSM_Meter_Info" parameterClass="SM_Meter_Info">
+      delete from SM_Meter_Info   where I_INTID = #IntId#
+    </delete>
+
+
+    <select id="selectSM_Meter_InfoAll"  resultMap="SelectSM_Meter_InfoAllResult">
+      select
+      a.I_IntId,
+      a.C_MeterName,
+      a.C_Factory,
+      a.C_MeterSpec,
+      a.C_MeterModel,
+      a.C_AnalysisNo,
+      a.C_ClearNo,
+      a.N_UpperLimit,
+      a.N_LowerLimit,
+      a.N_Range,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Meter_Info a
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectSM_Meter_InfoName"  resultMap="SelectSM_Meter_InfoAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.C_MeterName,
+      a.C_Factory,
+      a.C_MeterSpec,
+      a.C_MeterModel,
+      a.C_AnalysisNo,
+      a.C_ClearNo,
+      a.N_UpperLimit,
+      a.N_LowerLimit,
+      a.N_Range,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Meter_Info a
+
+      where a.C_MeterName=#value#
+      order by a.I_IntId desc
+
+    </select>
+  </statements>
+</sqlMap>

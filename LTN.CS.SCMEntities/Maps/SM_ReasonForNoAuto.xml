@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_ReasonForNoAuto" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_ReasonForNoAutoAllResult" class="SM_ReasonForNoAuto">
+      <result property="IntId"	column="I_IntId"/>
+      <result property="Planno"	column="C_Planno"/>
+      <result property="Materialname"	column="C_Materialname"/>
+      <result property="Fromdeptname"	column="C_Fromdeptname"/>
+      <result property="Todeptname"	column="C_Todeptname"/>
+      <result property="Reason"	column="C_Reason"/>
+      <result property="Poundsiteno"	column="C_Poundsiteno"/>
+      <result property="Carno"	column="C_Carno"/>
+      <result property="Createuser"	column="C_Createuser"/>
+      <result property="Createtime"	column="C_Createtime"/>
+      <result property="Updateuser"	column="C_Updateuser"/>
+      <result property="Updatetime"	column="C_Updatetime"/>
+
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="selectSM_ReasonForNoAutoAll" resultMap="SelectSM_ReasonForNoAutoAllResult">
+      select
+      a.I_IntId,
+      a.C_Planno,
+      a.C_Materialname,
+      a.C_Fromdeptname,
+      a.C_Todeptname,
+      a.C_Reason,
+      a.C_Poundsiteno,
+      a.C_Carno,
+      a.C_Createuser,
+      a.C_Createtime,
+      a.C_Updateuser,
+      a.C_Updatetime
+      from SM_ReasonForNoAuto a
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_ReasonForNoAutoByCondition" resultMap="SelectSM_ReasonForNoAutoAllResult" parameterClass="HashTable">
+      select
+      a.I_IntId,
+      a.C_Planno,
+      a.C_Materialname,
+      a.C_Fromdeptname,
+      a.C_Todeptname,
+      a.C_Reason,
+      a.C_Poundsiteno,
+      a.C_Carno,
+      a.C_Createuser,
+      a.C_Createtime,
+      a.C_Updateuser,
+      a.C_Updatetime
+      from SM_ReasonForNoAuto a
+     where 1=1
+     <isNotEmpty prepend="and" property="SDate">
+        C_Createtime between #SDate# and #EDate#
+     </isNotEmpty>
+      <isNotEmpty prepend="and" property="SiteNO">
+        a.C_Poundsiteno=#SiteNO#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="CarNO">
+        a.C_Carno=#CarNO#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="Reason">
+        a.C_Reason=#Reason#
+      </isNotEmpty>
+    </select>
+    <insert id="InsertSM_ReasonForNoAuto" parameterClass="SM_ReasonForNoAuto">
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_REASONFORNOAUTO.nextval as IntId from dual
+      </selectKey>
+      insert into SM_ReasonForNoAuto
+      (
+      I_IntId,
+      C_Planno,
+      C_Materialname,
+      C_Fromdeptname,
+      C_Todeptname,
+      C_Reason,
+      C_Poundsiteno,
+      C_Carno,
+      C_Createuser,
+      C_Createtime,
+      C_Updateuser,
+      C_Updatetime
+      )values
+      (
+      #IntId#,
+      #Planno#,
+      #Materialname#,
+      #Fromdeptname#,
+      #Todeptname#,
+      #Reason#,
+      #Poundsiteno#,
+      #Carno#,
+      #Createuser#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #Updateuser#,
+      to_char(sysdate,'yyyyMMddhh24miss')
+      )
+    </insert>
+    
+  </statements>
+  
+  
+  
+</sqlMap>

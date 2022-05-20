@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="A_Entities" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <!--PT-->
+    <typeAlias alias="PT_TruckMeasurePlan" type="LTN.CS.SCMEntities.PT.PT_TruckMeasurePlan,LTN.CS.SCMEntities" />
+    <typeAlias alias="PT_BeltScalePlan" type="LTN.CS.SCMEntities.PT.PT_BeltScalePlan,LTN.CS.SCMEntities" />
+
+    <!--SM-->
+    <typeAlias alias="SM_Car_Info" type="LTN.CS.SCMEntities.SM.SM_Car_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Materiel_Level" type="LTN.CS.SCMEntities.SM.SM_Materiel_Level,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Department_LevelOne_Info" type="LTN.CS.SCMEntities.SM.SM_Department_LevelOne_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Department_LevelTwo_Info" type="LTN.CS.SCMEntities.SM.SM_Department_LevelTwo_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Site_Info" type="LTN.CS.SCMEntities.SM.SM_Site_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_PoundSite_Info" type="LTN.CS.SCMEntities.SM.SM_PoundSite_Info,LTN.CS.SCMEntities" />  
+    <typeAlias alias="SM_BlackList" type="LTN.CS.SCMEntities.SM.SM_BlackList,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_BlackListHistory" type="LTN.CS.SCMEntities.SM.SM_BlackListHistory,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_TareWeight" type="LTN.CS.SCMEntities.SM.SM_TareWeight,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_TareWeightHistory" type="LTN.CS.SCMEntities.SM.SM_TareWeightHistory,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Dvr_Info" type="LTN.CS.SCMEntities.SM.SM_Dvr_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_PoundService_Info" type="LTN.CS.SCMEntities.SM.SM_PoundService_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Meter_Info" type="LTN.CS.SCMEntities.SM.SM_Meter_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_ErrorConfig" type="LTN.CS.SCMEntities.SM.SM_ErrorConfig,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_LPRCamera" type="LTN.CS.SCMEntities.SM.SM_LPRCamera,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_BeltNumber" type="LTN.CS.SCMEntities.SM.SM_BeltNumber,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_CameraCarNO" type="LTN.CS.SCMEntities.SM.SM_CameraCarNO,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_ReasonForNoAuto" type="LTN.CS.SCMEntities.SM.SM_ReasonForNoAuto,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_RFID_Info" type="LTN.CS.SCMEntities.SM.SM_RFID_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_MatWGTLimit" type="LTN.CS.SCMEntities.SM.SM_MatWGTLimit,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Guid_Info" type="LTN.CS.SCMEntities.SM.SM_Guid_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_JZXH_Info" type="LTN.CS.SCMEntities.SM.SM_JZXH_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_Container_Rate" type="LTN.CS.SCMEntities.SM.SM_Container_Rate,LTN.CS.SCMEntities" />
+    <!--新增-->
+    
+    <typeAlias alias="SM_ReeferContainerNo_Info" type="LTN.CS.SCMEntities.SM.SM_ReeferContainerNo_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_JZX_Huda_Message" type="LTN.CS.SCMEntities.SM.SM_JZX_Huda_Message,LTN.CS.SCMEntities" />
+    <!--PM-->
+    <typeAlias alias="PM_Bill_Truck" type="LTN.CS.SCMEntities.PM.PM_Bill_Truck,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_Iron" type="LTN.CS.SCMEntities.PM.PM_Bill_Iron,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Pond_Bill_Iron" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_Iron,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_BeltScale" type="LTN.CS.SCMEntities.PM.PM_Bill_BeltScale,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_Belt"      type="LTN.CS.SCMEntities.PM.PM_Bill_Belt,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_RawData_MoveTrain" type="LTN.CS.SCMEntities.PM.PM_RawData_MoveTrain,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Belt_ServerLog" type="LTN.CS.SCMEntities.PM.PM_Belt_ServerLog,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Middle_SuppliesPond_Info" type="LTN.CS.SCMEntities.PM.PM_Middle_SuppliesPond_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Standard_Tare_Info" type="LTN.CS.SCMEntities.PM.PM_Standard_Tare_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="BeltWeightData" type="LTN.CS.SCMEntities.PM.BeltWeightData,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_ImportBill" type="LTN.CS.SCMEntities.PM.PM_ImportBill,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_Truck_History" type="LTN.CS.SCMEntities.PM.PM_Bill_Truck_History,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_OnlineScale" type="LTN.CS.SCMEntities.PM.PM_Bill_OnlineScale,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_TruckBillWithOnlineBill" type="LTN.CS.SCMEntities.PM.PM_TruckBillWithOnlineBill,LTN.CS.SCMEntities" />
+    <!--新增-->
+    <typeAlias alias="PM_Bill_OrbitWeighterConfirm" type="LTN.CS.SCMEntities.PM.PM_Bill_OrbitWeighterConfirm,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Pond_Bill_OrbitWeighter" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_OrbitWeighter,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_RawData_MoveTrain_New" type="LTN.CS.SCMEntities.PM.PM_RawData_MoveTrain_New,LTN.CS.SCMEntities" />
+    <typeAlias alias="Pond_ComplateTime" type="LTN.CS.SCMEntities.PM.Pond_ComplateTime,LTN.CS.SCMEntities" />
+    <!--IT-->
+    <typeAlias alias="IT_TruckMeasurePlan" type="LTN.CS.SCMEntities.IT.IT_TruckMeasurePlan,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Bill_Supplies" type="LTN.CS.SCMEntities.PM.PM_Bill_Supplies,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Pond_Bill_Supplies" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_Supplies,LTN.CS.SCMEntities" />
+    <typeAlias alias="PM_Pond_Bill_Supplies_History" type="LTN.CS.SCMEntities.PM.PM_Pond_Bill_Supplies_History,LTN.CS.SCMEntities" />
+    <typeAlias alias="IT_TrackScaleIronPlan" type="LTN.CS.SCMEntities.IT.IT_TrackScaleIronPlan,LTN.CS.SCMEntities" />
+    <typeAlias alias="IT_BeltScalePlan" type="LTN.CS.SCMEntities.IT.IT_BeltScalePlan,LTN.CS.SCMEntities" />    
+    <typeAlias alias="IT_BeltStopScalePlan" type="LTN.CS.SCMEntities.IT.IT_BeltStopScalePlan,LTN.CS.SCMEntities" />
+    <typeAlias alias="IT_TrackScaleMaterielPlan" type="LTN.CS.SCMEntities.IT.IT_TrackScaleMaterielPlan,LTN.CS.SCMEntities" />
+    <typeAlias alias="IT_OnlineScaleBill" type="LTN.CS.SCMEntities.IT.IT_OnlineScaleBill,LTN.CS.SCMEntities" />
+    <!--新增-->
+    <typeAlias alias="IT_OrbitWeighterBill" type="LTN.CS.SCMEntities.IT.IT_OrbitWeighterBill,LTN.CS.SCMEntities" />
+    <typeAlias alias="IT_OrbitweighterConfirm" type="LTN.CS.SCMEntities.IT.IT_OrbitweighterConfirm,LTN.CS.SCMEntities" />
+   
+    
+    
+    <!--ConditionEntity-->
+    <typeAlias alias="QueryForMovedataNum" type="LTN.CS.SCMEntities.ConditionEntity.QueryForMovedataNum,LTN.CS.SCMEntities" />
+    <!--Other-->
+    <typeAlias alias="SM_Site_Info2" type="LTN.CS.Base.ServiceInterface.Entity.DM_Site_Info_WCF,LTN.CS.Base.ServiceInterface" />
+    <typeAlias alias="SM_PondSite_Info2" type="LTN.CS.Base.ServiceInterface.Entity.DM_PondSite_Info_WCF,LTN.CS.Base.ServiceInterface" />
+    <typeAlias alias="SM_WeightList_Info" type="LTN.CS.SCMEntities.CS.SM_WeightList_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="SM_GczTare_Info" type="LTN.CS.SCMEntities.CS.SM_GczTare_Info,LTN.CS.SCMEntities" />
+    <typeAlias alias="RP_Materiel_PrintRecord" type="LTN.CS.SCMEntities.PM.RP_Materiel_PrintRecord,LTN.CS.SCMEntities" />
+    
+  </alias>
+ 
+</sqlMap>

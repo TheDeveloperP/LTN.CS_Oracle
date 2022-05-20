@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_MAIN_GROUP_SERVICE" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMMAINGROUPSERVICE" type="LTN.CS.BaseEntities.BM.BM_MAIN_GROUP_SERVICE,LTN.CS.BaseEntities" />
+    <typeAlias alias="BMMAINGROUPSERVICEMENU" type="LTN.CS.BaseEntities.BM.BM_MAIN_GROUP_SERVICE_MENU,LTN.CS.BaseEntities" />
+    <typeAlias alias="BMMAINSERVICE" type="LTN.CS.BaseEntities.BM.BM_SERVICE,LTN.CS.BaseEntities" />
+    <typeAlias alias="BMMAINASSEMBLY" type="LTN.CS.BaseEntities.BM.BM_MAIN_ASSEMBLY,LTN.CS.BaseEntities" />
+    <typeAlias alias="SelectBMMAINGROUPSERVICEAll" type="LTN.CS.BaseEntities.BM_Query.SelectBMMAINGROUPSERVICEAll,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMMAINGROUPSERVICEAllResult" class="BMMAINGROUPSERVICE">
+      <result property="IntId" column="I_INTID" />
+      <result property="Group.IntId" column="I_GROUPID" />
+      <result property="Group.GroupName" column="I_GROUPNAME" />
+      <result property="Service.IntId" column="I_SERVICEID" />
+      <result property="Service.ServiceName" column="I_SERVICENAME" />
+      <result property="Service.ServiceDes" column="I_SERVICEDES" />
+      <result property="Index" column="I_INDEX" />
+      <result property="MainAssembly.IntId" column="I_ASSEMBLYID"  />
+      <result property="MainAssembly.AssemblyName" column="I_ASSEMBLYNAME"  />
+      <result property="Glyph" column="C_GLYPH" />
+      <result property="LargeGlyph" column="C_LARGEGLYPH" />
+      <result property="CreateEMPId.IntId" column="I_CREATEEMPID" />
+      <result property="CreateEMPId.UserNickName" column="I_CREATEEMPNAME" />
+      <result property="IsForbid.EntityValue" column="I_ISFORBID" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+    
+    <resultMap id="SelectBMMAINGROUPSERVICEMENUAllResult" class="BMMAINGROUPSERVICEMENU">
+      <result property="IntId" column="I_INTID" />
+      <result property="GroupId" column="I_GROUPID" />
+      <result property="ServiceId" column="I_SERVICEID" />
+      <result property="ServiceDes" column="C_SERVICEDES" />
+      <result property="ServiceName" column="C_SERVICENAME" />
+      <result property="ServiceNo" column="C_SERVICENO" />
+      <result property="Index" column="I_INDEX" />
+      <result property="MainAssemblyId" column="I_ASSEMBLYID" />
+      <result property="AssemblyName" column="C_ASSEMBLYNAME" />
+      <result property="AssemblyShortName" column="C_ASSEMBLYSHORTNAME" />
+      <result property="Glyph" column="C_GLYPH" />
+      <result property="LargeGlyph" column="C_LARGEGLYPH" />
+    </resultMap>
+
+  </resultMaps>
+  <statements>
+    <select id="GetBMMAINGROUPSERVICEMaxID" resultClass="int" >
+      select max(I_INTID) from BM_MAIN_GROUP_SERVICE
+    </select>
+    <select id="BMMAINGROUPSERVICEExists" resultClass="int"  parameterClass="int">
+      select count(1) from BM_MAIN_GROUP_SERVICE
+      where I_INTID = #value#
+    </select>
+    <insert id="InsertBMMAINGROUPSERVICE"  parameterClass="BMMAINGROUPSERVICE" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_MAIN_GROUP_SERVICE_id.nextval as I_INTID from dual
+      </selectKey>
+      INSERT INTO  BM_MAIN_GROUP_SERVICE
+      (
+      I_INTID
+      ,I_GROUPID
+      ,I_SERVICEID
+      ,I_INDEX
+      ,I_ASSEMBLYID
+      ,C_GLYPH
+      ,C_LARGEGLYPH
+      ,I_CREATEEMPID
+      ,I_ISFORBID
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER) values
+      (#IntId#,#Group.IntId#,#Service.IntId#,#Index#,#MainAssembly.IntId#,#Glyph#,#LargeGlyph#,#CreateEMPId.IntId#,#IsForbid.EntityValue#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+    <update id="UpdateBMMAINGROUPSERVICE"
+         parameterClass="BMMAINGROUPSERVICE">
+      <![CDATA[
+      update BM_MAIN_GROUP_SERVICE set
+      I_GROUPID = #Group.IntId#
+      ,I_SERVICEID = #Service.IntId#
+      ,I_INDEX = #Index#
+      ,I_ASSEMBLYID = #MainAssembly.IntId#
+      ,C_GLYPH = #Glyph#
+      ,C_LARGEGLYPH = #LargeGlyph#
+      ,I_CREATEEMPID = #CreateEMPId.IntId#
+      ,I_ISFORBID = #IsForbid.EntityValue#
+      ,D_UPDATETIME=sysdate
+      ,I_UPDATEUSER = #UpdateUser.IntId#
+      where
+      I_INTID = #IntId#　
+      ]]>
+    </update>
+    <delete id="DeleteBMMAINGROUPSERVICE" parameterClass="BMMAINGROUPSERVICE">
+      delete from BM_MAIN_GROUP_SERVICE where I_INTID = #IntId#
+    </delete>
+    <select id="SelectAllBMMAINGROUPSERVICE" resultMap="SelectBMMAINGROUPSERVICEAllResult">
+      SELECT a.I_INTID
+      ,a.I_GROUPID
+      ,f.C_TEXT I_GROUPNAME
+      ,a.I_SERVICEID
+      ,g.C_SERVICENAME I_SERVICENAME
+      ,g.C_SERVICEDES I_SERVICEDES
+      ,a.I_INDEX
+      ,a.I_ASSEMBLYID
+      ,b.C_ASSEMBLYSHORTNAME I_ASSEMBLYNAME
+      ,a.C_GLYPH
+      ,a.C_LARGEGLYPH
+      ,a.I_CREATEEMPID
+      ,m.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_ISFORBID
+      ,a.I_CREATEEMPID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_GROUP_SERVICE a
+      left join BM_MAIN_ASSEMBLY b on a.I_ASSEMBLYID = b.I_INTID
+      left join BM_MAIN_GROUP f on a.I_GROUPID = f.I_INTID
+      left join BM_SERVICE g on a.I_SERVICEID = g.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      left join BM_USER m on a.I_CREATEEMPID = m.I_INTID
+      order by a.I_INDEX
+    </select>
+    <select id="SelectByBMGroupName" resultMap="SelectBMMAINGROUPSERVICEAllResult">
+      SELECT a.I_INTID
+      ,a.I_GROUPID
+      ,f.C_TEXT I_GROUPNAME
+      ,a.I_SERVICEID
+      ,g.C_SERVICENAME I_SERVICENAME
+      ,g.C_SERVICEDES I_SERVICEDES
+      ,a.I_INDEX
+      ,a.I_ASSEMBLYID
+      ,b.C_ASSEMBLYSHORTNAME I_ASSEMBLYNAME
+      ,a.C_GLYPH
+      ,a.C_LARGEGLYPH
+      ,a.I_CREATEEMPID
+      ,m.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_ISFORBID
+      ,a.I_CREATEEMPID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_GROUP_SERVICE a
+      left join BM_MAIN_ASSEMBLY b on a.I_ASSEMBLYID = b.I_INTID
+      left join BM_MAIN_GROUP f on a.I_GROUPID = f.I_INTID
+      left join BM_SERVICE g on a.I_SERVICEID = g.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      left join BM_USER m on a.I_CREATEEMPID = m.I_INTID
+      where a.I_GROUPID=#value# order by a.I_INDEX
+    </select>
+    <select id="SelectByBMMAINGROUPSERVICEId" resultMap="SelectBMMAINGROUPSERVICEAllResult" resultClass="BMMAINGROUPSERVICE" parameterClass="int">
+      SELECT a.I_INTID
+      ,a.I_GROUPID
+      ,f.C_TEXT I_GROUPNAME
+      ,a.I_SERVICEID
+      ,g.C_SERVICENAME I_SERVICENAME
+      ,g.C_SERVICEDES I_SERVICEDES
+      ,a.I_INDEX
+      ,a.I_ASSEMBLYID
+      ,b.C_ASSEMBLYSHORTNAME I_ASSEMBLYNAME
+      ,a.C_GLYPH
+      ,a.C_LARGEGLYPH
+      ,a.I_CREATEEMPID
+      ,m.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_ISFORBID
+      ,a.I_CREATEEMPID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_GROUP_SERVICE a
+      left join BM_MAIN_ASSEMBLY b on a.I_ASSEMBLYID = b.I_INTID
+      left join BM_MAIN_GROUP f on a.I_GROUPID = f.I_INTID
+      left join BM_SERVICE g on a.I_SERVICEID = g.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      left join BM_USER m on a.I_CREATEEMPID = m.I_INTID
+      where a.I_INTID = #value# order by a.I_INDEX
+    </select>
+    <!--<select id="SelectByBMMAINGROUPSERVICENO" resultMap="SelectBMMAINGROUPSERVICEAllResult" resultClass="BMMAINGROUPSERVICE" parameterClass="string">
+      SELECT a.I_INTID
+      ,a.I_GROUPID
+      ,f.C_TEXT I_GROUPNAME
+      ,a.I_SERVICEID
+      ,g.C_SERVICENAME I_SERVICENAME
+      ,g.C_SERVICEDES I_SERVICEDES
+      ,a.I_INDEX
+      ,a.I_ASSEMBLYID
+      ,b.C_ASSEMBLYSHORTNAME I_ASSEMBLYNAME
+      ,a.C_GLYPH
+      ,a.C_LARGEGLYPH
+      ,a.I_CREATEEMPID
+      ,m.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_ISFORBID
+      ,a.I_CREATEEMPID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_GROUP_SERVICE a
+      left join BM_MAIN_ASSEMBLY b on a.I_ASSEMBLYID = b.I_INTID
+      left join BM_MAIN_GROUP f on a.I_GROUPID = f.I_INTID
+      left join BM_SERVICE g on a.I_SERVICEID = g.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      left join BM_USER m on a.I_CREATEEMPID = m.I_INTID
+      where a.C_GROUPNO = #value# order by a.I_INDEX
+    </select>-->
+    <select id="SelectByBMMAINGROUPSERVICEUSER" resultMap="SelectBMMAINGROUPSERVICEMENUAllResult" resultClass="BMMAINGROUPSERVICEMENU" parameterClass="SelectBMMAINGROUPSERVICEAll">
+      select  a.I_INTID,a.I_GROUPID,a.I_SERVICEID,b.C_SERVICENAME,b.C_SERVICENO,b.C_SERVICEDES
+      ,a.I_INDEX,a.I_ASSEMBLYID,c.C_ASSEMBLYNAME,c.C_ASSEMBLYSHORTNAME,a.C_GLYPH,a.C_LARGEGLYPH
+      from (  select * from ( select a.* from BM_MAIN_GROUP_SERVICE a
+      join (select distinct I_SERVICEID from ( select distinct I_SERVICEID from (select I_SERVICEID,I_USERID from BM_SERVICE_GROUP_USER_VIEW
+      union
+      select I_SERVICEID,I_USERID from BM_SERVICE_USER )  a
+      where a.I_USERID = #UserId#
+      union select I_INTID as I_SERVICEID from  BM_SERVICE where  I_ISFORBID=0 and I_ISLIMIT = 0 )  a ) b on a.I_SERVICEID = b.I_SERVICEID
+      where a.I_GROUPID = #GroupId# )  a ) a join BM_SERVICE b on a.I_SERVICEID = b.I_INTID
+      join BM_MAIN_ASSEMBLY c on a.I_ASSEMBLYID = c.I_INTID
+      order by a.I_INDEX
+    </select>
+    <update id="DisabledBMMAINGROUPSERVICE"  parameterClass="BMMAINGROUPSERVICE">
+      update BM_MAIN_GROUP_SERVICE set I_ISFORBID = #IsForbid.EntityValue# where I_INTID = #IntId#
+    </update>
+  </statements>
+</sqlMap>

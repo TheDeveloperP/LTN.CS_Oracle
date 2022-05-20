@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_TareWeight" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_TareWeightAllResult" class="SM_TareWeight">
+      <result property="IntId" column="I_INTID" />
+      <result property="CarName" column="C_CARNAME" />
+      <result property="NewTare" column="I_NEWTARE" />
+      <result property="SiteNo" column="C_SITENO" />
+      <result property="SiteName" column="C_SITENAME" />
+      <result property="IsUsed.EntityValue" column="I_ISUSED" />
+      <result property="CREATETIME" column="C_CREATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      <result property="UPDATETIME" column="C_UPDATETIME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    
+    </resultMap>
+    <resultMap id="SelectSM_TareWeightHistoryAllResult" class="SM_TareWeightHistory">
+      <result property="IntId" column="I_INTID" />
+      <result property="CarName" column="C_CARNAME" />
+      <result property="PoundSite.PoundSiteNo" column="C_POUNDSITENO" />
+      <result property="PoundSite.PoundSiteName" column="C_POUNDSITENAME" />
+      <result property="SiteNo" column="C_SITENO" />
+      <result property="SiteName" column="C_SITENAME" />
+      <result property="HistoryTare" column="I_HISTORYTARE" />
+      <result property="CREATETIME" column="C_CREATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+    </resultMap>
+
+    <resultMap id="SelectSM_TareWeightHistoryAllResult2" class="SM_TareWeightHistory">
+      <result property="IntId" column="I_INTID" />
+      <result property="CarName" column="C_CARNAME" />
+      <result property="SiteNo" column="C_SITENO" />
+      <result property="SiteName" column="C_SITENAME" />
+      <result property="HistoryTare" column="I_HISTORYTARE" />
+      <result property="CREATETIME" column="C_CREATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      
+      <!--<result property="IsExceed" column="I_ISEXCEED" />-->
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="selectSM_TareWeightAll"  resultMap="SelectSM_TareWeightAllResult">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.I_NewTare
+      ,a.C_SiteNo
+      ,a.C_SiteName
+      ,a.I_ISUSED
+      ,to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME
+      ,a.C_CreateUserName
+      ,to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      ,a.C_UpdateUserName
+      from SM_TareWeight a
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectSM_TareWeightByCarNameAndTime"  resultMap="SelectSM_TareWeightAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.I_NewTare
+      ,a.C_SiteNo
+      ,a.C_SiteName
+      ,a.I_ISUSED
+      ,a.C_CREATETIME
+      ,a.C_CreateUserName
+      ,a.C_UPDATETIME
+      ,a.C_UpdateUserName
+      from SM_TareWeight a
+      where a.C_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="and" property="CarName">
+        a.C_CarName like '%$CarName$%'
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectSM_TareWeightAllByCarNo"  resultMap="SelectSM_TareWeightAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.I_NewTare
+      ,a.C_SiteNo
+      ,a.C_SiteName
+      ,a.I_ISUSED
+      ,a.C_CREATETIME
+      ,a.C_CreateUserName
+      ,a.C_UPDATETIME
+      ,a.C_UpdateUserName
+      from SM_TareWeight a
+      where a.C_CarName=#value#
+    </select>
+
+    <select id="QuerySM_TareWeightByCarNo"  resultMap="SelectSM_TareWeightAllResult" resultClass="SM_TareWeight" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.I_NewTare
+      ,a.C_SiteNo
+      ,a.C_SiteName
+      ,a.I_ISUSED
+      ,a.C_CREATETIME
+      ,a.C_CreateUserName
+      ,a.C_UPDATETIME
+      ,a.C_UpdateUserName
+      from SM_TareWeight a
+      where a.C_CarName=#value#
+    </select>
+    
+    <select id="selectSM_TareWeightHistoryAll"  resultMap="SelectSM_TareWeightHistoryAllResult">
+      select
+      a.I_IntId
+      ,a.C_CARNAME
+      ,b.C_POUNDSITENO
+      ,b.C_POUNDSITENAME
+      ,a.C_SITENO
+      ,a.C_SITENAME
+      ,a.I_HISTORYTARE
+      ,a.C_CREATETIME
+      ,a.C_CREATEUSERNAME
+      from SM_TareWeightHistory a
+      left join SM_POUNDSITE_INFO b on a.c_siteno=b.c_poundsiteno
+      order by a.C_CARNAME desc
+    </select>
+    
+    <select id="selectSM_TareWeightHistoryAllByCondition"  resultMap="SelectSM_TareWeightHistoryAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,b.C_POUNDSITENO
+      ,b.C_POUNDSITENAME
+      ,a.C_SITENO
+      ,a.C_SITENAME
+      ,a.I_HISTORYTARE
+      ,a.C_CREATETIME
+      ,a.C_CREATEUSERNAME
+      from SM_TareWeightHistory a
+      left join SM_POUNDSITE_INFO b on a.c_siteno=b.c_poundsiteno
+      where a.C_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="and" property="CarName">
+        a.C_CarName like  '%$CarName$%'
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+
+    <insert id="InsertSM_TareWeight"  parameterClass="SM_TareWeight" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_TAREWEIGHT.nextval as IntId from dual
+      </selectKey>
+      insert into SM_TareWeight
+      (
+      I_IntId,
+      C_CarName,
+      I_NewTare,
+      C_SiteNo,
+      C_SiteName,
+      I_IsUsed,
+      C_CREATETIME,
+      C_CreateUserName
+      )values
+      (#IntId#,#CarName#,#NewTare#,#SiteNo#,#SiteName#,#IsUsed.EntityValue#,to_char(sysdate,'yyyyMMddhh24miss'),#CreateUserName#)
+    </insert>
+    <insert id="InsertSM_TareWeightHistory"  parameterClass="SM_TareWeightHistory" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_TAREWEIGHTHISTORY.nextval as IntId from dual
+      </selectKey>
+      insert into SM_TareWeightHistory
+      (
+      I_IntId,
+      C_CarName,
+      C_CreateUserName,
+      C_CREATETIME,
+      I_HistoryTare,
+      C_SiteNo,
+      C_SiteName,
+      I_ISEXCEED
+      )values
+      (#IntId#,#CarName#,#CreateUserName#,to_char(sysdate,'yyyyMMddhh24miss'),#HistoryTare#,#SiteNo#,#SiteName#,#IsExceed#)
+    </insert>
+    
+    <update id="UpdateSM_TareWeightByCarNo" parameterClass="SM_TareWeight">
+      update SM_TareWeight set
+      C_CarName=#CarName#,
+      I_NewTare=#NewTare#,
+      C_SiteNo=#SiteNo#,
+      C_SiteName=#SiteName#,
+      I_IsUsed=#IsUsed.EntityValue#,
+      C_CreateUserName=#CreateUserName#,
+      C_CREATETIME=to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UPDATETIME = to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UpdateUserName=#UpdateUserName#
+      where
+      C_CarName=#CarName#
+    </update>
+
+    <update id="UpdateSM_TareWeightByCarNo3" parameterClass="SM_TareWeight">
+      update SM_TareWeight set
+      I_IsUsed=#IsUsed.EntityValue#
+      where
+      C_CarName=#CarName#
+    </update>
+    
+    <update id="UpdateSM_TareWeight" parameterClass="SM_TareWeight">
+      update SM_TareWeight set
+      C_CarName=#CarName#,
+      I_NewTare=#NewTare#,
+      C_SiteNo=#SiteNo#,
+      C_SiteName=#SiteName#,
+      I_IsUsed=#IsUsed.EntityValue#,
+      C_CreateUserName=#CreateUserName#,
+      C_UPDATETIME = to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UpdateUserName=#UpdateUserName#
+      where
+      I_IntId = #IntId#
+    </update>
+    <update id="UpdateSM_TareWeight2" parameterClass="SM_TareWeight">
+      <![CDATA[
+      update SM_TareWeight set            
+      I_IsUsed=#IsUsed.EntityValue#  
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+    <delete id="DeleteSM_TareWeight" parameterClass="SM_TareWeight">
+      delete from SM_TareWeight
+      where I_IntId = #IntId#
+    </delete>
+    
+    <delete id="DeleteSM_TareWeightHistory" parameterClass="SM_TareWeightHistory">
+      delete from SM_TareWeightHistory
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="selectSM_TareWeightHistoryByCarName"  resultMap="SelectSM_TareWeightHistoryAllResult2" parameterClass="string">
+      SELECT
+      *
+      FROM
+      (SELECT *
+      FROM SM_TareWeightHistory
+      WHERE C_CARNAME = #CarName#
+      ORDER BY C_CREATETIME DESC)
+      WHERE ROWNUM != 4
+    </select>
+
+    <!--新增-->
+    <update id="UpdateSM_TareWeight3" parameterClass="SM_TareWeight">
+      update SM_TareWeight set
+      I_NewTare=#NewTare#,
+      C_SiteNo=#SiteNo#,
+      C_SiteName=#SiteName#,
+      I_IsUsed=#IsUsed.EntityValue#,
+      C_CreateUserName=#CreateUserName#,
+      C_CreateTime = #CREATETIME#,
+      C_UPDATETIME = to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UpdateUserName=#UpdateUserName#
+      where
+      C_CarName = #CarName#
+    </update>
+  </statements>
+</sqlMap>

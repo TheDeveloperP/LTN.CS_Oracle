@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Pond_Bill_Iron" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_Pond_Bill_IronAllResult" class="PM_Pond_Bill_Iron">
+      <result property="IntId" column="I_IntId" />
+      <result property="WgtlistNo" column="C_WgtlistNo" />
+      <result property="PlanNo" column="C_PlanNo" />
+      <result property="HeatNo" column="C_HeatNo" />
+      <result property="BatchNo" column="C_BatchNo" />
+      <result property="LronNo" column="C_LronNo" />
+      <result property="TankNo" column="C_TankNo" />
+      <result property="ToDeptNo" column="C_ToDeptNo" />
+      <result property="ToDeptName" column="C_ToDeptName" />
+      <result property="GrossWgt" column="N_GrossWgt" />
+      <result property="TareWgt" column="N_TareWgt" />
+      <result property="TareWgt1" column="N_TareWgt1" />
+      <result property="NetWgt" column="N_NetWgt" />
+      <result property="NetWgt1" column="N_NetWgt1" />
+      <result property="SlagNum" column="N_SlagNum" />
+      <result property="NetWgt2" column="N_NetWgt2" />
+      <result property="GrossWgtTime" column="D_GrossWgtTime" />
+      <result property="TareWgtTime" column="D_TareWgtTime" />
+      <result property="GrossWgtSiteNo" column="C_GrossWgtSiteNo" />
+      <result property="GrossWgtSiteName" column="C_GrossWgtSiteName" />
+      <result property="TareWgtSiteNo" column="C_TareWgtSiteNo" />
+      <result property="TareWgtSiteName" column="C_TareWgtSiteName" />
+      <result property="GrossWgtMan" column="C_GrossWgtMan" />
+      <result property="TareWgtMan" column="C_TareWgtMan" />
+      <result property="TrainGroupGross" column="C_TrainGroupGross" />
+      <result property="TrainGroupTare" column="C_TrainGroupTare" />
+      <result property="PlanStatus" column="C_PlanStatus" />
+      <result property="UpLoadStatus" column="C_UpLoadStatus" />
+      <result property="Remark" column="C_Remark" />
+      <result property="PondRemark" column="C_PondRemark" />
+      <result property="CReserve1" column="C_Reserve1" />
+      <result property="CReserve2" column="C_Reserve2" />
+      <result property="CReserve3" column="C_Reserve3" />
+      <result property="IReserve1" column="I_Reserve1" />
+      <result property="IReserve2" column="I_Reserve2" />
+      <result property="IReserve3" column="I_Reserve3" />
+      <result property="CReserveFlag1" column="C_ReserveFlag1" />
+      <result property="CReserveFlag2" column="C_ReserveFlag2" />
+      <result property="CReserveFlag3" column="C_ReserveFlag3" />
+      <result property="IReserveFlag1" column="I_ReserveFlag1" />
+      <result property="IReserveFlag2" column="I_ReserveFlag2" />
+      <result property="IReserveFlag1" column="I_ReserveFlag3" />
+      <result property="DataFlag.EntityValue" column="I_DataFlag" />
+      <result property="BillStatus.IntValue" column="I_BillStatus" />
+      <result property="PlanCreateUser" column="C_PLANCREATEUSER" />
+      <result property="PlanCreateTime" column="D_PLANCREATETIME" />
+      <result property="CreateUser" column="C_CREATEUSER" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateUser" column="C_UPDATEUSER" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertPM_Pond_Bill_Iron"  parameterClass="PM_Pond_Bill_Iron" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_Pond_Bill_Iron_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_Pond_Bill_Iron
+      (
+      I_IntId
+      ,C_WgtlistNo
+      ,C_PlanNo
+      ,C_HeatNo
+      ,C_BatchNo
+      ,C_LronNo
+      ,C_TankNo
+      ,C_ToDeptNo
+      ,C_ToDeptName
+      ,N_GrossWgt
+      ,N_TareWgt
+      ,N_TareWgt1
+      ,N_NetWgt
+      ,N_NetWgt1
+      ,N_SlagNum
+      ,N_NetWgt2
+      ,D_GrossWgtTime
+      ,D_TareWgtTime
+      ,C_GrossWgtSiteNo
+      ,C_GrossWgtSiteName
+      ,C_TareWgtSiteNo
+      ,C_TareWgtSiteName
+      ,C_GrossWgtMan
+      ,C_TareWgtMan
+      ,C_TrainGroupGross
+      ,C_TrainGroupTare
+      ,C_PlanStatus
+      ,C_UpLoadStatus
+      ,C_Remark
+      ,C_PondRemark
+      ,I_DataFlag
+      ,I_BillStatus
+      ,C_Reserve1
+      ,C_Reserve2
+      ,C_Reserve3
+      ,I_Reserve1
+      ,I_Reserve2
+      ,I_Reserve3
+      ,C_ReserveFlag1
+      ,C_ReserveFlag2
+      ,C_ReserveFlag3
+      ,I_ReserveFlag1
+      ,I_ReserveFlag2
+      ,I_ReserveFlag3
+      ,C_PlanCreateUser
+      ,D_PlanCreateTime
+      ,C_CreateUser
+      ,D_CreateTime
+      ,C_UpdateUser
+      ,D_UpdateTime
+      )values
+      (#IntId#,GETPLANNO('TSJL','C_WgtlistNo','PM_Pond_Bill_Iron'),#PlanNo#,#HeatNo#,#BatchNo#,#LronNo#,#TankNo#,#ToDeptNo#,#ToDeptName#,
+      #GrossWgt#,#TareWgt#,#TareWgt1#,#NetWgt#,#NetWgt1#,#SlagNum#,#NetWgt2#,#GrossWgtTime#,#TareWgtTime#,#GrossWgtSiteNo#,#GrossWgtSiteName#,#TareWgtSiteNo#,#TareWgtSiteName#,#GrossWgtMan#,#TareWgtMan#,#TrainGroupGross#,#TrainGroupTare#,
+      #PlanStatus#,#UpLoadStatus#,#Remark#,#PondRemark#,#DataFlag.EntityValue#,#BillStatus.IntValue#,#CReserve1#,#CReserve2#,#CReserve3#,#IReserve1#,#IReserve2#,#IReserve3#,#CReserveFlag1#,#CReserveFlag2#,#CReserveFlag3#,
+      #IReserveFlag1#,#IReserveFlag2#,#IReserveFlag3#,#PlanCreateUser#,#PlanCreateTime#,#CreateUser#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUser#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+
+    <update id="UpdatePM_Pond_Bill_Iron"
+            parameterClass="PM_Pond_Bill_Iron">
+      <![CDATA[
+      update PM_Pond_Bill_Iron set
+      I_IntId=#IntId#
+      ,C_WgtlistNo=#WgtlistNo#
+      ,C_PlanNo=#PlanNo#
+      ,C_HeatNo=#HeatNo#
+      ,C_BatchNo=#BatchNo#
+      ,C_LronNo=#LronNo#
+      ,C_TankNo=#TankNo#
+      ,C_ToDeptNo=#ToDeptNo#
+      ,C_ToDeptName=#ToDeptName#
+      ,N_GrossWgt=#GrossWgt#
+      ,N_TareWgt=#TareWgt#
+      ,N_TareWgt1=#TareWgt1#
+      ,N_NetWgt=#NetWgt#
+      ,N_NetWgt1=#NetWgt1#
+      ,N_SlagNum=#SlagNum#
+      ,N_NetWgt2=#NetWgt2#
+      ,D_GrossWgtTime=#GrossWgtTime#
+      ,D_TareWgtTime=#TareWgtTime#
+      ,C_GrossWgtSiteNo=#GrossWgtSiteNo#
+      ,C_GrossWgtSiteName=#GrossWgtSiteName#
+      ,C_TareWgtSiteNo=#TareWgtSiteNo#
+      ,C_TareWgtSiteName=#TareWgtSiteName#
+      ,C_GrossWgtMan=#GrossWgtMan#
+      ,C_TareWgtMan=#TareWgtMan#
+      ,C_TrainGroupGross=#TrainGroupGross#
+      ,C_TrainGroupTare=#TrainGroupTare#
+      ,C_PlanStatus=#PlanStatus#
+      ,C_UpLoadStatus=#UpLoadStatus#
+      ,C_Remark=#Remark#
+      ,C_PondRemark=#PondRemark#
+      ,I_DataFlag=#DataFlag.EntityValue#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,C_Reserve1=#CReserve1#
+      ,C_Reserve2=#CReserve2#
+      ,C_Reserve3=#CReserve3#
+      ,I_Reserve1=#IReserve1#
+      ,I_Reserve2=#IReserve2#
+      ,I_Reserve3=#IReserve3#
+      ,C_ReserveFlag1=#CReserveFlag1#
+      ,C_ReserveFlag2=#CReserveFlag2#
+      ,C_ReserveFlag3=#CReserveFlag3#
+      ,I_ReserveFlag1=#IReserveFlag1#
+      ,I_ReserveFlag2=#IReserveFlag2#
+      ,I_ReserveFlag3=#IReserveFlag3#
+      ,C_PlanCreateUser=#PlanCreateUser#
+      ,D_PlanCreateTime=#PlanCreateTime#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+    
+    <update id="UpdatePM_Pond_Bill_IronFlag"
+               parameterClass="PM_Pond_Bill_Iron">
+      update PM_Pond_Bill_Iron set
+      I_DataFlag=#DataFlag.EntityValue#
+      ,C_PlanStatus=#PlanStatus#
+      ,C_UpLoadStatus=#UpLoadStatus#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+    </update>
+
+    <delete id="DeletePM_Pond_Bill_Iron" parameterClass="PM_Pond_Bill_Iron">
+      delete from PM_Pond_Bill_Iron
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="selectPM_Pond_Bill_IronAll"  resultMap="SelectPM_Pond_Bill_IronAllResult">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where a.I_DataFlag=1
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Pond_Bill_IronByCond"  resultMap="SelectPM_Pond_Bill_IronAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where  a.D_CREATETIME between #StartTime# and #EndTime# and a.I_DataFlag=1
+      <isNotEmpty prepend="AND" property="WgtlistNo">
+        a.C_WgtlistNo=#WgtlistNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="PlanNo">
+        a.C_PlanNo=#PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="HeatNo">
+        a.C_HeatNo=#HeatNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="TankNo">
+        a.C_TankNo=#TankNo#
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectPM_Pond_Bill_IronbyDic"  parameterClass= "Hashtable" resultMap="SelectPM_Pond_Bill_IronAllResult">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      <dynamic prepend="where">
+        <isParameterPresent>
+          <isNotNull prepend="AND" property="TankNo" >
+            a.C_TankNo = '$TankNo$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="FormationTag" >
+            a.C_TrainGroupTare = '$FormationTag$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="BeginDate" >
+            <isNotNull  property="EndDate">
+              a.D_CreateTime > '$BeginDate$' and '$EndDate$'>a.D_CreateTime
+            </isNotNull>
+          </isNotNull>
+          and a.I_DataFlag = 1 and a.I_BillStatus = 1
+        </isParameterPresent>
+        order by I_IntId Desc
+      </dynamic>
+    </select>
+
+    <select id="selectPM_Pond_Bill_IronbyGroup"  parameterClass= "string" resultMap="SelectPM_Pond_Bill_IronAllResult">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where (a.C_TrainGroupTare=#Traingroup# or a.C_TrainGroupGross=#Traingroup#) and a.I_DataFlag = 1
+    </select>
+    <!--新增-->
+    <select id="selectPM_Pond_Bill_IronByCond2"  resultMap="SelectPM_Pond_Bill_IronAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where  a.D_CREATETIME between #StartTime# and #EndTime# and a.I_DataFlag=1
+      <isNotEmpty prepend="AND" property="WgtlistNo">
+        a.C_WgtlistNo like '%$WgtlistNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="PlanNo">
+        a.C_PlanNo like '%$PlanNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="HeatNo">
+        a.C_HeatNo like '%$HeatNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="TankNo">
+        a.C_TankNo like '%$TankNo$%'
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+    
+    
+    <select id="selectPM_Pond_Bill_IronbySiteAndTagFormation"  parameterClass= "string" resultMap="SelectPM_Pond_Bill_IronAllResult">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where (a.C_TrainGroupTare=#formationInfo# or a.C_TrainGroupGross=#formationInfo#) and a.I_DataFlag = 1
+      and (a.C_GrossWgtSiteNo = #siteNo# or a.C_TareWgtSiteNo=#siteNo#)
+    </select>
+    <!--新增-->
+    <select id="selectPM_Pond_Bill_IronByCond3"  resultMap="SelectPM_Pond_Bill_IronAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_TareWgt1
+      ,a.N_NetWgt
+      ,a.N_NetWgt1
+      ,a.N_SlagNum
+      ,a.N_NetWgt2
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.I_BillStatus
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.D_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Pond_Bill_Iron a
+      where  a.D_GrossWgtTime between #StartTime# and #EndTime# and a.I_DataFlag=1
+      <isNotEmpty prepend="AND" property="WgtlistNo">
+        a.C_WgtlistNo like '%$WgtlistNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="PlanNo">
+        a.C_PlanNo like '%$PlanNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="HeatNo">
+        a.C_HeatNo like '%$HeatNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="TankNo">
+        a.C_TankNo like '%$TankNo$%'
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.3077</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6272500A-FEAB-4093-AF65-337234DA32FE}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>Castle.DynamicProxy</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/Castle.DynamicProxy/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>true</Optimize>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>DynProxy.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Castle.DynamicProxy</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\AssertUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\AbstractCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\AbstractEasyType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\ConstructorCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\ConstructorCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyCallable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyConstructor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyDefaultConstructor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyNested.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyRuntimeConstructor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyRuntimeMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EasyType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\EventsCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\IEasyMember.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\MethodCodeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\MethodCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\NestedTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\PropertiesCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\AddressOfReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ArgumentReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\AssignArrayStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\AssignStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\BinaryExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ConditionExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ConstructorInvocationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ConvertExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\Expression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ExpressionStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\FieldReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\FixedReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\GotoStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\IEmitter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\IndirectReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\LabelReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\LoadRefArrayElementExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\LocalReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\LockBlockExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\MarkBranchStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\MethodInvocationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\MethodPointerExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\MethodTokenExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\NewArrayExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\NewInstanceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\NopStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\NullExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\PopValueFromStackStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\Reference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ReferencesToObjectArrayExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ReturnReferenceExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\ReturnStatement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\SelfReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\Statement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\TypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\TypeTokenExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\SimpleAST\VirtualMethodInvocationExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\Utils\ArgumentsUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\Utils\LdcOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\Utils\LdindOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\Utils\OpCodeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeBuilder\Utils\StindOpCodesDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\BaseCodeGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\CallableField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\ClassProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\InterfaceProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\ModuleScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\ProxyGenerationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\CodeGenerators\Set.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\DefaultProxyBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Builder\IProxyBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\GeneratorContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\ICallable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\IInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\IInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Invocation\AbstractInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Invocation\InterfaceInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Invocation\SameClassInvocation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\ProxyGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\Serialization\ProxyObjectReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Castle\DynamicProxy\StandardInterceptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DynProxy.snk" />
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

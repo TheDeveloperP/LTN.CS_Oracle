@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_WeightList_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="Select_SM_WeightList_InfoResultMap" class="SM_WeightList_Info">
+      <result property="weightName"          column="weightName"/>
+      <result property="grossNum"              column="grossNum"/>
+      <result property="tareNum"               column="tareNum"/>
+      <result property="totalNum"             column="totalNum"/>
+    </resultMap>  
+  </resultMaps>
+
+  <statements>
+    <select id="selectSM_WeightList_Info"   parameterClass="HashTable" resultMap="Select_SM_WeightList_InfoResultMap">
+      select
+      case when a.grossman is null then b.createname else a.grossman end as weightName,
+      case when a.carcount is null then 0 else a.carcount  end as grossNum,
+      case when b.carcount is null then 0 else b.carcount  end as tareNum  ,
+      (case when a.carcount is null then 0 else a.carcount  end )+(case when b.carcount is null then 0 else b.carcount  end) as totalNum
+      from  (select t.c_grosswgtman as grossman ,  count(t.c_grosswgtman)  as carcount  from pm_bill_truck  t
+      where t.c_grosswgttime between #StartTime# and #EndTime# group by t.c_grosswgtman ) a
+      full outer join  (select  u.c_createusername as createname ,count(u.c_createusername) as carcount  from sm_tareweighthistory u
+      where u.c_createtime between #StartTime# and #EndTime# group by u.c_createusername) b on a.grossman=b.createname  order by totalNum desc
+      <!--<isNotEmpty prepend="AND" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          C_CREATETIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>-->
+    </select>
+
+    <select id="selectSM_WeightList_Info2"   parameterClass="HashTable" resultMap="Select_SM_WeightList_InfoResultMap">
+      select
+      case when a.grosswgtsitename is null then b.sitename else a.grosswgtsitename end as weightName,
+      case when a.carcount is null then 0 else a.carcount  end as grossNum,
+      case when b.carcount is null then 0 else b.carcount  end as tareNum,
+      (case when a.carcount is null then 0 else a.carcount  end )+(case when b.carcount is null then 0 else b.carcount  end) as totalNum
+      from  (select t.c_grosswgtsitename as grosswgtsitename ,  count(t.c_grosswgtsitename)  as carcount  from pm_bill_truck  t
+      where t.c_grosswgttime between #StartTime# and #EndTime# group by t.c_grosswgtsitename ) a
+      full outer join  (select  u.c_sitename as sitename ,count(u.c_sitename) as carcount  from sm_tareweighthistory u
+      where u.c_createtime between #StartTime# and #EndTime# group by u.c_sitename) b on a.grosswgtsitename=b.sitename order by totalNum desc
+    </select>
+  </statements>
+</sqlMap>

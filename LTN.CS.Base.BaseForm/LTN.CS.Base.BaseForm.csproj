@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00EC2B1C-3140-4201-A098-6DD4DE1904F4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LTN.CS.Base.BaseForm</RootNamespace>
+    <AssemblyName>LTN.CS.Base.BaseForm</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\lib\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Quartz">
+      <HintPath>..\lib\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.1.20001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.20001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\lib\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BM\BM_CHANGEPASSWORD_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_CHANGEPASSWORD_Form.Designer.cs">
+      <DependentUpon>BM_CHANGEPASSWORD_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_DELIVERY_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_DELIVERY_Form.Designer.cs">
+      <DependentUpon>BM_DELIVERY_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_DICTIONARY_DETAIL_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_DICTIONARY_DETAIL_Form.Designer.cs">
+      <DependentUpon>BM_DICTIONARY_DETAIL_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_DICTIONARY_MAIN_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_DICTIONARY_MAIN_Form.Designer.cs">
+      <DependentUpon>BM_DICTIONARY_MAIN_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_GROUPUSER_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_GROUPUSER_Form.Designer.cs">
+      <DependentUpon>BM_GROUPUSER_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_GROUP_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_GROUP_Form.Designer.cs">
+      <DependentUpon>BM_GROUP_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_MAINASSEMBLY_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_MAINASSEMBLY_Form.Designer.cs">
+      <DependentUpon>BM_MAINASSEMBLY_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_MAINGROUP_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_MAINGROUP_Form.Designer.cs">
+      <DependentUpon>BM_MAINGROUP_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_MAIN_GROUP_SERVICE_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_MAIN_GROUP_SERVICE_Form.Designer.cs">
+      <DependentUpon>BM_MAIN_GROUP_SERVICE_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_MAIN_PAGE_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_MAIN_PAGE_Form.Designer.cs">
+      <DependentUpon>BM_MAIN_PAGE_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_Form.designer.cs">
+      <DependentUpon>BM_SERVICE_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_GROUP_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_GROUP_Form.Designer.cs">
+      <DependentUpon>BM_SERVICE_GROUP_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_USER_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_SERVICE_USER_Form.Designer.cs">
+      <DependentUpon>BM_SERVICE_USER_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BM\BM_USER_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BM\BM_USER_Form.Designer.cs">
+      <DependentUpon>BM_USER_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LTN.CS.Base.BusinessDao\LTN.CS.Base.BusinessDao.csproj">
+      <Project>{8DFC5478-7F65-47A3-AF7C-A552F51469FA}</Project>
+      <Name>LTN.CS.Base.BusinessDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base.BusinessService\LTN.CS.Base.BusinessService.csproj">
+      <Project>{0ABA973D-4B73-4E46-8CBF-0DB093BC50BF}</Project>
+      <Name>LTN.CS.Base.BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.BaseEntity\LTN.CS.BaseEntities.csproj">
+      <Project>{33B2AC55-6414-463F-9627-688E608F2FDD}</Project>
+      <Name>LTN.CS.BaseEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base\LTN.CS.Base.csproj">
+      <Project>{A5BCB470-E355-489A-AA9F-646D4A119835}</Project>
+      <Name>LTN.CS.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Core\LTN.CS.Core.csproj">
+      <Project>{873D6B8C-2E49-47E7-94B4-0929C5DA0911}</Project>
+      <Name>LTN.CS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Resource\LTN.CS.Resource.csproj">
+      <Project>{FB9F5CC5-AE07-4383-9C91-8A42343DE4DB}</Project>
+      <Name>LTN.CS.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BM\BM_CHANGEPASSWORD_Form.resx">
+      <DependentUpon>BM_CHANGEPASSWORD_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_DELIVERY_Form.resx">
+      <DependentUpon>BM_DELIVERY_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_DICTIONARY_DETAIL_Form.resx">
+      <DependentUpon>BM_DICTIONARY_DETAIL_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_DICTIONARY_MAIN_Form.resx">
+      <DependentUpon>BM_DICTIONARY_MAIN_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_GROUPUSER_Form.resx">
+      <DependentUpon>BM_GROUPUSER_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_GROUP_Form.resx">
+      <DependentUpon>BM_GROUP_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_MAINASSEMBLY_Form.resx">
+      <DependentUpon>BM_MAINASSEMBLY_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_MAINGROUP_Form.resx">
+      <DependentUpon>BM_MAINGROUP_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_MAIN_GROUP_SERVICE_Form.resx">
+      <DependentUpon>BM_MAIN_GROUP_SERVICE_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_MAIN_PAGE_Form.resx">
+      <DependentUpon>BM_MAIN_PAGE_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_SERVICE_Form.resx">
+      <DependentUpon>BM_SERVICE_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_SERVICE_GROUP_Form.resx">
+      <DependentUpon>BM_SERVICE_GROUP_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_SERVICE_USER_Form.resx">
+      <DependentUpon>BM_SERVICE_USER_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BM\BM_USER_Form.resx">
+      <DependentUpon>BM_USER_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\abled_16.png" />
+    <Content Include="Icon\add_16.png" />
+    <Content Include="Icon\BMGROUP_16.png" />
+    <Content Include="Icon\BMGROUP_32.ico" />
+    <Content Include="Icon\BMGROUP_32.png" />
+    <Content Include="Icon\BMMAINGROUPSERVICE_16.png" />
+    <Content Include="Icon\BMMAINGROUPSERVICE_32.ico" />
+    <Content Include="Icon\BMMAINGROUPSERVICE_32.png" />
+    <Content Include="Icon\BMUSER_16.png" />
+    <Content Include="Icon\BMUSER_32.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icon\BMUSER_32.png" />
+    <Content Include="Icon\BM_DELIVERY_Form_16.png" />
+    <Content Include="Icon\BM_DELIVERY_Form_32.ico" />
+    <Content Include="Icon\BM_DELIVERY_Form_32.png" />
+    <Content Include="Icon\BM_DICTIONARY_DETAIL_Form_16.png" />
+    <Content Include="Icon\BM_DICTIONARY_DETAIL_Form_32.ico" />
+    <Content Include="Icon\BM_DICTIONARY_DETAIL_Form_32.png" />
+    <Content Include="Icon\BM_DICTIONARY_MAIN_Form_16.png" />
+    <Content Include="Icon\BM_DICTIONARY_MAIN_Form_32.ico" />
+    <Content Include="Icon\BM_DICTIONARY_MAIN_Form_32.png" />
+    <Content Include="Icon\BM_GROUPUSER_Form_16.png" />
+    <Content Include="Icon\BM_GROUPUSER_Form_32.ico" />
+    <Content Include="Icon\BM_GROUPUSER_Form_32.png" />
+    <Content Include="Icon\BM_MAINASSEMBLY_Form_16.png" />
+    <Content Include="Icon\BM_MAINASSEMBLY_Form_32.ico" />
+    <Content Include="Icon\BM_MAINASSEMBLY_Form_32.png" />
+    <Content Include="Icon\BM_MAINGROUP_Form_16.png" />
+    <Content Include="Icon\BM_MAINGROUP_Form_32.ico" />
+    <Content Include="Icon\BM_MAINGROUP_Form_32.png" />
+    <Content Include="Icon\BM_SERVICE_Form_16.png" />
+    <Content Include="Icon\BM_SERVICE_Form_32.ico" />
+    <Content Include="Icon\BM_SERVICE_Form_32.png" />
+    <Content Include="Icon\BM_SERVICE_GROUP_16.png" />
+    <Content Include="Icon\BM_SERVICE_GROUP_32.ico" />
+    <Content Include="Icon\BM_SERVICE_GROUP_32.png" />
+    <Content Include="Icon\BM_SERVICE_GROUP_Form_16.png" />
+    <Content Include="Icon\BM_SERVICE_GROUP_Form_32.ico" />
+    <Content Include="Icon\BM_SERVICE_GROUP_Form_32.png" />
+    <Content Include="Icon\cancel_16.png" />
+    <Content Include="Icon\confirm_16.png" />
+    <Content Include="Icon\delete_16.png" />
+    <Content Include="Icon\disabled_16.png" />
+    <Content Include="Icon\limited_24.png" />
+    <Content Include="Icon\Page_16.png" />
+    <Content Include="Icon\Page_32.ico" />
+    <Content Include="Icon\Page_32.png" />
+    <Content Include="Icon\password_32.ico" />
+    <Content Include="Icon\refresh_16.png" />
+    <Content Include="Icon\Reset_16.png" />
+    <Content Include="Icon\unlimited_24.png" />
+    <Content Include="Icon\update_16.png" />
+    <None Include="Resources\BM_DELIVERY_Form_32.png" />
+    <None Include="Resources\BM_DELIVERY_Form_16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Bill_Truck_History" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QueryPM_Bill_Truck_HistoryResult" class="PM_Bill_Truck_History">
+        <result property="I_INTID"	column="I_INTID" />
+        <result property="C_PLANNO"	column="C_PLANNO" />
+        <result property="C_CARNO"	column="C_CARNO" />
+        <result property="C_CARNAME"	column="C_CARNAME" />
+        <result property="C_MATERIALNO"	column="C_MATERIALNO" />
+        <result property="C_MATERIALNAME"	column="C_MATERIALNAME" />
+        <result property="C_FROMDEPTNO"	column="C_FROMDEPTNO" />
+        <result property="C_FROMDEPTNAME"	column="C_FROMDEPTNAME" />
+        <result property="C_FROMSTORENO"	column="C_FROMSTORENO" />
+        <result property="C_FROMSTORENAME"	column="C_FROMSTORENAME" />
+        <result property="C_TODEPTNO"	column="C_TODEPTNO" />
+        <result property="C_TODEPTNAME"	column="C_TODEPTNAME" />
+        <result property="C_TOSTORENO"	column="C_TOSTORENO" />
+        <result property="C_TOSTORENAME"	column="C_TOSTORENAME" />
+        <result property="I_BUSINESSTYPE"	column="I_BUSINESSTYPE" />
+        <result property="I_PLANTYPE"	column="I_PLANTYPE" />
+        <result property="I_ISAUTO"	column="I_ISAUTO" />
+        <result property="I_WEIGHTTYPE"	column="I_WEIGHTTYPE" />
+        <result property="I_TARETIMELIMIT"	column="I_TARETIMELIMIT" />
+        <result property="I_ONEMORESTOCK"	column="I_ONEMORESTOCK" />
+        <result property="I_ISCHILDIDENFY"	column="I_ISCHILDIDENFY" />
+        <result property="I_ISCREATEMOTHERPOND"	column="I_ISCREATEMOTHERPOND" />
+        <result property="C_CONNECTPLANNO"	column="C_CONNECTPLANNO" />
+        <result property="I_ONETWOPLAN"	column="I_ONETWOPLAN" />
+        <result property="C_MIDDLEDEPTNO"	column="C_MIDDLEDEPTNO" />
+        <result property="C_MIDDLEDEPTNAME"	column="C_MIDDLEDEPTNAME" />
+        <result property="C_MIDDLESTORENO"	column="C_MIDDLESTORENO" />
+        <result property="C_MIDDLESTORENAME"	column="C_MIDDLESTORENAME" />
+        <result property="I_RETALLYKG"	column="I_RETALLYKG" />
+        <result property="I_COMPUTERTYPE"	column="I_COMPUTERTYPE" />
+        <result property="I_DOWNVALUE"	column="I_DOWNVALUE" />
+        <result property="I_UPVALUE"	column="I_UPVALUE" />
+        <result property="C_PERCENTAGE"	column="C_PERCENTAGE" />
+        <result property="C_SHIPPINGNOTE"	column="C_SHIPPINGNOTE" />
+        <result property="I_REPEATPOUND"	column="I_REPEATPOUND" />
+        <result property="C_PLANLIMITTIME"	column="C_PLANLIMITTIME" />
+        <result property="C_PONDLIMIT"	column="C_PONDLIMIT" />
+        <result property="C_CREATETIME"	column="C_CREATETIME" />
+        <result property="C_CREATEUSERNAME"	column="C_CREATEUSERNAME" />
+        <result property="C_REMARK"	column="C_REMARK" />
+        <result property="C_RESERVE1"	column="C_RESERVE1" />
+        <result property="C_RESERVE2"	column="C_RESERVE2" />
+        <result property="C_RESERVE3"	column="C_RESERVE3" />
+        <result property="I_RESERVE1"	column="I_RESERVE1" />
+        <result property="I_RESERVE2"	column="I_RESERVE2" />
+        <result property="I_RESERVE3"	column="I_RESERVE3" />
+        <result property="C_PLANSTATE"	column="C_PLANSTATE" />
+        <result property="C_WGTLISTNO"	column="C_WGTLISTNO" />
+        <result property="C_BARCODENO"	column="C_BARCODENO" />
+        <result property="N_TAREWGT"	column="N_TAREWGT" />
+        <result property="N_GROSSWGT"	column="N_GROSSWGT" />
+        <result property="N_NETWGT"	column="N_NETWGT" />
+        <result property="C_TAREWGTTIME"	column="C_TAREWGTTIME" />
+        <result property="C_GROSSWGTTIME"	column="C_GROSSWGTTIME" />
+        <result property="C_TAREWGTSITENO"	column="C_TAREWGTSITENO" />
+        <result property="C_TAREWGTSITENAME"	column="C_TAREWGTSITENAME" />
+        <result property="C_GROSSWGTSITENO"	column="C_GROSSWGTSITENO" />
+        <result property="C_GROSSWGTSITENAME"	column="C_GROSSWGTSITENAME" />
+        <result property="C_TAREWGTMAN"	column="C_TAREWGTMAN" />
+        <result property="C_GROSSWGTMAN"	column="C_GROSSWGTMAN" />
+        <result property="I_RETURNFLAG"	column="I_RETURNFLAG" />
+        <result property="C_PONDREMARK"	column="C_PONDREMARK" />
+        <result property="C_RESERVEFLAG1"	column="C_RESERVEFLAG1" />
+        <result property="C_RESERVEFLAG2"	column="C_RESERVEFLAG2" />
+        <result property="C_RESERVEFLAG3"	column="C_RESERVEFLAG3" />
+        <result property="I_RESERVEFLAG1"	column="I_RESERVEFLAG1" />
+        <result property="I_RESERVEFLAG2"	column="I_RESERVEFLAG2" />
+        <result property="I_RESERVEFLAG3"	column="I_RESERVEFLAG3" />
+        <result property="C_UPDATEUSERNAME"	column="C_UPDATEUSERNAME" />
+        <result property="C_UPDATETIME"	column="C_UPDATETIME" />
+        <result property="C_BILLCREATETIME"	column="C_BILLCREATETIME" />
+        <result property="C_BILLCREATEUSERNAME"	column="C_BILLCREATEUSERNAME" />
+        <result property="C_BILLSTATE"	column="C_BILLSTATE" />
+        <result property="C_NETWGTTIME"	column="C_NETWGTTIME" />
+        <result property="I_REPEATFLAG"	column="I_REPEATFLAG" />
+        <result property="C_CARSERIALNUMBER"	column="C_CARSERIALNUMBER" />
+        <result property="C_CONTRACTNO"	column="C_CONTRACTNO" />
+        <result property="C_UPLOADSTATUE"	column="C_UPLOADSTATUE" />
+        <result property="C_PLANSTATUS"	column="C_PLANSTATUS" />
+        <result property="I_PRINTNUM"	column="I_PRINTNUM" />
+        <result property="C_CONTAINERNO"	column="C_CONTAINERNO" />
+        <result property="C_RESERVE4"	column="C_RESERVE4" />
+        <result property="C_RESERVE5"	column="C_RESERVE5" />
+        <result property="C_RESERVE6"	column="C_RESERVE6" />
+        <result property="C_RESERVE7"	column="C_RESERVE7" />
+        <result property="C_UPDATECOLUMNS"	column="C_UPDATECOLUMNS" />
+        <result property="C_UPDATEHISTORYUSER"	column="C_UPDATEHISTORYUSER" />
+        <result property="C_UPDATEHISTORYTIME"	column="C_UPDATEHISTORYTIME" />
+        <result property="C_COMPUTERIP"	column="C_COMPUTERIP" />
+
+    </resultMap>
+  </resultMaps>
+  <statements>
+
+    <select id="Select_PM_Bill_Truck_HistoryForCompare" resultMap="QueryPM_Bill_Truck_HistoryResult"  parameterClass="HashTable">
+    select
+    t.I_INTID,
+    t.C_PLANNO,
+    t.C_CARNO,
+    t.C_CARNAME,
+    t.C_MATERIALNO,
+    t.C_MATERIALNAME,
+    t.C_FROMDEPTNO,
+    t.C_FROMDEPTNAME,
+    t.C_FROMSTORENO,
+    t.C_FROMSTORENAME,
+    t.C_TODEPTNO,
+    t.C_TODEPTNAME,
+    t.C_TOSTORENO,
+    t.C_TOSTORENAME,
+    t.I_BUSINESSTYPE,
+    t.I_PLANTYPE,
+    t.I_ISAUTO,
+    t.I_WEIGHTTYPE,
+    t.I_TARETIMELIMIT,
+    t.I_ONEMORESTOCK,
+    t.I_ISCHILDIDENFY,
+    t.I_ISCREATEMOTHERPOND,
+    t.C_CONNECTPLANNO,
+    t.I_ONETWOPLAN,
+    t.C_MIDDLEDEPTNO,
+    t.C_MIDDLEDEPTNAME,
+    t.C_MIDDLESTORENO,
+    t.C_MIDDLESTORENAME,
+    t.I_RETALLYKG,
+    t.I_COMPUTERTYPE,
+    t.I_DOWNVALUE,
+    t.I_UPVALUE,
+    t.C_PERCENTAGE,
+    t.C_SHIPPINGNOTE,
+    t.I_REPEATPOUND,
+    t.C_PLANLIMITTIME,
+    t.C_PONDLIMIT,
+    t.C_CREATETIME,
+    t.C_CREATEUSERNAME,
+    t.C_REMARK,
+    t.C_RESERVE1,
+    t.C_RESERVE2,
+    t.C_RESERVE3,
+    t.I_RESERVE1,
+    t.I_RESERVE2,
+    t.I_RESERVE3,
+    t.C_PLANSTATE,
+    t.C_WGTLISTNO,
+    t.C_BARCODENO,
+    t.N_TAREWGT,
+    t.N_GROSSWGT,
+    t.N_NETWGT,
+    t.C_TAREWGTTIME,
+    t.C_GROSSWGTTIME,
+    t.C_TAREWGTSITENO,
+    t.C_TAREWGTSITENAME,
+    t.C_GROSSWGTSITENO,
+    t.C_GROSSWGTSITENAME,
+    t.C_TAREWGTMAN,
+    t.C_GROSSWGTMAN,
+    t.I_RETURNFLAG,
+    t.C_PONDREMARK,
+    t.C_RESERVEFLAG1,
+    t.C_RESERVEFLAG2,
+    t.C_RESERVEFLAG3,
+    t.I_RESERVEFLAG1,
+    t.I_RESERVEFLAG2,
+    t.I_RESERVEFLAG3,
+    t.C_UPDATEUSERNAME,
+    t.C_UPDATETIME,
+    t.C_BILLCREATETIME,
+    t.C_BILLCREATEUSERNAME,
+    t.C_BILLSTATE,
+    t.C_NETWGTTIME,
+    t.I_REPEATFLAG,
+    t.C_CARSERIALNUMBER,
+    t.C_CONTRACTNO,
+    t.C_UPLOADSTATUE,
+    t.C_PLANSTATUS,
+    t.I_PRINTNUM,
+    t.C_CONTAINERNO,
+    t.C_RESERVE4,
+    t.C_RESERVE5,
+    t.C_RESERVE6,
+    t.C_RESERVE7,
+    t.C_UPDATECOLUMNS,
+    t.C_UPDATEHISTORYUSER,
+    t.C_UPDATEHISTORYTIME,
+    t.C_COMPUTERIP
+    from PM_Bill_Truck_History t
+    where t.C_UPDATEHISTORYTIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        t.C_PLANNO = #PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="WgtNo">
+        t.C_WGTLISTNO = #WgtNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="CARNAME">
+        t.C_CARNAME like '%$CARNAME$%'
+      </isNotEmpty>
+    order by t.C_UPDATEHISTORYTIME desc
+    </select>
+    
+     <insert id="Insert_PM_Bill_Truck_History" parameterClass="PM_Bill_Truck_History">
+      <selectKey property="I_INTID" type="pre" resultClass="int">
+        select SEQ_PM_BILL_TRUCK_HISTORY_ID.nextval as ID from dual
+      </selectKey>
+      insert into PM_BILL_TRUCK_HISTORY
+      (
+      I_INTID,
+      C_PLANNO,
+      C_CARNO,
+      C_CARNAME,
+      C_CARSERIALNUMBER,
+      C_CONTRACTNO,
+      C_MATERIALNO,
+      C_MATERIALNAME,
+      C_FROMDEPTNO,
+      C_FROMDEPTNAME,
+      C_FROMSTORENO,
+      C_FROMSTORENAME,
+      C_TODEPTNO,
+      C_TODEPTNAME,
+      C_TOSTORENO,
+      C_TOSTORENAME,
+      I_BUSINESSTYPE,
+      I_PLANTYPE,
+      I_ISAUTO,
+      I_WEIGHTTYPE,
+      I_TARETIMELIMIT,
+      I_ONEMORESTOCK,
+      I_ISCHILDIDENFY,
+      I_ISCREATEMOTHERPOND,
+      C_CONNECTPLANNO,
+      I_ONETWOPLAN,
+      C_MIDDLEDEPTNO,
+      C_MIDDLEDEPTNAME,
+      C_MIDDLESTORENO,
+      C_MIDDLESTORENAME,
+      I_RETALLYKG,
+      I_COMPUTERTYPE,
+      I_DOWNVALUE,
+      I_UPVALUE,
+      C_PERCENTAGE,
+      C_SHIPPINGNOTE,
+      I_REPEATPOUND,
+      C_PLANLIMITTIME,
+      C_PONDLIMIT,
+      C_CREATETIME,
+      C_CREATEUSERNAME,
+      C_REMARK,
+      C_RESERVE1,
+      C_RESERVE2,
+      C_RESERVE3,
+      I_RESERVE1,
+      I_RESERVE2,
+      I_RESERVE3,
+      C_PLANSTATE,
+      C_WGTLISTNO,
+      C_BARCODENO,
+      N_TAREWGT,
+      N_GROSSWGT,
+      N_NETWGT,
+      C_TAREWGTTIME,
+      C_GROSSWGTTIME,
+      C_NETWGTTIME,
+      C_TAREWGTSITENO,
+      C_TAREWGTSITENAME,
+      C_GROSSWGTSITENO,
+      C_GROSSWGTSITENAME,
+      C_TAREWGTMAN,
+      C_GROSSWGTMAN,
+      I_RETURNFLAG,
+      C_PONDREMARK,
+      C_RESERVEFLAG1,
+      C_RESERVEFLAG2,
+      C_RESERVEFLAG3,
+      I_RESERVEFLAG1,
+      I_RESERVEFLAG2,
+      I_RESERVEFLAG3,
+      C_BILLSTATE,
+      C_UPDATEUSERNAME,
+      C_UPDATETIME,
+      C_BILLCREATETIME,
+      C_BILLCREATEUSERNAME,
+      I_REPEATFLAG,
+      C_UPLOADSTATUE,
+      C_PLANSTATUS,
+      C_CONTAINERNO,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7,
+      C_UPDATECOLUMNS,
+      C_UPDATEHISTORYUSER,
+      C_UPDATEHISTORYTIME,
+      C_COMPUTERIP
+
+      )values
+      (
+      #I_INTID#,
+      #C_PLANNO#,
+      #C_CARNO#,
+      #C_CARNAME#,
+      #C_CARSERIALNUMBER#,
+      #C_CONTRACTNO#,
+      #C_MATERIALNO#,
+      #C_MATERIALNAME#,
+      #C_FROMDEPTNO#,
+      #C_FROMDEPTNAME#,
+      #C_FROMSTORENO#,
+      #C_FROMSTORENAME#,
+      #C_TODEPTNO#,
+      #C_TODEPTNAME#,
+      #C_TOSTORENO#,
+      #C_TOSTORENAME#,
+      #I_BUSINESSTYPE#,
+      #I_PLANTYPE#,
+      #I_ISAUTO#,
+      #I_WEIGHTTYPE#,
+      #I_TARETIMELIMIT#,
+      #I_ONEMORESTOCK#,
+      #I_ISCHILDIDENFY#,
+      #I_ISCREATEMOTHERPOND#,
+      #C_CONNECTPLANNO#,
+      #I_ONETWOPLAN#,
+      #C_MIDDLEDEPTNO#,
+      #C_MIDDLEDEPTNAME#,
+      #C_MIDDLESTORENO#,
+      #C_MIDDLESTORENAME#,
+      #I_RETALLYKG#,
+      #I_COMPUTERTYPE#,
+      #I_DOWNVALUE#,
+      #I_UPVALUE#,
+      #C_PERCENTAGE#,
+      #C_SHIPPINGNOTE#,
+      #I_REPEATPOUND#,
+      #C_PLANLIMITTIME#,
+      #C_PONDLIMIT#,
+      #C_CREATETIME#,
+      #C_CREATEUSERNAME#,
+      #C_REMARK#,
+      #C_RESERVE1#,
+      #C_RESERVE2#,
+      #C_RESERVE3#,
+      #I_RESERVE1#,
+      #I_RESERVE2#,
+      #I_RESERVE3#,
+      #C_PLANSTATE#,
+      <!--GETPLANNO('99JL','C_WgtlistNo','PM_BILL_TRUCK'),可能是WGTLISTNO-->
+       #C_WGTLISTNO#,
+       #C_BARCODENO#,
+       #N_TAREWGT#,
+       #N_GROSSWGT#,
+       #N_NETWGT#,
+       #C_TAREWGTTIME#,
+       #C_GROSSWGTTIME#,
+       #C_NETWGTTIME#,
+       #C_TAREWGTSITENO#,
+       #C_TAREWGTSITENAME#,
+       #C_GROSSWGTSITENO#,
+       #C_GROSSWGTSITENAME#,
+       #C_TAREWGTMAN#,
+       #C_GROSSWGTMAN#,
+       #I_RETURNFLAG#,
+       #C_PONDREMARK#,
+       #C_RESERVEFLAG1#,
+       #C_RESERVEFLAG2#,
+       #C_RESERVEFLAG3#,
+       #I_RESERVEFLAG1#,
+       #I_RESERVEFLAG2#,
+       #I_RESERVEFLAG3#,
+       #C_BILLSTATE#,
+       #C_UPDATEUSERNAME#,
+       #C_UPDATETIME#,
+       #C_BILLCREATETIME#,
+       #C_BILLCREATEUSERNAME#,
+       #I_REPEATFLAG#,
+       #C_UPLOADSTATUE#,
+       #C_PLANSTATUS#,
+       #C_CONTAINERNO#,
+       #C_RESERVE4#,
+       #C_RESERVE5#,
+       #C_RESERVE6#,
+       #C_RESERVE7#,
+       #C_UPDATECOLUMNS#,
+       #C_UPDATEHISTORYUSER#,
+       to_char(sysdate,'yyyyMMddhh24miss'),
+       #C_COMPUTERIP#
+
+       )
+     </insert>
+    <!--新增-->
+    <select id="Select_PM_Bill_Truck_HistoryForCompare2" resultMap="QueryPM_Bill_Truck_HistoryResult"  parameterClass="HashTable">
+      select
+      t.I_INTID,
+      t.C_PLANNO,
+      t.C_CARNO,
+      t.C_CARNAME,
+      t.C_MATERIALNO,
+      t.C_MATERIALNAME,
+      t.C_FROMDEPTNO,
+      t.C_FROMDEPTNAME,
+      t.C_FROMSTORENO,
+      t.C_FROMSTORENAME,
+      t.C_TODEPTNO,
+      t.C_TODEPTNAME,
+      t.C_TOSTORENO,
+      t.C_TOSTORENAME,
+      t.I_BUSINESSTYPE,
+      t.I_PLANTYPE,
+      t.I_ISAUTO,
+      t.I_WEIGHTTYPE,
+      t.I_TARETIMELIMIT,
+      t.I_ONEMORESTOCK,
+      t.I_ISCHILDIDENFY,
+      t.I_ISCREATEMOTHERPOND,
+      t.C_CONNECTPLANNO,
+      t.I_ONETWOPLAN,
+      t.C_MIDDLEDEPTNO,
+      t.C_MIDDLEDEPTNAME,
+      t.C_MIDDLESTORENO,
+      t.C_MIDDLESTORENAME,
+      t.I_RETALLYKG,
+      t.I_COMPUTERTYPE,
+      t.I_DOWNVALUE,
+      t.I_UPVALUE,
+      t.C_PERCENTAGE,
+      t.C_SHIPPINGNOTE,
+      t.I_REPEATPOUND,
+      t.C_PLANLIMITTIME,
+      t.C_PONDLIMIT,
+      t.C_CREATETIME,
+      t.C_CREATEUSERNAME,
+      t.C_REMARK,
+      t.C_RESERVE1,
+      t.C_RESERVE2,
+      t.C_RESERVE3,
+      t.I_RESERVE1,
+      t.I_RESERVE2,
+      t.I_RESERVE3,
+      t.C_PLANSTATE,
+      t.C_WGTLISTNO,
+      t.C_BARCODENO,
+      t.N_TAREWGT,
+      t.N_GROSSWGT,
+      t.N_NETWGT,
+      t.C_TAREWGTTIME,
+      t.C_GROSSWGTTIME,
+      t.C_TAREWGTSITENO,
+      t.C_TAREWGTSITENAME,
+      t.C_GROSSWGTSITENO,
+      t.C_GROSSWGTSITENAME,
+      t.C_TAREWGTMAN,
+      t.C_GROSSWGTMAN,
+      t.I_RETURNFLAG,
+      t.C_PONDREMARK,
+      t.C_RESERVEFLAG1,
+      t.C_RESERVEFLAG2,
+      t.C_RESERVEFLAG3,
+      t.I_RESERVEFLAG1,
+      t.I_RESERVEFLAG2,
+      t.I_RESERVEFLAG3,
+      t.C_UPDATEUSERNAME,
+      t.C_UPDATETIME,
+      t.C_BILLCREATETIME,
+      t.C_BILLCREATEUSERNAME,
+      t.C_BILLSTATE,
+      t.C_NETWGTTIME,
+      t.I_REPEATFLAG,
+      t.C_CARSERIALNUMBER,
+      t.C_CONTRACTNO,
+      t.C_UPLOADSTATUE,
+      t.C_PLANSTATUS,
+      t.I_PRINTNUM,
+      t.C_CONTAINERNO,
+      t.C_RESERVE4,
+      t.C_RESERVE5,
+      t.C_RESERVE6,
+      t.C_RESERVE7,
+      t.C_UPDATECOLUMNS,
+      t.C_UPDATEHISTORYUSER,
+      t.C_UPDATEHISTORYTIME,
+      t.C_COMPUTERIP
+      from PM_Bill_Truck_History t
+      where t.C_UPDATEHISTORYTIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        t.C_PLANNO like '%$PlanNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="WgtNo">
+        t.C_WGTLISTNO like '%$WgtNo$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="CARNAME">
+        t.C_CARNAME like '%$CARNAME$%'
+      </isNotEmpty>
+      order by t.C_UPDATEHISTORYTIME desc
+    </select>
+    
+  </statements>
+
+
+</sqlMap>

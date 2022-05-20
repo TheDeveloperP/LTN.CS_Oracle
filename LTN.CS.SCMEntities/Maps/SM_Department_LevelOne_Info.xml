@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Department_LevelOne_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_Department_LevelOne_InfoAllResult" class="SM_Department_LevelOne_Info">
+      <result property="IntId" column="I_INTID" />
+      <result property="DeptCode" column="C_DEPTCODE" />
+      <result property="DeptName" column="C_DEPTNAME" />
+      <result property="DeptShortName" column="C_DEPTSHORTNAME" />
+      <result property="CreateTime" column="C_CREATETIME" />
+      <result property="UpdateTime" column="C_UPDATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="selectSM_Department_LevelOne_InfoAll"  resultMap="SelectSM_Department_LevelOne_InfoAllResult">
+      select
+       a.I_IntId
+      ,a.C_DeptCode
+      ,a.C_DeptName
+      ,a.C_DeptShortName
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      from SM_Department_LevelOne a
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_Department_LevelOne_InfoForCode"   resultClass="string">
+      select C_DEPTCODE 
+      from 
+      (select C_DEPTCODE 
+      from SM_Department_LevelOne 
+      order by C_CREATETIME desc) 
+      where rownum = 1
+    </select>
+    <select id="selectSM_Department_LevelOne_InfoByDeptName"  resultMap="SelectSM_Department_LevelOne_InfoAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_DeptCode
+      ,a.C_DeptName
+      ,a.C_DeptShortName
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      from SM_Department_LevelOne a
+      where a.C_DeptName = #value#
+      order by a.I_IntId desc
+    </select>
+    <insert id="InsertSM_Department_LevelOne_Info"  parameterClass="SM_Department_LevelOne_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_DEPARTMENT_LEVELONE.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Department_LevelOne
+      (
+      I_IntId,
+      C_DeptCode,
+      C_DeptName,
+      C_DeptShortName,
+      C_CreateUserName,
+      C_CreateTime
+      )values
+      (#IntId#,GetCode('D'),#DeptName#,#DeptShortName#,#CreateUserName#,#CreateTime#)
+    </insert>
+
+    <update id="UpdateSM_Department_LevelOne_Info"
+            parameterClass="SM_Department_LevelOne_Info">
+      <![CDATA[
+      update SM_Department_LevelOne set
+      C_DeptCode=#DeptCode#,
+      C_DeptName=#DeptName#,
+      C_DeptShortName=#DeptShortName#,
+      C_UpdateUserName=#UpdateUserName#,
+      C_UpdateTime=#UpdateTime#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <delete id="DeleteSM_Department_LevelOne_Info" parameterClass="SM_Department_LevelOne_Info">
+      delete from SM_Department_LevelOne
+      where I_IntId = #IntId#
+    </delete>
+
+
+  </statements>
+</sqlMap>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Guid_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_Guid_InfoAllResult" class="SM_Guid_Info">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="strGuid"               column="C_strGuid" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Guid_Info"  parameterClass="SM_Guid_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_Guid_Info.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_Guid_Info
+      (
+      I_IntId,
+      C_strGuid
+      )
+      values
+      (
+      #IntId#,
+      #strGuid#
+      )
+    </insert>
+  </statements>
+</sqlMap>

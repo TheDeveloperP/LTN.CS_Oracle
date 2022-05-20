@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+         ">
+  <object id="BM_USERDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMUSERDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_SERVICEDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMSERVICEDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_SERVICE_GROUP_USERDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMSERVICEGROUPUSERDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_MAINPAGEDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMMAINPAGEDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_MAINGROUPDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMMAINGROUPDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_MAINGROUPSERVICEDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMMAINGROUPSERVICEDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_GROUPDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMGROUPDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_MAINASSEMBLYDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMMAINASSEMBLYDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_GROUPUSERDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMGROUPUSERDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_SERVICEGROUPDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMSERVICEGROUPDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  
+  <object id="BM_SERVICEUSERDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMSERVICEUSERDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_DICTIONARYMAINDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMDICTIONARYMAINDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BM_DICTIONARYDETAILDAO" type="LTN.CS.Base.BusinessDao.BM.Implement.BMDICTIONARYDETAILDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+
+  <object id="BMDELIVERYDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMDELIVERYDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+  <object id="BMDELIVERYHISTORYDao" type="LTN.CS.Base.BusinessDao.BM.Implement.BMDELIVERYHISTORYDaoImpl,LTN.CS.Base.BusinessDao"  singleton="false" >
+    <property  name="basedaoFactory"  ref="BaseSqlMapDaoFactoryForORA"></property>
+  </object>
+
+
+</objects>

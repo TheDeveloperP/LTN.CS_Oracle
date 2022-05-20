@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_DELIVERY_HISTORY" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMDELIVERYHISTORY" type="LTN.CS.BaseEntities.BM.BM_DELIVERY_HISTORY,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMDELIVERYHISTORYAllResult" class="BMDELIVERYHISTORY">
+      <result property="IntId" column="I_INTID" />
+      <result property="MainId" column="I_MAINID" />
+      <result property="Operator.IntId" column="I_OPERATORID" />
+      <result property="Operator.UserNickName" column="I_OPERATORNAME" />
+      <result property="Continue.IntId" column="I_CONTINUEID" />
+      <result property="Continue.UserNickName" column="I_CONTINUENAME" />
+      <result property="OperatorType" column="I_OPERATORTYPE" />
+      <result property="OPTDate" column="D_OPTDate" />
+      <result property="Remarks" column="C_REMARKS" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="selectBMDELIVERYHISTORYBYMainId" resultMap="SelectBMDELIVERYHISTORYAllResult" parameterClass="int">
+      select
+      a.I_INTID
+      ,a.I_MAINID
+      ,a.I_OPERATORID
+      ,b.C_USERNICKNAME I_OPERATORNAME
+      ,a.I_CONTINUEID
+      ,c.C_USERNICKNAME I_CONTINUENAME
+      ,a.I_OPERATORTYPE
+      ,a.D_OPTDate
+      ,a.C_REMARKS
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,f.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_DELIVERY_HISTORY a
+      left join BM_USER b on a.I_OPERATORID = b.I_INTID
+      left join BM_USER c on a.I_CONTINUEID = c.I_INTID
+      left join BM_USER f on a.I_CREATEUSER = f.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.I_MAINID = #value# order by a.D_OPTDate desc
+    </select>
+    <select id="GetBMDELIVERYHISTORYMaxID" resultClass="int" >
+      select max(I_INTID) from BM_DELIVERY_HISTORY 
+    </select>
+    <select id="GetBMDELIVERYHISTORYMaxIDByMainId" resultClass="int" >
+      select max(I_INTID) from BM_DELIVERY_HISTORY where I_MAINID=#value#
+    </select>
+    <delete id ="deleteBMDELIVERYHISTORY" parameterClass="int">
+      delete from BM_DELIVERY_HISTORY where I_INTID = #value#
+    </delete>
+    <insert id="InsertBMDELIVERYHISTORY"   parameterClass="BMDELIVERYHISTORY" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_DELIVERY_HISTORY_id.nextval as I_INTID from dual
+      </selectKey>
+      insert into BM_DELIVERY_HISTORY
+      (
+      I_INTID
+      ,I_MAINID
+      ,I_OPERATORID
+      ,I_CONTINUEID
+      ,I_OPERATORTYPE
+      ,D_OPTDate
+      ,C_REMARKS
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER) values (#IntId#,#MainId#,#Operator.IntId#,#Continue.IntId#,#OperatorType#,sysdate,#Remarks#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+  </statements>
+</sqlMap>

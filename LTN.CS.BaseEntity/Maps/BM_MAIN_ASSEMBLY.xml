@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_MAIN_ASSEMBLY" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMASSEMBLY" type="LTN.CS.BaseEntities.BM.BM_MAIN_ASSEMBLY,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMMAINASSEMBLYAllResult" class="BMASSEMBLY">
+      <result property="IntId" column="I_INTID" />
+      <result property="AssemblyName" column="C_ASSEMBLYNAME" />
+      <result property="AssemblyShortName" column="C_ASSEMBLYSHORTNAME" />
+      <result property="CreateEMPId.IntId" column="I_CREATEEMPID" />
+      <result property="CreateEMPId.UserNickName" column="I_CREATEEMPNAME" />
+      <result property="ManageEMPId.IntId" column="I_MANAGEEMPID" />
+      <result property="ManageEMPId.UserNickName" column="I_MANAGEEMPNAME" />
+      <result property="IsForbid.EntityValue" column="I_ISFORBID" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="GetBMMAINASSEMBLYMaxID" resultClass="int" >
+      select max(I_INTID) from BM_MAIN_ASSEMBLY
+    </select>
+    <select id="BMMAINASSEMBLYExists" resultClass="int"  parameterClass="int">
+      select count(1) from BM_MAIN_ASSEMBLY
+      where I_INTID = #value#
+    </select>
+    <insert id="InsertBMMAINASSEMBLY"  parameterClass="BMASSEMBLY" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_MAIN_ASSEMBLY_id.nextval as I_INTID from dual
+      </selectKey>
+      INSERT INTO  BM_MAIN_ASSEMBLY
+      (
+      I_INTID
+      ,C_ASSEMBLYNAME
+      ,C_ASSEMBLYSHORTNAME
+      ,I_CREATEEMPID
+      ,I_MANAGEEMPID
+      ,I_ISFORBID
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER) values
+      (#IntId#,#AssemblyName#,#AssemblyShortName#,#CreateEMPId.IntId#,#ManageEMPId.IntId#,#IsForbid.EntityValue#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+    <update id="UpdateBMMAINASSEMBLY"
+         parameterClass="BMASSEMBLY">
+      <![CDATA[
+      update BM_MAIN_ASSEMBLY set
+      C_ASSEMBLYNAME = #AssemblyName#
+      ,C_ASSEMBLYSHORTNAME = #AssemblyShortName#
+      ,I_CREATEEMPID = #CreateEMPId.IntId#
+      ,I_MANAGEEMPID = #ManageEMPId.IntId#
+      ,I_ISFORBID = #IsForbid.EntityValue#
+      ,D_UPDATETIME=sysdate
+      ,I_UPDATEUSER = #UpdateUser.IntId#
+      where
+      I_INTID = #IntId#　
+      ]]>
+    </update>
+    <update id="DisabledMAINASSEMBLY"  parameterClass="BMUSER">
+      update BM_MAIN_ASSEMBLY set I_ISFORBID = #IsForbid.EntityValue# where I_INTID = #IntId#
+    </update>
+    <delete id="DeleteBMMAINASSEMBLY" parameterClass="BMASSEMBLY">
+      delete from BM_MAIN_ASSEMBLY where I_INTID = #IntId#
+    </delete>
+    <select id="SelectAllBMMAINASSEMBLY" resultMap="SelectBMMAINASSEMBLYAllResult">
+      SELECT a.I_INTID
+      ,a.C_ASSEMBLYNAME
+      ,a.C_ASSEMBLYSHORTNAME
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_ASSEMBLY a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID 
+    </select>
+    <select id="SelectBYIDBMMAINASSEMBLY" resultMap="SelectBMMAINASSEMBLYAllResult">
+      SELECT a.I_INTID
+      ,a.C_ASSEMBLYNAME
+      ,a.C_ASSEMBLYSHORTNAME
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_ASSEMBLY a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID where a.I_ISFORBID = 0 and a.I_INTID=#IntId#
+    </select>
+    <select id="SelectByBMMAINASSEMBLYId" resultMap="SelectBMMAINASSEMBLYAllResult" resultClass="BMASSEMBLY" parameterClass="int">
+      SELECT a.I_INTID
+      ,a.C_ASSEMBLYNAME
+      ,a.C_ASSEMBLYSHORTNAME
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_ASSEMBLY a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.I_INTID = #value#
+    </select>
+    <select id="SelectByASSEMBLYNAME" resultMap="SelectBMMAINASSEMBLYAllResult" resultClass="BMASSEMBLY" parameterClass="string">
+      SELECT a.I_INTID
+      ,a.C_ASSEMBLYNAME
+      ,a.C_ASSEMBLYSHORTNAME
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_ASSEMBLY a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.C_ASSEMBLYNAME = #value#
+    </select>
+ 
+  </statements>
+</sqlMap>

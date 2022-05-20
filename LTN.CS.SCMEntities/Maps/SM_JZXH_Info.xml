@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_JZXH_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QuerySM_JZXH_InfoResultMap" class="SM_JZXH_Info">
+      <result property=	"C_CarName"	column="C_CARNAME" />
+      <result property=	"C_CarName2"	column="C_CARNAME2" />
+      <result property=	"C_CarName3"	column="C_CARNAME3" />
+      <result property=	"C_ContainerNO"	column="C_CONTAINERNO" />
+      <result property=	"I_ContainerStatus"	column="I_CONTAINERSTATUS" />
+      <result property=	"C_CameraTime"	column="C_CAMERATIME" />
+      <result property=	"C_PhotoAddress"	column="C_PHOTOADDRESS" />
+      <result property=	"C_PondNo"	column="C_PONDNO" />
+      <result property=	"C_Reserve1"	column="C_RESERVE1" />
+      <result property=	"C_Reserve2"	column="C_RESERVE2" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="QuerySM_JZXH_InfoAll" resultMap="QuerySM_JZXH_InfoResultMap">
+      select
+      t.C_CARNAME,
+      t.C_CARNAME2,
+      t.C_CARNAME3,
+      t.C_CONTAINERNO,
+      t.I_CONTAINERSTATUS,
+      t.C_CAMERATIME,
+      t.C_PHOTOADDRESS,
+      t.C_PONDNO,
+      t.C_RESERVE1,
+      t.C_RESERVE2
+      from SM_JZXH_Info t
+      where t.C_CAMERATIME > tochar(sysdate-5/1440,'yyyyMMddhh24miss')
+      order by t.C_CAMERATIME desc
+    </select>
+    <select id="QuerySM_JZXH_InfoByCarNameAndPond" resultMap="QuerySM_JZXH_InfoResultMap" parameterClass="Hashtable">
+      select a.*,rownum from
+      (select
+      t.C_CARNAME,
+      t.C_CARNAME2,
+      t.C_CARNAME3,
+      t.C_CONTAINERNO,
+      t.I_CONTAINERSTATUS,
+      t.C_CAMERATIME,
+      t.C_PHOTOADDRESS,
+      t.C_PONDNO,
+      t.C_RESERVE1,
+      t.C_RESERVE2
+      from SM_JZXH_Info t
+      where t.I_CONTAINERSTATUS=1
+      and t.C_CAMERATIME > to_char(sysdate-20/1440,'yyyyMMddhh24miss')
+      and (t.C_CARNAME=#CarName#   or t.C_CARNAME2=#CarName#  or t.C_CARNAME3=#CarName#)
+      <isNotEmpty prepend="AND" property="pondid">
+        t.C_PONDNO=#pondid#
+      </isNotEmpty>
+      order by t.C_CAMERATIME desc
+      ) a
+      where rownum=1
+    </select>
+
+    
+    <select id="QuerySM_JZXH_InfoAllByCarName" resultMap="QuerySM_JZXH_InfoResultMap" parameterClass="Hashtable">
+      select
+      t.C_CARNAME,
+      t.C_CARNAME2,
+      t.C_CARNAME3,
+      t.C_CONTAINERNO,
+      t.I_CONTAINERSTATUS,
+      t.C_CAMERATIME,
+      t.C_PHOTOADDRESS,
+      t.C_PONDNO,
+      t.C_RESERVE1,
+      t.C_RESERVE2
+      from SM_JZXH_Info t
+      where 1=1
+      <isNotEmpty prepend="and" property="carName">
+        (t.C_CARNAME=#carName#  or t.C_CARNAME2=#carName#  or t.C_CARNAME3=#carName#)
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          t.C_CAMERATIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by t.I_INTID desc
+    </select>
+  </statements>
+
+
+
+
+
+
+</sqlMap>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BeltWeightData" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  
+  <resultMaps>
+    <resultMap id="QueryBeltWeightDataByHashtableResultMap" class="BeltWeightData">
+       <result property="BELTNO" column="BELTNO" />
+       <result property="BELTNAME" column="BELTNAME" />
+       <result property="COLLTIME" column="COLLTIME" />
+       <result property="ACCUWEIGHT" column="ACCUWEIGHT" />
+       <result property="METERTIME" column="METERTIME" />
+     </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="QueryBeltWeightDataByHashtable" resultMap="QueryBeltWeightDataByHashtableResultMap"  parameterClass="HashTable">
+      select
+      BELTNO	,
+      BELTNAME	,
+      COLLTIME	,
+      ACCUWEIGHT	,
+      METERTIME
+      from PT_BELTWEIGHTDATAS  t
+      where 1=1
+      <isNotEmpty prepend="AND" property="BELTNO">
+        t.BELTNO=#BELTNO#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          t.COLLTIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by t.COLLTIME desc
+    </select>
+
+  </statements>
+</sqlMap>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Pond_ComplateTime" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPond_ComplateTimeAllResult" class="Pond_ComplateTime">
+      <result property="intId" column="I_INTID" />
+      <result property="carName" column="C_CARNAME" />
+      <result property="pondSiteNo" column="C_PONDSITENO"/>
+      <result property="startTime" column="C_STARTTIME"/>
+      <result property="endTime" column="C_ENDTIME"/>
+      <result property="reserve1" column="C_RESERVE1"/>
+    </resultMap>
+   
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+ 
+    <select id="selectPond_ComplateTimeByConditions"  resultMap="SelectPond_ComplateTimeAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.C_PondSiteNo
+      ,a.C_STARTTIME
+      ,a.C_ENDTIME
+      ,a.C_RESERVE1
+      from SM_POND_COMPLATETIME a
+      where 
+      a.C_StartTime between #StartTime# and #EndTime#
+      <isNotEmpty prepend="and" property="CarName">
+        a.C_CarName like  '%$CarName$%'
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="PondSiteNo">
+        a.C_PondSiteNo=#PondSiteNo#
+      </isNotEmpty>          
+      order by a.I_IntId desc
+    </select>    
+
+    <select id="selectPond_ComplateTimeUnComplacated"  resultMap="SelectPond_ComplateTimeAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.C_PondSiteNo
+      ,a.C_STARTTIME
+      ,a.C_ENDTIME
+      ,a.C_RESERVE1
+      from SM_POND_COMPLATETIME a
+      where
+      C_ENDTIME is null     
+      order by a.I_IntId desc
+    </select>
+
+    <insert id="InsertPond_ComplateTime"  parameterClass="Pond_ComplateTime" >
+      <selectKey property="intId" type="pre" resultClass="int">
+        select SEQ_POND_COMPLATETIME.nextval as intId from dual
+      </selectKey>
+      insert into SM_POND_COMPLATETIME
+      (
+      I_IntId
+      ,C_CarName
+      ,C_PondSiteNo
+      ,C_StartTime
+      ,C_EndTime
+      ,C_Reserve1
+      )
+      values
+      (#intId#,#carName#,#pondSiteNo#,#startTime#,null,null)
+    </insert>
+
+    <update id="UpdatePond_ComplateTime" parameterClass="Hashtable">      
+      update SM_POND_COMPLATETIME set           
+      C_ENDTIME=#endTime#
+      where
+      C_CARNAME=#carName# and C_STARTTIME=#startTime#   
+    </update>
+
+  </statements>
+</sqlMap>

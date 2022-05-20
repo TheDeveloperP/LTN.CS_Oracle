@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_MAIN_PAGE" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMMAINPAGE" type="LTN.CS.BaseEntities.BM.BM_MAIN_PAGE,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMMAINPAGEAllResult" class="BMMAINPAGE">
+      <result property="IntId" column="I_INTID" />
+      <result property="Index" column="I_INDEX" />
+      <result property="PageName" column="C_PAGENAME" />
+      <result property="Text" column="C_TEXT" />
+      <result property="KeyTip" column="C_KEYTIP" />
+      <result property="ManageEMPId.IntId" column="I_MANAGEEMPID" />
+      <result property="ManageEMPId.UserNickName" column="I_MANAGEEMPNAME" />
+      <result property="CreateEMPId.IntId" column="I_CREATEEMPID" />
+      <result property="CreateEMPId.UserNickName" column="I_CREATEEMPNAME" />
+      <result property="IsForbid.EntityValue" column="I_ISFORBID" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="GetBMMAINPAGEMaxID" resultClass="int" >
+      select max(I_INTID) from BM_MAIN_PAGE
+    </select>
+    <select id="BMMAINPAGEExists" resultClass="int"  parameterClass="int">
+      select count(1) from BM_MAIN_PAGE
+      where I_INTID = #value#
+    </select>
+    <insert id="InsertBMMAINPAGE"  parameterClass="BMMAINPAGE" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_MAIN_PAGE_id.nextval as I_INTID from dual
+      </selectKey>
+      INSERT INTO BM_MAIN_PAGE
+      (
+      I_INTID
+      ,I_INDEX
+      ,C_PAGENAME
+      ,C_TEXT
+      ,C_KEYTIP
+      ,I_CREATEEMPID
+      ,I_MANAGEEMPID
+      ,I_ISFORBID
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER
+      ) values
+      (#IntId#,#Index#,#PageName#,#Text#,#KeyTip#,#CreateEMPId.IntId#,#ManageEMPId.IntId#,#IsForbid.EntityValue#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+    <update id="UpdateBMMAINPAGE"
+         parameterClass="BMMAINPAGE">
+      update BM_MAIN_PAGE set
+      I_INDEX = #Index#
+      ,C_PAGENAME = #PageName#
+      ,C_TEXT = #Text#
+      ,C_KEYTIP = #KeyTip#
+      ,I_CREATEEMPID = #CreateEMPId.IntId#
+      ,I_MANAGEEMPID = #ManageEMPId.IntId#
+      ,I_ISFORBID = #IsForbid.EntityValue#
+      ,D_UPDATETIME=sysdate
+      ,I_UPDATEUSER = #UpdateUser.IntId#
+      where
+      I_INTID = #IntId#　
+    </update>
+    <update id="DisabledMAINPAGE"  parameterClass="BMMAINPAGE">
+      update BM_MAIN_PAGE set I_ISFORBID = #IsForbid.EntityValue# where I_INTID = #IntId#
+    </update>
+    <delete id="DeleteBMMAINPAGE" parameterClass="BMMAINPAGE">
+      delete from BM_MAIN_PAGE where I_INTID = #IntId#
+    </delete>
+    <select id="SelectAllBMMAINPAGE" resultMap="SelectBMMAINPAGEAllResult" >
+      SELECT a.I_INTID
+      ,a.I_INDEX
+      ,a.C_PAGENAME
+      ,a.C_TEXT
+      ,a.C_KEYTIP
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_PAGE a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID   order by a.I_INDEX
+    </select>
+    <select id="SelectByBMMAINPAGEAll" resultMap="SelectBMMAINPAGEAllResult" >
+      SELECT a.I_INTID
+      ,a.I_INDEX
+      ,a.C_PAGENAME
+      ,a.C_TEXT
+      ,a.C_KEYTIP
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_PAGE a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID  where a.I_ISFORBID = 0 order by a.I_INDEX  
+    </select>
+    <select id="SelectByBMMAINPAGEId" resultMap="SelectBMMAINPAGEAllResult" resultClass="BMMAINPAGE" parameterClass="int">
+      SELECT a.I_INTID
+      ,a.I_INDEX
+      ,a.C_PAGENAME
+      ,a.C_TEXT
+      ,a.C_KEYTIP
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_PAGE a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.I_INTID = #value#
+    </select>
+    <select id="SelectByBMPageName" resultMap="SelectBMMAINPAGEAllResult" resultClass="BMMAINPAGE" parameterClass="string">
+      SELECT a.I_INTID
+      ,a.I_INDEX
+      ,a.C_PAGENAME
+      ,a.C_TEXT
+      ,a.C_KEYTIP
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_MAIN_PAGE a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.C_PAGENAME = #value#
+    </select>
+    <select id="SelectByBMMAINPAGEUSER" resultMap="SelectBMMAINPAGEAllResult" resultClass="BMMAINPAGE" parameterClass="int">
+      SELECT a.I_INTID
+      ,a.I_INDEX
+      ,a.C_PAGENAME
+      ,a.C_TEXT
+      ,a.C_KEYTIP
+      ,a.I_CREATEEMPID
+      ,b.C_USERNICKNAME I_CREATEEMPNAME
+      ,a.I_MANAGEEMPID
+      ,c.C_USERNICKNAME I_MANAGEEMPNAME
+      ,a.I_ISFORBID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from (select
+      distinct a.*
+      from BM_MAIN_PAGE  a
+      join BM_MAIN_GROUP b on a.I_INTID = b.I_PAGEID
+      join BM_MAIN_GROUP_SERVICE c on b.I_INTID = c.I_GROUPID
+      join (select distinct I_SERVICEID from ( select distinct I_SERVICEID from (select I_SERVICEID,I_USERID from BM_SERVICE_GROUP_USER_VIEW
+      union
+      select I_SERVICEID,I_USERID from BM_SERVICE_USER )   a
+      where a.I_USERID = #value#
+      union select I_INTID as I_SERVICEID from  BM_SERVICE where  I_ISFORBID=0 and I_ISLIMIT = 0)   a )  d on c.I_SERVICEID = d.I_SERVICEID
+      where a.I_ISFORBID = 0  and b.I_ISFORBID=0 and c.I_ISFORBID=0) a
+      left join BM_USER b on a.I_CREATEEMPID = b.I_INTID
+      left join BM_USER c on a.I_MANAGEEMPID = c.I_INTID
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      order by a.I_INDEX  
+    </select>
+  </statements>
+</sqlMap>

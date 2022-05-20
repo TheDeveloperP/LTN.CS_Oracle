@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+          " default-lazy-init="true">
+
+  <!--CS-->
+  <object id="CS_001" type="LTN.CS.SCMForm.CS.CS_Bill_Belt_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_BeltScaleService"></property>
+  </object>
+
+  <object id="CS_002" type="LTN.CS.SCMForm.CS.CS_OnlineScale_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_OnlineScaleService"></property>
+  </object>
+
+  <object id="CS_003" type="LTN.CS.SCMForm.CS.SM_WeightList_InfoForm,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_WeightList_InfoService"></property>
+  </object>
+
+  <object id="CS_004" type="LTN.CS.SCMForm.CS.SM_WeightListTwo_InfoForm,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_WeightList_InfoService"></property>
+  </object>
+  <object id="CS_005" type="LTN.CS.SCMForm.CS.SM_GczTare_InfoForm,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_GczTare_InfoService"></property>
+  </object>
+  <!--SM-->
+  <object id="SM_001" type="LTN.CS.SCMForm.SM.SM_Car_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="CarService" ref="SM_Car_InfoService"></property>
+  </object>
+
+  <object id="SM_002" type="LTN.CS.SCMForm.SM.SM_Materiel_Level_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Materiel_LevelService"></property>
+  </object>
+
+  <object id="SM_003" type="LTN.CS.SCMForm.SM.SM_Department_LevelOne_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Department_LevelOne_InfoService"></property>
+    <property name="LevelTwoService" ref="SM_Department_LevelTwo_InfoService"></property>
+  </object>
+  <object id="SM_004" type="LTN.CS.SCMForm.SM.SM_Department_LevelTwo_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Department_LevelTwo_InfoService"></property>
+    <property name="LevelOneService" ref="SM_Department_LevelOne_InfoService"></property>
+  </object>
+  <object id="SM_005" type="LTN.CS.SCMForm.SM.SM_BlackList_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_BlackListService"></property>
+  </object>
+
+  <!--坐席基础信息管理-->
+  <object id="SM_0001" type="LTN.CS.SCMForm.SM.SM_Site_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Site_InfoService"></property>
+  </object>
+  <!--磅房基础信息管理-->
+  <object id="SM_0002" type="LTN.CS.SCMForm.SM.SM_PoundSite_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <!--硬盘录像机信息管理-->
+  <object id="SM_0003" type="LTN.CS.SCMForm.SM.SM_DVR_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Dvr_InfoService"></property>
+  </object>
+
+  <!--仪表信息管理-->
+  <object id="SM_0005" type="LTN.CS.SCMForm.SM.SM_Meter_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="SM_Meter_InfoMainService" ref="SM_Meter_InfoService"></property>
+  </object>
+  <!--复磅毛重误差值配置-->
+  <object id="SM_0006" type="LTN.CS.SCMForm.SM.SM_ErrorConfig_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_ErrorConfigService"></property>
+  </object>
+  <!--磅房维护-->
+  <object id="SM_0004" type="LTN.CS.SCMForm.SM.SM_PoundService_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_PoundService_InfoService"></property>
+    <property name="PoundService" ref="SM_PoundSite_InfoService"></property>
+    <property name="DvrService" ref="SM_Dvr_InfoService"></property>
+    <property name="MeterService" ref="SM_Meter_InfoService"></property>
+    <property name="LPRCameraService" ref="SM_LPRCameraService"></property>
+  </object>
+  
+  
+  <object id="SM_0009" type="LTN.CS.SCMForm.SM.SM_SiteGrating_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_PoundSite_InfoService"></property>   
+  </object>
+  
+  <!--车牌识别摄像机维护-->
+  <object id="SM_0007" type="LTN.CS.SCMForm.SM.SM_LPRCamera_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_LPRCameraService"></property>
+  </object>
+  <object id="SM_006" type="LTN.CS.SCMForm.SM.SM_TareWeightHistoryForm,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_TareWeightHistoryService"></property>
+    <!--新增-->
+    <property name="tareWeightService" ref="SM_TareWeightService"></property>
+  </object>
+  <object id="SM_007" type="LTN.CS.SCMForm.SM.SM_TareWeight_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_TareWeightService"></property>
+  </object>
+  <!--皮带位号配置-->
+  <object id="SM_0008" type="LTN.CS.SCMForm.SM.SM_BeltNumber_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_BeltNumberService"></property>
+  </object>
+  <!--车牌识别率-->
+  <object id="SM_0011" type="LTN.CS.SCMForm.SM.SM_CameraCarNO_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_CameraCarNOService"></property>
+    <property name="PoundSite_InfoService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <!--非自动过磅查询-->
+  <object id="SM_0010" type="LTN.CS.SCMForm.SM.SM_ReasonForNoAuto_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_ReasonForNoAutoService"></property>
+    <property name="PoundService" ref="SM_PoundSite_InfoService"></property>
+    <property name="CarService" ref="SM_Car_InfoService"></property>
+  </object>
+  <!--RFID配置-->
+  <object id="SM_0012" type="LTN.CS.SCMForm.SM.SM_RFID_Info_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_RFID_InfoService"></property>
+  </object>
+  <!--物料超限设置-->
+  <object id="SM_0013" type="LTN.CS.SCMForm.SM.SM_MatWGTLimit_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_MatWGTLimitService"></property>
+  </object>
+  <!--集装箱识别率-->
+  <object id="SM_0014" type="LTN.CS.SCMForm.SM.SM_Container_Rate_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_Container_RateService"></property>
+    <property name="PoundSiteService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <!--集装箱识别记录-->
+  <object id="SM_0015" type="LTN.CS.SCMForm.SM.SM_Container_Info,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="jzxhService" ref="SM_JZXH_InfoService"></property>
+  </object>
+  <!--湖大集装箱识别率-->
+  
+  <object id="SM_0016" type="LTN.CS.SCMForm.SM.SM_ReeferContainer_Rate_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="SM_ReeferContainer_RateService"></property>
+    <property name="PoundSiteService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  
+  <!---PT-->
+  <object id="PT_001" type="LTN.CS.SCMForm.PT.PT_TruckMeasurePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PT_TruckMeasurePlanService"></property>
+    <property name="LevelTwoService" ref="SM_Department_LevelTwo_InfoService"></property>
+    <property name="LevelOneService" ref="SM_Department_LevelOne_InfoService"></property>
+    <property name="CarService" ref="SM_Car_InfoService"></property>
+    <property name="MaterielService" ref="SM_Materiel_LevelService"></property>
+    <property name="PoundService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <object id="PT_002" type="LTN.CS.SCMForm.PT.PT_TruckMeasurePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PT_BeltScalePlanService"></property>
+  </object>
+  <object id="PT_003" type="LTN.CS.SCMForm.PT.PT_TruckMeasureUsingPlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PT_TruckMeasurePlanService"></property>
+  </object>
+  <object id="PT_004" type="LTN.CS.SCMForm.PT.PT_BeltScalePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PT_BeltScalePlanService"></property>
+  </object>
+
+  <!--IT-->
+  <object id="IT_001" type="LTN.CS.SCMForm.IT.IT_TruckMeasurePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_TruckMeasurePlanService"></property>
+  </object>
+  <object id="IT_002" type="LTN.CS.SCMForm.IT.IT_BeltScalePlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_BeltScalePlanService"></property>
+    <property name="BeltStopService" ref="IT_BeltStopScalePlanService"></property>
+  </object>
+  <object id="IT_003" type="LTN.CS.SCMForm.IT.IT_TrackScaleIronPlan_Form,LTN.CS.SCMForm"  singleton="false"  >  
+    <property name="MainService" ref="IT_TrackScaleIronPlanService"></property>
+  </object>
+  <object id="IT_004" type="LTN.CS.SCMForm.IT.IT_TrackScaleMaterielPlan_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_TrackScaleMaterielPlanService"></property>
+  </object>
+  <object id="IT_005" type="LTN.CS.SCMForm.IT.IT_OnlineScaleBill_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_OnlineScaleBillService"></property>
+  </object> 
+  <!--新增  潘鹏  辊道秤 校磅-->
+  <object id="IT_006" type="LTN.CS.SCMForm.IT.IT_OrbitWeighterConfirm_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_OrbitWeighterConfirmService"></property>
+  </object>
+  
+  <object id="IT_007" type="LTN.CS.SCMForm.IT.IT_OrbitWeighterBill_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="IT_OrbitWeighterBillService"></property>
+  </object>
+  
+  <!--PM-->
+  <object id="PM_001" type="LTN.CS.SCMForm.PM.PM_PoundBillMaintainForTruck_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_TruckService"></property>
+    <property name="LevelTwoService" ref="SM_Department_LevelTwo_InfoService"></property>
+    <property name="LevelOneService" ref="SM_Department_LevelOne_InfoService"></property>
+    <property name="CarService" ref="SM_Car_InfoService"></property>
+    <property name="MaterielService" ref="SM_Materiel_LevelService"></property>
+    <property name="PoundService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <!--铁水轨道衡过磅管理-->
+  <object id="PM_002" type="LTN.CS.SCMForm.PM.PM_Bill_MoveTrain_Iron_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="rawdatamoveservice" ref="PM_RawData_MoveTrainService"></property>
+    <property name="pondSiteInfoService" ref="SM_PoundSite_InfoService"></property>
+    <property name="poundironservice" ref="PM_Pond_Bill_IronService"></property>
+    <property name="IronService" ref="PM_Bill_IronService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>
+  </object>
+  <!--汽车磅过磅管理-->
+  <object id="PM_003" type="LTN.CS.SCMForm.PM.TruckMeasureForm_New,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="seatService" ref="SM_Site_InfoService"></property>
+    <property name="pondSiteInfoService" ref="SM_PoundSite_InfoService"></property>
+    <property name="billTruckService" ref="PM_Bill_TruckService"></property>
+    <property name="tareWeightService" ref="SM_TareWeightService"></property>
+    <property name="truckMeasureService" ref="PT_TruckMeasurePlanService"></property>
+    <property name="blackService" ref="SM_BlackListService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>
+    <property name="reasonForService" ref="SM_ReasonForNoAutoService"></property>
+    <property name="JZXHService" ref="SM_JZXH_InfoService"></property>
+    <property name="ContainerRateService" ref="SM_Container_RateService"></property>
+    <!--新增湖大集装箱服务-->
+    <property name="HudaJZXHService" ref="SM_ReeferContainer_RateService"></property>
+  </object>
+  <!--铁水轨道衡计量委托管理-->
+  <object id="PM_004" type="LTN.CS.SCMForm.PM.PM_Bill_Iron_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_IronService"></property>
+  </object>
+  <!--铁水轨道衡磅单管理-->
+  <object id="PM_005" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Iron_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Pond_Bill_IronService"></property>
+    <property name="billService" ref="PM_Bill_IronService"></property>
+  </object>
+  <object id="PM_006" type="LTN.CS.SCMForm.PM.PM_Bill_Supplies_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_SuppliesService"></property>
+  </object>
+  <object id="PM_007" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Supplies_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="billService" ref="PM_Bill_SuppliesService"></property>
+    <property name="gczService" ref="SM_GczTare_InfoService"></property>
+    <property name="MaterielService" ref="SM_Materiel_LevelService"></property>
+  </object>
+  <!--皮带秤管理-->
+  <object id="PM_008" type="LTN.CS.SCMForm.PM.PM_BeltScaleMeasure_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="BeltWeightDataService"></property>
+  </object>
+  <object id="PM_009" type="LTN.CS.SCMForm.PM.PM_RawData_MoveTrain_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_RawData_MoveTrainService"></property>
+    <property name="PondSiteService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <!--物资轨道衡过磅管理-->
+  <object id="PM_010" type="LTN.CS.SCMForm.PM.PM_Bill_MoveTrain_Mats_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="rawdatamoveservice" ref="PM_RawData_MoveTrainService"></property>
+    <property name="pondSiteInfoService" ref="SM_PoundSite_InfoService"></property>
+    <property name="pondsuppliesService" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="suppliesService" ref="PM_Bill_SuppliesService"></property>
+    <property name="tareService" ref="PM_Standard_Tare_InfoService"></property>
+    <property name="middleService" ref="PM_Middle_SuppliesPond_InfoService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>    
+  </object>
+  <!--静轨物资过磅管理-->
+  <object id="PM_011" type="LTN.CS.SCMForm.PM.PM_Bill_StaticTrain_Mats_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="rawDataService" ref="PM_RawData_MoveTrainService"></property>
+    <property name="pondSiteService" ref="SM_PoundSite_InfoService"></property>
+    <property name="pondSuppliesService" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="suppliesService" ref="PM_Bill_SuppliesService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>
+    <property name="seatinfoService" ref="SM_Site_InfoService"></property>
+  </object>
+  
+    <!--静轨物资过磅管理-->
+  <object id="PM_031" type="LTN.CS.SCMForm.PM.PM_Bill_StaticTrain_Mats_NewForm,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="rawDataService" ref="PM_RawData_MoveTrainService"></property>
+    <property name="pondSiteService" ref="SM_PoundSite_InfoService"></property>
+    <property name="pondSuppliesService" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="suppliesService" ref="PM_Bill_SuppliesService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>
+    <property name="seatinfoService" ref="SM_Site_InfoService"></property>
+  </object>
+      
+  <object id="PM_110" type="LTN.CS.SCMForm.PM.PM_Bill_Belt_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_BeltScaleService"></property>
+    <property name="PT_BeltScalePlanService" ref="PT_BeltScalePlanService"></property>
+ </object>
+
+  <object id="PM_111" type="LTN.CS.SCMForm.PM.PM_Belt_ServerLog,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_BeltScaleService"></property>
+ </object>
+  <object id="PM_012" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Cars_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_TruckService"></property>
+    <property name="guidService" ref="SM_Guid_InfoService"></property>
+ </object>
+  <object id="PM_014" type="LTN.CS.SCMForm.PM.PM_ImportBill_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_ImportBillService"></property>
+ </object>
+  <object id="PM_015" type="LTN.CS.SCMForm.PM.PM_PoundBillMaintainForTruckHistory_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_TruckService"></property>
+  </object>
+  <object id="PM_016" type="LTN.CS.SCMForm.PM.PM_OnLineWgtComparison_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="OnlineScaleService" ref="PM_Bill_OnlineScaleService"></property>
+  </object>
+  <object id="PM_017" type="LTN.CS.SCMForm.PM.PM_OnlineScale_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_OnlineScaleService"></property>
+  </object>
+  <object id="PM_020" type="LTN.CS.SCMForm.PM.PM_Bill_MoveTrain_Mats_Form_New,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="rawdatamoveservice" ref="PM_RawData_MoveTrainService"></property>
+    <property name="pondSiteInfoService" ref="SM_PoundSite_InfoService"></property>
+    <property name="pondsupperservice" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="pondsupperservice" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="tareService" ref="PM_Standard_Tare_InfoService"></property>
+    <property name="matsService" ref="PM_Bill_SuppliesService"></property>
+    <property name="dvrService" ref="SM_Dvr_InfoService"></property>
+    <!--新增-->
+    <property name="gczService" ref="SM_GczTare_InfoService"></property>
+  </object>
+  <object id="PM_018" type="LTN.CS.SCMForm.PM.PM_PondMonitor_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="pondSiteInfoService" ref="SM_PoundSite_InfoService"></property>
+  </object>
+  <object id="PM_019" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_CarsForMaterial_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_TruckService"></property>
+    <property name="guidService" ref="SM_Guid_InfoService"></property>
+  </object>
+  <object id="PM_021" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_CarsForJinCai_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_TruckService"></property>
+    <property name="guidService" ref="SM_Guid_InfoService"></property>
+  </object>
+  <!--新增 辊道秤 校磅-->
+  
+  <object id="PM_022" type="LTN.CS.SCMForm.PM.PM_OrbitWeighterConfirm_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_OrbitWeighterConfirmService"></property>
+  </object>
+
+  <object id="PM_023" type="LTN.CS.SCMForm.PM.PM_Bill_OrbitWeighter_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Bill_OrbitWeighterService"></property>
+  </object>
+  <!--批量修改铁运磅单-->
+  <object id="PM_024" type="LTN.CS.SCMForm.PM.PM_BillMultiUpdate_Supplies,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Pond_Bill_SuppliesService"></property>
+  </object>
+  <!--车辆过磅时间统计-->
+  <object id="PM_025" type="LTN.CS.SCMForm.PM.Pond_ComplateTime_Form,LTN.CS.SCMForm"  singleton="false"  >    
+    <property name="MainService" ref="Pond_ComplateTimeService"></property>
+    <property name="PoundSiteService" ref="SM_PoundSite_InfoService"></property>    
+  </object>
+  <object id="PM_026" type="LTN.CS.SCMForm.PM.PM_BeltTimeCount_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_BeltHandlerService"></property>
+    <property name="PT_BeltScalePlanService" ref="PT_BeltScalePlanService"></property>
+  </object>
+  <object id="PM_027" type="LTN.CS.SCMForm.PM.PM_Pond_Bill_Supplies_History_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="MainService" ref="PM_Pond_Bill_Supplies_HistoryService"></property>
+  </object>
+
+  
+  <object id="RP_001" type="LTN.CS.SCMForm.RP.RP_Materiel_Report,LTN.CS.SCMForm"  singleton="false"  >    
+    <property name="MainService" ref="PM_Pond_Bill_SuppliesService"></property>
+    <property name="guidService" ref="SM_Guid_InfoService"></property>
+    <property name="printService" ref="RP_Print_RecordService"></property>
+  </object>
+    <!--打印记录-->
+  <object id="RP_002" type="LTN.CS.SCMForm.RP.RP_Materiel_PrintRecord_Form,LTN.CS.SCMForm"  singleton="false"  >
+    <property name="printService" ref="RP_Print_RecordService"></property>
+  </object>
+
+</objects>
+

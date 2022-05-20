@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Department_LevelTwo_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_Department_LevelTwo_InfoAllResult" class="SM_Department_LevelTwo_Info">
+      <result property="IntId" column="I_INTID" />
+      <result property="MainId" column="I_MAINID" />
+      <result property="TwoDeptCode" column="C_TWODEPTCODE" />
+      <result property="TwoDeptName" column="C_TWODEPTNAME" />
+      <result property="TwoDeptShortName" column="C_TWODEPTSHORTNAME" />
+      <result property="CREATETIME" column="C_CREATETIME" />
+      <result property="UPDATETIME" column="C_UPDATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="selectSM_Department_LevelTwo_InfoAll"  resultMap="SelectSM_Department_LevelTwo_InfoAllResult">
+      select
+      a.I_IntId
+      ,a.I_MainId
+      ,a.C_TwoDeptCode
+      ,a.C_TwoDeptName
+      ,a.C_TwoDeptShortName
+      ,a.C_CREATETIME
+      ,a.C_UPDATETIME
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      from SM_Department_LevelTwo a
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_Department_LevelTwo_InfoByMainId"  resultMap="SelectSM_Department_LevelTwo_InfoAllResult" parameterClass="int">
+      select
+      a.I_IntId
+      ,a.I_MainId
+      ,a.C_TwoDeptCode
+      ,a.C_TwoDeptName
+      ,a.C_TwoDeptShortName
+      ,a.C_CREATETIME
+      ,a.C_UPDATETIME
+      ,a.C_CreateUserName
+      ,a.C_UpdateUserName
+      from SM_Department_LevelTwo a
+      where I_MainId=#value#
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectSM_Department_LevelTwo_InfoForCode"   resultClass="string">
+      select C_TwoDeptCode
+      from
+      (select C_TwoDeptCode
+      from SM_Department_LevelTwo
+      order by C_CREATETIME desc)
+      where rownum = 1
+    </select>
+
+    <insert id="InsertSM_Department_LevelTwo_Info"  parameterClass="SM_Department_LevelTwo_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_DEPARTMENT_LEVELTWO.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Department_LevelTwo
+      (
+      I_IntId,
+      I_MainId,
+      C_TwoDeptCode,
+      C_TwoDeptName,
+      C_TwoDeptShortName,
+      C_CreateUserName,
+      C_CREATETIME
+      )values
+      (#IntId#,#MainId#,GetCode('T'),#TwoDeptName#,#TwoDeptShortName#,#CreateUserName#,#CREATETIME#)
+    </insert>
+
+    <update id="UpdateSM_Department_LevelTwo_Info"
+            parameterClass="SM_Department_LevelTwo_Info">
+      <![CDATA[
+      update SM_Department_LevelTwo set
+      I_MainId=#MainId#,
+      C_TwoDeptCode=#TwoDeptCode#,
+      C_TwoDeptName=#TwoDeptName#,
+      C_TwoDeptShortName=#TwoDeptShortName#,
+      C_UpdateUserName=#UpdateUserName#,
+      C_UPDATETIME=#UPDATETIME#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <delete id="DeleteSM_Department_LevelTwo_Info" parameterClass="SM_Department_LevelTwo_Info">
+      delete from SM_Department_LevelTwo
+      where I_IntId = #IntId#
+    </delete>
+
+
+  </statements>
+</sqlMap>

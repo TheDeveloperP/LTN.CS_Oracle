@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_USER" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <alias>
+    <typeAlias alias="BMDICTIONARYMAIN" type="LTN.CS.BaseEntities.BM.BM_DICTIONARY_MAIN,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMDICTIONARYMAINAllResult" class="BMDICTIONARYMAIN">
+      <result property="IntId" column="I_INTID" />
+      <result property="DicSn" column="C_DICSN" />
+      <result property="DicName" column="C_DICNAME" />
+      <result property="DicDesc" column="C_DICDESC" />
+      <result property="DicFieldA" column="C_DICFIELDA" />
+      <result property="DicFieldB" column="C_DICFIELDB" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUserId" column="I_CREATEUSER" />
+      <result property="CreateUserName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUserId" column="I_UPDATEUSER" />
+      <result property="UpdateUserName" column="I_UPDATEUSERNAME" />
+      <result property="IsForbid.EntityValue" column="I_ISFORBID" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="GetBMDICTIONARYMAINMaxID" resultClass="int" >
+      select max(I_INTID) from BM_DICTIONARY_MAIN
+    </select>
+    <select id="BMDICTIONARYMAINExists" resultClass="int" parameterClass="int">
+      select count(1) from BM_DICTIONARY_MAIN
+      where I_INTID = #value#
+    </select>
+    <insert id="InsertBMDICTIONARYMAIN"  parameterClass="BMDICTIONARYMAIN" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_DICTIONARY_MAIN_id.nextval as I_INTID from dual
+      </selectKey>
+      INSERT INTO  BM_DICTIONARY_MAIN
+      (
+      I_INTID
+      ,C_DICSN
+      ,C_DICNAME
+      ,C_DICDESC
+      ,C_DICFIELDA
+      ,C_DICFIELDB
+      ,I_ISFORBID
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER)
+      VALUES
+      (#IntId#,#DicSn#,#DicName#,#DicDesc#,#DicFieldA#, #DicFieldB#, #IsForbid.EntityValue#,sysdate,#CreateUserId#,sysdate,#UpdateUserId#)
+    </insert>
+    
+    <update id="UpdateBMDICTIONARYMAIN"
+					   parameterClass="BMDICTIONARYMAIN">
+      <![CDATA[
+      update BM_DICTIONARY_MAIN set
+      C_DICSN =#DicSn#,
+      C_DICNAME =#DicName#,
+      C_DICDESC =#DicDesc#,
+      C_DICFIELDA =#DicFieldA#,
+      C_DICFIELDB=#DicFieldB#,
+      I_ISFORBID=#IsForbid.EntityValue#,
+      D_UPDATETIME=sysdate,
+      I_UPDATEUSER = #UpdateUserId#
+      where
+      I_INTID = #IntId#　
+      ]]>
+    </update>
+
+    <delete id="DeleteBMDICTIONARYMAIN" parameterClass="BMDICTIONARYMAIN">
+      delete from BM_DICTIONARY_MAIN where I_INTID = #IntId#
+    </delete>
+
+    <select id="SelectAllBMDICTIONARYMAIN" resultMap="SelectBMDICTIONARYMAINAllResult">
+      select
+      a.I_INTID,
+      a.C_DICSN,
+      a.C_DICNAME,
+      a.C_DICDESC,
+      a.C_DICFIELDA,
+      a.C_DICFIELDB,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_DICTIONARY_MAIN a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+    </select>
+    
+    <select id="SelectByBMDICTIONARYMAINId" resultMap="SelectBMDICTIONARYMAINAllResult" resultClass="BMDICTIONARYMAIN" parameterClass="int">
+      select
+      a.I_INTID,
+      a.C_DICSN,
+      a.C_DICNAME,
+      a.C_DICDESC,
+      a.C_DICFIELDA,
+      a.C_DICFIELDB,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_DICTIONARY_MAIN a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+      where a.I_INTID = #value#
+    </select>
+
+    <select id="SelectByBMDICTIONARYMAINSN" resultMap="SelectBMDICTIONARYMAINAllResult" resultClass="BMDICTIONARYMAIN" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_DICSN,
+      a.C_DICNAME,
+      a.C_DICDESC,
+      a.C_DICFIELDA,
+      a.C_DICFIELDB,
+      a.I_ISFORBID,
+      a.D_CREATETIME,
+      a.I_CREATEUSER,
+      a.D_UPDATETIME,
+      a.I_UPDATEUSER,
+      b.C_USERNICKNAME as I_CREATEUSERNAME,
+      c.C_USERNICKNAME as I_UPDATEUSERNAME
+      from BM_DICTIONARY_MAIN a
+      left join BM_USER b on a.I_CREATEUSER =b.I_INTID
+      left join BM_USER c on a.I_UPDATEUSER =c.I_INTID
+      where a.C_DICSN = #value#
+    </select>
+
+    <update id="DisabledBMDICTIONARYMAIN"  parameterClass="BMDICTIONARYMAIN">
+      update BM_DICTIONARY_MAIN set I_ISFORBID = #IsForbid.EntityValue# where I_INTID = #IntId#
+    </update>
+  </statements>
+</sqlMap>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Pond_Bill_OrbitWeighter" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectPM_Bill_OrbitWeighterResultMap" class="PM_Pond_Bill_OrbitWeighter">
+      <result property=	"T_INTID"	column="T_INTID" />
+      <result property="T_STATUS" column="T_STATUS"/>
+      <result property="T_PRODUCT_TIME" column="T_PRODUCT_TIME"/>
+      <result property="T_PRODUCT_SCHEDULE" column="T_PRODUCT_SCHEDULE"/>
+      <result property="T_PRODUCT_CLASS" column="T_PRODUCT_CLASS"/>
+      <result property="T_PRODUCT_MAN" column="T_PRODUCT_MAN"/>
+      <result property="T_REMARK" column="T_REMARK"/>
+      <result property="T_POND_ID" column="T_POND_ID"/>
+      <result property="T_MARCHINE_CODE" column="T_MARCHINE_CODE"/>
+      <result property="T_WEIGHT_TIME" column="T_WEIGHT_TIME"/>
+      <result property="T_MAT_NO" column="T_MAT_NO"/>
+      <result property="T_THEORETICAL_WEIGHT" column="T_THEORETICAL_WEIGHT"/>
+      <result property="T_ACTUAL_WEIGHT" column="T_ACTUAL_WEIGHT"/>
+      <result property="T_MAT_SPEC" column="T_MAT_SPEC"/>            
+      <result property="T_RESERVE_V1" column="T_RESERVE_V1"/>
+      <result property="T_RESERVE_V2" column="T_RESERVE_V2"/>
+      <result property="T_RESERVE_V3" column="T_RESERVE_V3"/>
+      <result property="T_RESERVE_V4" column="T_RESERVE_V4"/>
+      <result property="T_RESERVE_V5" column="T_RESERVE_V5"/>
+      <result property="T_RESERVE_V6" column="T_RESERVE_V6"/>
+      <result property="T_RESERVE_V7" column="T_RESERVE_V7"/>
+      <result property="T_RESERVE_V8" column="T_RESERVE_V8"/>
+      <result property="T_RESERVE_V9" column="T_RESERVE_V9"/>
+      <result property="T_RESERVE_V10" column="T_RESERVE_V10"/>
+      <result property="T_BILL_STATUS" column="T_BILL_STATUS"/>
+    </resultMap>
+
+  </resultMaps>
+  <statements>
+    <select id="SelectPM_OrbitWeighterBillByCondition" resultMap="SelectPM_Bill_OrbitWeighterResultMap" parameterClass="Hashtable">
+      select
+      T_INTID,
+      T_STATUS,
+      T_PRODUCT_TIME,
+      T_PRODUCT_SCHEDULE,
+      T_PRODUCT_MAN,
+      T_PRODUCT_CLASS,
+      T_REMARK,
+      T_POND_ID,
+      T_MARCHINE_CODE,
+      T_WEIGHT_TIME,
+      T_MAT_NO,
+      T_THEORETICAL_WEIGHT,
+      T_ACTUAL_WEIGHT,
+      T_MAT_SPEC,
+      T_RESERVE_V1,
+      T_RESERVE_V2,
+      T_RESERVE_V3,
+      T_RESERVE_V4,
+      T_RESERVE_V5,
+      T_RESERVE_V6,
+      T_RESERVE_V7,
+      T_RESERVE_V8,
+      T_RESERVE_V9,
+      T_RESERVE_V10,
+      T_BILL_STATUS
+      from PM_Pond_Bill_OrbitWeighter
+      where 1=1
+      <isNotEmpty prepend="and" property="StartTime">
+        T_WEIGHT_TIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="MatNo">
+        T_MAT_NO=#MatNo#
+      </isNotEmpty>
+      order by T_WEIGHT_TIME desc
+    </select>
+
+    <!--
+    <select id="SelectOnlineBills" resultMap="SelectPM_Bill_OnlineScaleResultMap" parameterClass="string">
+      select
+      t1.I_INTID,
+      t1.OUT_MAT_NO,
+      t1.OUT_MAT_NAME,
+      t1.MAT_ORY_WT,
+      t1.MAT_ACT_WT,
+      t1.SCALE_NO,
+      t1.WEIGHT_TIME,
+      t1.WEIGHT_NAME,
+      t1.STATE_ID,
+      t1.PROD_TIME,
+      t1.PROD_SHIFT_NO,
+      t1.PROD_SHIFT_GROUP,
+      t1.PROD_MAKER,
+      t1.UNIT_CODE,
+      t1.MAT_SPEC,
+      t1.MAT_NUM,
+      t1.SG_SIGN,
+      t1.ST_NO,
+      t1.REMARK,
+      t1.RESERVE1,
+      t1.RESERVE2,
+      t1.RESERVE3,
+      t1.RESERVE4,
+      t1.RESERVE5,
+      t1.RESERVE6,
+      t1.RESERVE7,
+      t1.RESERVE8,
+      t1.RESERVE9,
+      t1.RESERVE10,
+      t1.I_BILLSTATUS
+      from  PM_Bill_OnlineScale  t1
+      left join  PT_ONLINEPLANNO t2 on t1.OUT_MAT_NO =t2.MAT_NO
+      where t2.REFE_ID=#value#
+    </select>
+-->
+  </statements>
+</sqlMap>

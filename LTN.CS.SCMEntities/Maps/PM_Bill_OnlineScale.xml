@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Bill_OnlineScale" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectPM_Bill_OnlineScaleResultMap" class="PM_Bill_OnlineScale">
+      <result property=	"I_IntId"	column="I_INTID" />
+      <result property=	"Out_Mat_No"	column="OUT_MAT_NO" />
+      <result property=	"Out_Mat_Name"	column="OUT_MAT_NAME" />
+      <result property=	"Mat_Ory_Wt"	column="MAT_ORY_WT" />
+      <result property=	"Mat_Act_Wt"	column="MAT_ACT_WT" />
+      <result property=	"Scale_No"	column="SCALE_NO" />
+      <result property=	"Weight_Time"	column="WEIGHT_TIME" />
+      <result property=	"Weight_Name"	column="WEIGHT_NAME" />
+      <result property=	"State_Id"	column="STATE_ID" />
+      <result property=	"Prod_Time"	column="PROD_TIME" />
+      <result property=	"Prod_Shift_No"	column="PROD_SHIFT_NO" />
+      <result property=	"Prod_Shift_Group"	column="PROD_SHIFT_GROUP" />
+      <result property=	"Prod_Maker"	column="PROD_MAKER" />
+      <result property=	"Unit_Code"	column="UNIT_CODE" />
+      <result property=	"Mat_Spec"	column="MAT_SPEC" />
+      <result property=	"Mat_Num"	column="MAT_NUM" />
+      <result property=	"Sg_Sign"	column="SG_SIGN" />
+      <result property=	"St_No"	column="ST_NO" />
+      <result property=	"Remark"	column="REMARK" />
+      <result property=	"Reserve1"	column="RESERVE1" />
+      <result property=	"Reserve2"	column="RESERVE2" />
+      <result property=	"Reserve3"	column="RESERVE3" />
+      <result property=	"Reserve4"	column="RESERVE4" />
+      <result property=	"Reserve5"	column="RESERVE5" />
+      <result property=	"Reserve6"	column="RESERVE6" />
+      <result property=	"Reserve7"	column="RESERVE7" />
+      <result property=	"Reserve8"	column="RESERVE8" />
+      <result property=	"Reserve9"	column="RESERVE9" />
+      <result property=	"Reserve10"	column="RESERVE10" />
+      <result property=	"I_Billstatus"	column="I_BILLSTATUS" />
+
+    </resultMap>
+
+
+    <resultMap id="SelectPM_TruckBillWithOnlineBillsResultMap" class="PM_TruckBillWithOnlineBill">
+      <result property=	"C_PLANNO"	      column="C_PLANNO" />
+      <result property=	"C_MATERIALNAME"	column="C_MATERIALNAME" />
+      <result property=	"C_FROMDEPTNAME"	column="C_FROMDEPTNAME" />
+      <result property=	"C_TODEPTNAME"	  column="C_TODEPTNAME" />
+      <result property=	"C_WGTLISTNO"   	column="C_WGTLISTNO" />
+      <result property=	"N_TAREWGT"	      column="N_TAREWGT" />
+      <result property=	"N_GROSSWGT"	    column="N_GROSSWGT" />
+      <result property=	"N_NETWGT"	      column="N_NETWGT" />
+      <result property=	"C_TAREWGTTIME"	  column="C_TAREWGTTIME" />
+      <result property=	"C_GROSSWGTTIME"	column="C_GROSSWGTTIME" />
+      <result property=	"C_NETWGTTIME"	  column="C_NETWGTTIME" />
+      <result property=	"OnLineBills"	    column="C_PLANNO"  select="SelectOnlineBills"/>
+    </resultMap>
+    
+
+  </resultMaps>
+  <statements>
+    <select id="SelectPM_Bill_OnlineScaleByCondition" resultMap="SelectPM_Bill_OnlineScaleResultMap" parameterClass="Hashtable">
+      select
+      I_INTID,
+      OUT_MAT_NO,
+      OUT_MAT_NAME,
+      MAT_ORY_WT,
+      MAT_ACT_WT,
+      SCALE_NO,
+      WEIGHT_TIME,
+      WEIGHT_NAME,
+      STATE_ID,
+      PROD_TIME,
+      PROD_SHIFT_NO,
+      PROD_SHIFT_GROUP,
+      PROD_MAKER,
+      UNIT_CODE,
+      MAT_SPEC,
+      MAT_NUM,
+      SG_SIGN,
+      ST_NO,
+      REMARK,
+      RESERVE1,
+      RESERVE2,
+      RESERVE3,
+      RESERVE4,
+      RESERVE5,
+      RESERVE6,
+      RESERVE7,
+      RESERVE8,
+      RESERVE9,
+      RESERVE10,
+      I_BILLSTATUS
+      from  PM_Bill_OnlineScale
+      where 1=1
+      <isNotEmpty prepend="and" property="StartTime">
+        WEIGHT_TIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="MatNo">
+        OUT_MAT_NO=#MatNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="PondNo">
+        SCALE_NO=#PondNo#
+      </isNotEmpty>
+      and I_BILLSTATUS != 2
+      order by WEIGHT_TIME desc
+    </select>
+
+
+    <select id="SelectPM_Bill_OnlineScaleByCondition2" resultMap="SelectPM_Bill_OnlineScaleResultMap" parameterClass="Hashtable">
+      select
+      I_INTID,
+      OUT_MAT_NO,
+      OUT_MAT_NAME,
+      MAT_ORY_WT,
+      MAT_ACT_WT,
+      SCALE_NO,
+      WEIGHT_TIME,
+      WEIGHT_NAME,
+      STATE_ID,
+      PROD_TIME,
+      PROD_SHIFT_NO,
+      PROD_SHIFT_GROUP,
+      PROD_MAKER,
+      UNIT_CODE,
+      MAT_SPEC,
+      MAT_NUM,
+      SG_SIGN,
+      ST_NO,
+      REMARK,
+      RESERVE1,
+      RESERVE2,
+      RESERVE3,
+      RESERVE4,
+      RESERVE5,
+      RESERVE6,
+      RESERVE7,
+      RESERVE8,
+      RESERVE9,
+      RESERVE10,
+      I_BILLSTATUS
+      from  PM_Bill_OnlineScale
+      where 1=1
+      <isNotEmpty prepend="and" property="StartTime">
+        WEIGHT_TIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="MATNO">
+        SCALE_NO=#MATNO#
+      </isNotEmpty>
+      order by WEIGHT_TIME desc
+    </select>
+    
+    <select id="SelectPM_TruckBillWithOnlineBills" resultMap="SelectPM_TruckBillWithOnlineBillsResultMap" parameterClass="HashTable">
+      select
+      t2.C_PLANNO,
+      t2.C_MATERIALNAME,
+      t2.C_FROMDEPTNAME,
+      t2.C_TODEPTNAME,
+      t2.C_WGTLISTNO,
+      t2.N_TAREWGT,
+      t2.N_GROSSWGT,
+      t2.N_NETWGT,
+      t2.C_TAREWGTTIME,
+      t2.C_GROSSWGTTIME,
+      t2.C_NETWGTTIME
+      from PM_BILL_TRUCK t2
+      right join (
+      select
+      distinct t.REFE_ID as refeid
+      from PT_ONLINEPLANNO t
+      where t.refe_id=#PLANNO#
+      ) t1 on t2.c_planno=t1.refeid
+    </select>
+    
+    <select id="SelectOnlineBills" resultMap="SelectPM_Bill_OnlineScaleResultMap" parameterClass="string">
+      select
+      t1.I_INTID,
+      t1.OUT_MAT_NO,
+      t1.OUT_MAT_NAME,
+      t1.MAT_ORY_WT,
+      t1.MAT_ACT_WT,
+      t1.SCALE_NO,
+      t1.WEIGHT_TIME,
+      t1.WEIGHT_NAME,
+      t1.STATE_ID,
+      t1.PROD_TIME,
+      t1.PROD_SHIFT_NO,
+      t1.PROD_SHIFT_GROUP,
+      t1.PROD_MAKER,
+      t1.UNIT_CODE,
+      t1.MAT_SPEC,
+      t1.MAT_NUM,
+      t1.SG_SIGN,
+      t1.ST_NO,
+      t1.REMARK,
+      t1.RESERVE1,
+      t1.RESERVE2,
+      t1.RESERVE3,
+      t1.RESERVE4,
+      t1.RESERVE5,
+      t1.RESERVE6,
+      t1.RESERVE7,
+      t1.RESERVE8,
+      t1.RESERVE9,
+      t1.RESERVE10,
+      t1.I_BILLSTATUS
+      from  PM_Bill_OnlineScale  t1
+      left join  PT_ONLINEPLANNO t2 on t1.OUT_MAT_NO =t2.MAT_NO
+      where t2.REFE_ID=#value#
+    </select>
+    
+  </statements>
+</sqlMap>

@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_PoundService_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_PoundService_InfoAllResult" class="SM_PoundService_Info">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="PoundId.IntId"               column="I_PoundId" />
+      <result property="PoundId.PoundSiteName"               column="C_PoundName" />
+      <result property="PoundId.PoundSiteNo"          column="C_PoundSiteNo"/>
+      <result property="SignalCOM1"                 column="C_SIGNALCOM1" />
+      <result property="SignalCOM2"                   column="C_SIGNALCOM2" />
+      <result property="PrintCOM1"                   column="C_PRINTCOM1" />
+      <result property="PrintCOM2"               column="C_PRINTCOM2" />
+      <result property="PrintBAUD1"                  column="I_PRINTBAUD1" />
+      <result property="PrintBAUD2"                 column="I_PRINTBAUD2" />
+      <result property="RFIDCOM"                 column="C_RFIDCOM" />
+      <result property="RFIDBAUD"                     column="I_RFIDBAUD" />
+      <result property="LPRCAMERAID1.LPRIP1"                     column="C_CARNOIP1" />
+      <result property="LPRCAMERAID2.LPRIP2"                     column="C_CARNOIP2" />
+      <result property="DVRID.IntId"                     column="I_DVRINTID" />
+      <result property="DVRID.DvrFactory"                     column="C_DvrFactory" />
+      <result property="RESERVE1"                     column="C_RESERVE1" />
+      <result property="RESERVE2"                     column="C_RESERVE2" />
+      <result property="MeterId1.MeterName"                     column="C_METERNAME1" />
+      <result property="MeterId2.MeterName"                     column="C_METERNAME2" />
+      <result property="LPRCAMERAID1.IntId"                     column="I_LPRCAMERAID1" />
+      <result property="LPRCAMERAID2.IntId"                     column="I_LPRCAMERAID2" />
+      <result property="MeterId1.IntId"                     column="I_METERID1" />
+      <result property="MeterId2.IntId"                     column="I_METERID2" />
+      <result property="METERCOM1"                     column="C_METERCOM1" />
+      <result property="METERBAUD1"                     column="I_METERBAUD1" />
+      <result property="METERCHECK1"                     column="I_METERCHECK1" />
+      <result property="METERSTARTBIT1"                     column="I_METERSTARTBIT1" />
+      <result property="METERSTOPBIT1"                     column="I_METERSTOPBIT1" />
+      <result property="METERCOM2"                     column="C_METERCOM2" />
+      <result property="METERBAUD2"                     column="I_METERBAUD2" />
+      <result property="METERCHECK2"                     column="I_METERCHECK2" />
+      <result property="METERSTARTBIT2"                     column="I_METERSTARTBIT2" />
+      <result property="METERSTOPBIT2"                     column="I_METERSTOPBIT2" />
+      <result property="MeterId1.AnalysisNo"                     column="C_ANALYSISNO1" />
+      <result property="MeterId2.AnalysisNo"                     column="C_ANALYSISNO2" />
+      <result property="INFRAREDGRATING1"                     column="C_INFRAREDGRATING1" />
+      <result property="INFRAREDGRATING2"                     column="C_INFRAREDGRATING2" />
+      <result property="IOCOMNO"                     column="C_IOCOMNO" />
+      <result property="IOBAUD"                     column="I_IOBAUD" />
+      <result property="IOCHECK"                     column="I_IOCHECK" />
+      <result property="IOSTARTBIT"                     column="I_IOSTARTBIT" />
+      <result property="IOSTOPBIT"                     column="I_IOSTOPBIT" />
+      <result property="IOSTOPBIT"                     column="I_IOSTOPBIT" />
+      <result property="createTime"       column="D_CREATETIME" />
+      <result property="updateTime"       column="D_UPDATETIME" />
+      <result property="CreateUserName"   column="C_CREATEUSER" />
+      <result property="UpdateUserName"   column="C_UPDATEUSER" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertSM_PoundService_Info"  parameterClass="SM_PoundService_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_POUNDSERVICE_INFO.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_PoundService_Info
+      (
+      I_IntId,
+      I_PoundId,
+      C_PoundName,
+      C_PoundSiteNo,
+      C_SIGNALCOM1,
+      C_SIGNALCOM2,
+      C_PRINTCOM1,
+      C_PRINTCOM2,
+      I_PRINTBAUD1,
+      I_PRINTBAUD2,
+      C_RFIDCOM,
+      I_RFIDBAUD,
+      C_CARNOIP1,
+      C_CARNOIP2,
+      C_RESERVE1,
+      C_RESERVE2,
+      C_METERNAME1,
+      C_METERNAME2,
+      I_DVRINTID,
+      C_DvrFactory,
+      I_LPRCAMERAID1,
+      I_LPRCAMERAID2,
+      I_METERID1,
+      I_METERID2,
+      C_METERCOM1,
+      I_METERBAUD1,
+      I_METERCHECK1,
+      I_METERSTARTBIT1,
+      I_METERSTOPBIT1,
+      C_METERCOM2,
+      I_METERBAUD2,
+      I_METERCHECK2,
+      I_METERSTARTBIT2,
+      I_METERSTOPBIT2,
+      C_ANALYSISNO1,
+      C_ANALYSISNO2,
+      C_INFRAREDGRATING1,
+      C_INFRAREDGRATING2,
+      C_IOCOMNO,
+      I_IOBAUD,
+      I_IOCHECK,
+      I_IOSTARTBIT,
+      I_IOSTOPBIT,
+      D_CREATETIME,
+      C_CREATEUSER,
+      D_UPDATETIME,
+      C_UPDATEUSER
+
+      )values
+      (
+      #IntId#,
+      #PoundId.IntId#,
+      #PoundId.PoundSiteName#,
+      #PoundId.PoundSiteNo#,
+      #SignalCOM1#,
+      #SignalCOM2#,
+      #PrintCOM1#,
+      #PrintCOM2#,
+      #PrintBAUD1#,
+      #PrintBAUD2#,
+      #RFIDCOM#,
+      #RFIDBAUD#,
+      #LPRCAMERAID1.LPRIP1#,
+      #LPRCAMERAID2.LPRIP2#,
+      #RESERVE1#,
+      #RESERVE2#,
+      #MeterId1.MeterName#,
+      #MeterId2.MeterName#,
+      #DVRID.IntId#,
+      #DVRID.DvrFactory#,
+      #LPRCAMERAID1.IntId#,
+      #LPRCAMERAID2.IntId#,
+      #MeterId1.IntId#,
+      #MeterId2.IntId#,
+      #METERCOM1#,
+      #METERBAUD1#,
+      #METERCHECK1#,
+      #METERSTARTBIT1#,
+      #METERSTOPBIT1#,
+      #METERCOM2#,
+      #METERBAUD2#,
+      #METERCHECK2#,
+      #METERSTARTBIT2#,
+      #METERSTOPBIT2#,
+      #MeterId1.AnalysisNo#,
+      #MeterId2.AnalysisNo#,
+      #INFRAREDGRATING1#,
+      #INFRAREDGRATING2#,
+      #IOCOMNO#,
+      #IOBAUD#,
+      #IOCHECK#,
+      #IOSTARTBIT#,
+      #IOSTOPBIT#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #CreateUserName#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #UpdateUserName#
+      )
+    </insert>
+
+    <update id="UpdateSM_PoundService_Info"   parameterClass="SM_PoundService_Info">
+      update SM_PoundService_Info set
+      I_PoundId = #PoundId.IntId#,
+      C_PoundName = #PoundId.PoundSiteName#,
+      C_PoundSiteNo = #PoundId.PoundSiteNo#,
+      C_SIGNALCOM1 = #SignalCOM1#,
+      C_SIGNALCOM2 = #SignalCOM2#,
+      C_PRINTCOM1 = #PrintCOM1#,
+      C_PRINTCOM2 = #PrintCOM2#,
+      I_PRINTBAUD1 = #PrintBAUD1#,
+      I_PRINTBAUD2 = #PrintBAUD2#,
+      C_RFIDCOM = #RFIDCOM#,
+      I_RFIDBAUD = #RFIDBAUD#,
+      C_CARNOIP1 = #LPRCAMERAID1.LPRIP1#,
+      C_CARNOIP2 = #LPRCAMERAID2.LPRIP2#,
+      C_RESERVE1 = #RESERVE1#,
+      C_RESERVE2 = #RESERVE2#,
+      C_METERNAME1 = #MeterId1.MeterName#,
+      C_METERNAME2 = #MeterId2.MeterName#,
+      I_DVRINTID = #DVRID.IntId#,
+      C_DvrFactory = #DVRID.DvrFactory#,
+      I_LPRCAMERAID1 = #LPRCAMERAID1.IntId#,
+      I_LPRCAMERAID2 = #LPRCAMERAID2.IntId#,
+      I_METERID1 = #MeterId1.IntId#,
+      I_METERID2 = #MeterId2.IntId#,
+      C_METERCOM1 = #METERCOM1#,
+      I_METERBAUD1 = #METERBAUD1#,
+      I_METERCHECK1 = #METERCHECK1#,
+      I_METERSTARTBIT1 = #METERSTARTBIT1#,
+      I_METERSTOPBIT1 = #METERSTOPBIT1#,
+      C_METERCOM2 = #METERCOM2#,
+      I_METERBAUD2 = #METERBAUD2#,
+      I_METERCHECK2 = #METERCHECK2#,
+      I_METERSTARTBIT2 = #METERSTARTBIT2#,
+      I_METERSTOPBIT2 = #METERSTOPBIT2#,
+      C_ANALYSISNO1 = #MeterId1.AnalysisNo#,
+      C_ANALYSISNO2 = #MeterId2.AnalysisNo#,
+      C_INFRAREDGRATING1 = #INFRAREDGRATING1#,
+      C_INFRAREDGRATING2 = #INFRAREDGRATING2#,
+      C_IOCOMNO = #IOCOMNO#,
+      I_IOBAUD = #IOBAUD#,
+      I_IOCHECK =#IOCHECK#,
+      I_IOSTARTBIT = #IOSTARTBIT#,
+      I_IOSTOPBIT = #IOSTOPBIT#，
+      D_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UPDATEUSER=#UpdateUserName#
+      where I_IntId = #IntId#
+
+    </update>
+    <delete id="DeleteSM_PoundService_Info" parameterClass="SM_PoundService_Info">
+      delete from SM_PoundService_Info   where I_INTID = #IntId#
+    </delete>
+
+    <select id="selectSM_PoundService_InfoAll"  resultMap="SelectSM_PoundService_InfoAllResult">
+      select
+      a.I_IntId,
+      a.I_PoundId,
+      a.C_PoundName,
+      a.C_PoundSiteNo,
+      a.C_SIGNALCOM1,
+      a.C_SIGNALCOM2,
+      a.C_PRINTCOM1,
+      a.C_PRINTCOM2,
+      a.I_PRINTBAUD1,
+      a.I_PRINTBAUD2,
+      a.C_RFIDCOM,
+      a.I_RFIDBAUD,
+      a.C_CARNOIP1,
+      a.C_CARNOIP2,
+      a.C_RESERVE1,
+      a.C_RESERVE2,
+      a.C_METERNAME1,
+      a.C_METERNAME2,
+      a.I_DVRINTID,
+      a.C_DvrFactory,
+      a.I_LPRCAMERAID1,
+      a.I_LPRCAMERAID2,
+      a.I_METERID1,
+      a.I_METERID2,
+      a.C_METERCOM1,
+      a.I_METERBAUD1,
+      a.I_METERCHECK1,
+      a.I_METERSTARTBIT1,
+      a.I_METERSTOPBIT1,
+      a.C_METERCOM2,
+      a.I_METERBAUD2,
+      a.I_METERCHECK2,
+      a.I_METERSTARTBIT2,
+      a.I_METERSTOPBIT2,
+      a.C_ANALYSISNO1,
+      a.C_ANALYSISNO2,
+      a.C_INFRAREDGRATING1,
+      a.C_INFRAREDGRATING2,
+      a.C_IOCOMNO,
+      a.I_IOBAUD,
+      a.I_IOCHECK,
+      a.I_IOSTARTBIT,
+      a.I_IOSTOPBIT,
+      a.D_CREATETIME,
+      a.D_UPDATETIME,
+      a.C_CREATEUSER,
+      a.C_UPDATEUSER
+      from SM_PoundService_Info a
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_PoundService_InfoByPoundId"  resultMap="SelectSM_PoundService_InfoAllResult" parameterClass="int">
+      select
+      a.I_IntId,
+      a.I_PoundId,
+      a.C_PoundName,
+      a.C_PoundSiteNo,
+      a.C_SIGNALCOM1,
+      a.C_SIGNALCOM2,
+      a.C_PRINTCOM1,
+      a.C_PRINTCOM2,
+      a.I_PRINTBAUD1,
+      a.I_PRINTBAUD2,
+      a.C_RFIDCOM,
+      a.I_RFIDBAUD,
+      a.C_CARNOIP1,
+      a.C_CARNOIP2,
+      a.C_RESERVE1,
+      a.C_RESERVE2,
+      a.C_METERNAME1,
+      a.C_METERNAME2,
+      a.I_DVRINTID,
+      a.C_DvrFactory,
+      a.I_LPRCAMERAID1,
+      a.I_LPRCAMERAID2,
+      a.I_METERID1,
+      a.I_METERID2,
+      a.C_METERCOM1,
+      a.I_METERBAUD1,
+      a.I_METERCHECK1,
+      a.I_METERSTARTBIT1,
+      a.I_METERSTOPBIT1,
+      a.C_METERCOM2,
+      a.I_METERBAUD2,
+      a.I_METERCHECK2,
+      a.I_METERSTARTBIT2,
+      a.I_METERSTOPBIT2,
+      a.C_ANALYSISNO1,
+      a.C_ANALYSISNO2,
+      a.C_INFRAREDGRATING1,
+      a.C_INFRAREDGRATING2,
+      a.C_IOCOMNO,
+      a.I_IOBAUD,
+      a.I_IOCHECK,
+      a.I_IOSTARTBIT,
+      a.I_IOSTOPBIT,
+      a.D_CREATETIME,
+      a.D_UPDATETIME,
+      a.C_CREATEUSER,
+      a.C_UPDATEUSER
+      from SM_PoundService_Info a
+      where a.I_PoundId =#value#
+
+    </select>
+    <select id="selectSM_PoundService_InfoByPound"  resultMap="SelectSM_PoundService_InfoAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId,
+      a.I_PoundId,
+      a.C_PoundName,
+      a.C_PoundSiteNo,
+      a.C_SIGNALCOM1,
+      a.C_SIGNALCOM2,
+      a.C_PRINTCOM1,
+      a.C_PRINTCOM2,
+      a.I_PRINTBAUD1,
+      a.I_PRINTBAUD2,
+      a.C_RFIDCOM,
+      a.I_RFIDBAUD,
+      a.C_CARNOIP1,
+      a.C_CARNOIP2,
+      a.C_RESERVE1,
+      a.C_RESERVE2,
+      a.C_METERNAME1,
+      a.C_METERNAME2,
+      a.I_DVRINTID,
+      a.C_DvrFactory,
+      a.I_LPRCAMERAID1,
+      a.I_LPRCAMERAID2,
+      a.I_METERID1,
+      a.I_METERID2,
+      a.C_METERCOM1,
+      a.I_METERBAUD1,
+      a.I_METERCHECK1,
+      a.I_METERSTARTBIT1,
+      a.I_METERSTOPBIT1,
+      a.C_METERCOM2,
+      a.I_METERBAUD2,
+      a.I_METERCHECK2,
+      a.I_METERSTARTBIT2,
+      a.I_METERSTOPBIT2,
+      a.C_ANALYSISNO1,
+      a.C_ANALYSISNO2,
+      a.C_INFRAREDGRATING1,
+      a.C_INFRAREDGRATING2,
+      a.C_IOCOMNO,
+      a.I_IOBAUD,
+      a.I_IOCHECK,
+      a.I_IOSTARTBIT,
+      a.I_IOSTOPBIT,
+      a.D_CREATETIME,
+      a.D_UPDATETIME,
+      a.C_CREATEUSER,
+      a.C_UPDATEUSER
+      from SM_PoundService_Info a
+      where
+      <isNotEmpty prepend="and" property="PoundId">
+        a.I_PoundId like '%$PoundId$%'
+      </isNotEmpty>
+
+    </select>
+
+    <select id="SelectSM_PoundService_InfoByPondId"  resultMap="SelectSM_PoundService_InfoAllResult"  resultClass="SM_PoundService_Info" parameterClass="int">
+      select
+      a.I_IntId,
+      a.I_PoundId,
+      a.C_PoundName,
+      a.C_PoundSiteNo,
+      a.C_SIGNALCOM1,
+      a.C_SIGNALCOM2,
+      a.C_PRINTCOM1,
+      a.C_PRINTCOM2,
+      a.I_PRINTBAUD1,
+      a.I_PRINTBAUD2,
+      a.C_RFIDCOM,
+      a.I_RFIDBAUD,
+      a.C_CARNOIP1,
+      a.C_CARNOIP2,
+      a.C_RESERVE1,
+      a.C_RESERVE2,
+      a.C_METERNAME1,
+      a.C_METERNAME2,
+      a.I_DVRINTID,
+      a.C_DvrFactory,
+      a.I_LPRCAMERAID1,
+      a.I_LPRCAMERAID2,
+      a.I_METERID1,
+      a.I_METERID2,
+      a.C_METERCOM1,
+      a.I_METERBAUD1,
+      a.I_METERCHECK1,
+      a.I_METERSTARTBIT1,
+      a.I_METERSTOPBIT1,
+      a.C_METERCOM2,
+      a.I_METERBAUD2,
+      a.I_METERCHECK2,
+      a.I_METERSTARTBIT2,
+      a.I_METERSTOPBIT2,
+      a.C_ANALYSISNO1,
+      a.C_ANALYSISNO2,
+      a.C_INFRAREDGRATING1,
+      a.C_INFRAREDGRATING2,
+      a.C_IOCOMNO,
+      a.I_IOBAUD,
+      a.I_IOCHECK,
+      a.I_IOSTARTBIT,
+      a.I_IOSTOPBIT,
+      a.D_CREATETIME,
+      a.D_UPDATETIME,
+      a.C_CREATEUSER,
+      a.C_UPDATEUSER
+      from SM_PoundService_Info a
+      where a.I_PoundId =#value#
+    </select>
+  </statements>
+
+</sqlMap>

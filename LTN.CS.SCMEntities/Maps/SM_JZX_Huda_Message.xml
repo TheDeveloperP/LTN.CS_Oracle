@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_JZX_Huda_Message" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QuerySM_JZX_Huda_MessageResultMap" class="SM_JZX_Huda_Message">
+      <result property=	"T_ID"	column="T_ID" />
+      <result property="T_JZXH" column="T_JZXH"/>
+      <result property="T_PONDID" column="T_PONDID"/>
+      <result property="T_JZXHPICADDRESS_1" column="T_JZXHPICADDRESS_1"/>
+      <result property="T_JZXHPICADDRESS_2" column="T_JZXHPICADDRESS_2"/>
+      <result property="T_DISTINGUISHTIME" column="T_DISTINGUISHTIME"/>
+      <result property="T_ISERVER_V1" column="T_ISERVER_V1"/>
+      <result property="T_ISERVER_I1" column="T_ISERVER_I1"/>
+      <result property="T_CARNAME_1" column="T_CARNAME_1"/>
+      <result property="T_CARNAME_2" column="T_CARNAME_2"/>            
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="QuerySM_JZX_Huda_MessageAll" resultMap="QuerySM_JZX_Huda_MessageResultMap">
+      select
+      t.t_id,
+      t.t_jzxh,
+      t.t_pondId,
+      t.t_jzxhpicaddress_1,
+      t.t_jzxhpicaddress_2,
+      t.t_distinguishtime,
+      t.t_iserver_v1,
+      t.t_iserver_i1,
+      t.t_carname_1,
+      t.t_carname_2
+      from JZX_HUDA_MESSAGE t
+      where t.t_distinguishtime > tochar(sysdate-5/1440,'yyyyMMddhh24miss')
+      order by t.t_distinguishtime desc
+    </select>
+    
+    <!--通过车号找到集装箱信息-->
+    <!--
+    <select id="QuerySM_JZX_Huda_MessageByCarNameAndPond" resultMap="QuerySM_JZX_Huda_MessageResultMap" parameterClass="Hashtable">
+      select a.*,rownum from
+      (select
+       t.t_id,
+      t.t_jzxh,
+      t.t_pondid,
+      t.t_jzxhpicaddress_1,
+      t.t_jzxhpicaddress_2,
+      t.t_distinguishtime,
+      t.t_iserver_v1,
+      t.t_iserver_i1,
+      t.t_carname_1,
+      t.t_carname_2
+      from JZX_HUDA_MESSAGE t
+      where 
+      t.t_jzxh is not null 
+      and t.t_distinguishtime > to_char(sysdate-20/1440,'yyyyMMddhh24miss')
+      and       
+      (t.t_carname_1=#carName# or t.t_carname_2=#carName#)
+      and
+        t.t_pondid=#pondId#     
+      order by t.t_distinguishtime desc
+      ) a
+      where rownum=1
+    </select>
+    -->
+    <select id="QuerySM_JZX_Huda_MessageByCarNameAndPond" resultMap="QuerySM_JZX_Huda_MessageResultMap" parameterClass="Hashtable">
+      select
+       t.t_id,
+      t.t_jzxh,
+      t.t_pondid,
+      t.t_jzxhpicaddress_1,
+      t.t_jzxhpicaddress_2,
+      t.t_distinguishtime,
+      t.t_iserver_v1,
+      t.t_iserver_i1,
+      t.t_carname_1,
+      t.t_carname_2
+      from JZX_HUDA_MESSAGE t
+      where 
+      t.t_jzxh is not null 
+      and t.t_distinguishtime > to_char(sysdate-20/1440,'yyyyMMddhh24miss')
+      and       
+      (t.t_carname_1=#carName# or t.t_carname_2=#carName#)
+      and
+        t.t_pondid=#pondId#     
+      order by t.t_distinguishtime desc
+     
+    </select>
+
+    <select id="QuerySM_JZX_Huda_MessageAllByCarName" resultMap="QuerySM_JZX_Huda_MessageResultMap" parameterClass="Hashtable">
+      select
+      t.t_id,
+      t.t_jzxh,
+      t.t_pondId,
+      t.t_jzxhpicaddress_1,
+      t.t_jzxhpicaddress_2,
+      t.t_distinguishtime,
+      t.t_iserver_v1,
+      t.t_iserver_i1,
+      t.t_carname_1,
+      t.t_carname_2
+      from JZX_HUDA_MESSAGE t
+      where 1=1
+      <isNotEmpty prepend="and" property="carName">
+        (t.t_carname_1=#carName#  or t.t_carname_2=#carName#)
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          t.t_distinguishtime between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by t.t_distinguishtime desc
+    </select>
+  </statements>
+
+
+
+
+
+
+</sqlMap>

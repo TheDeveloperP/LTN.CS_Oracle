@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PT_TruckMeasurePlanOperate" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="QueryTruckMeasurePlanByHashTableResultMap" class="PT_TruckMeasurePlan">
+        <result property="I_INTID"        column="I_INTID"/>
+        <result property="C_PLANNO"       column="C_PLANNO"/>
+        <result property="C_CARNO"        column="C_CARNO"/>
+        <result property="C_CARNAME"      column="C_CARNAME"/>
+        <result property="C_CARSERIALNUMBER"     column="C_CARSERIALNUMBER"/>
+        <result property="C_CONTRACTNO"          column="C_CONTRACTNO"/>
+        <result property="C_MATERIALNO"   column="C_MATERIALNO"/>
+        <result property="C_MATERIALNAME" column="C_MATERIALNAME"/>
+        <result property="C_FROMDEPTNO"   column="C_FROMDEPTNO"/>
+        <result property="C_FROMDEPTNAME" column="C_FROMDEPTNAME"/>
+        <result property="C_FROMSTORENO"  column="C_FROMSTORENO"/>
+        <result property="C_FROMSTORENAME" column="C_FROMSTORENAME"/>
+        <result property="C_TODEPTNO"     column="C_TODEPTNO"/>
+        <result property="C_TODEPTNAME"   column="C_TODEPTNAME"/>
+        <result property="C_TOSTORENO"    column="C_TOSTORENO"/>
+        <result property="C_TOSTORENAME"  column="C_TOSTORENAME"/>
+        <result property="I_BUSINESSTYPE" column="I_BUSINESSTYPE"/>
+        <result property="I_PLANTYPE"     column="I_PLANTYPE"/>
+        <result property="I_ISAUTO"       column="I_ISAUTO"/>
+        <result property="I_WEIGHTTYPE"   column="I_WEIGHTTYPE"/>
+        <result property="I_TARETIMELIMIT" column="I_TARETIMELIMIT"/>
+        <result property="I_ONEMORESTOCK" column="I_ONEMORESTOCK"/>
+        <result property="I_ISCHILDIDENFY"      column="I_ISCHILDIDENFY"/>
+        <result property="I_ISCREATEMOTHERPOND" column="I_ISCREATEMOTHERPOND"/>
+        <result property="C_CONNECTPLANNO"      column="C_CONNECTPLANNO"/>
+        <result property="I_ONETWOPLAN"         column="I_ONETWOPLAN"/>
+        <result property="C_MIDDLEDEPTNO"       column="C_MIDDLEDEPTNO"/>
+        <result property="C_MIDDLEDEPTNAME"     column="C_MIDDLEDEPTNAME"/>
+        <result property="C_MIDDLESTORENO"      column="C_MIDDLESTORENO"/>
+        <result property="C_MIDDLESTORENAME"    column="C_MIDDLESTORENAME"/>
+        <result property="I_RETALLYKG"          column="I_RETALLYKG"/>
+        <result property="I_COMPUTERTYPE"       column="I_COMPUTERTYPE"/>
+        <result property="I_DOWNVALUE"          column="I_DOWNVALUE"/>
+        <result property="I_UPVALUE"            column="I_UPVALUE"/>
+        <result property="C_PERCENTAGE"         column="C_PERCENTAGE"/>
+        <result property="C_SHIPPINGNOTE"       column="C_SHIPPINGNOTE"/>
+        <result property="I_REPEATPOUND"        column="I_REPEATPOUND"/>
+        <result property="C_PLANLIMITTIME"      column="C_PLANLIMITTIME"/>
+        <result property="C_PONDLIMIT"          column="C_PONDLIMIT"/>
+        <result property="C_REMARK"   column="C_REMARK"/>
+        <result property="C_RESERVE1" column="C_RESERVE1"/>
+        <result property="C_RESERVE2" column="C_RESERVE2"/>
+        <result property="C_RESERVE3" column="C_RESERVE3"/>
+        <result property="I_RESERVE1" column="I_RESERVE1"/>
+        <result property="I_RESERVE2" column="I_RESERVE2"/>
+        <result property="I_RESERVE3" column="I_RESERVE3"/>
+        <result property="C_PLANSTATE"        column="C_PLANSTATE"/>
+        <result property="C_CREATETIME"       column="C_CREATETIME"/>
+        <result property="C_CREATEUSERNAME"   column="C_CREATEUSERNAME"/>
+        <result property="C_UPDATEUSERNAME"   column="C_UPDATEUSERNAME"/>
+        <result property="C_UPDATETIME"       column="C_UPDATETIME"/>
+        <result property="C_CONTAINERNO" column="C_CONTAINERNO" />
+        <result property="C_RESERVE4" column="C_RESERVE4" />
+        <result property="C_RESERVE5" column="C_RESERVE5" />
+        <result property="C_RESERVE6" column="C_RESERVE6" />
+        <result property="C_RESERVE7" column="C_RESERVE7" />
+    </resultMap>
+  </resultMaps>
+<statements>
+  <select id="QueryPlanNoForCreatePlanNo" resultClass="string" parameterClass="string">
+    select * from 
+    (select t.c_planno from  PT_TRUCKMEASUREPLAN t where t.c_planno like #value# order by t.c_Createtime desc) 
+    where rownum=1
+  </select>
+
+  <select id="SelectFuction" resultClass="string" parameterClass="string">
+    select GETPLANNO(#value#,'C_PlanNo','PT_TRUCKMEASUREPLAN')  from dual
+  </select>
+  
+  <select id="QueryTruckMeasureUsingPlanByPlanNo" resultMap="QueryTruckMeasurePlanByHashTableResultMap"  parameterClass="string">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where t.I_ISCHILDIDENFY!=2 and   t.C_PLANNO =#value# and  t.c_planstate!=2   and
+    (case when t.I_PLANTYPE=0 and TO_DATE(C_PLANLIMITTIME,'yyyy-MM-dd hh24:mi:ss') >sysdate then 1
+    when t.I_PLANTYPE=1 and C_PLANSTATE=0 and TO_DATE(C_PLANLIMITTIME,'yyyy-MM-dd hh24:mi:ss') >sysdate then 1
+    else 0 end)=1
+
+  </select>
+  <select id="QueryTruckMeasureUsingPlanByHashTable" resultMap="QueryTruckMeasurePlanByHashTableResultMap"  parameterClass="Hashtable">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where t.I_ISCHILDIDENFY!=2 and  t.c_planstate!=2   and
+    (case when t.I_PLANTYPE=0 and TO_DATE(C_PLANLIMITTIME,'yyyy-MM-dd hh24:mi:ss') >sysdate then 1
+    when t.I_PLANTYPE=1 and C_PLANSTATE=0 and TO_DATE(C_PLANLIMITTIME,'yyyy-MM-dd hh24:mi:ss') >sysdate then 1
+    else 0 end)=1
+    <isNotEmpty prepend="AND" property="StartDate">
+      <isNotEmpty prepend="AND" property="EndDate">
+        t.C_CREATETIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+    </isNotEmpty>
+    <isNotEmpty prepend="AND" property="CarNo">
+      t.C_CARNAME=#CarNo#
+    </isNotEmpty>
+    order by t.C_CREATETIME desc
+  </select>
+  
+  <select id="QueryTruckMeasurePlanByHashTable" resultMap="QueryTruckMeasurePlanByHashTableResultMap"  parameterClass="Hashtable">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where   t.C_PLANSTATE!=2  and  t.C_CREATETIME between #StartTime# and #EndTime#
+    <isNotEmpty prepend="AND" property="CARNAME">
+      t.C_CARNAME  like '%$CARNAME$%'
+    </isNotEmpty>
+    <isNotEmpty prepend="AND" property="PLANNO">
+      t.C_PLANNO  like '%$PLANNO$%'
+    </isNotEmpty>
+    order by t.C_CREATETIME desc
+  </select>
+
+  <select id="QueryTruckMeasurePlanByPlanID" resultMap="QueryTruckMeasurePlanByHashTableResultMap"  resultClass="PT_TruckMeasurePlan" parameterClass="int">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where  t.I_INTID=#value#
+  </select>
+
+  <select id="SelectTruckMeasurePlanByPlanNo" resultMap="QueryTruckMeasurePlanByHashTableResultMap"  resultClass="PT_TruckMeasurePlan" parameterClass="string">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where  t.C_PLANNO=#value#
+  </select>
+  <select id="SelectTruckMeasurePlanByfromdept" resultMap="QueryTruckMeasurePlanByHashTableResultMap" parameterClass="string">
+    select
+    I_INTID,
+    C_PLANNO,
+    C_CARNO,
+    C_CARNAME,
+    C_CARSERIALNUMBER,
+    C_CONTRACTNO,
+    C_MATERIALNO,
+    C_MATERIALNAME,
+    C_FROMDEPTNO,
+    C_FROMDEPTNAME,
+    C_FROMSTORENO,
+    C_FROMSTORENAME,
+    C_TODEPTNO,
+    C_TODEPTNAME,
+    C_TOSTORENO,
+    C_TOSTORENAME,
+    I_BUSINESSTYPE,
+    I_PLANTYPE,
+    I_ISAUTO,
+    I_WEIGHTTYPE,
+    I_TARETIMELIMIT,
+    I_ONEMORESTOCK,
+    I_ISCHILDIDENFY,
+    I_ISCREATEMOTHERPOND,
+    C_CONNECTPLANNO,
+    I_ONETWOPLAN,
+    C_MIDDLEDEPTNO,
+    C_MIDDLEDEPTNAME,
+    C_MIDDLESTORENO,
+    C_MIDDLESTORENAME,
+    I_RETALLYKG,
+    I_COMPUTERTYPE,
+    I_DOWNVALUE,
+    I_UPVALUE,
+    C_PERCENTAGE,
+    C_SHIPPINGNOTE,
+    I_REPEATPOUND,
+    C_PLANLIMITTIME,
+    C_PONDLIMIT,
+    C_REMARK,
+    C_RESERVE1,
+    C_RESERVE2,
+    C_RESERVE3,
+    I_RESERVE1,
+    I_RESERVE2,
+    I_RESERVE3,
+    C_PLANSTATE,
+    C_CREATETIME,
+    C_CREATEUSERNAME,
+    C_UPDATEUSERNAME,
+    C_UPDATETIME,
+    C_CONTAINERNO,
+    C_RESERVE4,
+    C_RESERVE5,
+    C_RESERVE6,
+    C_RESERVE7
+    from PT_TRUCKMEASUREPLAN t
+    where C_FROMDEPTNAME=#value# and rownum  &lt; 2
+  </select>
+<update id="UpdateTruckMeasurePlan" parameterClass="PT_TruckMeasurePlan">
+    update PT_TRUCKMEASUREPLAN set
+    C_PLANNO=#C_PLANNO#,
+    C_CARNO=#C_CARNO#,
+    C_CARNAME=#C_CARNAME#,
+    C_CARSERIALNUMBER=#C_CARSERIALNUMBER#,
+    C_CONTRACTNO=#C_CONTRACTNO#,
+    C_MATERIALNO=#C_MATERIALNO#,
+    C_MATERIALNAME=#C_MATERIALNAME#,
+    C_FROMDEPTNO=#C_FROMDEPTNO#,
+    C_FROMDEPTNAME=#C_FROMDEPTNAME#,
+    C_FROMSTORENO=#C_FROMSTORENO#,
+    C_FROMSTORENAME=#C_FROMSTORENAME#,
+    C_TODEPTNO=#C_TODEPTNO#,
+    C_TODEPTNAME=#C_TODEPTNAME#,
+    C_TOSTORENO=#C_TOSTORENO#,
+    C_TOSTORENAME=#C_TOSTORENAME#,
+    I_BUSINESSTYPE=#I_BUSINESSTYPE#,
+    I_PLANTYPE=#I_PLANTYPE#,
+    I_ISAUTO=#I_ISAUTO#,
+    I_WEIGHTTYPE=#I_WEIGHTTYPE#,
+    I_TARETIMELIMIT=#I_TARETIMELIMIT#,
+    I_ONEMORESTOCK=#I_ONEMORESTOCK#,
+    I_ISCHILDIDENFY=#I_ISCHILDIDENFY#,
+    I_ISCREATEMOTHERPOND=#I_ISCREATEMOTHERPOND#,
+    C_CONNECTPLANNO=#C_CONNECTPLANNO#,
+    I_ONETWOPLAN=#I_ONETWOPLAN#,
+    C_MIDDLEDEPTNO=#C_MIDDLEDEPTNO#,
+    C_MIDDLEDEPTNAME=#C_MIDDLEDEPTNAME#,
+    C_MIDDLESTORENO=#C_MIDDLESTORENO#,
+    C_MIDDLESTORENAME=#C_MIDDLESTORENAME#,
+    I_RETALLYKG=#I_RETALLYKG#,
+    I_COMPUTERTYPE=#I_COMPUTERTYPE#,
+    I_DOWNVALUE=#I_DOWNVALUE#,
+    I_UPVALUE=#I_UPVALUE#,
+    C_PERCENTAGE=#C_PERCENTAGE#,
+    C_SHIPPINGNOTE=#C_SHIPPINGNOTE#,
+    I_REPEATPOUND=#I_REPEATPOUND#,
+    C_PLANLIMITTIME=#C_PLANLIMITTIME#,
+    C_PONDLIMIT=#C_PONDLIMIT#,
+    C_REMARK=#C_REMARK#,
+    C_RESERVE1=#C_RESERVE1#,
+    C_RESERVE2=#C_RESERVE2#,
+    C_RESERVE3=#C_RESERVE3#,
+    I_RESERVE1=#I_RESERVE1#,
+    I_RESERVE2=#I_RESERVE2#,
+    I_RESERVE3=#I_RESERVE3#,
+    C_PLANSTATE=#C_PLANSTATE#,
+    C_CREATETIME=#C_CREATETIME#,
+    C_CREATEUSERNAME=#C_CREATEUSERNAME#,
+    C_UPDATEUSERNAME=#C_UPDATEUSERNAME#,
+    C_CONTAINERNO=#C_CONTAINERNO#,
+    C_RESERVE4=#C_RESERVE4#,
+    C_RESERVE5=#C_RESERVE5#,
+    C_RESERVE6=#C_RESERVE6#,
+    C_RESERVE7=#C_RESERVE7#,
+    C_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss')
+    where I_INTID=#I_INTID#
+  </update>
+
+  <update id="InvalidTruckMeasurePlanByIntId" parameterClass="PT_TruckMeasurePlan" >
+    update PT_TRUCKMEASUREPLAN set
+    C_PLANSTATE=2,
+    C_UPDATEUSERNAME=#C_UPDATEUSERNAME#,
+    C_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss')
+    where I_INTID=#I_INTID#
+  </update>
+
+  <update id="UpdateStatTruckMeasurePlanByPlanNo" parameterClass="PT_TruckMeasurePlan" >
+    update PT_TRUCKMEASUREPLAN set
+    C_PLANSTATE=#C_PLANSTATE#
+    where  C_PLANNO=#C_PLANNO#
+  </update>
+  
+  
+  
+ <insert id="InsertTruckMeasurePlan"  parameterClass="PT_TruckMeasurePlan" >
+   <selectKey property="I_INTID" type="pre" resultClass="int">
+        select SEQ_PT_TRUCKMEASUREPLAN.nextval as ID from dual
+    </selectKey>
+   insert into PT_TRUCKMEASUREPLAN(
+   I_INTID,
+   C_PLANNO,
+   C_CARNO,
+   C_CARNAME,
+   C_CARSERIALNUMBER,
+   C_CONTRACTNO,
+   C_MATERIALNO,
+   C_MATERIALNAME,
+   C_FROMDEPTNO,
+   C_FROMDEPTNAME,
+   C_FROMSTORENO,
+   C_FROMSTORENAME,
+   C_TODEPTNO,
+   C_TODEPTNAME,
+   C_TOSTORENO,
+   C_TOSTORENAME,
+   I_BUSINESSTYPE,
+   I_PLANTYPE,
+   I_ISAUTO,
+   I_WEIGHTTYPE,
+   I_TARETIMELIMIT,
+   I_ONEMORESTOCK,
+   I_ISCHILDIDENFY,
+   I_ISCREATEMOTHERPOND,
+   C_CONNECTPLANNO,
+   I_ONETWOPLAN,
+   C_MIDDLEDEPTNO,
+   C_MIDDLEDEPTNAME,
+   C_MIDDLESTORENO,
+   C_MIDDLESTORENAME,
+   I_RETALLYKG,
+   I_COMPUTERTYPE,
+   I_DOWNVALUE,
+   I_UPVALUE,
+   C_PERCENTAGE,
+   C_SHIPPINGNOTE,
+   I_REPEATPOUND,
+   C_PLANLIMITTIME,
+   C_PONDLIMIT,
+   C_REMARK,
+   C_RESERVE1,
+   C_RESERVE2,
+   C_RESERVE3,
+   I_RESERVE1,
+   I_RESERVE2,
+   I_RESERVE3,
+   C_PLANSTATE,
+   C_CREATETIME,
+   C_CREATEUSERNAME,
+   C_UPDATEUSERNAME,
+   C_UPDATETIME,
+   C_CONTAINERNO,
+   C_RESERVE4,
+   C_RESERVE5,
+   C_RESERVE6,
+   C_RESERVE7)
+   values
+   (
+   #I_INTID#,
+   #C_PLANNO#,
+   #C_CARNO#,
+   #C_CARNAME#,
+   #C_CARSERIALNUMBER#,
+   #C_CONTRACTNO#,
+   #C_MATERIALNO#,
+   #C_MATERIALNAME#,
+   #C_FROMDEPTNO#,
+   #C_FROMDEPTNAME#,
+   #C_FROMSTORENO#,
+   #C_FROMSTORENAME#,
+   #C_TODEPTNO#,
+   #C_TODEPTNAME#,
+   #C_TOSTORENO#,
+   #C_TOSTORENAME#,
+   #I_BUSINESSTYPE#,
+   #I_PLANTYPE#,
+   #I_ISAUTO#,
+   #I_WEIGHTTYPE#,
+   #I_TARETIMELIMIT#,
+   #I_ONEMORESTOCK#,
+   #I_ISCHILDIDENFY#,
+   #I_ISCREATEMOTHERPOND#,
+   #C_CONNECTPLANNO#,
+   #I_ONETWOPLAN#,
+   #C_MIDDLEDEPTNO#,
+   #C_MIDDLEDEPTNAME#,
+   #C_MIDDLESTORENO#,
+   #C_MIDDLESTORENAME#,
+   #I_RETALLYKG#,
+   #I_COMPUTERTYPE#,
+   #I_DOWNVALUE#,
+   #I_UPVALUE#,
+   #C_PERCENTAGE#,
+   #C_SHIPPINGNOTE#,
+   #I_REPEATPOUND#,
+   #C_PLANLIMITTIME#,
+   #C_PONDLIMIT#,
+   #C_REMARK#,
+   #C_RESERVE1#,
+   #C_RESERVE2#,
+   #C_RESERVE3#,
+   #I_RESERVE1#,
+   #I_RESERVE2#,
+   #I_RESERVE3#,
+
+   #C_PLANSTATE#,
+   to_char(sysdate,'yyyyMMddhh24miss'),
+   #C_CREATEUSERNAME#,
+   #C_UPDATEUSERNAME#,
+   #C_UPDATETIME#,
+   #C_CONTAINERNO#,
+   #C_RESERVE4#,
+   #C_RESERVE5#,
+   #C_RESERVE6#,
+   #C_RESERVE7#
+   )
+ </insert>
+
+  </statements>
+</sqlMap>

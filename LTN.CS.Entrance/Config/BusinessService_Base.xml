@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+         ">
+  <object id="BM_SERVERService" type="LTN.CS.Base.BusinessService.BM.Implement.BMSERVERServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="serviceDao"  ref="BM_SERVICEDao"></property>
+  </object>
+  <object id="BM_USERService" type="LTN.CS.Base.BusinessService.BM.Implement.BMUSERServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="userDao"  ref="BM_USERDAO"></property>
+  </object>
+  <object id="BM_MAINPAGEService" type="LTN.CS.Base.BusinessService.BM.Implement.BMMAINPAGEServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="pageDao"  ref="BM_MAINPAGEDao"></property>
+  </object>
+  <object id="BM_MAINGROUPService" type="LTN.CS.Base.BusinessService.BM.Implement.BMMAINGROUPServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="groupDao"  ref="BM_MAINGROUPDao"></property>
+  </object>
+  <object id="BM_MAINGROUPSERVICEService" type="LTN.CS.Base.BusinessService.BM.Implement.BMMAINGROUPSERVICEServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="groupServiceDao"  ref="BM_MAINGROUPSERVICEDao"></property>
+  </object>
+  <object id="BM_GROUPService" type="LTN.CS.Base.BusinessService.BM.Implement.BMGROUPServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="groupDao"  ref="BM_GROUPDAO"></property>
+  </object>
+  <object id="BM_MAINASSEMBLYService" type="LTN.CS.Base.BusinessService.BM.Implement.BMMAINASSEMBLYServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="mainassemblyDao"  ref="BM_MAINASSEMBLYDAO"></property>
+  </object>
+  <object id="BM_GROUPUSERService" type="LTN.CS.Base.BusinessService.BM.Implement.BMGROUPUSERServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="groupuserDao"  ref="BM_GROUPUSERDAO"></property>
+  </object>
+  <object id="BM_GROUPServerService" type="LTN.CS.Base.BusinessService.BM.Implement.BMGROUPSERVERServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="serviceGroupDap"  ref="BM_SERVICEGROUPDAO"></property>
+  </object>
+
+  <object id="BM_ServerUserService" type="LTN.CS.Base.BusinessService.BM.Implement.BMSERVICEUSERServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="serviceUserDao"  ref="BM_SERVICEUSERDAO"></property>
+  </object>
+  <object id="BM_DICTIONARYMAINService" type="LTN.CS.Base.BusinessService.BM.Implement.BMDICTIONARYMAINServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="dictionaryDao"  ref="BM_DICTIONARYMAINDAO"></property>
+  </object>
+  <object id="BM_DICTIONARYDETAILService" type="LTN.CS.Base.BusinessService.BM.Implement.BMDICTIONARYDETAILServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="dictionaryDao"  ref="BM_DICTIONARYDETAILDAO"></property>
+  </object>
+
+  <object id="BMDELIVERYService" type="LTN.CS.Base.BusinessService.BM.Implement.BMDELIVERYServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="mainDao"  ref="BMDELIVERYDao"></property>
+    <property  name="historyDao"  ref="BMDELIVERYHISTORYDao"></property>
+  </object>
+  <object id="BMDELIVERYHISTORYService" type="LTN.CS.Base.BusinessService.BM.Implement.BMDELIVERYHISTORYServiceImpl,LTN.CS.Base.BusinessService"  singleton="false" >
+    <property  name="mainDao"  ref="BMDELIVERYHISTORYDao"></property>
+  </object>
+
+  <object id="WM_IcAndCarService" type="LTN.CS.SCMService.WM.Implement.WM_IcAndCarServiceImpl,LTN.CS.SCMService"  singleton="false" >
+    <property  name="mainDao"  ref="WM_IcAndCarDao"></property>
+  </object>
+
+</objects>

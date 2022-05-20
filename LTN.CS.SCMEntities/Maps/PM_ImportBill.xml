@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_ImportBill" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap  id="SelectPM_ImportBillAllResult" class="PM_ImportBill">
+      <result property="I_Intid"          column="I_INTID"/>
+      <result property="C_CreateUserName" column="C_CREATEUSERNAME"/>
+      <result property="C_UpdateUserName" column="C_UPDATEUSERNAME"/>
+      <result property="C_ImBatchNum"     column="C_IMBATCHNUM"/>
+      <result property="C_CarNo"          column="C_CARNO"/>
+      <result property="C_GrossWgtTime"   column="C_GROSSWGTTIME"/>
+      <result property="C_TareWgtTime"    column="C_TAREWGTTIME"/>
+      <result property="C_MaterialName"   column="C_MATERIALNAME"/>
+      <result property="N_GrossWgt"       column="N_GROSSWGT"/>
+      <result property="N_TareWgt"        column="N_TAREWGT"/>
+      <result property="N_NetWgt"         column="N_NETWGT"/>
+      <result property="C_FromDeptName"   column="C_FROMDEPTNAME"/>
+      <result property="C_ToDeptName"     column="C_TODEPTNAME"/>
+      <result property="C_NetWgtMan"      column="C_NETWGTMAN"/>
+      <result property="C_GrossWgtSite"   column="C_GROSSWGTSITE"/>
+      <result property="I_PrintNum"   column="I_PRINTNUM"/>
+      <result property="C_PondNo"   column="C_PondNo"/>
+      <result property="C_Remark"   column="C_Remark"/>
+    </resultMap>   
+  </resultMaps>
+  <statements>
+    <select id="QueryPM_ImportBill" resultMap="SelectPM_ImportBillAllResult" parameterClass="Hashtable">
+      SELECT 
+      *
+      FROM PM_ImportBill 
+      WHERE 1=1
+      <isNotEmpty property="C_CarNo" prepend="and">
+        C_CARNO  like   '%$C_CarNo$%' 
+      </isNotEmpty>
+      <isEqual prepend="and"  property="state" compareValue="0">
+        (C_TAREWGTTIME between to_date('$StartTime$','yyyy/MM/dd HH24:MI:SS') and  to_date('$EndTime$','yyyy/MM/dd HH24:MI:SS') or
+        C_GROSSWGTTIME between to_date('$StartTime$','yyyy/MM/dd HH24:MI:SS') and  to_date('$EndTime$','yyyy/MM/dd HH24:MI:SS'))
+      </isEqual>
+      <isEqual prepend="and"  property="state" compareValue="2">
+        C_TAREWGTTIME between to_date('$StartTime$','yyyy/MM/dd HH24:MI:SS') and  to_date('$EndTime$','yyyy/MM/dd HH24:MI:SS')
+      </isEqual>
+      <isEqual prepend="and"  property="state" compareValue="1">
+        C_GROSSWGTTIME between to_date('$StartTime$','yyyy/MM/dd HH24:MI:SS') and  to_date('$EndTime$','yyyy/MM/dd HH24:MI:SS')
+      </isEqual>
+      
+      
+      
+    </select>
+    <insert id="Insert_PM_ImportBill"  parameterClass="PM_ImportBill">
+      <selectKey property="I_Intid" type="pre" resultClass="int">
+        select SEQ_PM_ImportBill.nextval as ID from dual
+      </selectKey>
+      insert into PM_ImportBill(
+      I_INTID,
+      C_CREATEUSERNAME,
+      C_UPDATEUSERNAME,
+      C_IMBATCHNUM,
+      C_CARNO,
+      C_GROSSWGTTIME,
+      C_TAREWGTTIME,
+      C_MATERIALNAME,
+      N_GROSSWGT,
+      N_TAREWGT,
+      N_NETWGT,
+      C_FROMDEPTNAME,
+      C_TODEPTNAME,
+      C_NETWGTMAN,
+      C_GROSSWGTSITE,
+      C_PondNo,
+      C_Remark
+      )values(
+      #I_Intid#,
+      #C_CreateUserName#,
+      #C_UpdateUserName#,
+      #C_ImBatchNum#,
+      #C_CarNo#,
+      #C_GrossWgtTime#,
+      #C_TareWgtTime#,
+      #C_MaterialName#,
+      $N_GrossWgt$,
+      $N_TareWgt$,
+      $N_NetWgt$,
+      #C_FromDeptName#,
+      #C_ToDeptName#,
+      #C_NetWgtMan#,
+      #C_GrossWgtSite#,
+      #C_PondNo#,
+      #C_Remark#
+      )
+    </insert>
+
+    <update id="UpdatePM_ImportBillByPrint" parameterClass="PM_ImportBill">
+      update PM_ImportBill set
+      I_PRINTNUM=#I_PrintNum#
+      where  I_INTID=#I_Intid#
+    </update>
+  </statements>
+</sqlMap>

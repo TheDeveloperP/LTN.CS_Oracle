@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_BeltNumber" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_BeltNumberAllResult" class="SM_BeltNumber">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="BeltId.I_Intid"                    column="I_BeltId" />
+      <result property="BeltId.C_Beltno"                    column="C_BeltNo" />
+      <result property="BeltId.C_Beltname"                    column="C_BeltName" />
+      <result property="BITNO"                    column="C_BitNo" />
+      <result property="C_CreateTime"                    column="C_CreateTime" />
+      <result property="C_CreateUserName"                    column="C_CreateUserName" />
+      <result property="C_UpdateTime"                    column="C_UpdateTime" />
+      <result property="C_UpdateUserName"                    column="C_UpdateUserName" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertSM_BeltNumber"  parameterClass="SM_BeltNumber" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_BeltBitNo.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_BeltBitNo
+      (
+      I_IntId,
+      C_BeltNo,
+      C_BeltName,
+      C_BitNo,
+      C_CreateTime,
+      C_CreateUserName,
+      C_UpdateTime,
+      C_UpdateUserName
+      )values
+      (
+      #IntId#,
+      #BeltId.C_Beltno#,
+      #BeltId.C_Beltname#,
+      #BITNO#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #C_CreateUserName#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #C_UpdateUserName#
+      )
+    </insert>
+    <update id="UpdateSM_BeltNumber"   parameterClass="SM_BeltNumber">
+      update SM_BeltBitNo set
+      C_BeltNo=#BeltId.C_Beltno#,
+      C_BeltName=#BeltId.C_Beltname#,
+      C_BitNo=#BITNO#,
+      C_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UpdateUserName=#C_UpdateUserName#
+      where I_IntId = #IntId#
+    </update>
+    <delete id="DeleteSM_BeltNumber" parameterClass="SM_BeltNumber">
+      delete from SM_BeltBitNo   where I_INTID = #IntId#
+    </delete>
+    <select id="selectSM_BeltNumberAll"  resultMap="SelectSM_BeltNumberAllResult">
+      select
+      a.I_IntId,
+      a.I_BeltId,
+      a.C_BeltNo,
+      a.C_BeltName,
+      a.C_BitNo,
+      a.C_CreateTime,
+      a.C_CreateUserName,
+      a.C_UpdateTime,
+      a.C_UpdateUserName,
+      b.C_BELTNO,
+      b.C_BELTNAME
+      from SM_BeltBitNo a
+      left join PM_BILL_BELT b on b.I_INTID=a.I_BeltId
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_BeltNumberByBeltNo"  resultMap="SelectSM_BeltNumberAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.I_BeltId,
+      a.C_BeltNo,
+      a.C_BeltName,
+      a.C_BitNo,
+      a.C_CreateTime,
+      a.C_CreateUserName,
+      a.C_UpdateTime,
+      a.C_UpdateUserName
+      from SM_BeltBitNo a
+      where a.C_BeltNo = #value#
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

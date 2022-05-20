@@ -1,0 +1,1503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01DFFD2B-550D-4078-A288-6F6EB31E97D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LTN.CS.SCMForm</RootNamespace>
+    <AssemblyName>LTN.CS.SCMForm</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Aspose.Cells, Version=8.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LTN.CS.Entrance\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\lib\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\lib\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.Charts.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v16.2.Win, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v16.2.UI, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Win.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Map.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v16.2.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Spreadsheet.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraCharts.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraCharts.v16.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.UI, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraCharts.v16.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Web, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraCharts.v16.2.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v16.2.Wizard, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraCharts.v16.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Presets, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Win, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v16.2.UI, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\DevExpress.XtraPrinting.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.2.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Service, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Web, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Web.Azure, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.2.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Reporting.Extensions, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Core, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeMap.v16.2, Version=16.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LTN.CS.SCMCustomUI">
+      <HintPath>..\LTN.CS.SCMCustomUI\obj\Debug\LTN.CS.SCMCustomUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="NPOI, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="pSpaceCTL.NET, Version=1.0.5865.26220, Culture=neutral, PublicKeyToken=e7383731173ff1fb, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\读皮带秤重量服务\LTN.CS_Oracle\lib\pSpaceCTL.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz">
+      <HintPath>..\lib\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop, Version=1.3.1.20001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core, Version=1.3.1.20001, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Scheduling.Quartz">
+      <HintPath>..\lib\Spring.Scheduling.Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZK_RFID106CSharp">
+      <HintPath>..\lib\ZK_RFID106CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing">
+      <HintPath>..\lib\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\CHCNetSDK.cs" />
+    <Compile Include="API\GetImage.cs" />
+    <Compile Include="API\RFIDAPI.cs" />
+    <Compile Include="Common\CommonHelper.cs" />
+    <Compile Include="CS\CS_OnlineScale_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CS\CS_OnlineScale_Form.Designer.cs">
+      <DependentUpon>CS_OnlineScale_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\CS_Bill_Belt_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CS\CS_Bill_Belt_Form.Designer.cs">
+      <DependentUpon>CS_Bill_Belt_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\SM_WeightList_InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CS\SM_WeightList_InfoForm.Designer.cs">
+      <DependentUpon>SM_WeightList_InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\TruckPrintQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CS\TruckPrintQuery.Designer.cs">
+      <DependentUpon>TruckPrintQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\SM_WeightListTwo_InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CS\SM_WeightListTwo_InfoForm.Designer.cs">
+      <DependentUpon>SM_WeightListTwo_InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CS\SM_GczTare_InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CS\SM_GczTare_InfoForm.Designer.cs">
+      <DependentUpon>SM_GczTare_InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUI\CustomShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUI\CustomShow.Designer.cs">
+      <DependentUpon>CustomShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_BeltScalePlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_BeltScalePlan_Form.Designer.cs">
+      <DependentUpon>IT_BeltScalePlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_OnlineScaleBill_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_OnlineScaleBill_Form.Designer.cs">
+      <DependentUpon>IT_OnlineScaleBill_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterBill_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterBill_Form.Designer.cs">
+      <DependentUpon>IT_OrbitWeighterBill_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterConfirm_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterConfirm_Form.Designer.cs">
+      <DependentUpon>IT_OrbitWeighterConfirm_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterConfirm_Form_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_OrbitWeighterConfirm_Form_New.Designer.cs">
+      <DependentUpon>IT_OrbitWeighterConfirm_Form_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_TrackScaleIronPlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_TrackScaleIronPlan_Form.Designer.cs">
+      <DependentUpon>IT_TrackScaleIronPlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_TrackScaleMaterielPlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_TrackScaleMaterielPlan_Form.Designer.cs">
+      <DependentUpon>IT_TrackScaleMaterielPlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IT\IT_TruckMeasurePlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IT\IT_TruckMeasurePlan_Form.Designer.cs">
+      <DependentUpon>IT_TruckMeasurePlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_BeltScaleMeasure_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_BeltScaleMeasure_Form.Designer.cs">
+      <DependentUpon>PM_BeltScaleMeasure_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_BeltTimeCount_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_BeltTimeCount_Form.Designer.cs">
+      <DependentUpon>PM_BeltTimeCount_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Belt_ServerLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Belt_ServerLog.Designer.cs">
+      <DependentUpon>PM_Belt_ServerLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_BillMultiUpdate_Supplies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_BillMultiUpdate_Supplies.Designer.cs">
+      <DependentUpon>PM_BillMultiUpdate_Supplies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Belt_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Belt_Form.Designer.cs">
+      <DependentUpon>PM_Bill_Belt_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Belt_Operate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Belt_Operate_Form.Designer.cs">
+      <DependentUpon>PM_Bill_Belt_Operate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Iron_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Iron_Form.Designer.cs">
+      <DependentUpon>PM_Bill_Iron_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Iron_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Iron_Form.Designer.cs">
+      <DependentUpon>PM_Bill_MoveTrain_Iron_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Mats_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Mats_Form.Designer.cs">
+      <DependentUpon>PM_Bill_MoveTrain_Mats_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Mats_Form_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_MoveTrain_Mats_Form_New.Designer.cs">
+      <DependentUpon>PM_Bill_MoveTrain_Mats_Form_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_OrbitWeighter_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_OrbitWeighter_Form.Designer.cs">
+      <DependentUpon>PM_Bill_OrbitWeighter_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_StaticTrain_Mats_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_StaticTrain_Mats_Form.Designer.cs">
+      <DependentUpon>PM_Bill_StaticTrain_Mats_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Supplies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_Supplies_Form.Designer.cs">
+      <DependentUpon>PM_Bill_Supplies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_ImportBill_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_ImportBill_Form.Designer.cs">
+      <DependentUpon>PM_ImportBill_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_ImportExcel_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_ImportExcel_Form.Designer.cs">
+      <DependentUpon>PM_ImportExcel_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_IronPlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_IronPlan_Form.Designer.cs">
+      <DependentUpon>PM_IronPlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_OnlineScale_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_OnlineScale_Form.Designer.cs">
+      <DependentUpon>PM_OnlineScale_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_OnLineWgtComparison_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_OnLineWgtComparison_Form.Designer.cs">
+      <DependentUpon>PM_OnLineWgtComparison_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_OrbitWeighterConfirm_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_OrbitWeighterConfirm_Form.Designer.cs">
+      <DependentUpon>PM_OrbitWeighterConfirm_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_PondInfo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_PondInfo_Form.Designer.cs">
+      <DependentUpon>PM_PondInfo_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_PondMonitor_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_PondMonitor_Form.Designer.cs">
+      <DependentUpon>PM_PondMonitor_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_PondSupplies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_PondSupplies_Form.Designer.cs">
+      <DependentUpon>PM_PondSupplies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_CarsForJinCai_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_CarsForJinCai_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_CarsForJinCai_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_CarsForMaterial_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_CarsForMaterial_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_CarsForMaterial_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Cars_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Cars_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_Cars_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Iron_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Iron_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_Iron_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Supplies_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Supplies_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_Supplies_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Supplies_History_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Pond_Bill_Supplies_History_Form.Designer.cs">
+      <DependentUpon>PM_Pond_Bill_Supplies_History_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_PoundBillMaintainForTruckHistory_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_PoundBillMaintainForTruckHistory_Form.Designer.cs">
+      <DependentUpon>PM_PoundBillMaintainForTruckHistory_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_PoundBillMaintainForTruck_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_PoundBillMaintainForTruck_Form.Designer.cs">
+      <DependentUpon>PM_PoundBillMaintainForTruck_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_RawData_MoveTrain_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_RawData_MoveTrain_Form.Designer.cs">
+      <DependentUpon>PM_RawData_MoveTrain_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_ShowTruckPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_ShowTruckPicture.Designer.cs">
+      <DependentUpon>PM_ShowTruckPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_SuppliesPlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_SuppliesPlan_Form.Designer.cs">
+      <DependentUpon>PM_SuppliesPlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_TruckPoundBills_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_TruckPoundBills_Form.Designer.cs">
+      <DependentUpon>PM_TruckPoundBills_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_TruckPoundBill_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_TruckPoundBill_Form.Designer.cs">
+      <DependentUpon>PM_TruckPoundBill_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\Pond_ComplateTime_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\Pond_ComplateTime_Form.Designer.cs">
+      <DependentUpon>Pond_ComplateTime_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\testForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\testForm.Designer.cs">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\TruckMeasureForm_New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\TruckMeasureForm_New.Designer.cs">
+      <DependentUpon>TruckMeasureForm_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport2_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport2_2.Designer.cs">
+      <DependentUpon>XtraReport2_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport3.Designer.cs">
+      <DependentUpon>XtraReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport4.Designer.cs">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport5.Designer.cs">
+      <DependentUpon>XtraReport5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport6.Designer.cs">
+      <DependentUpon>XtraReport6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport3_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport3_2.Designer.cs">
+      <DependentUpon>XtraReport3_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport3_3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport3_3.Designer.cs">
+      <DependentUpon>XtraReport3_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport3_4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport3_4.Designer.cs">
+      <DependentUpon>XtraReport3_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport3_5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport3_5.Designer.cs">
+      <DependentUpon>XtraReport3_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\XtraReport6_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PM\XtraReport6_2.Designer.cs">
+      <DependentUpon>XtraReport6_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PM\PM_Bill_StaticTrain_Mats_NewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PM\PM_Bill_StaticTrain_Mats_NewForm.Designer.cs">
+      <DependentUpon>PM_Bill_StaticTrain_Mats_NewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_BeltScalePlanOperate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_BeltScalePlanOperate_Form.Designer.cs">
+      <DependentUpon>PT_BeltScalePlanOperate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_BeltScalePlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_BeltScalePlan_Form.Designer.cs">
+      <DependentUpon>PT_BeltScalePlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasureUpdate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasureUpdate_Form.Designer.cs">
+      <DependentUpon>PT_TruckMeasureUpdate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasureUsingPlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasureUsingPlan_Form.Designer.cs">
+      <DependentUpon>PT_TruckMeasureUsingPlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\RP_Materiel_PrintRecord_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RP\RP_Materiel_PrintRecord_Form.Designer.cs">
+      <DependentUpon>RP_Materiel_PrintRecord_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\RP_Materiel_Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RP\RP_Materiel_Report.Designer.cs">
+      <DependentUpon>RP_Materiel_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP2.Designer.cs">
+      <DependentUpon>XtraReportRP2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP2_New.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP2_New.Designer.cs">
+      <DependentUpon>XtraReportRP2_New.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_3.Designer.cs">
+      <DependentUpon>XtraReportRP_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_2.Designer.cs">
+      <DependentUpon>XtraReportRP_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_5.Designer.cs">
+      <DependentUpon>XtraReportRP_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP_4.Designer.cs">
+      <DependentUpon>XtraReportRP_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RP\XtraReportRP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RP\XtraReportRP.Designer.cs">
+      <DependentUpon>XtraReportRP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_BeltNumber_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_BeltNumber_Form.Designer.cs">
+      <DependentUpon>SM_BeltNumber_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_CameraCarNO_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_CameraCarNO_Form.Designer.cs">
+      <DependentUpon>SM_CameraCarNO_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Container_Info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Container_Info.Designer.cs">
+      <DependentUpon>SM_Container_Info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Container_Rate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Container_Rate_Form.Designer.cs">
+      <DependentUpon>SM_Container_Rate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_LprCamera_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_LprCamera_Form.Designer.cs">
+      <DependentUpon>SM_LprCamera_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_BlackList_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_BlackList_Form.Designer.cs">
+      <DependentUpon>SM_BlackList_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_DVR_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_DVR_Form.Designer.cs">
+      <DependentUpon>SM_DVR_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_ErrorConfig_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_ErrorConfig_Form.Designer.cs">
+      <DependentUpon>SM_ErrorConfig_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_MatWGTLimit_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_MatWGTLimit_Form.Designer.cs">
+      <DependentUpon>SM_MatWGTLimit_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Meter_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Meter_Info_Form.Designer.cs">
+      <DependentUpon>SM_Meter_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_PoundService_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_PoundService_Form.Designer.cs">
+      <DependentUpon>SM_PoundService_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_PoundSite_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_PoundSite_Form.Designer.cs">
+      <DependentUpon>SM_PoundSite_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_ReasonForNoAuto_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_ReasonForNoAuto_Form.Designer.cs">
+      <DependentUpon>SM_ReasonForNoAuto_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_ReeferContainer_Rate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_ReeferContainer_Rate_Form.Designer.cs">
+      <DependentUpon>SM_ReeferContainer_Rate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_SiteGrating_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_SiteGrating_Form.Designer.cs">
+      <DependentUpon>SM_SiteGrating_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Site_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Site_Form.Designer.cs">
+      <DependentUpon>SM_Site_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SM\SM_Car_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Car_Form.Designer.cs">
+      <DependentUpon>SM_Car_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasurePlanOperate_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasurePlanOperate_Form.Designer.cs">
+      <DependentUpon>PT_TruckMeasurePlanOperate_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasurePlan_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PT\PT_TruckMeasurePlan_Form.Designer.cs">
+      <DependentUpon>PT_TruckMeasurePlan_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Department_LevelOne_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Department_LevelOne_Info_Form.Designer.cs">
+      <DependentUpon>SM_Department_LevelOne_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Department_LevelTwo_Info_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Department_LevelTwo_Info_Form.Designer.cs">
+      <DependentUpon>SM_Department_LevelTwo_Info_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_Materiel_Level_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_Materiel_Level_Form.Designer.cs">
+      <DependentUpon>SM_Materiel_Level_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_TareWeightHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_TareWeightHistoryForm.Designer.cs">
+      <DependentUpon>SM_TareWeightHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\SM_TareWeight_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\SM_TareWeight_Form.Designer.cs">
+      <DependentUpon>SM_TareWeight_Form.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Aspose.Cells.dll" />
+    <None Include="Properties\DataSources\LTN.CS.SCMEntities.PM.PM_Pond_Bill_Supplies.datasource" />
+    <None Include="Resources\集装箱识别.png" />
+    <None Include="Resources\RFID.png" />
+    <None Include="Resources\磅点设备监控.png" />
+    <None Include="Resources\超限.png" />
+    <None Include="Resources\RFID.png" />
+    <None Include="Resources\在线秤磅单.png" />
+    <None Include="Resources\在线秤接口.png" />
+    <None Include="Properties\DataSources\LTN.CS.SCMEntities.PM.PM_ImportBill.datasource" />
+    <None Include="Resources\excel_16.png" />
+    <None Include="Resources\document_import_32px.ico" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\15005.png" />
+    <None Include="Resources\Icon1.ico" />
+    <None Include="Resources\光栅.png" />
+    <None Include="Resources\非自动过磅.png" />
+    <None Include="Resources\位号.png" />
+    <None Include="Resources\汽车磅报表.png" />
+    <None Include="Properties\DataSources\LTN.CS.SCMEntities.PM.PM_Bill_Truck.datasource" />
+    <None Include="Resources\1.bmp" />
+    <None Include="Resources\动轨物资过磅48.png" />
+    <None Include="Resources\皮带秤委托.png" />
+    <None Include="Resources\毛重.png" />
+    <None Include="Resources\仪器.png" />
+    <None Include="Resources\车牌识别.png" />
+    <None Include="Resources\设备信息维护.png" />
+    <None Include="Resources\原始数据管理.png" />
+    <None Include="Resources\Factory_32.png" />
+    <None Include="Resources\BeltScale_32.png" />
+    <None Include="Resources\地磅.png" />
+    <None Include="Resources\物资轨道衡磅单管理 .png" />
+    <None Include="Resources\物资轨道衡委托管理.png" />
+    <None Include="Resources\最新政策.png" />
+    <None Include="Resources\历史记录.png" />
+    <None Include="Resources\磅房基础信息48.png" />
+    <None Include="Resources\坐席基础信息48.png" />
+    <None Include="Resources\坐席基础信息.bmp" />
+    <None Include="Resources\铁水轨道衡计划委托管理.png" />
+    <None Include="Resources\铁水轨道衡过磅管理.png" />
+    <None Include="Resources\Up2_16.png" />
+    <None Include="Resources\Up2_32.png" />
+    <None Include="Resources\Cancel3_32.png" />
+    <None Include="Resources\Save1_32.png" />
+    <None Include="Resources\制造部物料月报表.png" />
+    <None Include="Resources\制造部物料旬报表.png" />
+    <None Include="Resources\制造部物料日报表.png" />
+    <None Include="Resources\制造部物料年报表.png" />
+    <None Include="Resources\异常信息查询.png" />
+    <None Include="Resources\仪表管理48.png" />
+    <None Include="Resources\新磅点基础管理48.png" />
+    <None Include="Resources\校称管理32.png" />
+    <None Include="Resources\线材32.png" />
+    <None Include="Resources\物料管理248.png" />
+    <None Include="Resources\物料管理48.png" />
+    <None Include="Resources\维护2.png" />
+    <None Include="Resources\维护1.png" />
+    <None Include="Resources\维护.png" />
+    <None Include="Resources\网络设备维修记录.png" />
+    <None Include="Resources\网络设备.png" />
+    <None Include="Resources\识别.png" />
+    <None Include="Resources\设备监测.png" />
+    <None Include="Resources\区域部门关联48.png" />
+    <None Include="Resources\区域磅点关联48.png" />
+    <None Include="Resources\汽车磅计量委托单管理48.png" />
+    <None Include="Resources\汽车磅磅单管理48.png" />
+    <None Include="Resources\坯32.png" />
+    <None Include="Resources\内部单位管理3级48.png" />
+    <None Include="Resources\内部单位管理2级48.png" />
+    <None Include="Resources\内部单位管理1级48.png" />
+    <None Include="Resources\码头皮带秤比对记录.png" />
+    <None Include="Resources\静轨物资过磅48.png" />
+    <None Include="Resources\静轨铁水计量日报表1.png" />
+    <None Include="Resources\静轨铁水计量日报表.png" />
+    <None Include="Resources\静轨铁水过磅48.png" />
+    <None Include="Resources\计量系统自定义过磅规则48.png" />
+    <None Include="Resources\计量系统内部规则车辆关联48.png" />
+    <None Include="Resources\计量表.png" />
+    <None Include="Resources\基础业务类型管理48.png" />
+    <None Include="Resources\过磅规则维护48.png" />
+    <None Include="Resources\轨道衡物资原始数据管理48.png" />
+    <None Include="Resources\轨道衡物资计量委托管理48.png" />
+    <None Include="Resources\轨道衡物资磅皮重库48.png" />
+    <None Include="Resources\轨道衡物资榜单管理48.png" />
+    <None Include="Resources\轨道衡物铁水单管理48.png" />
+    <None Include="Resources\轨道衡铁水原始数据管理48.png" />
+    <None Include="Resources\轨道衡铁水计量委托管理48.png" />
+    <None Include="Resources\轨道衡检定数管理48.png" />
+    <None Include="Resources\法秤.png" />
+    <None Include="Resources\动轨衡比对记录.png" />
+    <None Include="Resources\成品秤班报表32.png" />
+    <None Include="Resources\成品称磅房端管理32.png" />
+    <None Include="Resources\车辆黑名单管理.png" />
+    <None Include="Resources\车队车辆关联管理48.png" />
+    <None Include="Resources\测量设备管理.png" />
+    <None Include="Resources\板卷秤计划编辑32.png" />
+    <None Include="Resources\Word1_32.png" />
+    <None Include="Resources\Word_32.png" />
+    <None Include="Resources\Weight_unlock_48.png" />
+    <None Include="Resources\Weight_lock_48.png" />
+    <None Include="Resources\Weight_inuse_48.png" />
+    <None Include="Resources\Upload_16.png" />
+    <None Include="Resources\Update_32.png" />
+    <None Include="Resources\Up1_32.png" />
+    <None Include="Resources\Unlock1_32.png" />
+    <None Include="Resources\TakePhoto2_32.png" />
+    <None Include="Resources\TakePhoto1_32.png" />
+    <None Include="Resources\SUPPLIER_MATERIAL_32.png" />
+    <None Include="Resources\Store1_32.png" />
+    <None Include="Resources\Sheet12_32.png" />
+    <None Include="Resources\Sheet11_32.png" />
+    <None Include="Resources\Sheet10_32.png" />
+    <None Include="Resources\Sheet9_32.png" />
+    <None Include="Resources\Sheet8_32.png" />
+    <None Include="Resources\Sheet7_32.png" />
+    <None Include="Resources\Sheet6_32.png" />
+    <None Include="Resources\Sheet5_32.png" />
+    <None Include="Resources\Sheet4_32.png" />
+    <None Include="Resources\Sheet3_32.png" />
+    <None Include="Resources\Sheet2_32.png" />
+    <None Include="Resources\Sheet1_32.png" />
+    <None Include="Resources\Set4_32.png" />
+    <None Include="Resources\Set3_32.png" />
+    <None Include="Resources\Set2_32.png" />
+    <None Include="Resources\Set1_32.png" />
+    <None Include="Resources\Send1_32.png" />
+    <None Include="Resources\Sale1_32.png" />
+    <None Include="Resources\Right1_32.png" />
+    <None Include="Resources\RFID3_32.png" />
+    <None Include="Resources\RFID2_32.png" />
+    <None Include="Resources\RFID1_32.png" />
+    <None Include="Resources\Refresh1_32.png" />
+    <None Include="Resources\Refresh1_16.png" />
+    <None Include="Resources\Recive1_32.png" />
+    <None Include="Resources\QueryStockQTY_Form1_32.png" />
+    <None Include="Resources\Query1_32.png" />
+    <None Include="Resources\Print_16.png" />
+    <None Include="Resources\Preview_32.png" />
+    <None Include="Resources\PPT1_32.png" />
+    <None Include="Resources\PPT_32.png" />
+    <None Include="Resources\Power_32.png" />
+    <None Include="Resources\Monitor2_32.png" />
+    <None Include="Resources\Monitor1_32.png" />
+    <None Include="Resources\Maintenance_32.png" />
+    <None Include="Resources\Lock2_32.png" />
+    <None Include="Resources\Lock1_32.png" />
+    <None Include="Resources\les系统过磅规则与车辆的关联48.png" />
+    <None Include="Resources\les系统过磅规则管理_48.png" />
+    <None Include="Resources\Left2_32.png" />
+    <None Include="Resources\Left1_32.png" />
+    <None Include="Resources\ICMakeCard_32.png" />
+    <None Include="Resources\ICCard1_48.png" />
+    <None Include="Resources\ICCard1_32.png" />
+    <None Include="Resources\Filefolder1_32.png" />
+    <None Include="Resources\FileFolder_32.png" />
+    <None Include="Resources\ExportExcel1_32.png" />
+    <None Include="Resources\Excel2_32.png" />
+    <None Include="Resources\Excel1_32.png" />
+    <None Include="Resources\Excel_32.png" />
+    <None Include="Resources\Emptytrash_32.png" />
+    <None Include="Resources\Download1_32.png" />
+    <None Include="Resources\Down1_32.png" />
+    <None Include="Resources\Delete5_32.png" />
+    <None Include="Resources\Delete1_32.png" />
+    <None Include="Resources\Confirm2_32.png" />
+    <None Include="Resources\Confirm1_32.png" />
+    <None Include="Resources\Computer6_72.png" />
+    <None Include="Resources\Computer5_72.png" />
+    <None Include="Resources\Computer4_72.png" />
+    <None Include="Resources\Computer3_32.png" />
+    <None Include="Resources\Computer2_32.png" />
+    <None Include="Resources\Computer1_32.png" />
+    <None Include="Resources\ChartPie_32.png" />
+    <None Include="Resources\Chartbar_32.png" />
+    <None Include="Resources\CarsInfo_32.png" />
+    <None Include="Resources\Card2_32.png" />
+    <None Include="Resources\Card1_32.png" />
+    <None Include="Resources\Cancel1_32.png" />
+    <None Include="Resources\Camera2_32.png" />
+    <None Include="Resources\Camera1_32.png" />
+    <None Include="Resources\BussinessManInfo_32.png" />
+    <None Include="Resources\BlackList1_32.png" />
+    <None Include="Resources\Add5_32.png" />
+    <None Include="Resources\Add1_32.png" />
+    <None Include="Resources\供应商管理48.png" />
+    <None Include="Resources\供应商管理16.png" />
+    <None Include="Resources\abled_16.png" />
+    <None Include="Resources\delete_161.png" />
+    <None Include="Resources\delete_16.png" />
+    <None Include="Resources\cancel_161.png" />
+    <None Include="Resources\cancel_16.png" />
+    <None Include="Resources\confirm_161.png" />
+    <None Include="Resources\confirm_16.png" />
+    <None Include="Resources\update_161.png" />
+    <None Include="Resources\update_16.png" />
+    <None Include="Resources\add_161.png" />
+    <None Include="Resources\add_16.png" />
+    <None Include="ClassDiagram1.cd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CS\CS_OnlineScale_Form.resx">
+      <DependentUpon>CS_OnlineScale_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CS\CS_Bill_Belt_Form.resx">
+      <DependentUpon>CS_Bill_Belt_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CS\SM_WeightList_InfoForm.resx">
+      <DependentUpon>SM_WeightList_InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CS\TruckPrintQuery.resx">
+      <DependentUpon>TruckPrintQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CS\SM_WeightListTwo_InfoForm.resx">
+      <DependentUpon>SM_WeightListTwo_InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CS\SM_GczTare_InfoForm.resx">
+      <DependentUpon>SM_GczTare_InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomUI\CustomShow.resx">
+      <DependentUpon>CustomShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_BeltScalePlan_Form.resx">
+      <DependentUpon>IT_BeltScalePlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_OnlineScaleBill_Form.resx">
+      <DependentUpon>IT_OnlineScaleBill_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_OrbitWeighterBill_Form.resx">
+      <DependentUpon>IT_OrbitWeighterBill_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_OrbitWeighterConfirm_Form.resx">
+      <DependentUpon>IT_OrbitWeighterConfirm_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_OrbitWeighterConfirm_Form_New.resx">
+      <DependentUpon>IT_OrbitWeighterConfirm_Form_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_TrackScaleIronPlan_Form.resx">
+      <DependentUpon>IT_TrackScaleIronPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_TrackScaleMaterielPlan_Form.resx">
+      <DependentUpon>IT_TrackScaleMaterielPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IT\IT_TruckMeasurePlan_Form.resx">
+      <DependentUpon>IT_TruckMeasurePlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_BeltScaleMeasure_Form.resx">
+      <DependentUpon>PM_BeltScaleMeasure_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_BeltTimeCount_Form.resx">
+      <DependentUpon>PM_BeltTimeCount_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Belt_ServerLog.resx">
+      <DependentUpon>PM_Belt_ServerLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_BillMultiUpdate_Supplies.resx">
+      <DependentUpon>PM_BillMultiUpdate_Supplies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_Belt_Form.resx">
+      <DependentUpon>PM_Bill_Belt_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_Belt_Operate_Form.resx">
+      <DependentUpon>PM_Bill_Belt_Operate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_Iron_Form.resx">
+      <DependentUpon>PM_Bill_Iron_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_MoveTrain_Iron_Form.resx">
+      <DependentUpon>PM_Bill_MoveTrain_Iron_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_MoveTrain_Mats_Form.resx">
+      <DependentUpon>PM_Bill_MoveTrain_Mats_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_MoveTrain_Mats_Form_New.resx">
+      <DependentUpon>PM_Bill_MoveTrain_Mats_Form_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_OrbitWeighter_Form.resx">
+      <DependentUpon>PM_Bill_OrbitWeighter_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_StaticTrain_Mats_Form.resx">
+      <DependentUpon>PM_Bill_StaticTrain_Mats_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_Supplies_Form.resx">
+      <DependentUpon>PM_Bill_Supplies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_ImportBill_Form.resx">
+      <DependentUpon>PM_ImportBill_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_ImportExcel_Form.resx">
+      <DependentUpon>PM_ImportExcel_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_IronPlan_Form.resx">
+      <DependentUpon>PM_IronPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_OnlineScale_Form.resx">
+      <DependentUpon>PM_OnlineScale_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_OnLineWgtComparison_Form.resx">
+      <DependentUpon>PM_OnLineWgtComparison_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_OrbitWeighterConfirm_Form.resx">
+      <DependentUpon>PM_OrbitWeighterConfirm_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_PondInfo_Form.resx">
+      <DependentUpon>PM_PondInfo_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_PondMonitor_Form.resx">
+      <DependentUpon>PM_PondMonitor_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_PondSupplies_Form.resx">
+      <DependentUpon>PM_PondSupplies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_CarsForJinCai_Form.resx">
+      <DependentUpon>PM_Pond_Bill_CarsForJinCai_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_CarsForMaterial_Form.resx">
+      <DependentUpon>PM_Pond_Bill_CarsForMaterial_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_Cars_Form.resx">
+      <DependentUpon>PM_Pond_Bill_Cars_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_Iron_Form.resx">
+      <DependentUpon>PM_Pond_Bill_Iron_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_Supplies_Form.resx">
+      <DependentUpon>PM_Pond_Bill_Supplies_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Pond_Bill_Supplies_History_Form.resx">
+      <DependentUpon>PM_Pond_Bill_Supplies_History_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_PoundBillMaintainForTruckHistory_Form.resx">
+      <DependentUpon>PM_PoundBillMaintainForTruckHistory_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_RawData_MoveTrain_Form.resx">
+      <DependentUpon>PM_RawData_MoveTrain_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_ShowTruckPicture.resx">
+      <DependentUpon>PM_ShowTruckPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_SuppliesPlan_Form.resx">
+      <DependentUpon>PM_SuppliesPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_TruckPoundBills_Form.resx">
+      <DependentUpon>PM_TruckPoundBills_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_TruckPoundBill_Form.resx">
+      <DependentUpon>PM_TruckPoundBill_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\Pond_ComplateTime_Form.resx">
+      <DependentUpon>Pond_ComplateTime_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\testForm.resx">
+      <DependentUpon>testForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\TruckMeasureForm_New.resx">
+      <DependentUpon>TruckMeasureForm_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport2_2.resx">
+      <DependentUpon>XtraReport2_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport3.resx">
+      <DependentUpon>XtraReport3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport4.resx">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport5.resx">
+      <DependentUpon>XtraReport5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport6.resx">
+      <DependentUpon>XtraReport6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport3_2.resx">
+      <DependentUpon>XtraReport3_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport3_3.resx">
+      <DependentUpon>XtraReport3_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport3_4.resx">
+      <DependentUpon>XtraReport3_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport3_5.resx">
+      <DependentUpon>XtraReport3_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\XtraReport6_2.resx">
+      <DependentUpon>XtraReport6_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_Bill_StaticTrain_Mats_NewForm.resx">
+      <DependentUpon>PM_Bill_StaticTrain_Mats_NewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="PT\PT_BeltScalePlanOperate_Form.resx">
+      <DependentUpon>PT_BeltScalePlanOperate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PT\PT_BeltScalePlan_Form.resx">
+      <DependentUpon>PT_BeltScalePlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PT\PT_TruckMeasureUpdate_Form.resx">
+      <DependentUpon>PT_TruckMeasureUpdate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PT\PT_TruckMeasureUsingPlan_Form.resx">
+      <DependentUpon>PT_TruckMeasureUsingPlan_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\RP_Materiel_Report.resx">
+      <DependentUpon>RP_Materiel_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP2.resx">
+      <DependentUpon>XtraReportRP2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP2_New.resx">
+      <DependentUpon>XtraReportRP2_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP_3.resx">
+      <DependentUpon>XtraReportRP_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP_2.resx">
+      <DependentUpon>XtraReportRP_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP_5.resx">
+      <DependentUpon>XtraReportRP_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP_4.resx">
+      <DependentUpon>XtraReportRP_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RP\XtraReportRP.resx">
+      <DependentUpon>XtraReportRP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_BeltNumber_Form.resx">
+      <DependentUpon>SM_BeltNumber_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_CameraCarNO_Form.resx">
+      <DependentUpon>SM_CameraCarNO_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Container_Info.resx">
+      <DependentUpon>SM_Container_Info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Container_Rate_Form.resx">
+      <DependentUpon>SM_Container_Rate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_LprCamera_Form.resx">
+      <DependentUpon>SM_LprCamera_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_BlackList_Form.resx">
+      <DependentUpon>SM_BlackList_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PM\PM_PoundBillMaintainForTruck_Form.resx">
+      <DependentUpon>PM_PoundBillMaintainForTruck_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_DVR_Form.resx">
+      <DependentUpon>SM_DVR_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_ErrorConfig_Form.resx">
+      <DependentUpon>SM_ErrorConfig_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_MatWGTLimit_Form.resx">
+      <DependentUpon>SM_MatWGTLimit_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Meter_Info_Form.resx">
+      <DependentUpon>SM_Meter_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_PoundService_Form.resx">
+      <DependentUpon>SM_PoundService_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_PoundSite_Form.resx">
+      <DependentUpon>SM_PoundSite_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_ReasonForNoAuto_Form.resx">
+      <DependentUpon>SM_ReasonForNoAuto_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_ReeferContainer_Rate_Form.resx">
+      <DependentUpon>SM_ReeferContainer_Rate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_SiteGrating_Form.resx">
+      <DependentUpon>SM_SiteGrating_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Site_Form.resx">
+      <DependentUpon>SM_Site_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Car_Form.resx">
+      <DependentUpon>SM_Car_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PT\PT_TruckMeasurePlanOperate_Form.resx">
+      <DependentUpon>PT_TruckMeasurePlanOperate_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PT\PT_TruckMeasurePlan_Form.resx">
+      <DependentUpon>PT_TruckMeasurePlan_Form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Department_LevelOne_Info_Form.resx">
+      <DependentUpon>SM_Department_LevelOne_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Department_LevelTwo_Info_Form.resx">
+      <DependentUpon>SM_Department_LevelTwo_Info_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_Materiel_Level_Form.resx">
+      <DependentUpon>SM_Materiel_Level_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_TareWeightHistoryForm.resx">
+      <DependentUpon>SM_TareWeightHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\SM_TareWeight_Form.resx">
+      <DependentUpon>SM_TareWeight_Form.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LTN.CS.Base.BusinessService\LTN.CS.Base.BusinessService.csproj">
+      <Project>{0ABA973D-4B73-4E46-8CBF-0DB093BC50BF}</Project>
+      <Name>LTN.CS.Base.BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base.ServiceInterface\LTN.CS.Base.ServiceInterface.csproj">
+      <Project>{17F361DB-79D7-46FF-B2CB-87BC8A74AC44}</Project>
+      <Name>LTN.CS.Base.ServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.BaseEntity\LTN.CS.BaseEntities.csproj">
+      <Project>{33B2AC55-6414-463F-9627-688E608F2FDD}</Project>
+      <Name>LTN.CS.BaseEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Base\LTN.CS.Base.csproj">
+      <Project>{A5BCB470-E355-489A-AA9F-646D4A119835}</Project>
+      <Name>LTN.CS.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Core\LTN.CS.Core.csproj">
+      <Project>{873D6B8C-2E49-47E7-94B4-0929C5DA0911}</Project>
+      <Name>LTN.CS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.Resource\LTN.CS.Resource.csproj">
+      <Project>{FB9F5CC5-AE07-4383-9C91-8A42343DE4DB}</Project>
+      <Name>LTN.CS.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMBussiness\LTN.CS.SCMBussiness.csproj">
+      <Project>{E53DAA67-A0A0-4E4B-AB4A-C85D45050115}</Project>
+      <Name>LTN.CS.SCMBussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMDao\LTN.CS.SCMDao.csproj">
+      <Project>{4C0AF001-7F6B-4A96-8F60-855500F310C6}</Project>
+      <Name>LTN.CS.SCMDao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMEntities\LTN.CS.SCMEntities.csproj">
+      <Project>{81D774AF-7840-45C9-BC78-941EB87D590F}</Project>
+      <Name>LTN.CS.SCMEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMHardSDK\LTN.CS.SCMHardSDK.csproj">
+      <Project>{9EE3E89D-2F09-4078-98B7-04C50EAE3EFA}</Project>
+      <Name>LTN.CS.SCMHardSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LTN.CS.SCMService\LTN.CS.SCMService.csproj">
+      <Project>{A0B3AB31-6B8D-4358-BEA4-3D831771DC46}</Project>
+      <Name>LTN.CS.SCMService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxSHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

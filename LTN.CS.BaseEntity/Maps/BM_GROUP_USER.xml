@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_GROUP_USER" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <!--模块配置-->
+  <!--模块配置-->
+  <alias>
+    <typeAlias alias="BMGROUPUSER" type="LTN.CS.BaseEntities.BM.BM_GROUP_USER,LTN.CS.BaseEntities" />
+  </alias>
+  <resultMaps>
+    <resultMap id="SelectBMGROUPUSERAllResult" class="BMGROUPUSER">
+      <result property="IntId" column="I_INTID" />
+      <result property="GroupId" column="I_GROUPID" />
+      <result property="UserId" column="I_USERID" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="GetBMGROUPUSERMaxID" resultClass="int" >
+      select max(I_INTID) from BM_GROUP_USER
+    </select>
+    <select id="BMGROUPUSERExists" resultClass="int" parameterClass="BMGROUPUSER">
+      select count(1) from BM_GROUP_USER
+      where I_GROUPID = #GroupId# and I_USERID=#UserId#
+    </select>
+
+    <insert id="InsertBMGROUPUSER"  parameterClass="BMGROUPUSER" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_GROUP_USER_id.nextval as I_INTID from dual
+      </selectKey>
+      insert into BM_GROUP_USER
+      (
+      I_INTID
+      ,I_GROUPID,
+      I_USERID
+      ,D_CREATETIME
+      ,I_CREATEUSER
+      ,D_UPDATETIME
+      ,I_UPDATEUSER
+      )values(#IntId#,#GroupId#,#UserId#,sysdate,#CreateUser.IntId#,sysdate,#UpdateUser.IntId#)
+    </insert>
+    <delete id="DeleteBMGROUPUSER" parameterClass="BMGROUPUSER">
+      delete from BM_GROUP_USER where I_GROUPID = #GroupId# and I_USERID = #UserId#
+    </delete>
+    <select id="SelectAllBMGROUPUSER" resultMap="SelectBMGROUPUSERAllResult">
+      select
+      a.I_INTID
+      ,a.I_GROUPID
+      ,a.I_USERID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_GROUP_USER a
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+    </select>
+
+    <select id="SelectBMGROUPUSERBYUSERID" resultMap="SelectBMGROUPUSERAllResult" parameterClass="int">
+      select
+      a.I_INTID
+      ,a.I_GROUPID
+      ,a.I_USERID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_GROUP_USER a
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+      where a.I_USERID=#value#
+    </select>
+  </statements>
+</sqlMap>

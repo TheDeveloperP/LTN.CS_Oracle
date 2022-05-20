@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_TruckMeasurePlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="Select_IT_TruckMeasurePlanResultMap" class="IT_TruckMeasurePlan">
+      <result property="C_PLANSTATUS"          column="C_PLANSTATUS"/>
+      <result property="C_PLANNO"              column="C_PLANNO"/>
+      <result property="C_CARNO"               column="C_CARNO"/>
+      <result property="C_CARNAME"             column="C_CARNAME"/>
+      <result property="C_CARSERIALNUMBER"     column="C_CARSERIALNUMBER"/>
+      <result property="C_CONTRACTNO"          column="C_CONTRACTNO"/>
+      <result property="C_MATERIALNO"          column="C_MATERIALNO"/>
+      <result property="C_MATERIALNAME"        column="C_MATERIALNAME"/>
+      <result property="C_FROMDEPTNO"          column="C_FROMDEPTNO"/>
+      <result property="C_FROMDEPTNAME"        column="C_FROMDEPTNAME"/>
+      <result property="C_FROMSTORENO"         column="C_FROMSTORENO"/>
+      <result property="C_FROMSTORENAME"       column="C_FROMSTORENAME"/>
+      <result property="C_TODEPTNO"            column="C_TODEPTNO"/>
+      <result property="C_TODEPTNAME"          column="C_TODEPTNAME"/>
+      <result property="C_TOSTORENO"           column="C_TOSTORENO"/>
+      <result property="C_TOSTORENAME"         column="C_TOSTORENAME"/>
+      <result property="I_BUSINESSTYPE"        column="I_BUSINESSTYPE"/>
+      <result property="I_PLANTYPE"            column="I_PLANTYPE"/>
+      <result property="I_ISAUTO"              column="I_ISAUTO"/>
+      <result property="I_WEIGHTTYPE"          column="I_WEIGHTTYPE"/>
+      <result property="I_TARETIMELIMIT"       column="I_TARETIMELIMIT"/>
+      <result property="I_ONEMORESTOCK"        column="I_ONEMORESTOCK"/>
+      <result property="I_ISCHILDIDENFY"       column="I_ISCHILDIDENFY"/>
+      <result property="I_ISCREATEMOTHERPOND"  column="I_ISCREATEMOTHERPOND"/>     
+      <result property="C_CONNECTPLANNO"       column="C_CONNECTPLANNO"/>
+      <result property="I_ONETWOPLAN"          column="I_ONETWOPLAN"/>
+      <result property="C_MIDDLEDEPTNO"        column="C_MIDDLEDEPTNO"/>
+      <result property="C_MIDDLEDEPTNAME"      column="C_MIDDLEDEPTNAME"/>
+      <result property="C_MIDDLESTORENO"       column="C_MIDDLESTORENO"/>
+      <result property="C_MIDDLESTORENAME"     column="C_MIDDLESTORENAME"/>
+      <result property="I_RETALLYKG"           column="I_RETALLYKG"/>
+      <result property="I_COMPUTERTYPE"        column="I_COMPUTERTYPE"/>
+      <result property="I_DOWNVALUE"           column="I_DOWNVALUE"/>
+      <result property="I_UPVALUE"             column="I_UPVALUE"/>      
+      <result property="C_PERCENTAGE"          column="C_PERCENTAGE"/>
+      <result property="C_SHIPPINGNOTE"        column="C_SHIPPINGNOTE"/>
+      <result property="I_REPEATPOUND"         column="I_REPEATPOUND"/>
+      <result property="C_PLANLIMITTIME"       column="C_PLANLIMITTIME"/>
+      <result property="C_PONDLIMIT"           column="C_PONDLIMIT"/>
+      <result property="C_CREATETIME"          column="C_CREATETIME"/>
+      <result property="C_CREATENAME"          column="C_CREATENAME"/>
+      <result property="C_REMARK"              column="C_REMARK"/>     
+      <result property="C_RESERVE1"            column="C_RESERVE1"/>
+      <result property="C_RESERVE2"            column="C_RESERVE2"/>
+      <result property="C_RESERVE3"            column="C_RESERVE3"/>
+      <result property="I_RESERVE1"            column="I_RESERVE1"/>
+      <result property="I_RESERVE2"            column="I_RESERVE2"/>
+      <result property="I_RESERVE3"            column="I_RESERVE3"/>
+      <result property="C_UPLOADSTATUS"        column="C_UPLOADSTATUS"/>
+      <result property="C_CONTAINERNO" column="C_CONTAINERNO" />
+      <result property="C_RESERVE4" column="C_RESERVE4" />
+      <result property="C_RESERVE5" column="C_RESERVE5" />
+      <result property="C_RESERVE6" column="C_RESERVE6" />
+      <result property="C_RESERVE7" column="C_RESERVE7" />
+    </resultMap>  
+  </resultMaps>
+
+  <statements>
+    <select id="Select_IT_TruckMeasurePlan"   parameterClass="HashTable" resultMap="Select_IT_TruckMeasurePlanResultMap">
+      select
+      C_PLANSTATUS,
+      C_PLANNO,
+      C_CARNO,
+      C_CARNAME,
+      C_CARSERIALNUMBER,
+      C_CONTRACTNO,
+      C_MATERIALNO,
+      C_MATERIALNAME,
+      C_FROMDEPTNO,
+      C_FROMDEPTNAME,
+      C_FROMSTORENO,
+      C_FROMSTORENAME,
+      C_TODEPTNO,
+      C_TODEPTNAME,
+      C_TOSTORENO,
+      C_TOSTORENAME,
+      I_BUSINESSTYPE,
+      I_PLANTYPE,
+      I_ISAUTO,
+      I_WEIGHTTYPE,
+      I_TARETIMELIMIT,
+      I_ONEMORESTOCK,
+      I_ISCHILDIDENFY,
+      I_ISCREATEMOTHERPOND,
+      C_CONNECTPLANNO,
+      I_ONETWOPLAN,
+      C_MIDDLEDEPTNO,
+      C_MIDDLEDEPTNAME,
+      C_MIDDLESTORENO,
+      C_MIDDLESTORENAME,
+      I_RETALLYKG,
+      I_COMPUTERTYPE,
+      I_DOWNVALUE,
+      I_UPVALUE,
+      C_PERCENTAGE,
+      C_SHIPPINGNOTE,
+      I_REPEATPOUND,
+      C_PLANLIMITTIME,
+      C_PONDLIMIT,
+      C_CREATETIME,
+      C_CREATENAME,
+      C_REMARK,
+      C_RESERVE1,
+      C_RESERVE2,
+      C_RESERVE3,
+      I_RESERVE1,
+      I_RESERVE2,
+      I_RESERVE3,
+      C_UPLOADSTATUS,
+      C_CONTAINERNO,
+      C_RESERVE4,
+      C_RESERVE5,
+      C_RESERVE6,
+      C_RESERVE7
+      from IT_TruckMeasurePlan
+      where 1=1
+      <isNotEmpty prepend="AND" property="PlanNo">
+        C_PLANNO=#PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="CarNo">
+        C_CARNAME=#CarNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          C_CREATETIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by C_CREATETIME desc
+    </select>   
+  </statements>
+</sqlMap>

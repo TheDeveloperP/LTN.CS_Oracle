@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cancel_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confirm_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirm_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confirm_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirm_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="update_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\update_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="abled_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abled_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="供应商管理16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\供应商管理16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="供应商管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\供应商管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add5_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add5_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlackList1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackList1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BussinessManInfo_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BussinessManInfo_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Camera1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Camera1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Camera2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Camera2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Card1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Card1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Card2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Card2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CarsInfo_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarsInfo_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chartbar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chartbar_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChartPie_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChartPie_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer3_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer4_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer4_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer5_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer5_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Computer6_72" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer6_72.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Confirm1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Confirm1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Confirm2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Confirm2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Delete5_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete5_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Down1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Down1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Emptytrash_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Emptytrash_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExportExcel1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExportExcel1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Filefolder1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Filefolder1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileFolder_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FileFolder_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICCard1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICCard1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICCard1_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICCard1_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICMakeCard_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICMakeCard_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Left1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Left2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="les系统过磅规则与车辆的关联48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\les系统过磅规则与车辆的关联48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="les系统过磅规则管理_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\les系统过磅规则管理_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lock1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lock1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lock2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lock2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Maintenance_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Maintenance_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Power_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PPT1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PPT1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PPT_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PPT_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Preview_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Preview_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Query1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Query1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QueryStockQTY_Form1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QueryStockQTY_Form1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Recive1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Recive1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh1_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refresh1_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refresh1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refresh1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RFID1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RFID1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RFID2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RFID2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RFID3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RFID3_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Right1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sale1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sale1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Send1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Send1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Set1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Set1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Set2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Set2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Set3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Set3_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Set4_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Set4_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet10_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet10_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet11_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet11_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet12_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet12_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet3_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet4_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet4_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet5_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet5_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet6_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet6_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet7_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet7_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet8_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet8_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sheet9_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sheet9_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Store1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Store1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SUPPLIER_MATERIAL_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SUPPLIER_MATERIAL_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TakePhoto1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TakePhoto1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TakePhoto2_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TakePhoto2_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unlock1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unlock1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Up1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Up1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Update_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Update_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Upload_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Upload_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weight_inuse_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Weight_inuse_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weight_lock_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Weight_lock_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weight_unlock_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Weight_unlock_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Word1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Word1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Word_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Word_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="仪表管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\仪表管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="内部单位管理1级48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\内部单位管理1级48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="内部单位管理2级48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\内部单位管理2级48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="内部单位管理3级48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\内部单位管理3级48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="制造部物料年报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\制造部物料年报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="制造部物料日报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\制造部物料日报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="制造部物料旬报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\制造部物料旬报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="制造部物料月报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\制造部物料月报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="动轨衡比对记录" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\动轨衡比对记录.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="区域磅点关联48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\区域磅点关联48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="区域部门关联48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\区域部门关联48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="坯32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\坯32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="基础业务类型管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\基础业务类型管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="异常信息查询" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\异常信息查询.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="成品秤班报表32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\成品秤班报表32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="成品称磅房端管理32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\成品称磅房端管理32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="新磅点基础管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\新磅点基础管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="板卷秤计划编辑32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\板卷秤计划编辑32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="校称管理32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\校称管理32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="汽车磅磅单管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\汽车磅磅单管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="汽车磅计量委托单管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\汽车磅计量委托单管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="法秤" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\法秤.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="测量设备管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\测量设备管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="物料管理248" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\物料管理248.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="物料管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\物料管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="码头皮带秤比对记录" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\码头皮带秤比对记录.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="线材32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\线材32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="维护" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\维护.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="维护1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\维护1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="维护2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\维护2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="网络设备" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\网络设备.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="网络设备维修记录" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\网络设备维修记录.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="计量系统内部规则车辆关联48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\计量系统内部规则车辆关联48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="计量系统自定义过磅规则48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\计量系统自定义过磅规则48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="计量表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\计量表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="设备监测" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\设备监测.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="识别" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\识别.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="车辆黑名单管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\车辆黑名单管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="车队车辆关联管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\车队车辆关联管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡检定数管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡检定数管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡物资原始数据管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡物资原始数据管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡物资榜单管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡物资榜单管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡物资磅皮重库48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡物资磅皮重库48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡物资计量委托管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡物资计量委托管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡物铁水单管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡物铁水单管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡铁水原始数据管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡铁水原始数据管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="轨道衡铁水计量委托管理48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\轨道衡铁水计量委托管理48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="过磅规则维护48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\过磅规则维护48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="静轨物资过磅48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\静轨物资过磅48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="静轨铁水计量日报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\静轨铁水计量日报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="静轨铁水计量日报表1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\静轨铁水计量日报表1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="静轨铁水过磅48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\静轨铁水过磅48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel3_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel3_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save1_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save1_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Up2_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Up2_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="铁水轨道衡计划委托管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\铁水轨道衡计划委托管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="铁水轨道衡过磅管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\铁水轨道衡过磅管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Query_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Query_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Query_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Query_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="坐席基础信息48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\坐席基础信息48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="磅房基础信息48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\磅房基础信息48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="历史记录" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\历史记录.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="最新记录" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\最新政策.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="物资轨道衡委托管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\物资轨道衡委托管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="硬盘录像机" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\硬盘录像机.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="物资轨道衡磅单管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\物资轨道衡磅单管理 .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="地磅" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\地磅.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BeltScale_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BeltScale_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Factory_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Factory_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="原始数据管理" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\原始数据管理.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="设备信息维护" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\设备信息维护.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="仪器" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\仪器.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="毛重" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\毛重.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="车牌识别" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\车牌识别.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="皮带秤委托" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\皮带秤委托.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="动轨物资过磅" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\动轨物资过磅48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="计量专用章" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="汽车磅报表" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\汽车磅报表.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="位号" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\位号.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="非自动过磅" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\非自动过磅.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="光栅" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\光栅.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_import_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document_import_32px.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="import" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="excel_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\excel_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="在线秤接口" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\在线秤接口.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="在线秤磅单" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\在线秤磅单.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RFID" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RFID.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="超限" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\超限.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="磅点设备监控" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\磅点设备监控.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="集装箱识别" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\集装箱识别.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Car_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_Car_InfoAllResult" class="SM_Car_Info">
+      <result property="IntId" column="I_INTID" />
+      <result property="CarNo" column="C_CARNO" />
+      <result property="CarName" column="C_CARNAME" />
+      <result property="CarPeople" column="C_CARPEOPLE" />
+      <result property="CarTelephone" column="C_CARTELEPHONE" />
+      <result property="StandardTare" column="I_STANDARDTARE" />
+      <result property="IsAuto.EntityValue" column="I_ISAUTO" />
+      <result property="CreateTime" column="C_CREATETIME" />
+      <result property="UpdateTime" column="C_UPDATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSERNAME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Car_Info"  parameterClass="SM_Car_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+         select SEQ_SM_CAR_INFO.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Car_Info
+      (
+      I_IntId,
+      C_CarNo,
+      C_CarName,
+      C_CarPeople,
+      C_CarTelephone,
+      I_StandardTare,
+      I_IsAuto,
+      C_CreateUserName,
+      C_CreateTime,
+      C_UpdateUserName,
+      C_UpdateTime
+      )values
+      (#IntId#,GetCode('C'),#CarName#,#CarPeople#,#CarTelephone#,#StandardTare#,#IsAuto.EntityValue#,#CreateUserName#,#CreateTime#,#CreateUserName#,#UpdateTime#)
+    </insert>
+
+    <update id="UpdateSM_Car_Info"
+            parameterClass="SM_Car_Info">
+      <![CDATA[
+      update SM_Car_Info set
+      C_CarNo=#CarNo#,
+      C_CarName=#CarName#,
+      C_CarPeople=#CarPeople#,
+      C_CarTelephone=#CarTelephone#,
+      I_StandardTare=#StandardTare#,
+      I_IsAuto=#IsAuto.EntityValue#,
+      C_UpdateUserName=#UpdateUserName#,
+      C_UpdateTime=#UpdateTime#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <delete id="DeleteSM_Car_Info" parameterClass="SM_Car_Info">
+      delete from SM_Car_Info 
+      where I_IntId = #IntId#
+    </delete>
+    <!--<update id="UpdateSM_Car_InfoByZuoFei"
+            parameterClass="SM_Car_Info">
+      <![CDATA[
+      update SM_Car_Info set
+      I_IsCancle=1
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>-->
+
+    <select id="selectSM_Car_InfoAll"  resultMap="SelectSM_Car_InfoAllResult">
+      select
+       a.I_IntId
+      ,a.C_CarNo
+      ,a.C_CarName
+      ,a.C_CarPeople
+      ,a.C_CarTelephone
+      ,a.I_StandardTare
+      ,a.I_IsAuto
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      ,a.C_CREATEUSERNAME
+      ,a.C_UPDATEUSERNAME
+      from SM_Car_Info a
+      order by a.I_IntId desc
+    </select>
+  
+    <select id="selectSM_Car_InfoCarNo"  resultClass="string">
+      select C_CarNo from 
+      (select C_CarNo 
+      from SM_Car_Info 
+      order by C_CREATETIME desc)
+      where rownum = 1
+    </select>
+
+     <select id="selectSM_Car_InfoAllByName"  resultMap="SelectSM_Car_InfoAllResult" parameterClass="SM_Car_Info">
+       select
+       a.I_IntId
+       ,a.C_CarNo
+       ,a.C_CarName
+       ,a.C_CarPeople
+       ,a.C_CarTelephone
+       ,a.I_StandardTare
+       ,a.I_IsAuto
+       ,a.C_CreateTime
+       ,a.C_UpdateTime
+       ,a.C_CREATEUSERNAME
+       ,a.C_UPDATEUSERNAME
+       from SM_Car_Info a
+       where  1=1
+       <isNotEmpty prepend="and" property="CarName">
+         a.C_CarName like '%$CarName$%'
+       </isNotEmpty>
+       order by a.I_IntId desc
+     </select>
+
+    <select id="selectSM_Car_InfoAllByName2"  resultMap="SelectSM_Car_InfoAllResult" parameterClass="SM_Car_Info">
+      select
+      a.I_IntId
+      ,a.C_CarNo
+      ,a.C_CarName
+      ,a.C_CarPeople
+      ,a.C_CarTelephone
+      ,a.I_StandardTare
+      ,a.I_IsAuto
+      ,a.C_CreateTime
+      ,a.C_UpdateTime
+      ,a.C_CREATEUSERNAME
+      ,a.C_UPDATEUSERNAME
+      from SM_Car_Info a
+      where  1=1
+      <isNotEmpty prepend="and" property="CarName">
+        a.C_CarName=#CarName#
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

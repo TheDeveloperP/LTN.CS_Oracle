@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_RawData_MoveTrain" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_RawData_MoveTrainAllResult" class="PM_RawData_MoveTrain">
+      <result property="IntId" column="I_IntId" />
+      <result property="SiteNo.PoundSiteNo" column="I_SiteNo" />
+      <result property="SiteNo.PoundSiteName" column="C_PoundSiteName" />
+      <result property="OrderNo" column="C_OrderNo"/>
+      <result property="CarNo" column="C_CarNo"/>
+      <result property="FormationTag" column="C_FormationTag"/>
+      <result property="WeightData" column="I_WeightData"/>
+      <result property="Speed" column="I_Speed"/>
+      <result property="WeightTime" column="D_WeightTime"/>
+      <result property="WeightFlag.IntValue" column="I_WeightFlag"/>
+      <result property="DataFlag.IntValue" column="I_DataFlag"/>
+      <result property="IsUse" column="I_IsUse"/>
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser" column="C_CREATEUSER" />
+      <result property="UpdateUser" column="C_UPDATEUSER" />
+      
+    </resultMap>
+
+    <resultMap id="SelectPM_RawData_MoveTraintags" class="QueryForMovedataNum">
+      <result property="FormationTag" column="FormationTag"/>
+      <result property="FormationTagnum" column="FormationTagnum"/>
+      <result property="IsUse" column="IsUse"/>
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertPM_RawData_MoveTrain"  parameterClass="PM_RawData_MoveTrain" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_RawData_MoveTrain_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_RawData_MoveTrain
+      (
+      I_IntId
+      ,I_SiteNo
+      ,C_OrderNo
+      ,C_CarNo
+      ,C_FormationTag
+      ,I_WeightData
+      ,I_Speed
+      ,D_WeightTime
+      ,I_WeightFlag
+      ,I_DataFlag
+      ,I_IsUse
+      ,C_CreateUser
+      ,D_CreateTime
+      ,C_UpdateUser
+      ,D_UpdateTime
+      )values
+      (#IntId#,#SiteNo.PoundSiteNo#,#OrderNo#,#CarNo#,#FormationTag#,#WeightData#,#Speed#,#WeightTime#,#WeightFlag.IntValue#,#DataFlag.IntValue#,#IsUse#,#CreateUser#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUser#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+
+    <update id="UpdatePM_RawData_MoveTrain"
+            parameterClass="PM_RawData_MoveTrain">
+      <![CDATA[
+      update PM_RawData_MoveTrain set
+      I_IntId=#IntId#
+      ,I_SiteNo=#SiteNo.PoundSiteNo#
+      ,C_OrderNo=#OrderNo#
+      ,C_CarNo=#CarNo#
+      ,C_FormationTag=#FormationTag#
+      ,I_WeightData=#WeightData#
+      ,I_Speed=#Speed#
+      ,D_WeightTime=#WeightTime#
+      ,I_WeightFlag=#WeightFlag.IntValue#
+      ,I_DataFlag=#DataFlag.IntValue#
+      ,I_IsUse=#IsUse#
+      ,C_UpdateUser=#UpdateUser#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <update id="UpdatePM_RawData_MoveTrainUse"
+        parameterClass="PM_RawData_MoveTrain">
+      <![CDATA[
+      update PM_RawData_MoveTrain set
+      I_IsUse=#IsUse#
+      where
+      C_FormationTag=#FormationTag# and I_SiteNo=#SiteNo.PoundSiteNo#
+      ]]>
+    </update>
+    
+    <delete id="DeletePM_RawData_MoveTrain" parameterClass="PM_RawData_MoveTrain">
+      delete from PM_RawData_MoveTrain
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="SelectPM_RawData_MoveTrainByTag"  resultMap="SelectPM_RawData_MoveTraintags" parameterClass ="Hashtable">
+      select
+      distinct C_FormationTag as FormationTag,
+      count(a.C_FormationTag)  as FormationTagnum,
+      a.I_IsUse as IsUse
+      from PM_RawData_MoveTrain a
+      where I_DataFlag!=4
+      <isNotEmpty property="SiteNo">
+        and I_SiteNo='$SiteNo$'
+      </isNotEmpty>
+      <isNotEmpty property="Date">
+        and C_FormationTag like '%$Date$%'
+      </isNotEmpty>
+      <!--and a.D_WeightTime > (sysdate-3)-->
+      group by C_FormationTag,I_IsUse
+      order by  C_FormationTag DESC
+    </select>
+    
+    <select id="selectPM_RawData_MoveTrainAll"  resultMap="SelectPM_RawData_MoveTrainAllResult">
+      select
+      a.I_IntId
+      ,a.I_SiteNo
+      ,b.C_PoundSiteName
+      ,a.C_OrderNo
+      ,a.C_CarNo
+      ,a.C_FormationTag
+      ,a.I_WeightData
+      ,a.I_Speed
+      ,a.D_WeightTime
+      ,a.I_WeightFlag
+      ,a.I_DataFlag
+      ,a.I_IsUse
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_RawData_MoveTrain a
+      left join SM_PoundSite_Info b on a.I_SiteNo = b.C_PoundSiteNo
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_RawData_MoveTrainByCar"  resultMap="SelectPM_RawData_MoveTrainAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.I_SiteNo
+      ,b.C_PoundSiteName
+      ,a.C_OrderNo
+      ,a.C_CarNo
+      ,a.C_FormationTag
+      ,a.I_WeightData
+      ,a.I_Speed
+      ,a.D_WeightTime
+      ,a.I_WeightFlag
+      ,a.I_DataFlag
+      ,a.I_IsUse
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_RawData_MoveTrain a
+      left join SM_PoundSite_Info b on a.I_SiteNo = b.C_PoundSiteNo
+      where a.C_CarNo = #value# and a.I_WeightFlag=2 and a.I_DataFlag=3
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectPM_RawData_MoveTrainByCond"  resultMap="SelectPM_RawData_MoveTrainAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.I_SiteNo
+      ,b.C_PoundSiteName
+      ,a.C_OrderNo
+      ,a.C_CarNo
+      ,a.C_FormationTag
+      ,a.I_WeightData
+      ,a.I_Speed
+      ,a.D_WeightTime
+      ,a.I_WeightFlag
+      ,a.I_DataFlag
+      ,a.I_IsUse
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_RawData_MoveTrain a
+      left join SM_PoundSite_Info b on a.I_SiteNo = b.C_PoundSiteNo
+      <dynamic prepend="where">
+        <isParameterPresent>
+          <isNotEmpty prepend="AND" property="CarNo">
+            a.C_CarNo =  '$CarNo$'
+          </isNotEmpty>
+          <isNotNull prepend="AND" property="SiteNo" >
+            a.I_SiteNo = '$SiteNo$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="FormationTag" >
+            a.C_FormationTag = '$FormationTag$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="BeginDate" >
+            a.D_WeightTime >= '$BeginDate$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="EndDate" >
+            '$EndDate$'>=a.D_WeightTime
+          </isNotNull>
+        </isParameterPresent>
+      </dynamic>
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectPM_RawData_MoveTrainbyDic"  parameterClass= "Hashtable" resultMap="SelectPM_RawData_MoveTrainAllResult">
+      SELECT
+      a.I_IntId
+      ,a.I_SiteNo
+      ,b.C_PoundSiteName
+      ,a.C_OrderNo
+      ,a.C_CarNo
+      ,a.C_FormationTag
+      ,a.I_WeightData
+      ,a.I_Speed
+      ,a.D_WeightTime
+      ,a.I_WeightFlag
+      ,a.I_DataFlag
+      ,a.I_IsUse
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_RawData_MoveTrain a
+      left join SM_PoundSite_Info b on a.I_SiteNo = b.C_PoundSiteNo
+      <dynamic prepend="where">
+        <isParameterPresent>
+          <isNotNull prepend="AND" property="SiteNo" >
+            a.I_SiteNo = '$SiteNo$'
+          </isNotNull>
+          <isNotNull prepend="AND" property="FormationTag" >
+            a.C_FormationTag = '$FormationTag$'
+          </isNotNull>
+          and a.I_DataFlag!=4
+          order by a.C_OrderNo
+        </isParameterPresent>
+      </dynamic>
+    </select>
+    
+    <update id="InvalidRawDataByIntId" parameterClass="PM_RawData_MoveTrain" >
+      update PM_RawData_MoveTrain set
+      I_DataFlag=4,
+      C_UPDATEUSER=#UpdateUser#,
+      D_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss')
+      where I_INTID=#IntId#
+    </update>
+  </statements>
+</sqlMap>

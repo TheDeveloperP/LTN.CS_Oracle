@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="BM_SERVICE_USER" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <!--模块配置-->
+  <alias>
+    <typeAlias alias="BMSERVICEUSER" type="LTN.CS.BaseEntities.BM.BM_SERVICE_USER,LTN.CS.BaseEntities" />
+    </alias>
+  <resultMaps>
+    <resultMap id="SelectBMSERVICEUSERAllResult" class="BMSERVICEUSER">
+      <result property="IntId" column="I_INTID" />
+      <result property="ServiceId" column="I_SERVICEID" />
+      <result property="UserId" column="I_USERID" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUser.IntId" column="I_CREATEUSER" />
+      <result property="CreateUser.UserNickName" column="I_CREATEUSERNAME" />
+      <result property="UpdateUser.IntId" column="I_UPDATEUSER" />
+      <result property="UpdateUser.UserNickName" column="I_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  
+  
+  <!--statement配置-->
+  <statements>
+    <select id="GetBMSERVICEUSERMaxID" resultClass="int" >
+      select max(I_INTID) from BM_SERVICE_USER
+    </select>
+    
+    <select id="BMSERVICEUSERExists" resultClass="int" parameterClass="BMSERVICEUSER">
+      select count(1) from BM_SERVICE_USER
+      where I_SERVICEID = #ServiceId# and I_USERID=#UserId#
+    </select>
+    
+    <insert id="InsertBMSERVICEUSER"  parameterClass="BMSERVICEUSER" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select seq_BM_SERVICE_USER_id.nextval as I_INTID from dual
+      </selectKey>
+      insert into BM_SERVICE_USER
+      (
+      I_INTID
+      ,I_SERVICEID
+      ,I_USERID
+      ,D_CREATETIME
+      ,D_UPDATETIME
+      ,I_CREATEUSER
+      ,I_UPDATEUSER
+      ) values (#IntId#,#ServiceId#,#UserId#,sysdate,sysdate,#CreateUser.IntId#,#UpdateUser.IntId#)
+    </insert>
+    
+    <delete id="DeleteBMSERVICEUSER" parameterClass="BMSERVICEUSER">
+      delete from BM_SERVICE_USER where I_SERVICEID = #ServiceId# and I_USERID = #UserId#
+    </delete>
+    
+    <select id="SelectAllBMSERVICEUSER" resultMap="SelectBMSERVICEUSERAllResult">
+      select
+      a.I_SERVICEID
+      ,a.I_USERID
+      ,a.D_CREATETIME
+      ,a.I_CREATEUSER
+      ,d.C_USERNICKNAME I_CREATEUSERNAME
+      ,a.D_UPDATETIME
+      ,a.I_UPDATEUSER
+      ,e.C_USERNICKNAME I_UPDATEUSERNAME
+      from BM_SERVICE_USER a
+      left join BM_USER d on a.I_CREATEUSER = d.I_INTID
+      left join BM_USER e on a.I_UPDATEUSER = e.I_INTID
+    </select>
+
+    
+  </statements>
+</sqlMap>

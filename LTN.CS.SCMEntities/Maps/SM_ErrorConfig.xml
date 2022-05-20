@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_ErrorConfig" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_ErrorConfigAllResult" class="SM_ErrorConfig">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="Remark"                    column="C_Remark" />
+      <result property="GrossWgtError"            column="C_GrossWgtError" />
+      <result property="createUser"               column="C_CREATEUSER" />
+      <result property="updateUser"               column="C_UPDATEUSER" />
+      <result property="createTime"               column="C_CREATETIME" />
+      <result property="updateTime"               column="C_UPDATETIME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_ErrorConfig"  parameterClass="SM_ErrorConfig" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_ErrorConfig.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_ERRORCONFIG
+      (
+      I_IntId,
+      C_Remark ,
+      C_GrossWgtError,
+      C_CREATETIME,
+      C_CREATEUSER
+      )
+      values
+      (
+      #IntId#,
+      #Remark#,
+      #GrossWgtError#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #createUser#
+      )
+    </insert>
+
+    <update id="UpdateSM_ErrorConfig"   parameterClass="SM_ErrorConfig">
+      update SM_ErrorConfig set
+      C_Remark  = #Remark#,
+      C_GrossWgtError=#GrossWgtError#,
+      C_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UPDATEUSER=#updateUser#
+      where I_IntId = #IntId#
+
+    </update>
+
+
+
+    <delete id="DeleteSM_ErrorConfig" parameterClass="SM_ErrorConfig">
+      delete from SM_ErrorConfig   where I_IntId = #IntId#
+    </delete>
+
+
+    <select id="selectSM_ErrorConfigAll"  resultMap="SelectSM_ErrorConfigAllResult">
+      select
+      a.I_IntId,
+      a.C_Remark,
+      a.C_GrossWgtError,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_ErrorConfig a
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectSM_ErrorConfigGrossWgtError"  resultMap="SelectSM_ErrorConfigAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.C_Remark,
+      a.C_GrossWgtError,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_ErrorConfig a
+      where a.C_GrossWgtError=#value#
+      order by a.I_IntId desc
+    </select>
+ 
+  </statements>
+</sqlMap>

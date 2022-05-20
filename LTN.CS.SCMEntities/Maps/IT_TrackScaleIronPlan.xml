@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="IT_TrackScaleIronPlan" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectIT_TrackScaleIronPlanResultMap" class="IT_TrackScaleIronPlan">
+      <result property="UPLOADSTATUS"         column="C_UPLOADSTATUS"/>
+      <result property="PLANNO"               column="C_PLANNO"/>
+      <result property="HEATNO"               column="C_HEATNO"/>
+      <result property="BATCHNO"              column="C_BATCHNO"/>
+      <result property="LRONNO"               column="C_LRONNO"/>
+      <result property="TANKNO"               column="C_TANKNO"/>
+      <result property="TODEPTNO"             column="C_TODEPTNO"/>
+      <result property="TODEPTNAME"           column="C_TODEPTNAME"/>     
+      <result property="CREATETIME"          column="C_CREATETIME"/>
+      <result property="CREATENAME"          column="C_CREATENAME"/>
+      <result property="REMARK"              column="C_REMARK"/>
+      <result property="PLANSTATUS"          column="C_PLANSTATUS"/>
+    </resultMap>
+  </resultMaps>
+  
+ <statements>
+   <select id="SelectIT_TrackScaleIronPlanAll" resultMap="SelectIT_TrackScaleIronPlanResultMap">
+   select 
+   C_UPLOADSTATUS,
+   C_PLANNO,   
+   C_HEATNO,    
+   C_BATCHNO,    
+   C_LRONNO,     
+   C_TANKNO,     
+   C_TODEPTNO,  
+   C_TODEPTNAME,
+   C_CREATETIME, 
+   C_CREATENAME, 
+   C_REMARK,    
+   C_PLANSTATUS 
+   from IT_TrackScaleIronPlan
+   </select>
+   <select id="SelectIT_TrackScaleIronPlanByCondition"  resultMap="SelectIT_TrackScaleIronPlanResultMap" parameterClass="HashTable">
+     select 
+   C_UPLOADSTATUS,
+   C_PLANNO,   
+   C_HEATNO,    
+   C_BATCHNO,    
+   C_LRONNO,     
+   C_TANKNO,     
+   C_TODEPTNO,  
+   C_TODEPTNAME,
+   C_CREATETIME, 
+   C_CREATENAME, 
+   C_REMARK,    
+   C_PLANSTATUS 
+   from IT_TrackScaleIronPlan
+   where 1=1
+   <isNotEmpty prepend="AND" property="PlanNo">
+        C_PLANNO=#PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="HeatNo">
+        C_HEATNO=#HeatNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="StartTime">
+        <isNotEmpty  property="EndTime">
+          C_CREATETIME between #StartTime# and #EndTime#
+        </isNotEmpty>
+      </isNotEmpty>
+      order by C_CREATETIME desc
+   </select>
+   </statements>
+  
+</sqlMap>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Bill_OrbitWeighterConfirm" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectPM_Bill_OrbitWeighterConfirmResultMap" class="PM_Bill_OrbitWeighterConfirm">
+      <result property=	"T_INTID"	column="T_INTID" />
+      <result property="T_BILLSTATUS" column="T_BILLSTATUS"/>
+      <result property="T_CALIBRATE_NO" column="T_CALIBRATE_NO"/>
+      <result property="T_STANDARDWEIGHT" column="T_STANDARDWEIGHT"/>
+      <result property="T_BEFORE_CALIBRATE" column="T_BEFORE_CALIBRATE"/>
+      <result property="T_AFTER_CALIBRATE" column="T_AFTER_CALIBRATE"/>
+      <result property="T_CALIBRATE_TIME" column="T_CALIBRATE_TIME"/>
+      <result property="T_CALIBRATE_MAN" column="T_CALIBRATE_MAN"/>
+      <result property="T_CALIBRATE_MEASURESITE" column="T_CALIBRATE_MEASURESITE"/>
+      <result property="T_RESERVE_V1" column="T_RESERVE_V1"/>
+      <result property="T_RESERVE_V2" column="T_RESERVE_V2"/>
+      <result property="T_RESERVE_V3" column="T_RESERVE_V3"/>
+      <result property="T_RESERVE_V4" column="T_RESERVE_V4"/>
+      <result property="T_RESERVE_V5" column="T_RESERVE_V5"/>
+      <result property="T_RESERVE_V6" column="T_RESERVE_V6"/>            
+    </resultMap>
+
+  </resultMaps>
+  <statements>
+    <select id="SelectPM_OrbitWeighterConfrimByCondition" resultMap="SelectPM_Bill_OrbitWeighterConfirmResultMap" parameterClass="Hashtable">
+      select
+      T_INTID,
+      T_BILLSTATUS,
+      T_CALIBRATE_NO,
+      T_STANDARDWEIGHT,
+      T_BEFORE_CALIBRATE,
+      T_AFTER_CALIBRATE,
+      T_CALIBRATE_TIME,
+      T_CALIBRATE_MAN,
+      T_CALIBRATE_MEASURESITE,
+      T_RESERVE_V1,
+      T_RESERVE_V2,
+      T_RESERVE_V3,
+      T_RESERVE_V4,
+      T_RESERVE_V5,
+      T_RESERVE_V6
+      from PM_Bill_OrbitWeighter
+      where 1=1
+      <isNotEmpty prepend="and" property="StartTime">
+        T_CALIBRATE_TIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="CalibrateNo">
+        T_CALIBRATE_NO=#CalibrateNo#
+      </isNotEmpty>
+      order by T_CALIBRATE_TIME desc
+    </select>
+   
+<!--
+    <select id="SelectOnlineBills" resultMap="SelectPM_Bill_OnlineScaleResultMap" parameterClass="string">
+      select
+      t1.I_INTID,
+      t1.OUT_MAT_NO,
+      t1.OUT_MAT_NAME,
+      t1.MAT_ORY_WT,
+      t1.MAT_ACT_WT,
+      t1.SCALE_NO,
+      t1.WEIGHT_TIME,
+      t1.WEIGHT_NAME,
+      t1.STATE_ID,
+      t1.PROD_TIME,
+      t1.PROD_SHIFT_NO,
+      t1.PROD_SHIFT_GROUP,
+      t1.PROD_MAKER,
+      t1.UNIT_CODE,
+      t1.MAT_SPEC,
+      t1.MAT_NUM,
+      t1.SG_SIGN,
+      t1.ST_NO,
+      t1.REMARK,
+      t1.RESERVE1,
+      t1.RESERVE2,
+      t1.RESERVE3,
+      t1.RESERVE4,
+      t1.RESERVE5,
+      t1.RESERVE6,
+      t1.RESERVE7,
+      t1.RESERVE8,
+      t1.RESERVE9,
+      t1.RESERVE10,
+      t1.I_BILLSTATUS
+      from  PM_Bill_OnlineScale  t1
+      left join  PT_ONLINEPLANNO t2 on t1.OUT_MAT_NO =t2.MAT_NO
+      where t2.REFE_ID=#value#
+    </select>
+-->
+  </statements>
+</sqlMap>

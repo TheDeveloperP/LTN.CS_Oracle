@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Container_Rate" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<resultMaps>
+    <resultMap id="QuerySM_Container_RateResultMap" class="SM_Container_Rate">      
+      <result property="IntId"	column="I_INTID" />
+      <result property="I_RecognitionStatus"	column="I_RECOGNITIONSTATUS" />
+      <result property="C_ContainerTime"	column="C_CONTAINERTIME" />
+      <result property="C_ContainerNo"	column="C_CONTAINERNO" />
+      <result property="C_PlanContainerNo"	column="C_PLANCONTAINERNO" />
+      <result property="C_CreateTime"	column="C_CREATETIME" />
+      <result property="C_CreateUserName"	column="C_CREATEUSERNAME" />
+      <result property="C_PondNo"	column="C_PONDNO" />
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <select id="QuerySM_Container_RateAll" resultMap="QuerySM_Container_RateResultMap">
+      select
+      t.I_INTID,
+      t.I_RECOGNITIONSTATUS,
+      t.C_CONTAINERTIME,
+      t.C_CONTAINERNO,
+      t.C_PLANCONTAINERNO,
+      t.C_CREATETIME,
+      t.C_CREATEUSERNAME,
+      t.C_PONDNO
+      from SM_Container_Rate t
+      order by t.C_CREATETIME desc
+    </select>
+    <select id="QuerySM_Container_RateByCondition" resultMap="QuerySM_Container_RateResultMap" parameterClass="Hashtable">
+      select
+      t.I_INTID,
+      t.I_RECOGNITIONSTATUS,
+      t.C_CONTAINERTIME,
+      t.C_CONTAINERNO,
+      t.C_PLANCONTAINERNO,
+      t.C_CREATETIME,
+      t.C_CREATEUSERNAME,
+      t.C_PONDNO
+      from SM_Container_Rate t
+      where 1=1
+      <isNotEmpty prepend="and" property="PondNo">
+        t.C_PONDNO=#PondNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="ContainerNo">
+        t.C_CONTAINERNO=#ContainerNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="StartTime">
+        t.C_CREATETIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      order by t.C_CREATETIME desc
+    </select>
+    <select id="QueryContainerRateAll" parameterClass="Hashtable">
+      select
+      coalesce(A.磅房,B.磅房) 磅房,
+      (coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0)) 总数,
+      coalesce(A.SuccessCount,0) as 识别成功数量,
+      coalesce(B.FailCount,0) as 识别失败数量,
+      coalesce(round(A.SuccessCount/(coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0))*100,2),0)||'%' 成功率
+      from
+      (select
+      count(t.i_recognitionstatus) as SuccessCount,
+      t.C_PONDNO 磅房编号,
+      p.c_poundsitename 磅房
+      from SM_Container_Rate t
+      left join SM_PoundSite_Info p on t.C_PONDNO=p.C_PoundSiteNo
+      where t.i_recognitionstatus=1
+      <isNotEmpty prepend="and" property="PondNo">
+        t.C_PONDNO=#PondNo#
+      </isNotEmpty>
+    <isNotEmpty prepend="and" property="ContainerNo">
+      t.C_CONTAINERNO=#ContainerNo#
+    </isNotEmpty>
+    <isNotEmpty prepend="and" property="StartTime">
+      t.C_CREATETIME between #StartTime# and #EndTime#
+    </isNotEmpty>
+      group by t.C_PONDNO,p.c_poundsitename
+      order by t.c_pondno
+      ) A
+      full join
+      (
+      select
+      count(t.i_recognitionstatus) as FailCount,
+      t.C_PONDNO 磅房编号,
+      p.c_poundsitename 磅房
+      from SM_Container_Rate t
+      left join SM_PoundSite_Info p on t.C_PONDNO=p.C_PoundSiteNo
+      where t.i_recognitionstatus=0
+      <isNotEmpty prepend="and" property="PondNo">
+        t.C_PONDNO=#PondNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="ContainerNo">
+        t.C_CONTAINERNO=#ContainerNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="StartTime">
+        t.C_CREATETIME between #StartTime# and #EndTime#
+      </isNotEmpty>
+      group by t.C_PONDNO,p.c_poundsitename
+      order by t.c_pondno
+      ) B
+      on A.磅房编号=B.磅房编号
+
+
+    </select>
+    <insert id="InsertSM_Container_Rate"  parameterClass="SM_Container_Rate">
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_CONTAINER_RATE.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Container_Rate
+      (
+      I_INTID,
+      I_RECOGNITIONSTATUS,
+      C_CONTAINERTIME,
+      C_CONTAINERNO,
+      C_PLANCONTAINERNO,
+      C_CREATETIME,
+      C_CREATEUSERNAME,
+      C_PONDNO      
+      )values
+      (
+      #IntId#,
+      #I_RecognitionStatus#,
+      #C_ContainerTime#,
+      #C_ContainerNo#,
+      #C_PlanContainerNo#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #C_CreateUserName#,
+      #C_PondNo#
+      )
+    </insert>  
+  
+  </statements>
+
+</sqlMap>

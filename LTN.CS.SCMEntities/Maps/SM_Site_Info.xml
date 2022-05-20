@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_Site_Info" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_Site_InfoAllResult" class="SM_Site_Info">
+      <result property="IntId"                      column="I_INTID" />
+      <result property="siteId"                     column="C_SITEID" />
+      <result property="siteName"                   column="C_SITENAME" />
+      <result property="siteType.IntValue"          column="C_SITETYPE" />
+      <result property="siteLocation"               column="C_SITELOCATION" />
+      <result property="siteIp1"                    column="C_SITEIP1" />
+      <result property="siteIp2"                    column="C_SITEIP2" />
+      <result property="siteLevel"                  column="I_SITELEVEL" />
+      <result property="IsAutoWeigh.EntityValue"    column="I_ISAUTOWEIGH" />
+      <result property="createUser"                 column="C_CREATEUSER" />
+      <result property="updateUser"                 column="C_UPDATEUSER" />
+      <result property="createTime"                 column="C_CREATETIME" />
+      <result property="updateTime"                 column="C_UPDATETIME" />
+    </resultMap>
+    <resultMap id="SelectSM_Site_InfoAllResult2" class="SM_Site_Info2">
+      <result property="SiteNo" column="C_SITEID" />
+      <result property="SiteName" column="C_SITENAME" />
+      <result property="SiteIP" column="C_SITEIP1" />
+      <result property="IntId" column="I_INTID"/>
+      <result property="IsAutoWeigh.EntityValue" column="I_ISAUTOWEIGH"/>
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertSM_Site_Info"  parameterClass="SM_Site_Info" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+         select SEQ_SM_SITE_INFO.nextval as IntId from dual
+      </selectKey>
+      insert into SM_Site_Info
+      (
+      I_INTID,
+      C_SITEID,
+      C_SITENAME,
+      C_SITETYPE,
+      C_SITELOCATION,
+      C_SITEIP1,
+      C_SITEIP2,
+      I_SITELEVEL,
+      I_ISAUTOWEIGH,
+      C_CREATEUSER,
+      C_CREATETIME
+
+      )values
+      (
+      #IntId#,
+      #siteId#,
+      #siteName#,
+      #siteType.IntValue#,
+      #siteLocation#,
+      #siteIp1#,
+      #siteIp2#,
+      #siteLevel#,
+      #IsAutoWeigh.EntityValue#,
+      #createUser#,
+      to_char(sysdate,'yyyyMMddhh24miss')
+
+      )
+    </insert>
+
+    <update id="UpdateSM_Site_Info"   parameterClass="SM_Site_Info">
+      update SM_Site_Info set
+      C_SITEID =#siteId#,
+      C_SITENAME=#siteName#,
+      C_SITETYPE=#siteType.IntValue#,
+      C_SITELOCATION=#siteLocation#,
+      C_SITEIP1=#siteIp1#,
+      C_SITEIP2=#siteIp2#,
+      I_SITELEVEL=#siteLevel#,
+      I_ISAUTOWEIGH =#IsAutoWeigh.EntityValue#,
+      C_UPDATEUSER=#updateUser#,
+      C_UPDATETIME=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_INTID = #IntId#　
+    </update>
+    
+    
+
+    <delete id="DeleteSM_Site_Info" parameterClass="SM_Site_Info">
+      delete from SM_Site_Info   where I_INTID = #IntId#
+    </delete>
+
+    <!--根据ip查找站点-->
+    <select id="selectSM_Site_InfoBySiteId2"  resultMap="SelectSM_Site_InfoAllResult2" parameterClass="string">
+      select I_INTID,
+      C_SITEID,
+      C_SITENAME,
+      C_SITEIP1,
+      I_ISAUTOWEIGH
+      from SM_Site_Info
+      where C_SITEIP1 =#value#
+    </select>
+    
+
+    <select id="selectSM_Site_InfoAll"  resultMap="SelectSM_Site_InfoAllResult">
+      select
+      a.I_INTID,
+      a.C_SITEID,
+      a.C_SITENAME,
+      a.C_SITETYPE,
+      a.C_SITELOCATION,
+      a.C_SITEIP1,
+      a.C_SITEIP2,
+      a.I_SITELEVEL,
+      a.I_ISAUTOWEIGH,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Site_Info a
+      order by a.C_CREATETIME desc
+    </select>
+  
+    <select id="selectSM_Site_InfoBySiteId"  resultMap="SelectSM_Site_InfoAllResult" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_SITEID,
+      a.C_SITENAME,
+      a.C_SITETYPE,
+      a.C_SITELOCATION,
+      a.C_SITEIP1,
+      a.C_SITEIP2,
+      a.I_SITELEVEL,
+      a.I_ISAUTOWEIGH,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Site_Info a
+      where a.C_SITEID=#value#
+      order by a.C_CREATETIME desc
+
+    </select>
+    
+    <select id="selectSM_Site_InfoBySiteIp"  resultMap="SelectSM_Site_InfoAllResult" parameterClass="string">
+      select
+      a.I_INTID,
+      a.C_SITEID,
+      a.C_SITENAME,
+      a.C_SITETYPE,
+      a.C_SITELOCATION,ne
+      a.C_SITEIP1,
+      a.C_SITEIP2,
+      a.I_SITELEVEL,
+      a.I_ISAUTOWEIGH,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_Site_Info a
+      where a.C_SITEIP1=#value#
+      order by a.C_CREATETIME desc
+
+    </select>
+
+  </statements>
+</sqlMap>

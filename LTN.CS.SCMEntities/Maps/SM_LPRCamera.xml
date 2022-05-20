@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_LPRCamera" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <resultMaps>
+    <resultMap id="SelectSM_LPRCameraAllResult" class="SM_LPRCamera">
+      <result property="IntId"                    column="I_IntId" />
+      <result property="LPRFactory"               column="C_LPRFactory" />
+      <result property="LPRSpec"                  column="C_LPRSpec" />
+      <result property="LPRModel"                 column="C_LPRModel" />
+      <result property="LPRIP1"                   column="C_LPRIP1" />
+      <result property="LPRIP2"                   column="C_LPRIP2" />
+      <result property="ChannelNum"               column="I_LPRChannelNum" />
+      <result property="Storage"                  column="I_LPRStorage" />
+      <result property="Username"                 column="C_LPRUserName" />
+      <result property="Password"                 column="C_LPRPassword" />
+      <result property="Port"                     column="C_LPRPort" />
+      <result property="createUser"               column="C_CREATEUSER" />
+      <result property="updateUser"               column="C_UPDATEUSER" />
+      <result property="createTime"               column="C_CREATETIME" />
+      <result property="updateTime"               column="C_UPDATETIME" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <insert id="InsertSM_LPRCamera"  parameterClass="SM_LPRCamera" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_LPRCAMERA_INFO.nextval as IntId from dual
+        <!--${selectKey}-->
+      </selectKey>
+      insert into SM_LPRCamera_Info
+      (
+      I_IntId,
+      C_LPRFactory,
+      C_LPRSpec,
+      C_LPRModel,
+      C_LPRIP1,
+      C_LPRIP2,
+      I_LPRChannelNum,
+      I_LPRStorage,
+      C_LPRUserName,
+      C_LPRPassword,
+      C_LPRPort,
+      C_CREATETIME,
+      C_CREATEUSER
+      )
+      values
+      (
+      #IntId#,
+      #LPRFactory#,
+      #LPRSpec#,
+      #LPRModel#,
+      #LPRIP1#,
+      #LPRIP2#,
+      #ChannelNum#,
+      #Storage#,
+      #Username#,
+      #Password#,
+      #Port#,
+      to_char(sysdate,'yyyyMMddhh24miss'),
+      #createUser#
+      )
+    </insert>
+    <update id="UpdateSM_LPRCamera"   parameterClass="SM_LPRCamera">
+      update SM_LPRCamera_Info set
+      C_LPRFactory = #LPRFactory#,
+      C_LPRSpec  = #LPRSpec#,
+      C_LPRModel=#LPRModel#,
+      C_LPRIP1=#LPRIP1#,
+      C_LPRIP2=#LPRIP2#,
+      I_LPRChannelNum=#ChannelNum#,
+      C_LPRUserName=#Username#,
+      C_LPRPassword=#Password#,
+      C_LPRPort=#Port#,
+      I_LPRStorage=#Storage#,
+      C_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss'),
+      C_UpdateUser=#updateUser#
+      where I_IntId = #IntId#
+
+    </update>
+    <delete id="DeleteSM_LPRCamera" parameterClass="SM_LPRCamera">
+      delete from SM_LPRCamera_Info   where I_INTID = #IntId#
+    </delete>
+    <select id="selectSM_LPRCameraAll"  resultMap="SelectSM_LPRCameraAllResult">
+      select
+      a.I_IntId,
+      a.C_LPRFactory,
+      a.C_LPRSpec,
+      a.C_LPRModel,
+      a.C_LPRIP1,
+      a.C_LPRIP2,
+      a.I_LPRChannelNum,
+      a.I_LPRStorage,
+      a.C_LPRUserName,
+      a.C_LPRPassword,
+      a.C_LPRPort,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_LPRCamera_Info a
+      order by a.C_CREATETIME desc
+    </select>
+    <select id="selectSM_LPRCameraByLPRName"  resultMap="SelectSM_LPRCameraAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.C_LPRFactory,
+      a.C_LPRSpec,
+      a.C_LPRModel,
+      a.C_LPRIP1,
+      a.C_LPRIP2,
+      a.I_LPRChannelNum,
+      a.I_LPRStorage,
+      a.C_LPRUserName,
+      a.C_LPRPassword,
+      a.C_LPRPort,
+      a.C_CREATEUSER,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_LPRCamera_Info a
+      where a.C_LPRFactory=#value#
+      order by a.C_CREATETIME desc
+
+    </select>
+    <select id="selectSM_LPRCameraBySiteIp"  resultMap="SelectSM_LPRCameraAllResult" parameterClass="string">
+      select
+      a.I_IntId,
+      a.C_LPRFactory,
+      a.C_LPRSpec,
+      a.C_LPRModel,
+      a.C_LPRIP1,
+      a.C_LPRIP2,
+      a.I_LPRChannelNum,
+      a.I_LPRStorage,
+      a.C_LPRUserName,
+      a.C_LPRPassword,
+      a.C_LPRPort,
+      a.C_CREATEUSER,
+      a.C_CREATEUSER,
+      to_char(to_date(a.C_CREATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_CREATETIME,
+      a.C_UPDATEUSER,
+      to_char(to_date(a.C_UPDATETIME,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') as C_UPDATETIME
+      from SM_LPRCamera_Info a
+      where a.C_LPRIP1=#LPRIP1#
+      order by a.C_CREATETIME desc
+
+    </select>
+
+    <select id="QuerySM_LPRCameraBylprId"  resultMap="SelectSM_LPRCameraAllResult" parameterClass="int" resultClass="SM_LPRCamera">
+      select
+      a.I_IntId,
+      a.C_LPRFactory,
+      a.C_LPRSpec,
+      a.C_LPRModel,
+      a.C_LPRIP1,
+      a.C_LPRIP2,
+      a.I_LPRChannelNum,
+      a.I_LPRStorage,
+      a.C_LPRUserName,
+      a.C_LPRPassword,
+      a.C_LPRPort,
+      a.C_CREATEUSER,
+      a.C_CREATEUSER,
+      a.C_CREATETIME,
+      a.C_UPDATEUSER,
+      a.C_UPDATETIME
+      from SM_LPRCamera_Info a
+      where a.I_IntId=#value#
+    </select>
+  </statements>
+
+</sqlMap>

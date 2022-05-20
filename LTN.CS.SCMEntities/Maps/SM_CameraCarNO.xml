@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_CameraCarNO" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <resultMaps>
+    <resultMap id="SelectSM_CameraCarNOAllResult" class="SM_CameraCarNO">
+      <result property="IntId" column="I_IntId"/>
+      <result property="SiteNo"	column="C_SITENO"/>
+      <result property="Cameracarno" column="C_Cameracarno"/>
+      <result property="Cardcarno" column="C_Cardcarno"/>
+      <result property="Matchtime" column="C_Matchtime"/>
+      <result property="Resulttype"	column="I_Resulttype"/>
+      <result property="Createtime"	column="C_Createtime"/>
+      <result property="Createuser"	column="C_Createuser"/>
+      <result property="SiteName" column="C_SITENAME"/>
+    </resultMap>   
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+     <select id="SelectSM_CameraCarNOAll" resultMap="SelectSM_CameraCarNOAllResult">
+            SELECT c.I_IntId
+            ,c.C_SITENO
+            ,c.C_Cameracarno
+            ,c.C_Cardcarno
+            ,c.C_Matchtime
+            ,c.I_Resulttype
+            ,c.C_Createtime
+            ,c.C_Createuser
+            ,p.C_PoundSiteName
+            FROM SM_CameraCarNo c
+            left join SM_PoundSite_Info p on p.C_PoundSiteNo=c.C_SITENO
+    </select>
+    <!--查询-->
+    <select id="SelectSM_CameraSiteCar" resultMap="SelectSM_CameraCarNOAllResult" parameterClass="Hashtable">
+            SELECT c.I_IntId
+              ,c.C_SITENO
+              ,c.C_Cameracarno
+              ,c.C_Cardcarno
+              ,c.C_Matchtime
+              ,c.I_Resulttype
+              ,c.C_Createtime
+              ,c.C_Createuser
+              ,c.C_SITENAME
+              FROM SM_CameraCarNo c
+              where 1=1
+              <isNotEmpty property="PoundSiteName" prepend="and">
+                c.C_SITENO=$PoundSiteName$
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="Cameracarno">
+                c.C_Cardcarno='$Cameracarno$'
+              </isNotEmpty>
+              <isNotEmpty prepend="and" property="StartTime">
+                c.C_Createtime between '$StartTime$' and '$EndTime$'
+              </isNotEmpty>
+    </select>
+  <select id="CarRecognitionRateAll">
+          select 
+            coalesce(B.磅房,A.磅房) 磅房,
+            (coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0)) 总数,
+            coalesce(A.SuccessCount,0) as 成功,
+            coalesce(B.FailCount,0) as 失败,
+            coalesce(round(A.SuccessCount/(coalesce(A.SuccessCount,0)+coalesce(B.FailCount,0))*100,2),0)||'%' 成功率
+          from 
+          (
+             select 
+             cc.c_siteno 磅房编号,
+             cc.c_sitename 磅房,
+             count(cc.c_siteno) as SuccessCount
+             from SM_CAMERACARNO cc
+             where cc.i_resulttype=1
+             group by  cc.c_siteno,cc.c_sitename
+             order by  cc.c_siteno
+          ) A
+         full join
+          (
+             select 
+             cc.c_siteno 磅房编号,
+             cc.c_sitename 磅房,
+             count(cc.c_siteno) as FailCount
+             from SM_CAMERACARNO cc
+             where cc.i_resulttype=0
+             group by  cc.c_siteno,cc.c_sitename
+             order by  cc.c_siteno
+          ) B
+         on A.磅房编号=B.磅房编号
+  </select>
+    <!--添加-->
+  <insert id="InsertSM_CameraSiteCar" parameterClass="SM_CameraCarNO">
+     <selectKey property="IntId" type="pre" resultClass="int">
+         select SEQ_SM_CAMERACARNO.nextval as IntId from dual
+      </selectKey>
+    INSERT INTO SM_CameraCarNo
+    (
+      I_IntId
+      ,C_SITENO
+      ,C_Cameracarno
+      ,C_Cardcarno
+      ,C_Matchtime
+      ,I_Resulttype
+      ,C_Createtime
+      ,C_Createuser
+      ,C_SITENAME
+      )
+      VALUES
+      (#IntId#,#SiteNo#,#Cameracarno#,#Cardcarno#,#Matchtime#,#Resulttype#,#Createtime#,#Createuser#,#SiteName#)
+  </insert>
+  </statements>
+</sqlMap>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="CS_Teacher" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectTeacherAllResult" class="CS_Teacher">
+      <result property="IntId" column="I_INTID" />
+      <result property="teacherName" column="C_TEANAME" />
+      <result property="teacherAge" column="C_TEAAGE" />
+      <result property="createTime" column="D_CREATETIME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertCS_Teacher"  parameterClass="CS_Teacher" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_CS_TEACHER_ID.nextval as I_INTID from dual
+      </selectKey>
+      insert into CS_Teacher
+      (
+      I_INTID,
+      C_TEANAME,
+      C_TEAAGE,
+      D_CREATETIME
+      )values
+      (#IntId#,#teacherName#,#teacherAge#,sysdate)
+    </insert>
+
+
+    <select id="selectCS_TeacherAll"  resultMap="SelectTeacherAllResult">
+      select
+      I_INTID,
+      C_TEANAME,
+      C_TEAAGE,
+      D_CREATETIME
+      from CS_teacher
+      order by  I_IntId desc
+    </select>
+
+    <select id="selectCS_TeacherAllByName"  resultMap="SelectTeacherAllResult" parameterClass="HashTable">
+      select
+      I_INTID,
+      C_TEANAME,
+      C_TEAAGE,
+      D_CREATETIME
+      from CS_teacher
+      where 1=1
+      <isNotEmpty property="teacherName">and C_TEANAME like  '%$teacherName$%' </isNotEmpty>
+      order by  I_IntId desc
+    </select>
+    
+    <update id="UpdateCS_Teacher"
+           parameterClass="CS_Teacher">
+      <![CDATA[
+      update CS_Teacher set
+      C_TEANAME=#teacherName#,
+      C_TEAAGE=#teacherAge#
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+
+    <delete id="DeleteCS_Teacher" parameterClass="CS_Teacher">
+      delete from CS_Teacher where I_IntId = #IntId#
+    </delete>
+    
+  </statements>
+</sqlMap>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/schema/objects/spring-objects-1.3.xsd
+          http://www.springframework.net http://www.springframework.net/schema/aop/spring-aop-1.1.xsd
+          " default-lazy-init="true">
+  <object id="BM_001" type="LTN.CS.Base.BaseForm.BM.BM_USER_Form,LTN.CS.Base.BaseForm"  singleton="false"  >
+    <property name="userService" ref="BM_USERService"></property>
+  </object>
+  <object id="BM_002" type="LTN.CS.Base.BaseForm.BM.BM_MAINGROUP_Form,LTN.CS.Base.BaseForm"  singleton="false" >
+    <property name="mainGroupService" ref="BM_MAINGROUPService"></property>
+    <property name="userService" ref="BM_USERService"></property>
+    <property name="mainPageService" ref="BM_MAINPAGEService"></property>   
+  </object>
+  <object id="BM_003" type="LTN.CS.Base.BaseForm.BM.BM_GROUP_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="groupServices" ref="BM_GROUPService"></property>
+    <property name="userService" ref="BM_USERService"></property>
+  </object>
+  <object id="BM_004" type="LTN.CS.Base.BaseForm.BM.BM_MAIN_PAGE_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="userService" ref="BM_USERService"></property>
+    <property name="pageService" ref="BM_MAINPAGEService"></property>
+  </object>
+  <object id="BM_005" type="LTN.CS.Base.BaseForm.BM.BM_SERVICE_GROUP_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="groupService" ref="BM_GROUPService"></property>
+    <property name="serverService" ref="BM_SERVERService"></property>
+    <property name="groupServerService" ref="BM_GROUPServerService"></property>    
+  </object>
+  <object id="BM_006" type="LTN.CS.Base.BaseForm.BM.BM_MAINASSEMBLY_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="userService" ref="BM_USERService"></property>
+    <property name="assemblyService" ref="BM_MAINASSEMBLYService"></property>
+  </object>
+  <object id="BM_007" type="LTN.CS.Base.BaseForm.BM.BM_GROUPUSER_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="groupService" ref="BM_GROUPService"></property>
+    <property name="userService" ref="BM_USERService"></property>
+    <property name="groupUserService" ref="BM_GROUPUSERService"></property>
+  </object>
+
+  <object id="BM_008" type="LTN.CS.Base.BaseForm.BM.BM_SERVICE_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+     <property name="userService" ref="BM_USERService"></property>
+    <property name="serviceService" ref="BM_SERVERService"></property> 
+  </object>
+
+  <object id="BM_009" type="LTN.CS.Base.BaseForm.BM.BM_SERVICE_USER_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="serverService" ref="BM_SERVERService"></property>
+    <property name="userService" ref="BM_USERService"></property>
+    <property name="serviceuserService" ref="BM_ServerUserService"></property>
+  </object>
+
+  <object id="BM_021" type="LTN.CS.Base.BaseForm.BM.BM_CHANGEPASSWORD_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="userService" ref="BM_USERService"></property>
+  </object>
+  <object id="BM_031" type="LTN.CS.Base.BaseForm.BM.BM_MAIN_GROUP_SERVICE_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="groupMServices" ref="BM_MAINGROUPSERVICEService"></property>
+    <property name="serverService" ref="BM_SERVERService"></property>
+    <property name="pageService" ref="BM_MAINPAGEService"></property>
+    <property name="mainGroupService" ref="BM_MAINGROUPService"></property>
+    <property name="mainassemblyService" ref="BM_MAINASSEMBLYService"></property>
+  </object>
+  <object id="BM_010" type="LTN.CS.Base.BaseForm.BM.BM_DICTIONARY_MAIN_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="dicService" ref="BM_DICTIONARYMAINService"></property>
+  </object>
+  <object id="BM_011" type="LTN.CS.Base.BaseForm.BM.BM_DICTIONARY_DETAIL_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="dicService" ref="BM_DICTIONARYMAINService"></property>
+    <property name="dicDtlService" ref="BM_DICTIONARYDETAILService"></property>
+  </object>
+  <object id="BM_012" type="LTN.CS.Base.BaseForm.BM.BM_DELIVERY_Form,LTN.CS.Base.BaseForm"  singleton="false"     >
+    <property name="mainService" ref="BMDELIVERYService"></property>
+    <property name="historyService" ref="BMDELIVERYHISTORYService"></property>
+  </object>
+</objects>

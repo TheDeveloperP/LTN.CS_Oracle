@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="PM_Bill_Iron" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectPM_Bill_IronAllResult" class="PM_Bill_Iron">
+      <result property="IntId" column="I_IntId" />
+      <result property="PlanNo" column="C_PlanNo" />
+      <result property="HeatNo" column="C_HeatNo" />
+      <result property="BatchNo" column="C_BatchNo" />
+      <result property="LronNo" column="C_LronNo" />
+      <result property="TankNo" column="C_TankNo" />
+      <result property="ToDeptNo" column="C_ToDeptNo" />
+      <result property="ToDeptName" column="C_ToDeptName" />
+      <result property="BillStatus.IntValue" column="I_BillStatus" />
+      <result property="Remark" column="C_Remark" />
+      <result property="CReserve1" column="C_Reserve1" />
+      <result property="CReserve2" column="C_Reserve2" />
+      <result property="CReserve3" column="C_Reserve3" />
+      <result property="IReserve1" column="I_Reserve1" />
+      <result property="IReserve2" column="I_Reserve2" />
+      <result property="IReserve3" column="I_Reserve3" />
+      <result property="CreateTime" column="D_CREATETIME" />
+      <result property="UpdateTime" column="D_UPDATETIME" />
+      <result property="CreateUserName" column="C_CREATEUSER" />
+      <result property="UpdateUserName" column="C_UPDATEUSER" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <insert id="InsertPM_Bill_Iron"  parameterClass="PM_Bill_Iron" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_PM_Bill_Iron_Id.nextval as IntId from dual
+      </selectKey>
+      insert into PM_Bill_Iron
+      (
+      I_IntId
+      ,C_PlanNo
+      ,C_HeatNo
+      ,C_BatchNo
+      ,C_LronNo
+      ,C_TankNo
+      ,C_ToDeptNo
+      ,C_ToDeptName
+      ,I_BillStatus
+      ,C_Remark
+      ,C_Reserve1
+      ,C_Reserve2
+      ,C_Reserve3
+      ,I_Reserve1
+      ,I_Reserve2
+      ,I_Reserve3
+      ,C_CreateUser
+      ,D_CreateTime
+      ,C_UpdateUser
+      ,D_UpdateTime
+      )values
+      (#IntId#,GETPLANNO('A0JL','C_PlanNo','PM_Bill_Iron'),#HeatNo#,#BatchNo#,#LronNo#,#TankNo#,#ToDeptNo#,#ToDeptName#,#BillStatus.IntValue#,#Remark#,#CReserve1#,#CReserve2#,#CReserve3#,#IReserve1#,#IReserve2#,#IReserve3#,#CreateUserName#,to_char(sysdate,'yyyyMMddhh24miss'),#UpdateUserName#,to_char(sysdate,'yyyyMMddhh24miss'))
+    </insert>
+
+    <update id="UpdatePM_Bill_Iron"
+            parameterClass="PM_Bill_Iron">
+      <![CDATA[
+      update PM_Bill_Iron set
+      I_IntId=#IntId#
+      ,C_PlanNo=#PlanNo#
+      ,C_HeatNo=#HeatNo#
+      ,C_BatchNo=#BatchNo#
+      ,C_LronNo=#LronNo#
+      ,C_TankNo=#TankNo#
+      ,C_ToDeptNo=#ToDeptNo#
+      ,C_ToDeptName=#ToDeptName#
+      ,I_BillStatus=#BillStatus.IntValue#
+      ,C_Remark=#Remark#
+      ,C_Reserve1=#CReserve1#
+      ,C_Reserve2=#CReserve2#
+      ,C_Reserve3=#CReserve3#
+      ,I_Reserve1=#IReserve1#
+      ,I_Reserve2=#IReserve2#
+      ,I_Reserve3=#IReserve3#
+      ,C_UpdateUser=#UpdateUserName#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+      ]]>
+    </update>
+
+    <update id="UpdatePM_Bill_IronStatus"
+               parameterClass="PM_Bill_Iron">
+      update PM_Bill_Iron set
+      I_BillStatus=#BillStatus.IntValue#
+      ,C_UpdateUser=#UpdateUserName#
+      ,D_UpdateTime=to_char(sysdate,'yyyyMMddhh24miss')
+      where
+      I_IntId = #IntId#　
+    </update>
+    
+    <delete id="DeletePM_Bill_Iron" parameterClass="PM_Bill_Iron">
+      delete from PM_Bill_Iron
+      where I_IntId = #IntId#
+    </delete>
+
+    <select id="selectPM_Bill_IronAll"  resultMap="SelectPM_Bill_IronAllResult">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Iron a
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_IronByPlan"  resultMap="SelectPM_Bill_IronAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Iron a
+      where a.C_PlanNo = #Value#
+      order by a.I_IntId desc
+    </select>
+
+    <select id="selectPM_Bill_IronByCarNo"  resultMap="SelectPM_Bill_IronAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Iron a
+      where a.C_TankNo in ($TankNo$) and a.I_BillStatus=0
+      order by a.I_IntId desc
+    </select>
+    
+    <select id="selectPM_Bill_IronByCond"  resultMap="SelectPM_Bill_IronAllResult" parameterClass="Hashtable">
+      select
+      a.I_IntId
+      ,a.C_PlanNo
+      ,a.C_HeatNo
+      ,a.C_BatchNo
+      ,a.C_LronNo
+      ,a.C_TankNo
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from PM_Bill_Iron a
+      where  a.D_CREATETIME between #StartTime# and #EndTime#
+      <isNotEmpty prepend="AND" property="PlanNo">
+        a.C_PlanNo=#PlanNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="HeatNo">
+        a.C_HeatNo=#HeatNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="TankNo">
+        a.C_TankNo=#TankNo#
+      </isNotEmpty>
+      <isNotEmpty prepend="AND" property="BillStatus">
+        a.I_BillStatus=#BillStatus#
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+  </statements>
+</sqlMap>

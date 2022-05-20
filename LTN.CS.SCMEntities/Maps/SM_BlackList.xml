@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="SM_BlackList" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+  <resultMaps>
+    <resultMap id="SelectSM_BlackListAllResult" class="SM_BlackList">
+      <result property="IntId" column="I_INTID" />
+      <result property="CarName" column="C_CARNAME" />
+      <result property="CriminalRecord" column="C_CRIMINALRECORD" />
+    </resultMap>
+    <resultMap id="SelectSM_BlackListHistoryAllResult" class="SM_BlackListHistory">
+      
+      <result property="CarName" column="C_CARNAME" />
+      <result property="OperationRecord" column="C_OPERATIONRECORD" />
+      <result property="UPDATETIME" column="C_UPDATETIME" />
+      <result property="UpdateUserName" column="C_UPDATEUSERNAME" />
+    </resultMap>
+  </resultMaps>
+  <!--statement配置-->
+  <statements>
+    <select id="selectSM_BlackListAll"  resultMap="SelectSM_BlackListAllResult">
+      select
+       a.I_IntId
+      ,a.C_CarName
+      ,a.C_CriminalRecord
+      from SM_BlackList a
+      order by a.I_IntId desc
+    </select>
+    
+     <select id="selectSM_BlackListByCarName"  resultMap="SelectSM_BlackListAllResult" parameterClass="string"> 
+      select
+       a.I_IntId
+      ,a.C_CarName
+      ,a.C_CriminalRecord
+      from SM_BlackList a
+      where 1=1
+      <isNotEmpty prepend="and" >
+        a.C_CarName like '%$value$%'
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_BlackListByCarName2"  resultMap="SelectSM_BlackListAllResult" parameterClass="string">
+      select
+      a.I_IntId
+      ,a.C_CarName
+      ,a.C_CriminalRecord
+      from SM_BlackList a
+      where 1=1
+      <isNotEmpty prepend="and" >
+        a.C_CarName = #value#
+      </isNotEmpty>
+      order by a.I_IntId desc
+    </select>
+    <select id="selectSM_BlackListHistoryAll"  resultMap="SelectSM_BlackListHistoryAllResult">
+      select
+      a.C_CARNAME
+      ,a.C_OPERATIONRECORD
+      ,a.C_UPDATETIME
+      ,a.C_UPDATEUSERNAME
+      from SM_BlackListHistory a
+      order by a.C_CARNAME desc
+    </select>
+    <select id="selectSM_BlackListHistoryAllByCarName"  resultMap="SelectSM_BlackListHistoryAllResult" parameterClass="string">
+      select
+      a.C_CarName
+      ,a.C_OperationRecord
+      ,a.C_UPDATETIME
+      ,a.C_UpdateUserName
+      from SM_BlackListHistory a
+      where 1=1
+      <isNotEmpty prepend="and">
+        a.C_CarName like '%$value$%'
+      </isNotEmpty>
+      order by a.C_CarName desc
+    </select>
+      
+        
+        
+      
+      
+    <insert id="InsertSM_BlackList"  parameterClass="SM_BlackList" >
+      <selectKey property="IntId" type="pre" resultClass="int">
+        select SEQ_SM_BLACKLIST.nextval as IntId from dual
+      </selectKey>
+      insert into SM_BlackList
+      (
+      I_IntId,
+      C_CarName,
+      C_CriminalRecord
+      )values
+      (#IntId#,#CarName#,#CriminalRecord#)
+    </insert>
+
+
+    <delete id="DeleteSM_BlackList" parameterClass="SM_BlackList">
+      delete from SM_BlackList
+      where I_IntId = #IntId#
+    </delete>
+    
+    <insert id="InsertSM_BlackListHistory"  parameterClass="SM_BlackListHistory" >
+      insert into SM_BlackListHistory
+      (
+      C_CarName,
+      C_OperationRecord,
+      C_UpdateUserName,
+      C_UPDATETIME
+      )values
+      (#CarName#,#OperationRecord#,#UpdateUserName#,#UPDATETIME#)
+    </insert>
+
+     <delete id="DeleteSM_BlackListHistory" parameterClass="SM_BlackListHistory">
+      delete from SM_BlackListHistory
+      where C_CarName = #CarName#
+    </delete>
+
+    
+  </statements>
+</sqlMap>
