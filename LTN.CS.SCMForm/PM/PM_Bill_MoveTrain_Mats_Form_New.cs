@@ -1716,7 +1716,12 @@ namespace LTN.CS.SCMForm.PM
                 }
             }
         }
-
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="poundtrainmats"></param>
+        /// <param name="tare"></param>
+        /// <returns></returns>
         private PM_Pond_Bill_Supplies matchTareWeight(PM_Pond_Bill_Supplies poundtrainmats, SM_GczTare_Info tare)
         {
             poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
