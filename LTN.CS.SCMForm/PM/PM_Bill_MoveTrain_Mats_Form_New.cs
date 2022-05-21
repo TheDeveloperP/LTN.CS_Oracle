@@ -1020,13 +1020,8 @@ namespace LTN.CS.SCMForm.PM
                         if (tareList.Count == 1)
                         {
                             SM_GczTare_Info tare = tareList[0];
-                            poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
-                            poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
-                            poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
-                            poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
-                            poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
-                            poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
-                            poundtrainmats.NetWgtTime = DateTime.Now.ToString("yyyyMMddHHmmss");                                                                             
+                            
+                            poundtrainmats = matchTareWeight(poundtrainmats, tare);                                                                                                   
                         }
                         else
                         {
@@ -1036,13 +1031,7 @@ namespace LTN.CS.SCMForm.PM
                                 {
                                     continue;
                                 }
-                                poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
-                                poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
-                                poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
-                                poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
-                                poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
-                                poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
-                                poundtrainmats.NetWgtTime = DateTime.Now.ToString("yyyyMMddHHmmss");                                
+                                poundtrainmats = matchTareWeight(poundtrainmats, tare);                               
                             }
                         }
                         DateTime time = new DateTime();
@@ -1679,6 +1668,8 @@ namespace LTN.CS.SCMForm.PM
                 {
                     if (Convert.ToDecimal(tareList[0].C_TAREWEIGHT) > 0)
                     {
+                        string carName = tareList[0].C_CARNAME;
+
                         flag = true;
                     }
                 }
@@ -1724,6 +1715,18 @@ namespace LTN.CS.SCMForm.PM
                     }
                 }
             }
+        }
+
+        private PM_Pond_Bill_Supplies matchTareWeight(PM_Pond_Bill_Supplies poundtrainmats, SM_GczTare_Info tare)
+        {
+            poundtrainmats.TareWgt = tare.C_TAREWEIGHT;
+            poundtrainmats.TareWgtTime = tare.C_CREATETIME.ToString("yyyyMMddHHmmss");
+            poundtrainmats.TareWgtSiteNo = tare.C_SITENO;
+            poundtrainmats.TareWgtSiteName = lue_SiteNo.Text;
+            poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
+            poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
+            poundtrainmats.NetWgtTime = DateTime.Now.ToString("yyyyMMddHHmmss");
+            return poundtrainmats;
         }
       
     }
