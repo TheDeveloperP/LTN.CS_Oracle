@@ -1783,8 +1783,7 @@ namespace LTN.CS.SCMForm.PM
             poundtrainmats.TareWgtMan = SessionHelper.LogUserNickName.ToString();
             poundtrainmats.NetWgt = Convert.ToDecimal(poundtrainmats.GrossWgt) - Convert.ToDecimal(poundtrainmats.TareWgt);
             poundtrainmats.NetWgtTime = DateTime.Now.ToString("yyyyMMddHHmmss");
-            return poundtrainmats;
-
+            return poundtrainmats;            
         }
       
     }
