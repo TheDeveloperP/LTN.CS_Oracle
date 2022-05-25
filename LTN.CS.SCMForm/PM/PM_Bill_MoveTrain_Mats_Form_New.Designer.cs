@@ -189,7 +189,7 @@
             // 
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerControl1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.CaptionLocation = DevExpress.Utils.Locations.Left;
             this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
@@ -207,7 +207,7 @@
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Horizontal = false;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerControl2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.gcl_main);
             this.splitContainerControl2.Panel1.Text = "Panel1";
@@ -223,10 +223,10 @@
             // gcl_main
             // 
             this.gcl_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcl_main.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_main.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_main.Location = new System.Drawing.Point(0, 0);
             this.gcl_main.MainView = this.gvw_main;
-            this.gcl_main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_main.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_main.Name = "gcl_main";
             this.gcl_main.Size = new System.Drawing.Size(595, 423);
             this.gcl_main.TabIndex = 0;
@@ -358,10 +358,10 @@
             // gcl_pond
             // 
             this.gcl_pond.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcl_pond.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_pond.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_pond.Location = new System.Drawing.Point(0, 104);
             this.gcl_pond.MainView = this.gvw_pond;
-            this.gcl_pond.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_pond.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_pond.Name = "gcl_pond";
             this.gcl_pond.Size = new System.Drawing.Size(595, 332);
             this.gcl_pond.TabIndex = 3;
@@ -572,7 +572,7 @@
             this.layoutControl2.Controls.Add(this.btn_return);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.layoutControl2.Location = new System.Drawing.Point(0, 436);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
             this.layoutControl2.Size = new System.Drawing.Size(595, 71);
@@ -583,7 +583,7 @@
             // 
             this.btn_save.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_save.Location = new System.Drawing.Point(525, 16);
-            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(54, 39);
             this.btn_save.TabIndex = 9;
@@ -596,7 +596,7 @@
             this.btn_savepond.Enabled = false;
             this.btn_savepond.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_savepond.Location = new System.Drawing.Point(114, 16);
-            this.btn_savepond.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_savepond.Margin = new System.Windows.Forms.Padding(4);
             this.btn_savepond.Name = "btn_savepond";
             this.btn_savepond.Size = new System.Drawing.Size(142, 39);
             this.btn_savepond.TabIndex = 8;
@@ -608,7 +608,7 @@
             // 
             this.btn_pipei.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_pipei.Location = new System.Drawing.Point(403, 16);
-            this.btn_pipei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_pipei.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pipei.Name = "btn_pipei";
             this.btn_pipei.Size = new System.Drawing.Size(116, 39);
             this.btn_pipei.TabIndex = 6;
@@ -620,7 +620,7 @@
             // 
             this.btn_qplan.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_qplan.Location = new System.Drawing.Point(262, 16);
-            this.btn_qplan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_qplan.Margin = new System.Windows.Forms.Padding(4);
             this.btn_qplan.Name = "btn_qplan";
             this.btn_qplan.Size = new System.Drawing.Size(135, 39);
             this.btn_qplan.TabIndex = 5;
@@ -632,7 +632,7 @@
             // 
             this.btn_return.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_return.Location = new System.Drawing.Point(16, 16);
-            this.btn_return.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_return.Margin = new System.Windows.Forms.Padding(4);
             this.btn_return.Name = "btn_return";
             this.btn_return.Size = new System.Drawing.Size(92, 39);
             this.btn_return.TabIndex = 4;
@@ -713,7 +713,7 @@
             this.layoutControl1.Controls.Add(this.lue_SiteNo);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(595, 104);
@@ -724,7 +724,7 @@
             // 
             this.btn_matchTare.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_matchTare.Location = new System.Drawing.Point(469, 52);
-            this.btn_matchTare.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_matchTare.Margin = new System.Windows.Forms.Padding(4);
             this.btn_matchTare.Name = "btn_matchTare";
             this.btn_matchTare.Size = new System.Drawing.Size(110, 36);
             this.btn_matchTare.TabIndex = 13;
@@ -737,7 +737,7 @@
             this.btn_biaopi.Enabled = false;
             this.btn_biaopi.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_biaopi.Location = new System.Drawing.Point(349, 52);
-            this.btn_biaopi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_biaopi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_biaopi.Name = "btn_biaopi";
             this.btn_biaopi.Size = new System.Drawing.Size(114, 36);
             this.btn_biaopi.TabIndex = 10;
@@ -749,7 +749,7 @@
             // 
             this.btn_biaomao.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_biaomao.Location = new System.Drawing.Point(214, 52);
-            this.btn_biaomao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_biaomao.Margin = new System.Windows.Forms.Padding(4);
             this.btn_biaomao.Name = "btn_biaomao";
             this.btn_biaomao.Size = new System.Drawing.Size(129, 36);
             this.btn_biaomao.TabIndex = 9;
@@ -761,7 +761,7 @@
             // 
             this.btn_shipin.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_shipin.Location = new System.Drawing.Point(469, 16);
-            this.btn_shipin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_shipin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_shipin.Name = "btn_shipin";
             this.btn_shipin.Size = new System.Drawing.Size(110, 30);
             this.btn_shipin.TabIndex = 8;
@@ -773,7 +773,7 @@
             // 
             this.btn_zuofei.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_zuofei.Location = new System.Drawing.Point(349, 16);
-            this.btn_zuofei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_zuofei.Margin = new System.Windows.Forms.Padding(4);
             this.btn_zuofei.Name = "btn_zuofei";
             this.btn_zuofei.Size = new System.Drawing.Size(114, 30);
             this.btn_zuofei.TabIndex = 7;
@@ -785,7 +785,7 @@
             // 
             this.btn_select.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_select.Location = new System.Drawing.Point(214, 16);
-            this.btn_select.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_select.Margin = new System.Windows.Forms.Padding(4);
             this.btn_select.Name = "btn_select";
             this.btn_select.Size = new System.Drawing.Size(129, 30);
             this.btn_select.TabIndex = 6;
@@ -796,7 +796,7 @@
             // lue_FormationTag
             // 
             this.lue_FormationTag.Location = new System.Drawing.Point(99, 52);
-            this.lue_FormationTag.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lue_FormationTag.Margin = new System.Windows.Forms.Padding(4);
             this.lue_FormationTag.Name = "lue_FormationTag";
             this.lue_FormationTag.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lue_FormationTag.Properties.Appearance.Options.UseFont = true;
@@ -858,7 +858,7 @@
             // lue_SiteNo
             // 
             this.lue_SiteNo.Location = new System.Drawing.Point(99, 16);
-            this.lue_SiteNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lue_SiteNo.Margin = new System.Windows.Forms.Padding(4);
             this.lue_SiteNo.Name = "lue_SiteNo";
             this.lue_SiteNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lue_SiteNo.Properties.Appearance.Options.UseFont = true;
@@ -1006,7 +1006,7 @@
             this.splitContainerControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl3.Horizontal = false;
             this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainerControl3.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainerControl3.Name = "splitContainerControl3";
             this.splitContainerControl3.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainerControl3.Panel1.Text = "Panel1";
@@ -1030,7 +1030,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panelControl4, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -1043,7 +1043,7 @@
             this.panelControl1.Controls.Add(this.lblVideo1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(4, 4);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(344, 234);
             this.panelControl1.TabIndex = 0;
@@ -1054,7 +1054,7 @@
             this.lblVideo1.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo1.Appearance.Options.UseFont = true;
             this.lblVideo1.Location = new System.Drawing.Point(89, 90);
-            this.lblVideo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblVideo1.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo1.Name = "lblVideo1";
             this.lblVideo1.Size = new System.Drawing.Size(135, 36);
             this.lblVideo1.TabIndex = 0;
@@ -1065,7 +1065,7 @@
             this.panelControl2.Controls.Add(this.lblVideo2);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(356, 4);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(344, 234);
             this.panelControl2.TabIndex = 1;
@@ -1076,7 +1076,7 @@
             this.lblVideo2.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo2.Appearance.Options.UseFont = true;
             this.lblVideo2.Location = new System.Drawing.Point(79, 90);
-            this.lblVideo2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblVideo2.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo2.Name = "lblVideo2";
             this.lblVideo2.Size = new System.Drawing.Size(135, 36);
             this.lblVideo2.TabIndex = 0;
@@ -1087,7 +1087,7 @@
             this.panelControl3.Controls.Add(this.lblVideo3);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(4, 246);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(344, 234);
             this.panelControl3.TabIndex = 2;
@@ -1098,7 +1098,7 @@
             this.lblVideo3.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo3.Appearance.Options.UseFont = true;
             this.lblVideo3.Location = new System.Drawing.Point(89, 98);
-            this.lblVideo3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblVideo3.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo3.Name = "lblVideo3";
             this.lblVideo3.Size = new System.Drawing.Size(135, 36);
             this.lblVideo3.TabIndex = 0;
@@ -1109,7 +1109,7 @@
             this.panelControl4.Controls.Add(this.lblVideo4);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(356, 246);
-            this.panelControl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl4.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(344, 234);
             this.panelControl4.TabIndex = 3;
@@ -1120,7 +1120,7 @@
             this.lblVideo4.Appearance.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold);
             this.lblVideo4.Appearance.Options.UseFont = true;
             this.lblVideo4.Location = new System.Drawing.Point(79, 98);
-            this.lblVideo4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblVideo4.Margin = new System.Windows.Forms.Padding(4);
             this.lblVideo4.Name = "lblVideo4";
             this.lblVideo4.Size = new System.Drawing.Size(135, 36);
             this.lblVideo4.TabIndex = 0;
@@ -1129,10 +1129,10 @@
             // gcl_result
             // 
             this.gcl_result.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcl_result.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_result.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_result.Location = new System.Drawing.Point(0, 105);
             this.gcl_result.MainView = this.gvw_result;
-            this.gcl_result.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcl_result.Margin = new System.Windows.Forms.Padding(4);
             this.gcl_result.Name = "gcl_result";
             this.gcl_result.Size = new System.Drawing.Size(704, 88);
             this.gcl_result.TabIndex = 10;
@@ -1245,7 +1245,7 @@
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureEdit1.Location = new System.Drawing.Point(0, 193);
-            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
@@ -1264,7 +1264,7 @@
             this.layoutControl3.Controls.Add(this.btn_huifang);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1279, 207, 450, 400);
             this.layoutControl3.Root = this.layoutControlGroup3;
@@ -1275,7 +1275,7 @@
             // txtStatus
             // 
             this.txtStatus.Location = new System.Drawing.Point(16, 16);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtStatus.Properties.Appearance.Options.UseFont = true;
@@ -1287,7 +1287,7 @@
             // 
             this.btn_stop.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_stop.Location = new System.Drawing.Point(603, 59);
-            this.btn_stop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_stop.Margin = new System.Windows.Forms.Padding(4);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(85, 30);
             this.btn_stop.TabIndex = 9;
@@ -1299,7 +1299,7 @@
             // 
             this.btn_back.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_back.Location = new System.Drawing.Point(508, 59);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(89, 30);
             this.btn_back.TabIndex = 8;
@@ -1311,7 +1311,7 @@
             // 
             this.btn_start.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_start.Location = new System.Drawing.Point(416, 59);
-            this.btn_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_start.Margin = new System.Windows.Forms.Padding(4);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(86, 30);
             this.btn_start.TabIndex = 7;
@@ -1329,7 +1329,7 @@
             "视频3",
             "视频4"});
             this.lue_vedio.Location = new System.Drawing.Point(285, 59);
-            this.lue_vedio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lue_vedio.Margin = new System.Windows.Forms.Padding(4);
             this.lue_vedio.Name = "lue_vedio";
             this.lue_vedio.Size = new System.Drawing.Size(125, 26);
             this.lue_vedio.TabIndex = 6;
@@ -1338,7 +1338,7 @@
             // 
             this.c_min.EditValue = "3";
             this.c_min.Location = new System.Drawing.Point(176, 59);
-            this.c_min.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.c_min.Margin = new System.Windows.Forms.Padding(4);
             this.c_min.Name = "c_min";
             this.c_min.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.c_min.Properties.Appearance.Options.UseFont = true;
@@ -1359,7 +1359,7 @@
             // 
             this.btn_huifang.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btn_huifang.Location = new System.Drawing.Point(16, 59);
-            this.btn_huifang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_huifang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_huifang.Name = "btn_huifang";
             this.btn_huifang.Size = new System.Drawing.Size(154, 30);
             this.btn_huifang.TabIndex = 4;
@@ -1460,7 +1460,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1305, 936);
             this.Controls.Add(this.splitContainerControl1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PM_Bill_MoveTrain_Mats_Form_New";
             this.Text = "动轨物资轨道过磅管理";
             this.Load += new System.EventHandler(this.PM_Bill_MoveTrain_Mats_Form_New_Load);

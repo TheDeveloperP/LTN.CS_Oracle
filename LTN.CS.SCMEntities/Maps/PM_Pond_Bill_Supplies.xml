@@ -1340,5 +1340,90 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>
       order by a.C_PlanCreateTime desc
     </select>
+    <!--新增按车号查询-->
+    <select id="selectPM_Pond_Bill_SuppliesHistoryByWagNo"  resultMap="SelectPM_Pond_Bill_SuppliesAllResult">
+      select
+      a.I_IntId
+      ,a.C_WgtlistNo
+      ,a.C_PlanNo
+      ,a.C_WagNo
+      ,a.C_MaterialNo
+      ,a.C_MaterialName
+      ,a.C_FromDeptNo
+      ,a.C_FromDeptName
+      ,a.C_FromStoreNo
+      ,a.C_FromStoreName
+      ,a.C_ToDeptNo
+      ,a.C_ToDeptName
+      ,a.C_ToStoreNo
+      ,a.C_ToStoreName
+      ,a.C_ShipNo
+      ,a.C_FromStation
+      ,a.C_SerialNo
+      ,a.C_DeliveryNo
+      ,a.C_ContractNo
+      ,a.C_ProjectNo
+      ,a.C_WayBillNo
+      ,a.C_MarshallingNo
+      ,a.I_BusinessType
+      ,a.I_WeightType
+      ,a.I_TareType
+      ,a.I_MoveStillType
+      ,a.D_PlanLimitTime
+      ,a.C_PondLimit
+      ,a.N_GrossWgt
+      ,a.N_TareWgt
+      ,a.N_NetWgt
+      ,a.D_GrossWgtTime
+      ,a.D_TareWgtTime
+      ,a.D_NetWgtTime
+      ,a.C_GrossWgtSiteNo
+      ,a.C_GrossWgtSiteName
+      ,a.C_TareWgtSiteNo
+      ,a.C_TareWgtSiteName
+      ,a.C_GrossWgtMan
+      ,a.C_TareWgtMan
+      ,a.C_TrainGroupGross
+      ,a.C_TrainGroupTare
+      ,a.C_PlanStatus
+      ,a.C_UpLoadStatus
+      ,a.I_BillStatus
+      ,a.C_Remark
+      ,a.C_PondRemark
+      ,a.I_DataFlag
+      ,a.C_Reserve1
+      ,a.C_Reserve2
+      ,a.C_Reserve3
+      ,a.I_Reserve1
+      ,a.I_Reserve2
+      ,a.I_Reserve3
+      ,a.C_ReserveFlag1
+      ,a.C_ReserveFlag2
+      ,a.C_ReserveFlag3
+      ,a.I_ReserveFlag1
+      ,a.I_ReserveFlag2
+      ,a.I_ReserveFlag3
+      ,a.C_PlanCreateUser
+      ,a.C_PlanCreateTime
+      ,a.C_CreateUser
+      ,a.D_CreateTime
+      ,a.C_UpdateUser
+      ,a.D_UpdateTime
+      from
+      (
+      select * from
+      PM_Pond_Bill_Supplies
+      where I_DataFlag = 1
+      and  I_BillStatus = 2
+      and  C_PlanStatus != 'D'
+      and  N_NetWgt &gt; 0
+      <isNotEmpty prepend="AND" property="carName">
+        C_WagNo= #carName#
+      </isNotEmpty>
+      order by I_IntId desc
+      ) a where rownum &lt; 4
+      
+    </select>
+    
   </statements>
 </sqlMap>

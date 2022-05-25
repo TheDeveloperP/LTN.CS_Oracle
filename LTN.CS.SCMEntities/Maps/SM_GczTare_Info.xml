@@ -58,25 +58,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
       </isNotEmpty>     
       order by C_CREATETIME asc
     </select>
-    <!--新增  潘鹏-->    
-    <select id="selectSM_GczTare_HistoryByHt"   parameterClass="HashTable" resultMap="Select_SM_GczTare_InfoResultMap">
-      select
-      C_CARNAME,
-      C_TAREWEIGHT,
-      C_CREATETIME,
-      C_SITENO,
-      C_RESERV1,
-      C_RESERV2
-      from sm_gcztare_info
-      where C_CREATETIME > to_date(#startTime#,'yyyy-mm-dd hh24:mi:ss')
-      and C_RESERV1 is not null and C_TAREWEIGHT > 0
-      <isNotEmpty prepend="and" property="carName">
-        C_CARNAME = #carName#
-      </isNotEmpty>
-      <isNotEmpty prepend="and" property="siteNo">
-        C_SITENO = #siteNo#
-      </isNotEmpty>
-      order by C_CREATETIME desc
-    </select>
+   
   </statements>
 </sqlMap>

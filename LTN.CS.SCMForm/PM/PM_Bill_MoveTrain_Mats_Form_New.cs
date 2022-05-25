@@ -1659,6 +1659,11 @@ namespace LTN.CS.SCMForm.PM
 
 
         #endregion
+        /// <summary>
+        /// 该方法中检查皮重是否满足匹配要求：1.只识别到一个不为0的皮重2.识别到两个皮重但其中一个为0；3.该皮重和历史皮重相比相差不超过0.1吨
+        /// </summary>
+        /// <param name="tareList"></param>
+        /// <returns></returns>
         private bool checkTareList(IList<SM_GczTare_Info> tareList)
         {
             bool flag = false;
@@ -1668,9 +1673,10 @@ namespace LTN.CS.SCMForm.PM
                 {
                     if (Convert.ToDecimal(tareList[0].C_TAREWEIGHT) > 0)
                     {
-                        string carName = tareList[0].C_CARNAME;
-
-                        flag = true;
+                        if (checkTareHistory(tareList[0]))
+                        {
+                            flag = true;
+                        }                 
                     }
                 }
                 else if (tareList.Count == 2)
@@ -1678,11 +1684,57 @@ namespace LTN.CS.SCMForm.PM
                     //只有一个重量为0
                     Decimal weight1 = Convert.ToDecimal(tareList[0].C_TAREWEIGHT);
                     Decimal weight2 = Convert.ToDecimal(tareList[1].C_TAREWEIGHT);
+                    /*
                     if ((weight1 == 0 || weight2 == 0) && (weight1 + weight2 > 0))
                     {
                         flag = true;
                     }
+                    */
+                    if(weight1 == 0 && weight2 > 0)
+                    {
+                        if (checkTareHistory(tareList[1]))
+                        {
+                            flag = true;
+                        }
+                    }else if( weight1 > 0 && weight2 == 0)
+                    {
+                        if (checkTareHistory(tareList[2]))
+                        {
+                            flag = true;
+                        }
+
+                    }
                 }
+            }
+            return flag;
+        }
+        /// <summary>
+        /// 当前皮重与历史皮重平均值比较
+        /// </summary>
+        /// <param name="tare"></param>
+        /// <returns></returns>
+        private bool checkTareHistory(SM_GczTare_Info tare)
+        {
+            bool flag = false;
+            string carName = tare.C_CARNAME;
+            Hashtable ht = new Hashtable();
+            ht.Add("carName", carName);
+            IList<PM_Pond_Bill_Supplies> bills = pondsupperservice.ExecuteDB_QueryHistoryByWagNo(ht);
+            if (bills.Count > 0)
+            {
+                decimal num = 0;
+                foreach (PM_Pond_Bill_Supplies bill in bills)
+                {
+                    num += bill.TareWgt;
+                }
+                if (Convert.ToDouble(num / bills.Count) - Convert.ToDouble(tare.C_TAREWEIGHT) < 0.1)
+                {
+                    flag = true;
+                }
+            }
+            else
+            {
+                flag = true;
             }
             return flag;
         }

@@ -461,5 +461,21 @@ namespace LTN.CS.SCMService.PM.Implement
             return Columns;
 
         }
+
+        
+        public IList<PM_Pond_Bill_Supplies> ExecuteDB_QueryHistoryByWagNo(Hashtable ht)
+        {
+            IList<PM_Pond_Bill_Supplies> rs;
+            try
+            {
+                rs = CommonDao.ExecuteQueryForList<PM_Pond_Bill_Supplies>("selectPM_Pond_Bill_SuppliesHistoryByWagNo", ht);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+                rs = null;
+            }
+            return rs;
+        }
     }
 }
